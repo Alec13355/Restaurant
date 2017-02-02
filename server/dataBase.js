@@ -1,9 +1,15 @@
-var mysql = require("mysql");
 
-var connection;
 
-var dataBase = function (host,user,pass) {
-    connection = mysql.createConnection({
+
+var method = SQLDataBase.prototype;
+
+/**
+ * constructor
+ * @param db, the database api, host, the name in the form of a string,
+ *  user, the user in the form of a string, pass, the password in the form of a string
+ */
+ function SQLDataBase(db ,host,user,pass) {
+    this.connection = db.createConnection({
        host: host,
        user:  user,
        password: pass,
@@ -11,10 +17,13 @@ var dataBase = function (host,user,pass) {
     });
 };
 
-dataBase.prototype.getInterface (json_instructions,callBack){
+/**Agnostic function that will do depending on json_instructions object
+ * @param json_instructions object
+ */
+method.interact = function(json_instructions,callBack){
     if(json_instructions.retrieve){
         var sql = "SELECT * FROM EMPLOYEES";
-        connection.query(sql, function(err,rows){
+        this.connection.query(sql, function(err,rows){
             if(err){
                 throw err;
             }
@@ -25,7 +34,9 @@ dataBase.prototype.getInterface (json_instructions,callBack){
                 perm_string: rows[json_instructions.rowNum].PERM_STRING,
                 status: rows[json_instructions.rowNum].STATUS
             };
-            return cb(data);
+            return callBack(data);
         });
     }
 }
+
+module.exports = SQLDataBase;
