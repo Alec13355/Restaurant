@@ -14,19 +14,9 @@ var router = express.Router();
 var path = __dirname + '/views/';
 var data_base = new DataBase(mysql,'localhost','shane','devPassword');
 app.use("/",router);
-app.listen(3000,function(){
-  console.log("Live at Port 3000");
+app.listen(3001,function(){
+  console.log("Live at Port 3001");
 });
-
-//////////////////test 
-var testdata = {
-  retrieve: true,
-  rowNum: 0
-}
-data_base.interact(testdata,function(res){
-  console.log(res.first);
-});
-////////////////
 
 /**
  * TCP calls to be used in diration of operation
@@ -36,6 +26,15 @@ router.use(function (req,res,next) {
   next();
 });
 
+router.post("/getTestData",function(req,res,next){
+  var testdata = {
+  retrieve: true,
+  rowNum: 0
+}
+data_base.interact(testdata,function(res){
+  res.json({name:resfirst});
+  });
+});
 
 
 
