@@ -1,0 +1,3 @@
+[submodule "client/TestAndroid"]
+	path = client/TestAndroid
+	url = /home/shane/AndroidStudioProjects/TestAndroid/.git
