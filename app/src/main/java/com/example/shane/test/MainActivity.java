@@ -14,11 +14,16 @@ import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 
+import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.HashMap;
 import java.util.Map;
 
+
+/**
+ * This is for testing only do not use
+ */
 public class MainActivity extends AppCompatActivity {
 
     @Override
@@ -28,36 +33,19 @@ public class MainActivity extends AppCompatActivity {
         //authGetRequest();
 
 
-        ShaneConnect d = new ShaneConnect("http://10.0.2.2:3004");
-        //d.getTestData();
-        //v.setText("Test");
-    }
-
-    public void authGetRequest() {
-
-        RequestQueue queue = Volley.newRequestQueue(this);
+        ShaneConnect d = new ShaneConnect("http://10.0.2.2:3019",this);
         final TextView v = (TextView) findViewById(R.id.display);
-// prepare the Auth Get Request
-        String url = "http://10.0.2.2:3004/getTestData";
-        //String url ="http://www.google.com";
-        JsonObjectRequest lastFMAuthRequest = new JsonObjectRequest(Request.Method.POST, url, null,
-                new Response.Listener<JSONObject>() {
-                    @Override
-                    public void onResponse(JSONObject response) {
-                        v.setText(response.toString());
-                    }
-                },new Response.ErrorListener() {
 
+
+        d.getAccountData("SMITH_BOB_1", new Response.Listener<JSONObject>() {
             @Override
-            public void onErrorResponse(VolleyError error) {
-                System.out.print(error.networkResponse);
-
+            public void onResponse(JSONObject response) {
+                v.setText(response.toString());
             }
 
         });
 
-// add it to the RequestQueue
-        queue.add(lastFMAuthRequest);
     }
+
 }
 
