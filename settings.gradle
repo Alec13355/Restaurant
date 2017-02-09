@@ -1,1 +1,1 @@
-include ':app', ':shaneconnectlibrary'
+include ':app', ':shaneconnectlibrary', ':shaneconnect'

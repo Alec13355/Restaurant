@@ -31,13 +31,9 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         //authGetRequest();
-
-
         ShaneConnect d = new ShaneConnect("http://10.0.2.2:3019",this);
         final TextView v = (TextView) findViewById(R.id.display);
-
-
-        d.getAccountData("SMITH_BOB_1", new Response.Listener<JSONObject>() {
+        d.createAccount("jon","ron","0000",0,"secret2","booker st.",64141715,81616,new Response.Listener<JSONObject>() {
             @Override
             public void onResponse(JSONObject response) {
                 v.setText(response.toString());

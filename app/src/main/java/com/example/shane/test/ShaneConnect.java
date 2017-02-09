@@ -87,7 +87,7 @@ public class ShaneConnect {
      * @param s is a asynchronous callback function
      */
     public void getAccountData(String account_name,Response.Listener<JSONObject> s ) {
-        RequestQueue queue = Volley.newRequestQueue(maind); //not sure if this will work
+        RequestQueue queue = Volley.newRequestQueue(maind);
         JSONObject out = new JSONObject();
         try {
             out.put("name",account_name);
@@ -105,5 +105,43 @@ public class ShaneConnect {
         queue.add(lastFMAuthRequest);
     }
 
+    /**
+     *This creates a user on the EMPLOYEES database and returns the username for the new employee
+     * @param lname
+     * @param fname
+     * @param permissionString
+     * @param status
+     * @param password
+     * @param address
+     * @param cell
+     * @param phone
+     *
+     */
+    public void createAccount(String lname,String fname,String permissionString,int status,String password,String address,int cell, int phone,Response.Listener<JSONObject> s){
+        RequestQueue queue = Volley.newRequestQueue(maind);
+        JSONObject out = new JSONObject();
+        try{
+            out.put("lnam",lname);
+            out.put("fname",fname);
+            out.put("perm", permissionString);
+            out.put("stat",status);
+            out.put("pass",password);
+            out.put("address", address);
+            out.put("cell",cell);
+            out.put("phone",phone);
+
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+        JsonObjectRequest lastFMAuthRequest = new JsonObjectRequest(Request.Method.POST, url + "/createAccount", out, s, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                System.out.print(error.networkResponse);
+
+            }
+
+        });
+        queue.add(lastFMAuthRequest);
+    }
 
 }
