@@ -15,28 +15,44 @@ var method = SQLDataBase.prototype;
        password: pass,
        database: "restaurant"
     });
+    this.connection.connect(function(err) {
+    if (err) {
+        throw err;
+        return;
+    }
+    console.log("Connection Established With MYSQL");
+});
 };
+
 
 /**Agnostic function that will do depending on json_instructions object
  * @param json_instructions object
  */
-method.interact = function(json_instructions,callBack){
-    if(json_instructions.retrieve){
-        var sql = "SELECT * FROM EMPLOYEES";
+method.setUser = function(json_input,callBack){
+    
+    
+    
+        var sql = "INSERT INTO EMPLOYEES VALUES('" + json_input.lnam + "','" + json_input.fname + "',NULL,'" + json_input.perm + "'," + json_input.stat + ",'" + json_input.pass + "','" + json_input.address + "'," + json_input.cell + "," + json_input.phone + ")"; 
+        console.log(sql);
+        var tempcon = this.connection;
         this.connection.query(sql, function(err,rows){
             if(err){
                 throw err;
             }
-            var data = {
-                last: rows[json_instructions.rowNum].L_NAME,
-                first: rows[json_instructions.rowNum].F_NAME,
-                emp_id: rows[json_instructions.rowNum].EMPLOYEE_ID,
-                perm_string: rows[json_instructions.rowNum].PERM_STRING,
-                status: rows[json_instructions.rowNum].STATUS
-            };
-            return callBack(data);
+            console.log("returning");
+           var sizeSQL = "SELECT * FROM EMPLOYEES";
+            console.log(sizeSQL);
+           tempcon.query(sizeSQL, function(err,rows_){
+            if(err){
+                throw err;
+            }
+            
+            //return callBack(json_input.lnam + "_" + json_input.fname + "_" + rows_.length);
+            return callBack(rows_[rows_.length-1].L_NAME + "_" + rows_[rows_.length-1].F_NAME + "_" + rows_.length);
+            
         });
-    }
+    }); 
+        
 }
 
 method.getUser = function(json_user,callBack){
@@ -51,6 +67,9 @@ method.getUser = function(json_user,callBack){
                 first: rows[0].F_NAME,
                 emp_id: rows[0].EMPLOYEE_ID,
                 perm_string: rows[0].PERM_STRING,
+                address: rows[0].ADDRESS,
+                cell: rows[0].CELL,
+                phone: rows[0].PHONE,
                 status: rows[0].STATUS,
                 pass: rows[0].PASS
             };
