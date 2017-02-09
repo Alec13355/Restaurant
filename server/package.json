@@ -1,0 +1,21 @@
+{
+  "name": "server",
+  "version": "1.0.0",
+  "description": "Rest API to send data from MySQL Database",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@git.linux.iastate.edu:309Spring2017/YT_4.git"
+  },
+  "author": "Shane Drafahl",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.14.1",
+    "mysql": "^2.13.0",
+    "oop-module": "0.0.5"
+  }
+}
