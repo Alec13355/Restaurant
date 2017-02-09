@@ -33,20 +33,13 @@ router.use(function (req,res,next) {
   next();
 });
 
-router.post("/getTestData",function(req,res){
-  console.log("Got Request");
-  var testdata = {
-  retrieve: true,
-  rowNum: 0
-}
-data_base.interact(testdata,function(resp){
-  res.json({name:resp.first});
+router.post("/createAccount", function(req,res){
+  data_base.setUser(req.body, function(resp){
+    res.json({user:resp});
   });
 });
 
-
 router.post("/getAccount", function(req,res){
-  
   console.log(req.body.name)
   if(req.body.name){
   var userName = req.body.name;
@@ -90,6 +83,7 @@ router.post("/getAccount", function(req,res){
   }
   
 });
+
 
 //json_user.lname + " AND F_NAME = " json_user.fname + "AND EMPLOYEE_ID = " json_user.id;
 
