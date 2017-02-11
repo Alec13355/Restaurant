@@ -5,7 +5,8 @@ android {
     buildToolsVersion "25.0.2"
     defaultConfig {
 
-        applicationId "com.example.shane.test"
+        applicationId "com.example.shane.shaneconnect"
+
         minSdkVersion 15
         targetSdkVersion 25
         versionCode 1
@@ -30,4 +31,6 @@ dependencies {
     compile 'com.android.support:appcompat-v7:25.1.1'
     compile 'com.android.volley:volley:1.0.0'
     testCompile 'junit:junit:4.12'
+    compile 'com.android.support.test.espresso:espresso-core:2.2.2'
+
 }
