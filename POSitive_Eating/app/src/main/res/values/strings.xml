@@ -3,4 +3,10 @@
     <string name="user_name">User_Name:</string>
     <string name="password">Password:</string>
     <string name="login">Login</string>
+    <string name="ordering_menu">Ordering Menu</string>
+    <string name="button">Button</string>
+    <string name="button5">Button</string>
+    <string name="button6">Button</string>
+    <string name="order_status">Order Status</string>
+    <string name="seating">Seating</string>
 </resources>
