@@ -9,4 +9,8 @@
     <string name="button6">Button</string>
     <string name="order_status">Order Status</string>
     <string name="seating">Seating</string>
+    <string name="schedule">Schedule</string>
+    <string name="payroll">Payrol</string>
+    <string name="payrol">Payroll</string>
+    <string name="editusers">EditUsers</string>
 </resources>

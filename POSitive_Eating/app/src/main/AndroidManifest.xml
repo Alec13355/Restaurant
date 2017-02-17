@@ -18,7 +18,10 @@
         <activity android:name=".MainScreen" />
         <activity android:name=".OrderStatus" />
         <activity android:name=".Menu" />
-        <activity android:name=".Seating"></activity>
+        <activity android:name=".Seating" />
+        <activity android:name=".Schedule" />
+        <activity android:name=".EditStaff" />
+        <activity android:name=".Payroll"></activity>
     </application>
 
 </manifest>
