@@ -1,583 +1,171 @@
 package com.example.shane.shaneconnect;
 
-import android.content.BroadcastReceiver;
-import android.content.ComponentName;
-import android.content.ContentResolver;
 import android.content.Context;
-import android.content.Intent;
-import android.content.IntentFilter;
-import android.content.IntentSender;
-import android.content.ServiceConnection;
-import android.content.SharedPreferences;
-import android.content.pm.ApplicationInfo;
-import android.content.pm.PackageManager;
-import android.content.res.AssetManager;
-import android.content.res.Configuration;
-import android.content.res.Resources;
-import android.database.DatabaseErrorHandler;
-import android.database.sqlite.SQLiteDatabase;
-import android.graphics.Bitmap;
-import android.graphics.drawable.Drawable;
-import android.net.Uri;
-import android.os.Bundle;
-import android.os.Handler;
-import android.os.Looper;
-import android.os.UserHandle;
-import android.support.annotation.Nullable;
-import android.view.Display;
 
-import com.android.volley.NetworkResponse;
+import com.android.volley.Cache;
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
-import com.android.volley.toolbox.StringRequest;
+import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
-
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.UnsupportedEncodingException;
-import java.util.HashMap;
-import java.util.Map;
+import java.util.ArrayList;
 
 /**
- * Created by shane on 2/2/17.
+ * The latest in Shane Drafahl Industries® has led to the development in a way to modulate your server needs into one convenient way to communicate with
+ * a server you own.
  */
+public class ShaneConnect {
 
-public class ShaneConnect extends Context {
 
-    public ShaneConnect(){
+    /**
+     * String address of where the server
+     * and example might be
+     */
+    private String url;
 
+    /**
+     * maind is what stores the mainactivity that can put on operation in a query for the OS
+     */
+    private Context maind;
+
+    /**
+     *
+     * @param url is a String object that holds the location of the server you want to connect to and example may be http://10.0.2.2:3019 do not enter the address of the post request
+     * @param d is the MainActivity that controls the runtime of the app, for example to give an argument of this from the MainActivity class is just to type "this".
+     */
+    public ShaneConnect(String url, Context d) {
+        this.url=url;
+        maind=d;
     }
 
-    public void getTestData(){
-        // Instantiate the RequestQueue.
 
-        RequestQueue queue = Volley.newRequestQueue(this);
-        String url ="localhost:3001/getTestData";
-
-        // Request a string response from the provided URL.
-        StringRequest stringRequest = new StringRequest(Request.Method.GET, url,
-                new Response.Listener<String>() {
-                    @Override
-                    public void onResponse(String response) {
-                        // Display the first 500 characters of the response string.
-                        System.out.println(response);
-                    }
-                }, new Response.ErrorListener() {
+    /**
+     * getAccountData will make a call to the server to get a json object of the representing account user given as an argument.
+     * @param account_name this is the name of the account you want data from, for example "SMITH_BOB_1" would be an argument. The convention is that the last name, first name, and a unique ID are concatenated together with underscores to create the username.
+     * @param s is a asynchronous callback function
+     */
+    public void getAccountData(String account_name,Response.Listener<JSONObject> s ) {
+        RequestQueue queue = Volley.newRequestQueue(maind);
+        JSONObject out = new JSONObject();
+        try {
+            out.put("name",account_name);
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+        JsonObjectRequest lastFMAuthRequest = new JsonObjectRequest(Request.Method.POST, url + "/getAccount", out, s, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
-                System.out.println("Error");
+                System.out.print(error.networkResponse);
+
             }
+
         });
-        // Add the request to the RequestQueue.
-        queue.add(stringRequest);
+        queue.add(lastFMAuthRequest);
+    }
+
+    /**
+     *This creates a user on the EMPLOYEES database and returns the username for the new employee
+     * @param lname the last name
+     * @param fname the first name
+     * @param permissionString a string of characters that correspond to permissions such as 1111
+     * @param status could be used for different levels of the company. For example 2 might be manager and 0 be super user
+     * @param password a password
+     * @param address the address of the employee
+     * @param cell the cellphone number
+     * @param phone their primary phone number
+     *
+     */
+    public void createAccount(String lname,String fname,String permissionString,int status,String password,String address,String cell, String phone,int hourlyRate,Response.Listener<JSONObject> s){
+        RequestQueue queue = Volley.newRequestQueue(maind);
+        JSONObject out = new JSONObject();
+        try{
+            out.put("lnam",lname);
+            out.put("fname",fname);
+            out.put("perm", permissionString);
+            out.put("stat",status);
+            out.put("pass",password);
+            out.put("address", address);
+            out.put("cell",cell);
+            out.put("phone",phone);
+            out.put("rate",hourlyRate);
+
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+        JsonObjectRequest lastFMAuthRequest = new JsonObjectRequest(Request.Method.POST, url + "/createAccount", out, s, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                System.out.print(error.networkResponse);
+
+            }
+
+        });
+        queue.add(lastFMAuthRequest);
+    }
+    public String dontUseThis(){
+        return "Fuck the world";
+    }
+
+    /**
+     *
+     * @param user the user name such as Smith_Bob_1
+     * @param isClockingIn enter 1 if clocking in, 0 if clocking out
+     * @param s returns json object in the form in the response {error:int} if the error is 0 then is was added to the db
+     */
+    public void newEmployeeLog(String user,int isClockingIn,Response.Listener<JSONObject> s){
+        RequestQueue queue = Volley.newRequestQueue(maind);
+        JSONObject out = new JSONObject();
+        try{
+            out.put("user",user);
+            out.put("isIn",isClockingIn);
+            int temp;
+            if(isClockingIn == 1){
+                temp=0;
+            }else{
+                temp=1;
+            }
+            out.put("isOut",temp);
+            out.put("timeStamp",((Number)System.currentTimeMillis()).intValue());
+        } catch (JSONException e){
+            e.printStackTrace();
+        }
+        JsonObjectRequest lastFMAuthRequest = new JsonObjectRequest(Request.Method.POST, url + "/log", out, s, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                System.out.print(error.networkResponse);
+
+            }
+
+        });
+        queue.add(lastFMAuthRequest);
+    }
+
+
+    public void getlogs(final String user, final int index, Response.Listener<JSONObject> s){
+        RequestQueue queue = Volley.newRequestQueue(maind);
+        JSONObject out = new JSONObject();
+        try{
+            out.put("user",user);
+            out.put("index",index);
+        }catch(JSONException e){
+            e.printStackTrace();
+        }
+        JsonObjectRequest lastFMAuthRequest = new JsonObjectRequest(Request.Method.POST, url + "/log", out,s , new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                System.out.print(error.networkResponse);
+
+            }
+
+        });
 
     }
 
 
 
-
-    @Override
-    public AssetManager getAssets() {
-        return null;
-    }
-
-    @Override
-    public Resources getResources() {
-        return null;
-    }
-
-    @Override
-    public PackageManager getPackageManager() {
-        return null;
-    }
-
-    @Override
-    public ContentResolver getContentResolver() {
-        return null;
-    }
-
-    @Override
-    public Looper getMainLooper() {
-        return null;
-    }
-
-    @Override
-    public Context getApplicationContext() {
-        return null;
-    }
-
-    @Override
-    public void setTheme(int resid) {
-
-    }
-
-    @Override
-    public Resources.Theme getTheme() {
-        return null;
-    }
-
-    @Override
-    public ClassLoader getClassLoader() {
-        return null;
-    }
-
-    @Override
-    public String getPackageName() {
-        return null;
-    }
-
-    @Override
-    public ApplicationInfo getApplicationInfo() {
-        return null;
-    }
-
-    @Override
-    public String getPackageResourcePath() {
-        return null;
-    }
-
-    @Override
-    public String getPackageCodePath() {
-        return null;
-    }
-
-    @Override
-    public SharedPreferences getSharedPreferences(String name, int mode) {
-        return null;
-    }
-
-    @Override
-    public boolean moveSharedPreferencesFrom(Context sourceContext, String name) {
-        return false;
-    }
-
-    @Override
-    public boolean deleteSharedPreferences(String name) {
-        return false;
-    }
-
-    @Override
-    public FileInputStream openFileInput(String name) throws FileNotFoundException {
-        return null;
-    }
-
-    @Override
-    public FileOutputStream openFileOutput(String name, int mode) throws FileNotFoundException {
-        return null;
-    }
-
-    @Override
-    public boolean deleteFile(String name) {
-        return false;
-    }
-
-    @Override
-    public File getFileStreamPath(String name) {
-        return null;
-    }
-
-    @Override
-    public File getDataDir() {
-        return null;
-    }
-
-    @Override
-    public File getFilesDir() {
-        return null;
-    }
-
-    @Override
-    public File getNoBackupFilesDir() {
-        return null;
-    }
-
-    @Nullable
-    @Override
-    public File getExternalFilesDir(String type) {
-        return null;
-    }
-
-    @Override
-    public File[] getExternalFilesDirs(String type) {
-        return new File[0];
-    }
-
-    @Override
-    public File getObbDir() {
-        return null;
-    }
-
-    @Override
-    public File[] getObbDirs() {
-        return new File[0];
-    }
-
-    @Override
-    public File getCacheDir() {
-        return null;
-    }
-
-    @Override
-    public File getCodeCacheDir() {
-        return null;
-    }
-
-    @Nullable
-    @Override
-    public File getExternalCacheDir() {
-        return null;
-    }
-
-    @Override
-    public File[] getExternalCacheDirs() {
-        return new File[0];
-    }
-
-    @Override
-    public File[] getExternalMediaDirs() {
-        return new File[0];
-    }
-
-    @Override
-    public String[] fileList() {
-        return new String[0];
-    }
-
-    @Override
-    public File getDir(String name, int mode) {
-        return null;
-    }
-
-    @Override
-    public SQLiteDatabase openOrCreateDatabase(String name, int mode, SQLiteDatabase.CursorFactory factory) {
-        return null;
-    }
-
-    @Override
-    public SQLiteDatabase openOrCreateDatabase(String name, int mode, SQLiteDatabase.CursorFactory factory, DatabaseErrorHandler errorHandler) {
-        return null;
-    }
-
-    @Override
-    public boolean moveDatabaseFrom(Context sourceContext, String name) {
-        return false;
-    }
-
-    @Override
-    public boolean deleteDatabase(String name) {
-        return false;
-    }
-
-    @Override
-    public File getDatabasePath(String name) {
-        return null;
-    }
-
-    @Override
-    public String[] databaseList() {
-        return new String[0];
-    }
-
-    @Override
-    public Drawable getWallpaper() {
-        return null;
-    }
-
-    @Override
-    public Drawable peekWallpaper() {
-        return null;
-    }
-
-    @Override
-    public int getWallpaperDesiredMinimumWidth() {
-        return 0;
-    }
-
-    @Override
-    public int getWallpaperDesiredMinimumHeight() {
-        return 0;
-    }
-
-    @Override
-    public void setWallpaper(Bitmap bitmap) throws IOException {
-
-    }
-
-    @Override
-    public void setWallpaper(InputStream data) throws IOException {
-
-    }
-
-    @Override
-    public void clearWallpaper() throws IOException {
-
-    }
-
-    @Override
-    public void startActivity(Intent intent) {
-
-    }
-
-    @Override
-    public void startActivity(Intent intent, Bundle options) {
-
-    }
-
-    @Override
-    public void startActivities(Intent[] intents) {
-
-    }
-
-    @Override
-    public void startActivities(Intent[] intents, Bundle options) {
-
-    }
-
-    @Override
-    public void startIntentSender(IntentSender intent, Intent fillInIntent, int flagsMask, int flagsValues, int extraFlags) throws IntentSender.SendIntentException {
-
-    }
-
-    @Override
-    public void startIntentSender(IntentSender intent, Intent fillInIntent, int flagsMask, int flagsValues, int extraFlags, Bundle options) throws IntentSender.SendIntentException {
-
-    }
-
-    @Override
-    public void sendBroadcast(Intent intent) {
-
-    }
-
-    @Override
-    public void sendBroadcast(Intent intent, String receiverPermission) {
-
-    }
-
-    @Override
-    public void sendOrderedBroadcast(Intent intent, String receiverPermission) {
-
-    }
-
-    @Override
-    public void sendOrderedBroadcast(Intent intent, String receiverPermission, BroadcastReceiver resultReceiver, Handler scheduler, int initialCode, String initialData, Bundle initialExtras) {
-
-    }
-
-    @Override
-    public void sendBroadcastAsUser(Intent intent, UserHandle user) {
-
-    }
-
-    @Override
-    public void sendBroadcastAsUser(Intent intent, UserHandle user, String receiverPermission) {
-
-    }
-
-    @Override
-    public void sendOrderedBroadcastAsUser(Intent intent, UserHandle user, String receiverPermission, BroadcastReceiver resultReceiver, Handler scheduler, int initialCode, String initialData, Bundle initialExtras) {
-
-    }
-
-    @Override
-    public void sendStickyBroadcast(Intent intent) {
-
-    }
-
-    @Override
-    public void sendStickyOrderedBroadcast(Intent intent, BroadcastReceiver resultReceiver, Handler scheduler, int initialCode, String initialData, Bundle initialExtras) {
-
-    }
-
-    @Override
-    public void removeStickyBroadcast(Intent intent) {
-
-    }
-
-    @Override
-    public void sendStickyBroadcastAsUser(Intent intent, UserHandle user) {
-
-    }
-
-    @Override
-    public void sendStickyOrderedBroadcastAsUser(Intent intent, UserHandle user, BroadcastReceiver resultReceiver, Handler scheduler, int initialCode, String initialData, Bundle initialExtras) {
-
-    }
-
-    @Override
-    public void removeStickyBroadcastAsUser(Intent intent, UserHandle user) {
-
-    }
-
-    @Nullable
-    @Override
-    public Intent registerReceiver(BroadcastReceiver receiver, IntentFilter filter) {
-        return null;
-    }
-
-    @Nullable
-    @Override
-    public Intent registerReceiver(BroadcastReceiver receiver, IntentFilter filter, String broadcastPermission, Handler scheduler) {
-        return null;
-    }
-
-    @Override
-    public void unregisterReceiver(BroadcastReceiver receiver) {
-
-    }
-
-    @Nullable
-    @Override
-    public ComponentName startService(Intent service) {
-        return null;
-    }
-
-    @Override
-    public boolean stopService(Intent service) {
-        return false;
-    }
-
-    @Override
-    public boolean bindService(Intent service, ServiceConnection conn, int flags) {
-        return false;
-    }
-
-    @Override
-    public void unbindService(ServiceConnection conn) {
-
-    }
-
-    @Override
-    public boolean startInstrumentation(ComponentName className, String profileFile, Bundle arguments) {
-        return false;
-    }
-
-    @Override
-    public Object getSystemService(String name) {
-        return null;
-    }
-
-    @Override
-    public String getSystemServiceName(Class<?> serviceClass) {
-        return null;
-    }
-
-    @Override
-    public int checkPermission(String permission, int pid, int uid) {
-        return 0;
-    }
-
-    @Override
-    public int checkCallingPermission(String permission) {
-        return 0;
-    }
-
-    @Override
-    public int checkCallingOrSelfPermission(String permission) {
-        return 0;
-    }
-
-    @Override
-    public int checkSelfPermission(String permission) {
-        return 0;
-    }
-
-    @Override
-    public void enforcePermission(String permission, int pid, int uid, String message) {
-
-    }
-
-    @Override
-    public void enforceCallingPermission(String permission, String message) {
-
-    }
-
-    @Override
-    public void enforceCallingOrSelfPermission(String permission, String message) {
-
-    }
-
-    @Override
-    public void grantUriPermission(String toPackage, Uri uri, int modeFlags) {
-
-    }
-
-    @Override
-    public void revokeUriPermission(Uri uri, int modeFlags) {
-
-    }
-
-    @Override
-    public int checkUriPermission(Uri uri, int pid, int uid, int modeFlags) {
-        return 0;
-    }
-
-    @Override
-    public int checkCallingUriPermission(Uri uri, int modeFlags) {
-        return 0;
-    }
-
-    @Override
-    public int checkCallingOrSelfUriPermission(Uri uri, int modeFlags) {
-        return 0;
-    }
-
-    @Override
-    public int checkUriPermission(Uri uri, String readPermission, String writePermission, int pid, int uid, int modeFlags) {
-        return 0;
-    }
-
-    @Override
-    public void enforceUriPermission(Uri uri, int pid, int uid, int modeFlags, String message) {
-
-    }
-
-    @Override
-    public void enforceCallingUriPermission(Uri uri, int modeFlags, String message) {
-
-    }
-
-    @Override
-    public void enforceCallingOrSelfUriPermission(Uri uri, int modeFlags, String message) {
-
-    }
-
-    @Override
-    public void enforceUriPermission(Uri uri, String readPermission, String writePermission, int pid, int uid, int modeFlags, String message) {
-
-    }
-
-    @Override
-    public Context createPackageContext(String packageName, int flags) throws PackageManager.NameNotFoundException {
-        return null;
-    }
-
-    @Override
-    public Context createConfigurationContext(Configuration overrideConfiguration) {
-        return null;
-    }
-
-    @Override
-    public Context createDisplayContext(Display display) {
-        return null;
-    }
-
-    @Override
-    public Context createDeviceProtectedStorageContext() {
-        return null;
-    }
-
-    @Override
-    public boolean isDeviceProtectedStorage() {
-        return false;
-    }
 
 }

@@ -3,6 +3,7 @@ package com.example.shane.test;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
 import android.widget.TextView;
 
 import com.android.volley.Request;
@@ -14,9 +15,12 @@ import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 
+
+import com.example.shane.shaneconnect.ShaneConnect;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -32,14 +36,16 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         //authGetRequest();
         ShaneConnect d = new ShaneConnect("http://10.0.2.2:3019",this);
-        final TextView v = (TextView) findViewById(R.id.display);
-        d.createAccount("jon","ron","0000",0,"secret2","booker st.",64141715,81616,new Response.Listener<JSONObject>() {
-            @Override
-            public void onResponse(JSONObject response) {
-                v.setText(response.toString());
-            }
+        ArrayList<JSONObject> l;
+        l = d.getEmployeeLog("Smith_Bob_1");
+        TextView v = (TextView)findViewById(R.id.display);
+        String disp="";
+        for(int x=0;x<l.size();x++){
+            disp+=l.get(x).toString();
+        }
+        v.setText(disp);
 
-        });
+
 
     }
 

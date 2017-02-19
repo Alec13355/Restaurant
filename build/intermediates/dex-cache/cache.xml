@@ -2,220 +2,238 @@
 <items version="2" >
 
     <item
-        is-multidex="false"
-        jar="/home/shane/.gradle/caches/modules-2/files-2.1/org.hamcrest/hamcrest-integration/1.3/5de0c73fef18917cd85d0ab70bb23818685e4dfd/hamcrest-integration-1.3.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="25.0.2"
-        sha1="5de0c73fef18917cd85d0ab70bb23818685e4dfd">
-        <dex dex="/home/shane/AndroidStudioProjects/TestAndroid/app/build/intermediates/pre-dexed/debug/hamcrest-integration-1.3_835c58ed085719295725b4fc2c3510a09082a80a.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="/home/shane/AndroidStudioProjects/TestAndroid/app/build/intermediates/exploded-aar/com.android.support.test/exposed-instrumentation-api-publish/0.5/jars/classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="25.0.2"
-        sha1="905f3e63973d47fedf2d945fa31d8c0f0c98816e">
-        <dex dex="/home/shane/AndroidStudioProjects/TestAndroid/app/build/intermediates/pre-dexed/debug/com.android.support.test-exposed-instrumentation-api-publish-0.5_773d6fb71f9615cb427be1a14b5eb356d7925895.jar" />
-    </item>
-    <item
-        is-multidex="false"
+        is-multidex="true"
         jar="/home/shane/AndroidStudioProjects/TestAndroid/app/build/intermediates/exploded-aar/com.android.support/support-vector-drawable/25.1.1/jars/classes.jar"
-        jumboMode="false"
+        jumboMode="true"
         optimize="true"
         revision="25.0.2"
         sha1="c03bf57f358aa10d253f21989e93bcf6014b3b17">
-        <dex dex="/home/shane/AndroidStudioProjects/TestAndroid/app/build/intermediates/pre-dexed/debug/com.android.support-support-vector-drawable-25.1.1_f3f0c44ce78a6ccc6f7a1cbb0f9bc49296c6a9a4.jar" />
+        <dex dex="/home/shane/AndroidStudioProjects/TestAndroid/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-support-vector-drawable-25.1.1_f3f0c44ce78a6ccc6f7a1cbb0f9bc49296c6a9a4/classes.dex" />
     </item>
     <item
-        is-multidex="false"
-        jar="/home/shane/Android/Sdk/extras/android/m2repository/com/android/support/support-annotations/25.1.1/support-annotations-25.1.1.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="25.0.2"
-        sha1="b59b6ee8d6ecc03e672d253800430343493a6ed8">
-        <dex dex="/home/shane/AndroidStudioProjects/TestAndroid/app/build/intermediates/pre-dexed/debug/support-annotations-25.1.1_9ee6215873f062749aae051499a7332ecac3be9a.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="/home/shane/AndroidStudioProjects/TestAndroid/app/build/intermediates/exploded-aar/com.android.support/support-core-utils/25.1.1/jars/classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="25.0.2"
-        sha1="0fb891e8f0cfba0513043a7bb357513d229ca2cd">
-        <dex dex="/home/shane/AndroidStudioProjects/TestAndroid/app/build/intermediates/pre-dexed/debug/com.android.support-support-core-utils-25.1.1_2da7f36e5c5868443b5877b275397bfcb4bc4c04.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="/home/shane/AndroidStudioProjects/TestAndroid/app/build/intermediates/exploded-aar/com.android.support/support-media-compat/25.1.1/jars/classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="25.0.2"
-        sha1="7bde4c34162092e0a77e7f12dc85ed77c484cf5c">
-        <dex dex="/home/shane/AndroidStudioProjects/TestAndroid/app/build/intermediates/pre-dexed/debug/com.android.support-support-media-compat-25.1.1_2512b4285e723b829a9d2eaf53ccbef222c9cf99.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="/home/shane/.gradle/caches/modules-2/files-2.1/junit/junit/4.12/2973d150c0dc1fefe998f834810d68f278ea58ec/junit-4.12.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="25.0.2"
-        sha1="2973d150c0dc1fefe998f834810d68f278ea58ec">
-        <dex dex="/home/shane/AndroidStudioProjects/TestAndroid/app/build/intermediates/pre-dexed/debug/junit-4.12_41ac35ae894810a133e79b7783d26e5ae03d22b7.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="/home/shane/.gradle/caches/modules-2/files-2.1/com.squareup/javawriter/2.1.1/67ff45d9ae02e583d0f9b3432a5ebbe05c30c966/javawriter-2.1.1.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="25.0.2"
-        sha1="67ff45d9ae02e583d0f9b3432a5ebbe05c30c966">
-        <dex dex="/home/shane/AndroidStudioProjects/TestAndroid/app/build/intermediates/pre-dexed/debug/javawriter-2.1.1_83f13292a673d74b8da5e2c668981d67181144fc.jar" />
-    </item>
-    <item
-        is-multidex="false"
+        is-multidex="true"
         jar="/home/shane/AndroidStudioProjects/TestAndroid/app/build/intermediates/exploded-aar/com.android.volley/volley/1.0.0/jars/classes.jar"
-        jumboMode="false"
+        jumboMode="true"
         optimize="true"
         revision="25.0.2"
         sha1="2cd4b982617e544728de0782d718a58ce1b06e3f">
-        <dex dex="/home/shane/AndroidStudioProjects/TestAndroid/app/build/intermediates/pre-dexed/debug/com.android.volley-volley-1.0.0_36646a6e1ae1259acd103b7c10cecf5a89cab93d.jar" />
+        <dex dex="/home/shane/AndroidStudioProjects/TestAndroid/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.volley-volley-1.0.0_36646a6e1ae1259acd103b7c10cecf5a89cab93d/classes.dex" />
     </item>
     <item
-        is-multidex="false"
-        jar="/home/shane/AndroidStudioProjects/TestAndroid/app/build/intermediates/exploded-aar/com.android.support/support-compat/25.1.1/jars/classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="25.0.2"
-        sha1="02741d05d4b697fba5e279e9881aaa1da0ca7c7f">
-        <dex dex="/home/shane/AndroidStudioProjects/TestAndroid/app/build/intermediates/pre-dexed/debug/com.android.support-support-compat-25.1.1_1746e00193c11341d44abbc1622a9dd0c23d494b.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="/home/shane/AndroidStudioProjects/TestAndroid/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/25.1.1/jars/classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="25.0.2"
-        sha1="ecb496cc08dd52551fc5ec6db3bc0632e95a89bb">
-        <dex dex="/home/shane/AndroidStudioProjects/TestAndroid/app/build/intermediates/pre-dexed/debug/com.android.support-appcompat-v7-25.1.1_a3c44b98ddc62e3e74d4f4c669cd9ecca6e40a43.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="/home/shane/AndroidStudioProjects/TestAndroid/app/build/intermediates/exploded-aar/com.android.support/support-v4/25.1.1/jars/classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="25.0.2"
-        sha1="d7c42c80f6509b9ea4db28ca7859ffae08ec5741">
-        <dex dex="/home/shane/AndroidStudioProjects/TestAndroid/app/build/intermediates/pre-dexed/debug/com.android.support-support-v4-25.1.1_230e0482b3bb784bf68d19e8e283b150c7c0ff78.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="/home/shane/.gradle/caches/modules-2/files-2.1/org.hamcrest/hamcrest-core/1.3/42a25dc3219429f0e5d060061f71acb49bf010a0/hamcrest-core-1.3.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="25.0.2"
-        sha1="42a25dc3219429f0e5d060061f71acb49bf010a0">
-        <dex dex="/home/shane/AndroidStudioProjects/TestAndroid/app/build/intermediates/pre-dexed/debug/hamcrest-core-1.3_acd18d276206d95a943a2c5505bd497a69858f22.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="/home/shane/.gradle/caches/modules-2/files-2.1/org.hamcrest/hamcrest-library/1.3/4785a3c21320980282f9f33d0d1264a69040538f/hamcrest-library-1.3.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="25.0.2"
-        sha1="4785a3c21320980282f9f33d0d1264a69040538f">
-        <dex dex="/home/shane/AndroidStudioProjects/TestAndroid/app/build/intermediates/pre-dexed/debug/hamcrest-library-1.3_200390164e18a2d1d1a929138296bec57688aa64.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="/home/shane/AndroidStudioProjects/TestAndroid/app/build/intermediates/exploded-aar/com.android.support.test/runner/0.5/jars/classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="25.0.2"
-        sha1="796f9229948e907471c5595fbe94655ccf03ff73">
-        <dex dex="/home/shane/AndroidStudioProjects/TestAndroid/app/build/intermediates/pre-dexed/debug/com.android.support.test-runner-0.5_bb0030a812c1328ec75ea8d202535e301abeba12.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="/home/shane/AndroidStudioProjects/TestAndroid/app/build/intermediates/exploded-aar/com.android.support/support-fragment/25.1.1/jars/classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="25.0.2"
-        sha1="e2719c102dca3a7a5b02ce07f769362da6ddb4ab">
-        <dex dex="/home/shane/AndroidStudioProjects/TestAndroid/app/build/intermediates/pre-dexed/debug/com.android.support-support-fragment-25.1.1_7a41f31b2651bb8352f511cd7cb258e3318c0cdb.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="/home/shane/AndroidStudioProjects/TestAndroid/app/build/intermediates/exploded-aar/com.android.support.test.espresso/espresso-idling-resource/2.2.2/jars/classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="25.0.2"
-        sha1="a890ee8445927649d9ed50f625a315d8758688be">
-        <dex dex="/home/shane/AndroidStudioProjects/TestAndroid/app/build/intermediates/pre-dexed/debug/com.android.support.test.espresso-espresso-idling-resource-2.2.2_623843c2c19955b769ae095a7d6e788f63e3a121.jar" />
-    </item>
-    <item
-        is-multidex="false"
+        is-multidex="true"
         jar="/home/shane/AndroidStudioProjects/TestAndroid/app/build/intermediates/exploded-aar/com.android.support/support-core-ui/25.1.1/jars/classes.jar"
-        jumboMode="false"
+        jumboMode="true"
         optimize="true"
         revision="25.0.2"
         sha1="3e04ac8ca644ea7baddf6fdcf72e15c79e9df94a">
-        <dex dex="/home/shane/AndroidStudioProjects/TestAndroid/app/build/intermediates/pre-dexed/debug/com.android.support-support-core-ui-25.1.1_c61599d47b4cfbff857fb65fe3a354eb95fd4aa3.jar" />
+        <dex dex="/home/shane/AndroidStudioProjects/TestAndroid/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-support-core-ui-25.1.1_c61599d47b4cfbff857fb65fe3a354eb95fd4aa3/classes.dex" />
     </item>
     <item
-        is-multidex="false"
+        is-multidex="true"
         jar="/home/shane/AndroidStudioProjects/TestAndroid/app/build/intermediates/exploded-aar/com.android.support.test/rules/0.5/jars/classes.jar"
-        jumboMode="false"
+        jumboMode="true"
         optimize="true"
         revision="25.0.2"
         sha1="7e11799d8a26bfa5d48acafe012ee5545b9bf468">
-        <dex dex="/home/shane/AndroidStudioProjects/TestAndroid/app/build/intermediates/pre-dexed/debug/com.android.support.test-rules-0.5_25dc59df5f179b196c52b394d09248dda593bb33.jar" />
+        <dex dex="/home/shane/AndroidStudioProjects/TestAndroid/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support.test-rules-0.5_25dc59df5f179b196c52b394d09248dda593bb33/classes.dex" />
     </item>
     <item
-        is-multidex="false"
-        jar="/home/shane/.gradle/caches/modules-2/files-2.1/javax.inject/javax.inject/1/6975da39a7040257bd51d21a231b76c915872d38/javax.inject-1.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="25.0.2"
-        sha1="6975da39a7040257bd51d21a231b76c915872d38">
-        <dex dex="/home/shane/AndroidStudioProjects/TestAndroid/app/build/intermediates/pre-dexed/debug/javax.inject-1_2005f41b0a1e051d8bf81a5f7fb21b6a8e2be7df.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="/home/shane/AndroidStudioProjects/TestAndroid/app/build/intermediates/exploded-aar/com.android.support.test.espresso/espresso-core/2.2.2/jars/classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="25.0.2"
-        sha1="d115b0e9e1501135fe91254ba884fcbd83d374c0">
-        <dex dex="/home/shane/AndroidStudioProjects/TestAndroid/app/build/intermediates/pre-dexed/debug/com.android.support.test.espresso-espresso-core-2.2.2_4d847d50a49f5a1ae98b6387488aa3dfffc680e6.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="/home/shane/.gradle/caches/modules-2/files-2.1/com.google.code.findbugs/jsr305/2.0.1/516c03b21d50a644d538de0f0369c620989cd8f0/jsr305-2.0.1.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="25.0.2"
-        sha1="516c03b21d50a644d538de0f0369c620989cd8f0">
-        <dex dex="/home/shane/AndroidStudioProjects/TestAndroid/app/build/intermediates/pre-dexed/debug/jsr305-2.0.1_0d11ecc95210bfb20d34388c95dc30c95e9fe10c.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="/home/shane/AndroidStudioProjects/TestAndroid/app/build/intermediates/exploded-aar/com.android.support/animated-vector-drawable/25.1.1/jars/classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="25.0.2"
-        sha1="0d191c1a09e4892d059e5ce749e4ad4e08129e35">
-        <dex dex="/home/shane/AndroidStudioProjects/TestAndroid/app/build/intermediates/pre-dexed/debug/com.android.support-animated-vector-drawable-25.1.1_c3b89ec03d7c9999f3e3f0e97e83b4ceb40e2e88.jar" />
-    </item>
-    <item
-        is-multidex="false"
+        is-multidex="true"
         jar="/home/shane/.gradle/caches/modules-2/files-2.1/javax.annotation/javax.annotation-api/1.2/479c1e06db31c432330183f5cae684163f186146/javax.annotation-api-1.2.jar"
-        jumboMode="false"
+        jumboMode="true"
         optimize="true"
         revision="25.0.2"
         sha1="479c1e06db31c432330183f5cae684163f186146">
-        <dex dex="/home/shane/AndroidStudioProjects/TestAndroid/app/build/intermediates/pre-dexed/debug/javax.annotation-api-1.2_da1667e6b27fc3183bc59e9c90e822a3b6892991.jar" />
+        <dex dex="/home/shane/AndroidStudioProjects/TestAndroid/app/build/intermediates/transforms/dex/debug/folders/1000/10/javax.annotation-api-1.2_da1667e6b27fc3183bc59e9c90e822a3b6892991/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/shane/.gradle/caches/modules-2/files-2.1/junit/junit/4.12/2973d150c0dc1fefe998f834810d68f278ea58ec/junit-4.12.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="2973d150c0dc1fefe998f834810d68f278ea58ec">
+        <dex dex="/home/shane/AndroidStudioProjects/TestAndroid/app/build/intermediates/transforms/dex/debug/folders/1000/10/junit-4.12_41ac35ae894810a133e79b7783d26e5ae03d22b7/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/shane/.gradle/caches/modules-2/files-2.1/javax.inject/javax.inject/1/6975da39a7040257bd51d21a231b76c915872d38/javax.inject-1.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="6975da39a7040257bd51d21a231b76c915872d38">
+        <dex dex="/home/shane/AndroidStudioProjects/TestAndroid/app/build/intermediates/transforms/dex/debug/folders/1000/10/javax.inject-1_2005f41b0a1e051d8bf81a5f7fb21b6a8e2be7df/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/shane/AndroidStudioProjects/TestAndroid/app/build/intermediates/exploded-aar/com.android.support/support-media-compat/25.1.1/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="7bde4c34162092e0a77e7f12dc85ed77c484cf5c">
+        <dex dex="/home/shane/AndroidStudioProjects/TestAndroid/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-support-media-compat-25.1.1_2512b4285e723b829a9d2eaf53ccbef222c9cf99/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/shane/AndroidStudioProjects/TestAndroid/app/build/intermediates/incremental-classes/debug/instant-run-bootstrap.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="8af5931470ab7442736affaf845d83dd6476f135">
+        <dex dex="/home/shane/AndroidStudioProjects/TestAndroid/app/build/intermediates/transforms/dex/debug/folders/1000/10/instant-run-bootstrap_6e10e9825523ec0c87350189b332d998188ef576/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/shane/.gradle/caches/modules-2/files-2.1/com.google.code.findbugs/jsr305/2.0.1/516c03b21d50a644d538de0f0369c620989cd8f0/jsr305-2.0.1.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="516c03b21d50a644d538de0f0369c620989cd8f0">
+        <dex dex="/home/shane/AndroidStudioProjects/TestAndroid/app/build/intermediates/transforms/dex/debug/folders/1000/10/jsr305-2.0.1_0d11ecc95210bfb20d34388c95dc30c95e9fe10c/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/shane/AndroidStudioProjects/TestAndroid/app/build/intermediates/exploded-aar/com.android.support.test/runner/0.5/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="796f9229948e907471c5595fbe94655ccf03ff73">
+        <dex dex="/home/shane/AndroidStudioProjects/TestAndroid/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support.test-runner-0.5_bb0030a812c1328ec75ea8d202535e301abeba12/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/shane/AndroidStudioProjects/TestAndroid/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/25.1.1/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="ecb496cc08dd52551fc5ec6db3bc0632e95a89bb">
+        <dex dex="/home/shane/AndroidStudioProjects/TestAndroid/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-appcompat-v7-25.1.1_a3c44b98ddc62e3e74d4f4c669cd9ecca6e40a43/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/shane/.gradle/caches/modules-2/files-2.1/org.hamcrest/hamcrest-core/1.3/42a25dc3219429f0e5d060061f71acb49bf010a0/hamcrest-core-1.3.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="42a25dc3219429f0e5d060061f71acb49bf010a0">
+        <dex dex="/home/shane/AndroidStudioProjects/TestAndroid/app/build/intermediates/transforms/dex/debug/folders/1000/10/hamcrest-core-1.3_acd18d276206d95a943a2c5505bd497a69858f22/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/shane/.gradle/caches/modules-2/files-2.1/org.hamcrest/hamcrest-integration/1.3/5de0c73fef18917cd85d0ab70bb23818685e4dfd/hamcrest-integration-1.3.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="5de0c73fef18917cd85d0ab70bb23818685e4dfd">
+        <dex dex="/home/shane/AndroidStudioProjects/TestAndroid/app/build/intermediates/transforms/dex/debug/folders/1000/10/hamcrest-integration-1.3_835c58ed085719295725b4fc2c3510a09082a80a/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/shane/AndroidStudioProjects/TestAndroid/app/build/intermediates/exploded-aar/com.android.support.test/exposed-instrumentation-api-publish/0.5/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="905f3e63973d47fedf2d945fa31d8c0f0c98816e">
+        <dex dex="/home/shane/AndroidStudioProjects/TestAndroid/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support.test-exposed-instrumentation-api-publish-0.5_773d6fb71f9615cb427be1a14b5eb356d7925895/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/shane/AndroidStudioProjects/TestAndroid/app/build/intermediates/exploded-aar/com.android.support/support-core-utils/25.1.1/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="0fb891e8f0cfba0513043a7bb357513d229ca2cd">
+        <dex dex="/home/shane/AndroidStudioProjects/TestAndroid/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-support-core-utils-25.1.1_2da7f36e5c5868443b5877b275397bfcb4bc4c04/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/shane/AndroidStudioProjects/TestAndroid/app/build/intermediates/incremental-runtime-classes/debug/instant-run.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="3c95d4c12311942ecbe9fc3977ecd18d8ee1f8a5">
+        <dex dex="/home/shane/AndroidStudioProjects/TestAndroid/app/build/intermediates/transforms/dex/debug/folders/1000/10/instant-run_eda6d88f11516c951b0b91748c488509364748dd/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/shane/AndroidStudioProjects/TestAndroid/app/build/intermediates/exploded-aar/com.android.support/support-v4/25.1.1/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="d7c42c80f6509b9ea4db28ca7859ffae08ec5741">
+        <dex dex="/home/shane/AndroidStudioProjects/TestAndroid/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-support-v4-25.1.1_230e0482b3bb784bf68d19e8e283b150c7c0ff78/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/shane/AndroidStudioProjects/TestAndroid/app/build/intermediates/exploded-aar/com.android.support.test.espresso/espresso-core/2.2.2/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="d115b0e9e1501135fe91254ba884fcbd83d374c0">
+        <dex dex="/home/shane/AndroidStudioProjects/TestAndroid/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support.test.espresso-espresso-core-2.2.2_4d847d50a49f5a1ae98b6387488aa3dfffc680e6/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/shane/Android/Sdk/extras/android/m2repository/com/android/support/support-annotations/25.1.1/support-annotations-25.1.1.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="b59b6ee8d6ecc03e672d253800430343493a6ed8">
+        <dex dex="/home/shane/AndroidStudioProjects/TestAndroid/app/build/intermediates/transforms/dex/debug/folders/1000/10/support-annotations-25.1.1_9ee6215873f062749aae051499a7332ecac3be9a/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/shane/AndroidStudioProjects/TestAndroid/app/build/intermediates/exploded-aar/com.android.support/support-fragment/25.1.1/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="e2719c102dca3a7a5b02ce07f769362da6ddb4ab">
+        <dex dex="/home/shane/AndroidStudioProjects/TestAndroid/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-support-fragment-25.1.1_7a41f31b2651bb8352f511cd7cb258e3318c0cdb/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/shane/.gradle/caches/modules-2/files-2.1/com.squareup/javawriter/2.1.1/67ff45d9ae02e583d0f9b3432a5ebbe05c30c966/javawriter-2.1.1.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="67ff45d9ae02e583d0f9b3432a5ebbe05c30c966">
+        <dex dex="/home/shane/AndroidStudioProjects/TestAndroid/app/build/intermediates/transforms/dex/debug/folders/1000/10/javawriter-2.1.1_83f13292a673d74b8da5e2c668981d67181144fc/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/shane/AndroidStudioProjects/TestAndroid/app/build/intermediates/exploded-aar/com.android.support/support-compat/25.1.1/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="02741d05d4b697fba5e279e9881aaa1da0ca7c7f">
+        <dex dex="/home/shane/AndroidStudioProjects/TestAndroid/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-support-compat-25.1.1_1746e00193c11341d44abbc1622a9dd0c23d494b/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/shane/AndroidStudioProjects/TestAndroid/app/build/intermediates/exploded-aar/com.android.support/animated-vector-drawable/25.1.1/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="0d191c1a09e4892d059e5ce749e4ad4e08129e35">
+        <dex dex="/home/shane/AndroidStudioProjects/TestAndroid/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-animated-vector-drawable-25.1.1_c3b89ec03d7c9999f3e3f0e97e83b4ceb40e2e88/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/shane/AndroidStudioProjects/TestAndroid/app/build/intermediates/exploded-aar/com.android.support.test.espresso/espresso-idling-resource/2.2.2/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="a890ee8445927649d9ed50f625a315d8758688be">
+        <dex dex="/home/shane/AndroidStudioProjects/TestAndroid/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support.test.espresso-espresso-idling-resource-2.2.2_623843c2c19955b769ae095a7d6e788f63e3a121/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/shane/.gradle/caches/modules-2/files-2.1/org.hamcrest/hamcrest-library/1.3/4785a3c21320980282f9f33d0d1264a69040538f/hamcrest-library-1.3.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="4785a3c21320980282f9f33d0d1264a69040538f">
+        <dex dex="/home/shane/AndroidStudioProjects/TestAndroid/app/build/intermediates/transforms/dex/debug/folders/1000/10/hamcrest-library-1.3_200390164e18a2d1d1a929138296bec57688aa64/classes.dex" />
     </item>
 
 </items>

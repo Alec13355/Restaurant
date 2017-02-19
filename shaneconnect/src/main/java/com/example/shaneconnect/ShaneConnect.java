@@ -8,9 +8,10 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
-
 import org.json.JSONException;
 import org.json.JSONObject;
+
+import java.util.ArrayList;
 
 /**
  * The latest in Shane Drafahl Industries® has led to the development in a way to modulate your server needs into one convenient way to communicate with
@@ -67,17 +68,17 @@ public class ShaneConnect {
 
     /**
      *This creates a user on the EMPLOYEES database and returns the username for the new employee
-     * @param lname
-     * @param fname
-     * @param permissionString
-     * @param status
-     * @param password
-     * @param address
-     * @param cell
-     * @param phone
+     * @param lname the last name
+     * @param fname the first name
+     * @param permissionString a string of characters that correspond to permissions such as 1111
+     * @param status could be used for different levels of the company. For example 2 might be manager and 0 be super user
+     * @param password a password
+     * @param address the address of the employee
+     * @param cell the cellphone number
+     * @param phone their primary phone number
      *
      */
-    public void createAccount(String lname,String fname,String permissionString,int status,String password,String address,int cell, int phone,Response.Listener<JSONObject> s){
+    public void createAccount(String lname,String fname,String permissionString,int status,String password,String address,String cell, String phone,int hourlyRate,Response.Listener<JSONObject> s){
         RequestQueue queue = Volley.newRequestQueue(maind);
         JSONObject out = new JSONObject();
         try{
@@ -89,6 +90,7 @@ public class ShaneConnect {
             out.put("address", address);
             out.put("cell",cell);
             out.put("phone",phone);
+            out.put("rate",hourlyRate);
 
         } catch (JSONException e) {
             e.printStackTrace();
@@ -103,5 +105,89 @@ public class ShaneConnect {
         });
         queue.add(lastFMAuthRequest);
     }
+    public String dontUseThis(){
+        return "Fuck the world";
+    }
+
+    /**
+     *
+     * @param user the user name such as Smith_Bob_1
+     * @param isClockingIn enter 1 if clocking in, 0 if clocking out
+     * @param s returns json object in the form in the response {error:int} if the error is 0 then is was added to the db
+     */
+    public void newEmployeeLog(String user,int isClockingIn,Response.Listener<JSONObject> s){
+        RequestQueue queue = Volley.newRequestQueue(maind);
+        JSONObject out = new JSONObject();
+        try{
+            out.put("user",user);
+            out.put("isIn",isClockingIn);
+            int temp;
+            if(isClockingIn == 1){
+                temp=0;
+            }else{
+                temp=1;
+            }
+            out.put("isOut",temp);
+            out.put("timeStamp",((Number)System.currentTimeMillis()).intValue());
+        } catch (JSONException e){
+            e.printStackTrace();
+        }
+        JsonObjectRequest lastFMAuthRequest = new JsonObjectRequest(Request.Method.POST, url + "/log", out, s, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                System.out.print(error.networkResponse);
+
+            }
+
+        });
+        queue.add(lastFMAuthRequest);
+    }
+
+    /**
+     *
+     * @param user The username such as Smith_Bob_1
+     * @return returns a list of json objects with the format being {EMPLOYEE_ID:int,LOG_ID:int,CLOCK_IN:int,CLOCK_OUT:int,TIME:String (or whatever mediumtext is for MYSQL)}
+     */
+    public ArrayList<JSONObject> getEmployeeLog(String user){
+
+            ArrayList<JSONObject> list = new ArrayList<JSONObject>();
+            int index=0;
+            synchronized (list) {
+                getlogs(user, index, list);
+
+            }
+                return list;
+    }
+
+        private void getlogs(final String user, final int index, final ArrayList<JSONObject> list){
+            RequestQueue queue = Volley.newRequestQueue(maind);
+            JSONObject out = new JSONObject();
+            try{
+                out.put("user",user);
+                out.put("index",index);
+            }catch(JSONException e){
+                e.printStackTrace();
+            }
+            JsonObjectRequest lastFMAuthRequest = new JsonObjectRequest(Request.Method.POST, url + "/log", out, new Response.Listener<JSONObject>(){
+                @Override
+                public void onResponse(JSONObject response){
+                    if(!response.isNull("EMPLOYEE_ID")){
+                        list.add(response);
+                        getlogs(user,index+1,list);
+                    }
+                }
+            }, new Response.ErrorListener() {
+                @Override
+                public void onErrorResponse(VolleyError error) {
+                    System.out.print(error.networkResponse);
+
+                }
+
+            });
+
+        }
+
+
+
 
 }
