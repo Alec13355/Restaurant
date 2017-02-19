@@ -19,7 +19,8 @@ app.use(bodyParser.urlencoded({
 }));
 var router = express.Router();
 var path = __dirname + '/views/';
-var data_base = new DataBase(mysql,'localhost','shane','devPassword');
+//var data_base = new DataBase(mysql,'localhost','dbu309yt4','ZDQyY2E5OTQ2','db309yt4');
+var data_base = new DataBase(mysql,'localhost','shane','devPassword','restaurant');
 app.use("/",router);
 app.listen(port,function(){
   console.log("Live at Port " + port);
@@ -39,6 +40,18 @@ router.post("/createAccount", function(req,res){
   });
 });
 
+router.post("/log", function(req,res){
+  data_base.logEvent(req.body, function(resp){
+    res.json(resp);
+  });
+});
+
+router.post("/getLog", function(req,res){
+  data_base.getLogEvent(req.body, function(resp){
+    res.json(resp);
+  });
+});
+
 router.post("/getAccount", function(req,res){
   console.log(req.body.name)
   if(req.body.name){
@@ -52,7 +65,7 @@ router.post("/getAccount", function(req,res){
   var buffer;
   for(var x=0;x<userName.length;x++){
     buffer = userName.charAt(x);
-    if(buffer==="_"){
+    if(buffer==='_'){
       state++;
     }else{
       if(state==0){
