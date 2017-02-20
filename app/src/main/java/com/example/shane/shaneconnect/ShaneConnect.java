@@ -144,7 +144,12 @@ public class ShaneConnect {
         queue.add(lastFMAuthRequest);
     }
 
-
+    /**
+     * Unstable as of this release
+     * @param user
+     * @param index
+     * @param s
+     */
     public void getlogs(final String user, final int index, Response.Listener<JSONObject> s){
         RequestQueue queue = Volley.newRequestQueue(maind);
         JSONObject out = new JSONObject();
@@ -162,10 +167,138 @@ public class ShaneConnect {
             }
 
         });
+        queue.add(lastFMAuthRequest);
 
     }
 
+    /**
+     * The response should provide a json object in the form {name:String,food_id:int,quantity: int,price:int,desc:String} returns null if nothing found.
+     * @param name of food
+     * @param s response listenter
+     */
+    public void getFood(String name,Response.Listener<JSONObject> s){
+        RequestQueue queue = Volley.newRequestQueue(maind);
+        JSONObject out = new JSONObject();
+        try{
+            out.put("name",name);
+        }catch (JSONException e){
+            e.printStackTrace();
+        }
+        JsonObjectRequest lastFMAuthRequest = new JsonObjectRequest(Request.Method.POST, url + "/getFood", out,s , new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                System.out.print(error.networkResponse);
 
+            }
+
+        });
+        queue.add(lastFMAuthRequest);
+    }
+
+    /**
+     * Way to add food, if the database already has a food item of the same name it will update the quantitiy and price but if it does not exist it will make a new entry.
+     * @param name name of food item.
+     * @param price price of the food item.
+     * @param desc description of food item.
+     * @param quan the quantity of items
+     * @param s call back method
+     */
+    public void addFood(String name,int price,String desc,int quan, Response.Listener<JSONObject> s ){
+        RequestQueue queue = Volley.newRequestQueue(maind);
+        JSONObject out = new JSONObject();
+        try{
+            out.put("name",name);
+            out.put("quan", quan);
+            out.put("price", price);
+            out.put("desc", desc);
+        }catch (JSONException e){
+            e.printStackTrace();
+        }
+        JsonObjectRequest lastFMAuthRequest = new JsonObjectRequest(Request.Method.POST, url + "/addFood", out,s , new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                System.out.print(error.networkResponse);
+
+            }
+
+        });
+        queue.add(lastFMAuthRequest);
+    }
+
+    /**
+     * Method used to place orders
+     * @param desc description of the order
+     * @param comp
+     * @param local
+     * @param s
+     */
+    public void placeOrder(String desc,ArrayList<String> comp,int price, String local, Response.Listener<JSONObject> s ){
+        String par = "";
+        placeOrders(0,price,desc,comp,local,par,s);
+    }
+
+    private void placeOrders(final int index, final int price, final String desc, final ArrayList<String> list, final String local, final String parsed , final Response.Listener<JSONObject> s ){
+        if(index==list.size()){
+            RequestQueue queue = Volley.newRequestQueue(maind);
+            JSONObject out = new JSONObject();
+            try {
+                out.put("desc",desc);
+                out.put("components", parsed);
+                out.put("local", local);
+                out.put("price",price);
+            }catch (JSONException e){
+                e.printStackTrace();
+            }
+
+            JsonObjectRequest lastFMAuthRequest = new JsonObjectRequest(Request.Method.POST, url + "/placeOrder", out ,s , new Response.ErrorListener() {
+                @Override
+                public void onErrorResponse(VolleyError error) {
+                    System.out.print(error.networkResponse);
+
+                }
+            });
+
+            queue.add(lastFMAuthRequest);
+        }else{
+            getFood(list.get(index), new Response.Listener<JSONObject>(){
+                @Override
+                public void onResponse(JSONObject response) {
+                    try {
+                        String c = (String) response.get("food_id");
+                        parsed.concat(c);
+                        placeOrders(index+1,price,desc,list,local,parsed,s);
+                    } catch (JSONException e) {
+                        e.printStackTrace();
+                    }
+                }
+            });
+        }
+    }
+
+    /**
+     * Gets orders, Response.Listener must be used recursively to call this function. If Response is empty then that means there are no more orders.
+     * @param index this should be 0 and then recursively add index+1
+     * @param s event response
+     */
+    public void getOrders(int index,final Response.Listener<JSONObject> s){
+        RequestQueue queue = Volley.newRequestQueue(maind);
+        JSONObject out = new JSONObject();
+        try{
+            out.put("index",index);
+        }catch (JSONException e){
+            e.printStackTrace();
+        }
+
+        JsonObjectRequest lastFMAuthRequest = new JsonObjectRequest(Request.Method.POST, url + "/getOrder", out,s , new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                System.out.print(error.networkResponse);
+
+            }
+
+        });
+        queue.add(lastFMAuthRequest);
+    }
 
 
 }
