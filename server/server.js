@@ -52,6 +52,30 @@ router.post("/getLog", function(req,res){
   });
 });
 
+router.post("/getFood", function(req,res){
+  data_base.getFood(req.body, function(resp){
+    res.json(resp);
+  });
+});
+
+router.post("/addFood", function(req,res){
+  data_base.addFood(req.body, function(resp){
+    res.json(resp);
+  })
+});
+
+router.post("/placeOrder", function(req,res){
+  data_base.placeOrder(req.body, function(resp){
+    res.json(resp);
+  })
+});
+
+router.post("/getOrder", function(req,res){
+  data_base.getOrders(req.body, function(resp){
+    res.json(resp);
+  });
+});
+
 router.post("/getAccount", function(req,res){
   console.log(req.body.name)
   if(req.body.name){

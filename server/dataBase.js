@@ -163,10 +163,96 @@ method.logEvent = function(json_info,callBack){
 });
 
 });
-
-
-    
+   
 }
 
+method.getFood = function(json_info,callBack){
+    var con = this.connection;
+    var foodName = json_info.name;
+    var sql = "SELECT * FROM FOOD WHERE NAME = '" + foodName + "'";
+    console.log(sql);
+    con.query(sql,function(err,rows){
+        if(rows.length>0){
+            var data = {
+            name: rows[0].NAME,
+            food_id: rows[0].FOOD_ID,
+            quantity: rows[0].QUANTITY,
+            price: rows[0].PRICE,
+            desc: rows[0].DESCR 
+        };
+        return callBack(data);
+        }
+        
+    });
+}
+
+method.addFood = function(json_info,cb){
+    var con = this.connection;
+    console.log(data);
+    var sql = "SELECT * FROM FOOD WHERE NAME = '" + json_info.name + "'";
+    console.log(sql);
+    con.query(sql,function(err,rows){
+        if(rows.length>0){
+            sql = "UPDATE FOOD SET QUANTITY = " + rows[0].QUANTITY + json_info.quan  + ",PRICE = " + json_info.price + ",DESCR = '" + json_info.desc + "' WHERE NAME = '" + json_info.name + "' ;";
+            console.log(sql); 
+            con.query(sql,function(err,rows){
+                if(err){
+                    throw err;
+                }
+                return cb({added:1});
+            });
+        }else{
+            sql = "INSERT INTO FOOD VALUES('" + json_info.name + "',NULL," + json_info.quan + "," + json_info.price + ",'" + json_info.desc + "');"
+            console.log(sql);
+            con.query(sql,function(err,rows_){
+                if(err){
+                    throw err;
+                }
+                return cb({added:1});
+            });
+        }
+    });
+}
+
+method.placeOrder = function(json_info,cb){
+    var con = this.connection;
+    console.log(json_info);
+    var desc = json_info.desc;
+    var componentString = json_info.components;
+    var local = json_info.local;
+    var price = json_info.price;
+    var sql = "INSERT INTO ORDERS VALUES('" + desc + "',NULL,'" + componentString + "','" + local + "'," + price + ");"; 
+    console.log(sql);
+    con.query(sql, function(err,rows){
+        if(err){
+            throw err;
+        }
+        return cb({success:1});
+    });
+}
+
+method.getOrders = function(json_info,cb){
+    var con = this.connection;
+    var i = json_info.index;
+    var sql = "SELECT * FROM ORDERS";
+    console.log(sql);
+    con.query(sql, function(err,rows){
+        if(err){
+            throw err;
+        }
+        if(rows.length > 0){
+            var json = {
+            desc: rows[i].DESCRIP,
+            order_id: rows[i].ORDER_ID,
+            componentString: rows[i].FOODSTRING,
+            local: rows[i].LOCATION,
+            price: rows[i].PRICE
+        };
+        return cb(json);
+        }
+        
+
+    })
+}
 
 module.exports = SQLDataBase;
