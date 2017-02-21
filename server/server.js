@@ -76,6 +76,12 @@ router.post("/getOrder", function(req,res){
   });
 });
 
+router.post("/getFoodByIDString",function(req,res){
+  data_base.getFoodByID(req.body, function(resp){
+    res.json(resp);
+  })
+});
+
 router.post("/getAccount", function(req,res){
   console.log(req.body.name)
   if(req.body.name){
