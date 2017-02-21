@@ -13,4 +13,5 @@
     <string name="payroll">Payrol</string>
     <string name="payrol">Payroll</string>
     <string name="editusers">EditUsers</string>
+    <string name="add_employee">Add_Employee</string>
 </resources>

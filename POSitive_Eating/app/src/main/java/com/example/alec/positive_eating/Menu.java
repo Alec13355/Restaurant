@@ -46,41 +46,49 @@ public class Menu extends ActionBarActivity {
         List<String> child2 = new ArrayList<String>();
         List<String> child3 = new ArrayList<String>();
         List<String> child4 = new ArrayList<String>();
+        List<String> child5 = new ArrayList<String>();
 
         // Hash map for both header and child
         HashMap<String, List<String>> hashMap = new HashMap<String, List<String>>();
 
         // Adding headers to list
-        for (int i = 1; i < 5; i++) {
-            header.add("Group " + i);
+        header.add("Table #");
+        header.add("Hamburger");
+        header.add("Chicken Sandwhich");
+        header.add("Fettuccine Alfredo");
+        header.add("Salad");
 
+        for(int i =1;i<16;i++) {
+            child1.add(""+i);
         }
         // Adding child data
-        for (int i = 1; i < 5; i++) {
-            child1.add("Group 1  - " + " : Child" + i);
 
-        }
+        child2.add("Cheese");
+        child2.add("Tomato");
+        child2.add("Onion");
+        child2.add("Pickles");
+
+
         // Adding child data
-        for (int i = 1; i < 5; i++) {
-            child2.add("Group 2  - " + " : Child" + i);
-
-        }
+        child3.add("Cheese");
+        child3.add("Tomato");
+        child3.add("Onion");
+        child3.add("Pickles");
         // Adding child data
-        for (int i = 1; i < 6; i++) {
-            child3.add("Group 3  - " + " : Child" + i);
-
-        }
+        child4.add("Extra Cheese");
         // Adding child data
-        for (int i = 1; i < 7; i++) {
-            child4.add("Group 4  - " + " : Child" + i);
-
-        }
+        child5.add("Ranch");
+        child5.add("Honey Mustard");
+        child5.add("Cesar");
+        child5.add("French");
+        child5.add("Plain");
 
         // Adding header and childs to hash map
         hashMap.put(header.get(0), child1);
         hashMap.put(header.get(1), child2);
         hashMap.put(header.get(2), child3);
         hashMap.put(header.get(3), child4);
+        hashMap.put(header.get(4), child5);
 
         adapter = new ExpandableListAdapter(Menu.this, header, hashMap);
 

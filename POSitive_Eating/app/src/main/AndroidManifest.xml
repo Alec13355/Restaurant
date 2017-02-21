@@ -21,7 +21,8 @@
         <activity android:name=".Seating" />
         <activity android:name=".Schedule" />
         <activity android:name=".EditStaff" />
-        <activity android:name=".Payroll"></activity>
+        <activity android:name=".Payroll" />
+        <activity android:name=".add_employee"></activity>
     </application>
 
 </manifest>
