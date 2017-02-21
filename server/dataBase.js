@@ -188,7 +188,6 @@ method.getFood = function(json_info,callBack){
 
 method.addFood = function(json_info,cb){
     var con = this.connection;
-    console.log(data);
     var sql = "SELECT * FROM FOOD WHERE NAME = '" + json_info.name + "'";
     console.log(sql);
     con.query(sql,function(err,rows){
@@ -247,12 +246,49 @@ method.getOrders = function(json_info,cb){
             componentString: rows[i].FOODSTRING,
             local: rows[i].LOCATION,
             price: rows[i].PRICE
-        };
-        return cb(json);
+            };
+            return cb(json);
         }
         
 
     })
 }
+
+method.getFoodByID = function(json_info,cb){
+    var json;
+    var food = json_input.food;
+    parseFID(0,json,food,function(res){
+        return cb(res);
+    });
+
+    
+}
+
+function parseFID(index,json,foodIDS,cb){
+    var con = this.connection;
+    for(var x=0;x<food.length;x++){
+        if(food.charAt(x)==="-"){
+          var sql = "SELECT * FROM FOOD WHERE FOOD_ID =" + cache;
+           console.log(sql);
+           con.query(sql,function(err,rows){
+               if(err){
+                   throw err;
+               }
+               json["NAME"+index] = rows[0].NAME;
+               json["FOOD_ID"+index] = rows[0].ORDER_ID;
+               json["QUANTITY"+index] = rows[0].QUANTITY;
+               json["PRICE"+index] = rows[0].PRICE;
+               json["DESCR"+index] = rows[0].DESCR;
+               parseFID(index+1,json,foodIDS.substring(x+1,foodIDS.length),cb);
+           }); 
+        }else{
+            cache+=food.charAt(x);
+        }
+    }
+    return cb(json);
+}
+
+
+
 
 module.exports = SQLDataBase;
