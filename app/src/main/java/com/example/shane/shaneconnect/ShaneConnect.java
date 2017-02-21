@@ -107,7 +107,7 @@ public class ShaneConnect {
         queue.add(lastFMAuthRequest);
     }
     public String dontUseThis(){
-        return "Fuck the world";
+        return "Fuck Drake Rhone";
     }
 
     /**
@@ -174,7 +174,7 @@ public class ShaneConnect {
     /**
      * The response should provide a json object in the form {name:String,food_id:int,quantity: int,price:int,desc:String} returns null if nothing found.
      * @param name of food
-     * @param s response listenter
+     * @param s response listenter that the response json object is in the form {name:String,food_id:String,quantity:int,price:int,desc:String}
      */
     public void getFood(String name,Response.Listener<JSONObject> s){
         RequestQueue queue = Volley.newRequestQueue(maind);
@@ -201,7 +201,7 @@ public class ShaneConnect {
      * @param price price of the food item.
      * @param desc description of food item.
      * @param quan the quantity of items
-     * @param s call back method
+     * @param s call back method response will be null if did not work
      */
     public void addFood(String name,int price,String desc,int quan, Response.Listener<JSONObject> s ){
         RequestQueue queue = Volley.newRequestQueue(maind);
@@ -228,9 +228,9 @@ public class ShaneConnect {
     /**
      * Method used to place orders
      * @param desc description of the order
-     * @param comp
-     * @param local
-     * @param s
+     * @param comp a list of food items used in this order for example if you ordered a hamburger and there was a hamburger in the food table you would do list.add("hamburger").
+     * @param local A string that holds the location or where the meal will go. For example table 9
+     * @param s response method that responds with a json object in the form of {success:1} but if it failed to do it wont return anything and be null.
      */
     public void placeOrder(String desc,ArrayList<String> comp,int price, String local, Response.Listener<JSONObject> s ){
         String par = "";
@@ -264,9 +264,10 @@ public class ShaneConnect {
                 @Override
                 public void onResponse(JSONObject response) {
                     try {
-                        String c = (String) response.get("food_id");
-                        parsed.concat(c);
-                        placeOrders(index+1,price,desc,list,local,parsed,s);
+                        String c = "" + response.get("food_id");
+                        String newParsed = parsed + c;
+                        newParsed += "-";
+                        placeOrders(index+1,price,desc,list,local,newParsed,s);
                     } catch (JSONException e) {
                         e.printStackTrace();
                     }
@@ -278,7 +279,7 @@ public class ShaneConnect {
     /**
      * Gets orders, Response.Listener must be used recursively to call this function. If Response is empty then that means there are no more orders.
      * @param index this should be 0 and then recursively add index+1
-     * @param s event response
+     * @param s event response, sends JSON in the form {desc:String,order_id:int,componentString:String,local:String,price:int}. local is the location either being a table or an address.
      */
     public void getOrders(int index,final Response.Listener<JSONObject> s){
         RequestQueue queue = Volley.newRequestQueue(maind);
@@ -290,6 +291,43 @@ public class ShaneConnect {
         }
 
         JsonObjectRequest lastFMAuthRequest = new JsonObjectRequest(Request.Method.POST, url + "/getOrder", out,s , new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                System.out.print(error.networkResponse);
+
+            }
+
+        });
+        queue.add(lastFMAuthRequest);
+    }
+
+    /**
+     * Method to get all the food in a given id string. May be useful when working with getting orders.
+     * @param foodIDS a string of food orders in the form x-x-x- . The format given from calling getOrders should work when using the componentString from the given JSON object.
+     * @param s response method, the response json object is in the format {NAME(ID):String,FOOD_ID(ID):int,QUANTITY(ID):int,PRICE(ID):int,DESCR(ID):String}, Where (ID) is the concatenation of DESCR + ID for example.
+     * Here is some sample code on how to use this to get all orders
+     *          public void test(final int index, final ShaneConnect s, final TextView v) {
+                    s.getOrders(index, new Response.Listener<JSONObject>() {
+                        @Override
+                        public void onResponse(JSONObject response) {
+                            v.setText(response.toString() + v.getText());
+                            test(index+1,s,v);
+                        }
+
+                    });
+                }
+     *
+     *          for index you will want to enter an argument 0
+     */
+    public void getFoodByID(String foodIDS,final Response.Listener<JSONObject> s){
+        RequestQueue queue = Volley.newRequestQueue(maind);
+        JSONObject out = new JSONObject();
+        try{
+            out.put("food",foodIDS);
+        }catch (JSONException e){
+            e.printStackTrace();
+        }
+        JsonObjectRequest lastFMAuthRequest = new JsonObjectRequest(Request.Method.POST, url + "/getFoodByIDString", out,s , new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
                 System.out.print(error.networkResponse);

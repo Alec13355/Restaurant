@@ -34,20 +34,62 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        final TextView v = (TextView) findViewById(R.id.display);
         //authGetRequest();
-        ShaneConnect d = new ShaneConnect("http://10.0.2.2:3019",this);
-        ArrayList<JSONObject> l;
-        l = d.getEmployeeLog("Smith_Bob_1");
-        TextView v = (TextView)findViewById(R.id.display);
-        String disp="";
-        for(int x=0;x<l.size();x++){
-            disp+=l.get(x).toString();
+        final ShaneConnect d = new ShaneConnect("http://10.0.2.2:3019", this);
+        ArrayList<String> s = new ArrayList<String>();
+        test(0,d,v);
+        /*
+        d.placeOrder("Raw Cow", s, 40, "table 9", new Response.Listener<JSONObject>() {
+            @Override
+            public void onResponse(JSONObject response) {
+
+            }
+
+        });
+    }
+    */
+  /*      d.getFood("burger", new Response.Listener<JSONObject>() {
+            @Override
+            public void onResponse(JSONObject response) {
+                v.setText(response.toString());
+            }
+
+        });
+
+
+    }*/
+
+        /*class Disp implements Response.Listener<JSONException> {
+
+            TextView v;
+
+            Disp(TextView v){
+                super();
+                this.v = v;
+            }
+
+            @Override
+            public void onResponse(JSONException response) {
+                v.setText(v.getText()+response.toString());
+                d.getOrders();
+            }
+
+
         }
-        v.setText(disp);
-
-
+        */
 
     }
+    public void test(final int index, final ShaneConnect s, final TextView v) {
+        s.getOrders(index, new Response.Listener<JSONObject>() {
+            @Override
+            public void onResponse(JSONObject response) {
+                v.setText(response.toString() + v.getText());
+                test(index+1,s,v);
+            }
+
+        });
+    }
+
 
 }
-
