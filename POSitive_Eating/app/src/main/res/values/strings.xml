@@ -25,4 +25,7 @@
     <string name="lastname">lastName</string>
     <string name="routingnumber">routingNumber</string>
     <string name="add_employee_button">Add Employee</string>
+    <string name="clock_in">Clock in?</string>
+    <string name="no">No</string>
+    <string name="yes">Yes</string>
 </resources>

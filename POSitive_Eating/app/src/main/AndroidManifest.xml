@@ -22,7 +22,8 @@
         <activity android:name=".Schedule" />
         <activity android:name=".EditStaff" />
         <activity android:name=".Payroll" />
-        <activity android:name=".add_employee"></activity>
+        <activity android:name=".add_employee" />
+        <activity android:name=".Clocking_in"></activity>
     </application>
 
 </manifest>

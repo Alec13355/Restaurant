@@ -14,7 +14,6 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:inputType="textPersonName"
-        android:text="@string/firstname"
         android:ems="10"
         android:layout_alignParentTop="true"
         android:layout_alignParentLeft="true"
@@ -28,7 +27,6 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:inputType="textPersonName"
-        android:text="@string/social"
         android:ems="10"
         android:layout_below="@+id/lastName"
         android:layout_alignParentLeft="true"
@@ -42,7 +40,6 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:inputType="textPersonName"
-        android:text="@string/routingnumber"
         android:ems="10"
         android:layout_below="@+id/Social"
         android:layout_alignParentLeft="true"
@@ -57,7 +54,6 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:inputType=""
-        android:text="@string/banknumber"
         android:ems="10"
         android:layout_below="@+id/routingNumber"
         android:layout_alignRight="@+id/routingNumber"
@@ -72,7 +68,6 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:inputType="textPersonName"
-        android:text="@string/lastname"
         android:ems="10"
         android:id="@+id/lastName"
         android:hint="@string/last_name"
@@ -89,5 +84,5 @@
         android:layout_alignParentBottom="true"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true"
-        android:id="@+id/Add Employee" />
+        android:id="@+id/Add_Person" />
 </RelativeLayout>
