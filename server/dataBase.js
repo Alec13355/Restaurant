@@ -55,6 +55,43 @@ method.setUser = function(json_input,callBack){
         
 }
 
+method.setTable = function(json_info,callBack){
+    var sql = "INSERT INTO TABLES VALUES('" + json_info.name + "',NULL," + json_info.xcoord + "," + json_info.ycoord + ");";
+    console.log(sql);
+    var con = this.connection;
+    con.query(sql, function(err,rows){
+        if(err){
+            throw err;
+        }
+        return callBack({success:1});
+
+    });
+}
+
+method.getTable = function(json_info,cb){
+    var sql = "SELECT * FROM TABLES";
+    console.log(sql);
+    var con = this.connection;
+    con.query(sql,function(err,rows){
+        if(err){
+            throw err;
+        }
+        if(rows[i]){
+            var i = json_info.index;
+            var data = {
+            name: rows[i].NAME,
+            id: rows[i].TABLE_ID,
+            x_coord: rows[i].X_COORD,
+            y_coord: rows[i].Y_COORD
+        }
+        return cb(data);
+        }else{
+            return cb({done:1});
+        }
+        
+    });
+}
+
 method.getUser = function(json_user,callBack){
     var sql = "SELECT * FROM EMPLOYEES WHERE L_NAME = '" + json_user.lname + "' AND F_NAME = '" + json_user.fname + "' AND EMPLOYEE_ID = " + json_user.id ;
     console.log(sql);
@@ -75,6 +112,25 @@ method.getUser = function(json_user,callBack){
                 rate: rows[0].PAY_HR
             };
             return callBack(data);
+    });
+}
+
+method.getTableByName = function(json_info,cb){
+    var name = json_info.name;
+    var sql = "SELECT * FROM TABLES WHERE NAME = '" + name + "'";
+    console.log(sql);
+    this.connection.query(sql,function(err,rows){
+        if(err){
+            throw err;
+        }
+         
+        var data = {
+            name: rows[0].NAME,
+            id: rows[0].TABLE_ID,
+            x_coord: rows[0].X_COORD,
+            y_coord: rows[0].Y_COORD
+        }
+        return cb(data);
     });
 }
 
