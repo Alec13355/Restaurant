@@ -13,14 +13,14 @@ var mysql = require("mysql");
  */
 //use bodyParser() to let us get the data from a POST
 app.use(bodyParser.json());
-var port = 3019;
+var port = 2020;
 app.use(bodyParser.urlencoded({ 
    extended: true 
 }));
 var router = express.Router();
 var path = __dirname + '/views/';
-//var data_base = new DataBase(mysql,'localhost','dbu309yt4','ZDQyY2E5OTQ2','db309yt4');
-var data_base = new DataBase(mysql,'localhost','shane','devPassword','restaurant');
+var data_base = new DataBase(mysql,'localhost','dbu309yt4','ZDQyY2E5OTQ2','db309yt4');
+//var data_base = new DataBase(mysql,'localhost','shane','devPassword','restaurant');
 app.use("/",router);
 app.listen(port,function(){
   console.log("Live at Port " + port);
@@ -61,13 +61,13 @@ router.post("/getFood", function(req,res){
 router.post("/addFood", function(req,res){
   data_base.addFood(req.body, function(resp){
     res.json(resp);
-  })
+  });
 });
 
 router.post("/placeOrder", function(req,res){
   data_base.placeOrder(req.body, function(resp){
     res.json(resp);
-  })
+  });
 });
 
 router.post("/getOrder", function(req,res){
@@ -78,6 +78,24 @@ router.post("/getOrder", function(req,res){
 
 router.post("/getFoodByIDString",function(req,res){
   data_base.getFoodByID(req.body, function(resp){
+    res.json(resp);
+  });
+});
+
+router.post("/setTable", function(req,res){
+  data_base.setTable(req.body, function(resp){
+    res.json(resp);
+  })
+});
+
+router.post("/getTable", function(req,res){
+  data_base.getTable(req.body, function(resp){
+    res.json(resp);
+  });
+});
+
+router.post("/getTableWithName", function(req,res){
+  data_base.getTableByName(req.body, function(resp){
     res.json(resp);
   })
 });
