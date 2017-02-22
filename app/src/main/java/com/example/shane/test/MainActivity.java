@@ -84,8 +84,11 @@ public class MainActivity extends AppCompatActivity {
         s.getOrders(index, new Response.Listener<JSONObject>() {
             @Override
             public void onResponse(JSONObject response) {
-                v.setText(response.toString() + v.getText());
-                test(index+1,s,v);
+                    if(response.length()>0){
+                        v.setText(response.toString() + v.getText());
+                        test(index+1,s,v);
+                    }
+
             }
 
         });

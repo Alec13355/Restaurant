@@ -310,8 +310,10 @@ public class ShaneConnect {
                     s.getOrders(index, new Response.Listener<JSONObject>() {
                         @Override
                         public void onResponse(JSONObject response) {
-                            v.setText(response.toString() + v.getText());
-                            test(index+1,s,v);
+                            if(response.length()>0){
+                                v.setText(response.toString() + v.getText());
+                                test(index+1,s,v);
+                            }
                         }
 
                     });
@@ -337,6 +339,87 @@ public class ShaneConnect {
         });
         queue.add(lastFMAuthRequest);
     }
+
+    /**
+     * Gets a table with an index. This is used to get all tables because it can be used recursively similarly to the example
+     * given for getFoodByID
+     * @param index the index of each table
+     * @param s response function, response will be in the form {name:String,id:int,x_coord:int,y_coord:int} or if requesting
+     *          an index that does not exist response will be in the form {done:1}
+     */
+    public void getTables(int index,Response.Listener<JSONObject> s){
+        RequestQueue queue = Volley.newRequestQueue(maind);
+        JSONObject out = new JSONObject();
+        try{
+            out.put("index", index);
+        }catch (JSONException e){
+            e.printStackTrace();
+        }
+        JsonObjectRequest lastFMAuthRequest = new JsonObjectRequest(Request.Method.POST, url + "/getTable", out,s , new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                System.out.print(error.networkResponse);
+
+            }
+
+        });
+        queue.add(lastFMAuthRequest);
+    }
+
+    /**
+     * Used to add a table to the database.
+     * @param name the name of the table
+     * @param x the x coordinate
+     * @param y the y coordinate
+     * @param s the response method that has a response in the form {success:1} if it was able to create a table
+     */
+    public void setTable(String name,int x,int y,Response.Listener<JSONObject> s){
+        RequestQueue queue = Volley.newRequestQueue(maind);
+        JSONObject out = new JSONObject();
+        try{
+            out.put("name",name);
+            out.put("xcoord",x);
+            out.put("ycoord",y);
+        }catch (JSONException e){
+            e.printStackTrace();
+        }
+        JsonObjectRequest lastFMAuthRequest = new JsonObjectRequest(Request.Method.POST, url + "/setTable", out,s , new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                System.out.print(error.networkResponse);
+
+            }
+
+        });
+        queue.add(lastFMAuthRequest);
+    }
+
+    /**
+     * This calls the database for a table of a name given.
+     * If two tables exist with the same name it will only get the first one.
+     * @param name name of the table you are searching for
+     * @param s response function that the response will have the form of {name:String,id:int,x_coord:int,y_coord:int}.
+     */
+    public void getTableByName(String name,Response.Listener<JSONObject> s){
+        RequestQueue queue = Volley.newRequestQueue(maind);
+        JSONObject out = new JSONObject();
+        try{
+            out.put("name",name);
+        }catch (JSONException e){
+            e.printStackTrace();
+        }
+        JsonObjectRequest lastFMAuthRequest = new JsonObjectRequest(Request.Method.POST, url + "/getTableWithName", out,s , new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                System.out.print(error.networkResponse);
+
+            }
+
+        });
+        queue.add(lastFMAuthRequest);
+    }
+
+
 
 
 }

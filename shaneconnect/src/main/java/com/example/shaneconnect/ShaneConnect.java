@@ -1,14 +1,14 @@
-package com.example.shaneconnect;
+package com.example.shane.shaneconnect;
 
 import android.content.Context;
 
+import com.android.volley.Cache;
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
-
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -232,7 +232,7 @@ public class ShaneConnect {
      * @param local A string that holds the location or where the meal will go. For example table 9
      * @param s response method that responds with a json object in the form of {success:1} but if it failed to do it wont return anything and be null.
      */
-    public void placeOrder(String desc, ArrayList<String> comp, int price, String local, Response.Listener<JSONObject> s ){
+    public void placeOrder(String desc,ArrayList<String> comp,int price, String local, Response.Listener<JSONObject> s ){
         String par = "";
         placeOrders(0,price,desc,comp,local,par,s);
     }
@@ -310,8 +310,10 @@ public class ShaneConnect {
     s.getOrders(index, new Response.Listener<JSONObject>() {
     @Override
     public void onResponse(JSONObject response) {
+    if(response.length()>0){
     v.setText(response.toString() + v.getText());
     test(index+1,s,v);
+    }
     }
 
     });
@@ -337,6 +339,87 @@ public class ShaneConnect {
         });
         queue.add(lastFMAuthRequest);
     }
+
+    /**
+     * Gets a table with an index. This is used to get all tables because it can be used recursively similarly to the example
+     * given for getFoodByID
+     * @param index the index of each table
+     * @param s response function, response will be in the form {name:String,id:int,x_coord:int,y_coord:int} or if requesting
+     *          an index that does not exist response will be in the form {done:1}
+     */
+    public void getTables(int index,Response.Listener<JSONObject> s){
+        RequestQueue queue = Volley.newRequestQueue(maind);
+        JSONObject out = new JSONObject();
+        try{
+            out.put("index", index);
+        }catch (JSONException e){
+            e.printStackTrace();
+        }
+        JsonObjectRequest lastFMAuthRequest = new JsonObjectRequest(Request.Method.POST, url + "/getTable", out,s , new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                System.out.print(error.networkResponse);
+
+            }
+
+        });
+        queue.add(lastFMAuthRequest);
+    }
+
+    /**
+     * Used to add a table to the database.
+     * @param name the name of the table
+     * @param x the x coordinate
+     * @param y the y coordinate
+     * @param s the response method that has a response in the form {success:1} if it was able to create a table
+     */
+    public void setTable(String name,int x,int y,Response.Listener<JSONObject> s){
+        RequestQueue queue = Volley.newRequestQueue(maind);
+        JSONObject out = new JSONObject();
+        try{
+            out.put("name",name);
+            out.put("xcoord",x);
+            out.put("ycoord",y);
+        }catch (JSONException e){
+            e.printStackTrace();
+        }
+        JsonObjectRequest lastFMAuthRequest = new JsonObjectRequest(Request.Method.POST, url + "/setTable", out,s , new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                System.out.print(error.networkResponse);
+
+            }
+
+        });
+        queue.add(lastFMAuthRequest);
+    }
+
+    /**
+     * This calls the database for a table of a name given.
+     * If two tables exist with the same name it will only get the first one.
+     * @param name name of the table you are searching for
+     * @param s response function that the response will have the form of {name:String,id:int,x_coord:int,y_coord:int}.
+     */
+    public void getTableByName(String name,Response.Listener<JSONObject> s){
+        RequestQueue queue = Volley.newRequestQueue(maind);
+        JSONObject out = new JSONObject();
+        try{
+            out.put("name",name);
+        }catch (JSONException e){
+            e.printStackTrace();
+        }
+        JsonObjectRequest lastFMAuthRequest = new JsonObjectRequest(Request.Method.POST, url + "/getTableWithName", out,s , new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                System.out.print(error.networkResponse);
+
+            }
+
+        });
+        queue.add(lastFMAuthRequest);
+    }
+
+
 
 
 }
