@@ -10,4 +10,13 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="com.example.alec.positive_eating.Schedule">
 
+    <Button
+        android:text="@string/button32"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/OrderStatButton"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:id="@+id/Button22"
+        tools:ignore="RelativeOverlap" />
 </RelativeLayout>

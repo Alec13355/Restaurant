@@ -28,4 +28,6 @@
     <string name="clock_in">Clock in?</string>
     <string name="no">No</string>
     <string name="yes">Yes</string>
+    <string name="title_activity_order_menu">order_menu</string>
+    <string name="button32">Button</string>
 </resources>
