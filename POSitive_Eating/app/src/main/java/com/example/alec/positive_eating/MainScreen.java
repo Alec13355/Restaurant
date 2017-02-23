@@ -9,7 +9,7 @@ import android.view.View;
 import android.content.Intent;
 
 public class MainScreen extends AppCompatActivity {
-Button Seating,Menu,Status,schedule,Edit_users,Payroll;//Delares the button variables
+Button Seating,Menu,Status,schedule,Edit_users,Payroll,addTableMap,viewTableMap;//Delares the button variables
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -20,6 +20,8 @@ Button Seating,Menu,Status,schedule,Edit_users,Payroll;//Delares the button vari
         schedule=(Button)findViewById(R.id.Schedule);
         Edit_users=(Button)findViewById(R.id.Edit_Users);
         Payroll=(Button)findViewById(R.id.Payroll);
+        addTableMap=(Button)findViewById(R.id.addTableMap);
+        viewTableMap=(Button)findViewById(R.id.viewTableMap);
         //Initilizes the buttons.
 
         Edit_users.setOnClickListener(
@@ -85,6 +87,34 @@ Button Seating,Menu,Status,schedule,Edit_users,Payroll;//Delares the button vari
 
 
                         Intent myIntent = new Intent(MainScreen.this, Seating.class); /** Class name here */
+                        MainScreen.this.startActivity(myIntent);
+                    }
+                }
+
+        );
+        addTableMap.setOnClickListener(
+
+                new View.OnClickListener()
+                {
+                    public void onClick(View view)
+                    {
+
+
+                        Intent myIntent = new Intent(MainScreen.this, tableMap.class); /** Class name here */
+                        MainScreen.this.startActivity(myIntent);
+                    }
+                }
+
+        );
+        addTableMap.setOnClickListener(
+
+                new View.OnClickListener()
+                {
+                    public void onClick(View view)
+                    {
+
+
+                        Intent myIntent = new Intent(MainScreen.this, tableMap.class); /** Class name here */
                         MainScreen.this.startActivity(myIntent);
                     }
                 }
