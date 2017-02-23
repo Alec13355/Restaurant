@@ -65,7 +65,7 @@ public class viewTableMap extends AppCompatActivity {
                 tempName.setLayoutParams(textLayoutParams);
                 tempFrame.addView(tempName);
 
-                System.out.println(String.valueOf(allTables.size())); //debug statement
+                //System.out.println(String.valueOf(allTables.size())); //debug statement
 
                 mRootLayout.addView(tempFrame);
                 allTables.add(tempFrame);

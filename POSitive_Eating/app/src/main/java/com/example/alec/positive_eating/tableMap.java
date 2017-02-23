@@ -123,7 +123,7 @@ public class tableMap extends Activity {
                 tempName.setLayoutParams(textLayoutParams);
                 tempFrame.addView(tempName);
 
-                System.out.println(String.valueOf(allTables.size())); //debug statement
+                //System.out.println(String.valueOf(allTables.size())); //debug statement
 
                 tempFrame.setOnTouchListener(new MyTouchListener());
                 mRootLayout.addView(tempFrame);
@@ -179,7 +179,7 @@ public class tableMap extends Activity {
                     layoutParams.rightMargin = 350;
                     layoutParams.bottomMargin = 350;
                     view.setLayoutParams(layoutParams);
-                    System.out.println("X: " + String.valueOf(view.getX()) + ", Y: " + String.valueOf(view.getY())); //debug
+                    //System.out.println("X: " + String.valueOf(view.getX()) + ", Y: " + String.valueOf(view.getY())); //debug
                     break;
             }
             mRootLayout.invalidate();
