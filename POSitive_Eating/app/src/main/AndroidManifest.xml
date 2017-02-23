@@ -24,6 +24,12 @@
         <activity android:name=".Payroll" />
         <activity android:name=".add_employee" />
         <activity android:name=".Clocking_in"></activity>
+        <service
+            android:name=".ShaneConnectService"
+            android:enabled="true"
+            android:exported="false">
+
+        </service>
     </application>
 
 </manifest>
