@@ -1,0 +1,10 @@
+<component name="libraryTable">
+  <library name="shaneconnect-release-">
+    <CLASSES>
+      <root url="file://$PROJECT_DIR$/app/build/intermediates/exploded-aar/shaneconnect-release/res" />
+      <root url="jar://$PROJECT_DIR$/app/build/intermediates/exploded-aar/shaneconnect-release/jars/classes.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
