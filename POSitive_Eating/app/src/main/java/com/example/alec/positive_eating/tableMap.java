@@ -25,6 +25,8 @@ import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import com.example.shaneconnect.ShaneConnect;
+
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
@@ -41,50 +43,76 @@ public class tableMap extends Activity {
         setContentView(R.layout.activity_table_map);
         mRootLayout = (RelativeLayout) findViewById(R.id.activity_table_map);
 
+
+
+        /*
+
+
+        sc.createAccount("Shinkle","Christian", "the permission", 0,
+            "bob", "1416 Mayfield", 7667, 2860, new Response.Listener<JSONObject>() {
+                @Override
+                public void onResponse(JSONObject response) {
+                    TextView tv = (TextView) findViewById(R.id.text_edit);
+                    tv.setText(response.toString());
+                }
+            });
+         */
+
+
         if (!allTables.isEmpty()) { //TODO if server table is not empty
-            String id;
-            int tempX, tempY;
-            Iterator iterator = allTables.iterator();
-            while (iterator.hasNext()) {
-                //add to server
-                View tempView = (View) iterator.next();
-                id = String.valueOf(tempView.getId()); //server
-                tempX = (int) tempView.getX(); //server
-                tempY = (int) tempView.getY(); //server
+                String id;
+                int tempX, tempY;
+                Iterator iterator = allTables.iterator();
+                while (iterator.hasNext()) {
+                    //add to server
+                    View tempView = (View) iterator.next();
+                    id = String.valueOf(tempView.getId()); //server
+                    tempX = (int) tempView.getX(); //server
+                    tempY = (int) tempView.getY(); //server
 
 
-                FrameLayout tempFrame = new FrameLayout(tableMap.this);
+                    FrameLayout tempFrame = new FrameLayout(tableMap.this);
 
-                ImageView temp = new ImageView(tableMap.this);
-                temp.setImageResource(R.drawable.squaretable);
-                RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(150, 150);
-                temp.setLayoutParams(layoutParams);
-                temp.setX((float) tempX);
-                temp.setY((float) tempY);
-                temp.setId(allTables.size()); //the id for the button we be it's index in the array + 1, this way there is no table 0 when it comes to labeling.
-                tempFrame.addView(temp);
+                    ImageView temp = new ImageView(tableMap.this);
+                    temp.setImageResource(R.drawable.squaretable);
+                    RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(150, 150);
+                    temp.setLayoutParams(layoutParams);
+                    temp.setX((float) tempX);
+                    temp.setY((float) tempY);
+                    temp.setId(allTables.size()); //the id for the button will be it's index in the array + 1, this way there is no table 0 when it comes to labeling.
+                    tempFrame.addView(temp);
 
-                //This is adding a label above the imageView so you know which table it is
-                TextView tempName = new TextView(tableMap.this);
-                tempName.setHeight(temp.getHeight());
-                tempName.setWidth(temp.getWidth());
-                tempName.setText(String.valueOf(allTables.size()));
-                tempName.setTextColor(Color.BLACK);
+                    //This is adding a label above the imageView so you know which table it is
+                    TextView tempName = new TextView(tableMap.this);
+                    tempName.setHeight(temp.getHeight());
+                    tempName.setWidth(temp.getWidth());
+                    tempName.setText(String.valueOf(allTables.size()));
+                    tempName.setTextColor(Color.BLACK);
 
-                RelativeLayout.LayoutParams textLayoutParams = new RelativeLayout.LayoutParams(150,150);
-                textLayoutParams.addRule(RelativeLayout.ALIGN_LEFT, temp.getId());
-                textLayoutParams.addRule(RelativeLayout.ALIGN_RIGHT, temp.getId());
-                textLayoutParams.addRule(RelativeLayout.ALIGN_TOP, temp.getId());
-                textLayoutParams.addRule(RelativeLayout.ALIGN_BOTTOM, temp.getId());
-                textLayoutParams.addRule(RelativeLayout.CENTER_VERTICAL);
-                tempName.setLayoutParams(textLayoutParams);
-                tempFrame.addView(tempName);
+                    RelativeLayout.LayoutParams textLayoutParams = new RelativeLayout.LayoutParams(150,150);
+                    textLayoutParams.addRule(RelativeLayout.ALIGN_LEFT, temp.getId());
+                    textLayoutParams.addRule(RelativeLayout.ALIGN_RIGHT, temp.getId());
+                    textLayoutParams.addRule(RelativeLayout.ALIGN_TOP, temp.getId());
+                    textLayoutParams.addRule(RelativeLayout.ALIGN_BOTTOM, temp.getId());
+                    textLayoutParams.addRule(RelativeLayout.CENTER_VERTICAL);
+                    tempName.setLayoutParams(textLayoutParams);
+                    tempFrame.addView(tempName);
 
-                System.out.println(String.valueOf(allTables.size())); //debug statement
+                    System.out.println(String.valueOf(allTables.size())); //debug statement
 
-                mRootLayout.addView(tempFrame);
-                allTables.add(tempFrame);
-            }
+                    mRootLayout.addView(tempFrame);
+                    allTables.add(tempFrame);
+
+//                    ShaneConnect sc = new ShaneConnect("http://proj-309-yt-4.cs.iastate.edu:", this);
+//                    sc.setTable(String.valueOf(id), tempX, tempY, new Response.Listener<JSONObject>() {
+//                                @Override
+//                                public void onResponse(JSONObject response) {
+//                                    TextView tv = (TextView) findViewById(R.id.text_edit);
+//                                    tv.setText(response.toString());
+//                                }
+//                    });
+
+                }
         }
 
         Button tableAdd = (Button) findViewById(R.id.addTable);
@@ -179,7 +207,7 @@ public class tableMap extends Activity {
                     layoutParams.rightMargin = 350;
                     layoutParams.bottomMargin = 350;
                     view.setLayoutParams(layoutParams);
-                    //System.out.println("X: " + String.valueOf(view.getX()) + ", Y: " + String.valueOf(view.getY())); //debug
+                    System.out.println("X: " + String.valueOf(view.getX()) + ", Y: " + String.valueOf(view.getY())); //debug
                     break;
             }
             mRootLayout.invalidate();

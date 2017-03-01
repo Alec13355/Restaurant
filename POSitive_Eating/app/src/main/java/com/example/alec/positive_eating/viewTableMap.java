@@ -14,11 +14,13 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
-public class viewTableMap extends AppCompatActivity {
+
+public class  viewTableMap extends AppCompatActivity {
     private ViewGroup mRootLayout;
     private List<View> allTables = new ArrayList<>();
     private int _xDelta;
     private int _yDelta;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
