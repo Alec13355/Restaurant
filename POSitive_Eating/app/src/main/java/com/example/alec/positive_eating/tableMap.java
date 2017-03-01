@@ -103,15 +103,6 @@ public class tableMap extends Activity {
                     mRootLayout.addView(tempFrame);
                     allTables.add(tempFrame);
 
-//                    ShaneConnect sc = new ShaneConnect("http://proj-309-yt-4.cs.iastate.edu:", this);
-//                    sc.setTable(String.valueOf(id), tempX, tempY, new Response.Listener<JSONObject>() {
-//                                @Override
-//                                public void onResponse(JSONObject response) {
-//                                    TextView tv = (TextView) findViewById(R.id.text_edit);
-//                                    tv.setText(response.toString());
-//                                }
-//                    });
-
                 }
         }
 
@@ -156,6 +147,15 @@ public class tableMap extends Activity {
                 tempFrame.setOnTouchListener(new MyTouchListener());
                 mRootLayout.addView(tempFrame);
                 allTables.add(tempFrame);
+
+//                ShaneConnect sc = new ShaneConnect("http://proj-309-yt-4.cs.iastate.edu:", this);
+//                sc.setTable(String.valueOf(id), tempX, tempY, new Response.Listener<JSONObject>() {
+//                                @Override
+//                                public void onResponse(JSONObject response) {
+//                                    TextView tv = (TextView) findViewById(R.id.text_edit);
+//                                    tv.setText(response.toString());
+//                                }
+//             });
             }
         });
 
