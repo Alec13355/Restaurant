@@ -16,7 +16,9 @@
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme" >
-        <activity android:name="com.example.alec.positive_eating.LoginWindow" >
+        <activity
+            android:name="com.example.alec.positive_eating.LoginWindow"
+            android:screenOrientation="portrait" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -42,6 +44,8 @@
             android:name="com.example.alec.positive_eating.order_menu"
             android:label="@string/title_activity_order_menu"
             android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name="com.example.alec.positive_eating.tableMap" />
+        <activity android:name="com.example.alec.positive_eating.viewTableMap" />
     </application>
 
 </manifest>

@@ -19,14 +19,4 @@
         android:layout_alignParentEnd="true"
         android:id="@+id/Button22"
         tools:ignore="RelativeOverlap" />
-
-    <Button
-        android:text="@string/button32"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/Button50"
-        tools:ignore="RelativeOverlap"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
 </RelativeLayout>

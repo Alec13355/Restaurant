@@ -65,4 +65,23 @@
         android:layout_alignLeft="@+id/Schedule"
         android:layout_alignStart="@+id/Schedule"
         android:id="@+id/Payroll" />
+
+    <Button
+        android:text="Create Floor Plan"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/Seating_Button"
+        android:layout_alignRight="@+id/Seating_Button"
+        android:layout_alignEnd="@+id/Seating_Button"
+        android:layout_marginTop="57dp"
+        android:id="@+id/addTableMap" />
+
+    <Button
+        android:text="view \ntable map"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/addTableMap"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:id="@+id/viewTableMap" />
 </RelativeLayout>
