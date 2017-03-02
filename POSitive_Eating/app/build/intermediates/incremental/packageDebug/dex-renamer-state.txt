@@ -1,0 +1,7 @@
+#Fri Feb 24 09:13:30 CST 2017
+base.0=/Users/Alec/Desktop/untitled folder/POSitive_Eating/app/build/intermediates/transforms/dex/debug/folders/1000/10/instant-run-bootstrap_5408adcbed458c3fb09a67ae944abb5f3a405585
+renamed.1=classes.dex
+renamed.0=classes2.dex
+file.1=/Users/Alec/Desktop/untitled folder/POSitive_Eating/app/build/intermediates/transforms/dex/debug/folders/1000/10/instant-run_25d718c8201bf60365eb212b78e2e508b4e69adc/classes.dex
+base.1=/Users/Alec/Desktop/untitled folder/POSitive_Eating/app/build/intermediates/transforms/dex/debug/folders/1000/10/instant-run_25d718c8201bf60365eb212b78e2e508b4e69adc
+file.0=/Users/Alec/Desktop/untitled folder/POSitive_Eating/app/build/intermediates/transforms/dex/debug/folders/1000/10/instant-run-bootstrap_5408adcbed458c3fb09a67ae944abb5f3a405585/classes.dex

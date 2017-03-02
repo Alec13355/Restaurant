@@ -1,0 +1,122 @@
+-- Merging decision tree log ---
+manifest
+ADDED from /Users/Alec/Desktop/untitled folder/POSitive_Eating/app/src/main/AndroidManifest.xml:2:1-39:12
+	package
+		ADDED from /Users/Alec/Desktop/untitled folder/POSitive_Eating/app/src/main/AndroidManifest.xml:3:5-47
+		INJECTED from /Users/Alec/Desktop/untitled folder/POSitive_Eating/app/src/main/AndroidManifest.xml
+		INJECTED from /Users/Alec/Desktop/untitled folder/POSitive_Eating/app/src/main/AndroidManifest.xml
+	android:versionName
+		INJECTED from /Users/Alec/Desktop/untitled folder/POSitive_Eating/app/src/main/AndroidManifest.xml
+		INJECTED from /Users/Alec/Desktop/untitled folder/POSitive_Eating/app/src/main/AndroidManifest.xml
+	xmlns:android
+		ADDED from /Users/Alec/Desktop/untitled folder/POSitive_Eating/app/src/main/AndroidManifest.xml:2:11-69
+	android:versionCode
+		INJECTED from /Users/Alec/Desktop/untitled folder/POSitive_Eating/app/src/main/AndroidManifest.xml
+		INJECTED from /Users/Alec/Desktop/untitled folder/POSitive_Eating/app/src/main/AndroidManifest.xml
+uses-permission#android.permission.INTERNET
+ADDED from /Users/Alec/Desktop/untitled folder/POSitive_Eating/app/src/main/AndroidManifest.xml:4:5-67
+	android:name
+		ADDED from /Users/Alec/Desktop/untitled folder/POSitive_Eating/app/src/main/AndroidManifest.xml:4:22-64
+application
+ADDED from /Users/Alec/Desktop/untitled folder/POSitive_Eating/app/src/main/AndroidManifest.xml:5:5-37:19
+MERGED from [:shaneconnect-release:] /Users/Alec/Desktop/untitled folder/POSitive_Eating/app/build/intermediates/exploded-aar/shaneconnect-release/AndroidManifest.xml:11:5-15:19
+MERGED from [com.android.volley:volley:1.0.0] /Users/Alec/Desktop/untitled folder/POSitive_Eating/app/build/intermediates/exploded-aar/com.android.volley/volley/1.0.0/AndroidManifest.xml:9:5-20
+MERGED from [com.android.support:design:23.4.0] /Users/Alec/Desktop/untitled folder/POSitive_Eating/app/build/intermediates/exploded-aar/com.android.support/design/23.4.0/AndroidManifest.xml:22:5-20
+MERGED from [com.android.support:appcompat-v7:23.4.0] /Users/Alec/Desktop/untitled folder/POSitive_Eating/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.4.0/AndroidManifest.xml:25:5-20
+MERGED from [com.android.support:animated-vector-drawable:23.4.0] /Users/Alec/Desktop/untitled folder/POSitive_Eating/app/build/intermediates/exploded-aar/com.android.support/animated-vector-drawable/23.4.0/AndroidManifest.xml:7:5-20
+MERGED from [com.android.support:support-vector-drawable:23.4.0] /Users/Alec/Desktop/untitled folder/POSitive_Eating/app/build/intermediates/exploded-aar/com.android.support/support-vector-drawable/23.4.0/AndroidManifest.xml:7:5-20
+MERGED from [com.android.support:support-v4:23.4.0] /Users/Alec/Desktop/untitled folder/POSitive_Eating/app/build/intermediates/exploded-aar/com.android.support/support-v4/23.4.0/AndroidManifest.xml:22:5-20
+	android:label
+		ADDED from /Users/Alec/Desktop/untitled folder/POSitive_Eating/app/src/main/AndroidManifest.xml:8:9-41
+	android:supportsRtl
+		ADDED from /Users/Alec/Desktop/untitled folder/POSitive_Eating/app/src/main/AndroidManifest.xml:9:9-35
+	android:allowBackup
+		ADDED from /Users/Alec/Desktop/untitled folder/POSitive_Eating/app/src/main/AndroidManifest.xml:6:9-35
+	android:icon
+		ADDED from /Users/Alec/Desktop/untitled folder/POSitive_Eating/app/src/main/AndroidManifest.xml:7:9-43
+	android:theme
+		ADDED from /Users/Alec/Desktop/untitled folder/POSitive_Eating/app/src/main/AndroidManifest.xml:10:9-40
+activity#com.example.alec.positive_eating.LoginWindow
+ADDED from /Users/Alec/Desktop/untitled folder/POSitive_Eating/app/src/main/AndroidManifest.xml:11:9-17:20
+	android:name
+		ADDED from /Users/Alec/Desktop/untitled folder/POSitive_Eating/app/src/main/AndroidManifest.xml:11:19-46
+intent-filter#android.intent.action.MAIN+android.intent.category.LAUNCHER
+ADDED from /Users/Alec/Desktop/untitled folder/POSitive_Eating/app/src/main/AndroidManifest.xml:12:13-16:29
+action#android.intent.action.MAIN
+ADDED from /Users/Alec/Desktop/untitled folder/POSitive_Eating/app/src/main/AndroidManifest.xml:13:17-69
+	android:name
+		ADDED from /Users/Alec/Desktop/untitled folder/POSitive_Eating/app/src/main/AndroidManifest.xml:13:25-66
+category#android.intent.category.LAUNCHER
+ADDED from /Users/Alec/Desktop/untitled folder/POSitive_Eating/app/src/main/AndroidManifest.xml:15:17-77
+	android:name
+		ADDED from /Users/Alec/Desktop/untitled folder/POSitive_Eating/app/src/main/AndroidManifest.xml:15:27-74
+activity#com.example.alec.positive_eating.MainScreen
+ADDED from /Users/Alec/Desktop/untitled folder/POSitive_Eating/app/src/main/AndroidManifest.xml:18:9-48
+	android:name
+		ADDED from /Users/Alec/Desktop/untitled folder/POSitive_Eating/app/src/main/AndroidManifest.xml:18:19-45
+activity#com.example.alec.positive_eating.OrderStatus
+ADDED from /Users/Alec/Desktop/untitled folder/POSitive_Eating/app/src/main/AndroidManifest.xml:19:9-49
+	android:name
+		ADDED from /Users/Alec/Desktop/untitled folder/POSitive_Eating/app/src/main/AndroidManifest.xml:19:19-46
+activity#com.example.alec.positive_eating.Menu
+ADDED from /Users/Alec/Desktop/untitled folder/POSitive_Eating/app/src/main/AndroidManifest.xml:20:9-42
+	android:name
+		ADDED from /Users/Alec/Desktop/untitled folder/POSitive_Eating/app/src/main/AndroidManifest.xml:20:19-39
+activity#com.example.alec.positive_eating.Seating
+ADDED from /Users/Alec/Desktop/untitled folder/POSitive_Eating/app/src/main/AndroidManifest.xml:21:9-45
+	android:name
+		ADDED from /Users/Alec/Desktop/untitled folder/POSitive_Eating/app/src/main/AndroidManifest.xml:21:19-42
+activity#com.example.alec.positive_eating.Schedule
+ADDED from /Users/Alec/Desktop/untitled folder/POSitive_Eating/app/src/main/AndroidManifest.xml:22:9-46
+	android:name
+		ADDED from /Users/Alec/Desktop/untitled folder/POSitive_Eating/app/src/main/AndroidManifest.xml:22:19-43
+activity#com.example.alec.positive_eating.EditStaff
+ADDED from /Users/Alec/Desktop/untitled folder/POSitive_Eating/app/src/main/AndroidManifest.xml:23:9-47
+	android:name
+		ADDED from /Users/Alec/Desktop/untitled folder/POSitive_Eating/app/src/main/AndroidManifest.xml:23:19-44
+activity#com.example.alec.positive_eating.Payroll
+ADDED from /Users/Alec/Desktop/untitled folder/POSitive_Eating/app/src/main/AndroidManifest.xml:24:9-45
+	android:name
+		ADDED from /Users/Alec/Desktop/untitled folder/POSitive_Eating/app/src/main/AndroidManifest.xml:24:19-42
+activity#com.example.alec.positive_eating.add_employee
+ADDED from /Users/Alec/Desktop/untitled folder/POSitive_Eating/app/src/main/AndroidManifest.xml:25:9-50
+	android:name
+		ADDED from /Users/Alec/Desktop/untitled folder/POSitive_Eating/app/src/main/AndroidManifest.xml:25:19-47
+activity#com.example.alec.positive_eating.Clocking_in
+ADDED from /Users/Alec/Desktop/untitled folder/POSitive_Eating/app/src/main/AndroidManifest.xml:26:9-49
+	android:name
+		ADDED from /Users/Alec/Desktop/untitled folder/POSitive_Eating/app/src/main/AndroidManifest.xml:26:19-46
+service#com.example.alec.positive_eating.ShaneConnectService
+ADDED from /Users/Alec/Desktop/untitled folder/POSitive_Eating/app/src/main/AndroidManifest.xml:28:9-31:48
+	android:enabled
+		ADDED from /Users/Alec/Desktop/untitled folder/POSitive_Eating/app/src/main/AndroidManifest.xml:30:13-35
+	android:exported
+		ADDED from /Users/Alec/Desktop/untitled folder/POSitive_Eating/app/src/main/AndroidManifest.xml:31:13-37
+	android:name
+		ADDED from /Users/Alec/Desktop/untitled folder/POSitive_Eating/app/src/main/AndroidManifest.xml:29:13-48
+activity#com.example.alec.positive_eating.order_menu
+ADDED from /Users/Alec/Desktop/untitled folder/POSitive_Eating/app/src/main/AndroidManifest.xml:33:9-36:68
+	android:label
+		ADDED from /Users/Alec/Desktop/untitled folder/POSitive_Eating/app/src/main/AndroidManifest.xml:35:13-62
+	android:theme
+		ADDED from /Users/Alec/Desktop/untitled folder/POSitive_Eating/app/src/main/AndroidManifest.xml:36:13-56
+	android:name
+		ADDED from /Users/Alec/Desktop/untitled folder/POSitive_Eating/app/src/main/AndroidManifest.xml:34:13-39
+uses-sdk
+INJECTED from /Users/Alec/Desktop/untitled folder/POSitive_Eating/app/src/main/AndroidManifest.xml reason: use-sdk injection requested
+MERGED from [:shaneconnect-release:] /Users/Alec/Desktop/untitled folder/POSitive_Eating/app/build/intermediates/exploded-aar/shaneconnect-release/AndroidManifest.xml:7:5-9:41
+MERGED from [com.android.volley:volley:1.0.0] /Users/Alec/Desktop/untitled folder/POSitive_Eating/app/build/intermediates/exploded-aar/com.android.volley/volley/1.0.0/AndroidManifest.xml:7:5-43
+MERGED from [com.android.support:design:23.4.0] /Users/Alec/Desktop/untitled folder/POSitive_Eating/app/build/intermediates/exploded-aar/com.android.support/design/23.4.0/AndroidManifest.xml:20:5-43
+MERGED from [com.android.support:recyclerview-v7:23.4.0] /Users/Alec/Desktop/untitled folder/POSitive_Eating/app/build/intermediates/exploded-aar/com.android.support/recyclerview-v7/23.4.0/AndroidManifest.xml:20:5-43
+MERGED from [com.android.support:appcompat-v7:23.4.0] /Users/Alec/Desktop/untitled folder/POSitive_Eating/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.4.0/AndroidManifest.xml:21:5-23:78
+MERGED from [com.android.support:animated-vector-drawable:23.4.0] /Users/Alec/Desktop/untitled folder/POSitive_Eating/app/build/intermediates/exploded-aar/com.android.support/animated-vector-drawable/23.4.0/AndroidManifest.xml:5:5-44
+MERGED from [com.android.support:support-vector-drawable:23.4.0] /Users/Alec/Desktop/untitled folder/POSitive_Eating/app/build/intermediates/exploded-aar/com.android.support/support-vector-drawable/23.4.0/AndroidManifest.xml:5:5-43
+MERGED from [com.android.support:support-v4:23.4.0] /Users/Alec/Desktop/untitled folder/POSitive_Eating/app/build/intermediates/exploded-aar/com.android.support/support-v4/23.4.0/AndroidManifest.xml:20:5-43
+	tools:overrideLibrary
+		ADDED from [com.android.support:appcompat-v7:23.4.0] /Users/Alec/Desktop/untitled folder/POSitive_Eating/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.4.0/AndroidManifest.xml:23:9-75
+	android:targetSdkVersion
+		INJECTED from /Users/Alec/Desktop/untitled folder/POSitive_Eating/app/src/main/AndroidManifest.xml
+		INJECTED from /Users/Alec/Desktop/untitled folder/POSitive_Eating/app/src/main/AndroidManifest.xml
+	android:minSdkVersion
+		INJECTED from /Users/Alec/Desktop/untitled folder/POSitive_Eating/app/src/main/AndroidManifest.xml
+		INJECTED from /Users/Alec/Desktop/untitled folder/POSitive_Eating/app/src/main/AndroidManifest.xml

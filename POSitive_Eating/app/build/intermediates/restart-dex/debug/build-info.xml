@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<instant-run
+    abi="x86"
+    api-level="22"
+    density="xxhdpi"
+    format="8"
+    plugin-version="2.2.3"
+    timestamp="224412807545017"
+    token="2108938055619917105"
+    verifier="FULL_BUILD_REQUESTED" >
+
+    <task
+        name="javac"
+        duration="331" />
+    <task
+        name="instant-run-dex"
+        duration="0" />
+    <task
+        name="instant-run-transform"
+        duration="208" />
+    <task
+        name="verifier"
+        duration="24" />
+
+    <artifact
+        location="/Users/Alec/Desktop/untitled folder/POSitive_Eating/app/build/outputs/apk/app-debug.apk"
+        type="MAIN" />
+
+    <build
+        timestamp="224412807545017"
+        verifier="FULL_BUILD_REQUESTED" >
+        <artifact
+            location="/Users/Alec/Desktop/untitled folder/POSitive_Eating/app/build/outputs/apk/app-debug.apk"
+            type="MAIN" />
+    </build>
+
+</instant-run>
