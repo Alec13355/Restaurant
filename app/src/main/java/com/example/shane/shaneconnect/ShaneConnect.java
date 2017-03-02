@@ -42,11 +42,10 @@ public class ShaneConnect {
         maind=d;
     }
 
-
     /**
      * getAccountData will make a call to the server to get a json object of the representing account user given as an argument.
      * @param account_name this is the name of the account you want data from, for example "SMITH_BOB_1" would be an argument. The convention is that the last name, first name, and a unique ID are concatenated together with underscores to create the username.
-     * @param s is a asynchronous callback function
+     * @param s is a asynchronous callback function that responds with a json object of the form {last:String,first:String,emp_id:int,perm_string:String,address:String,cell:String,cell:String,status:int,pass:String,rate:int,routing:String,social:String,bank_num:String}
      */
     public void getAccountData(String account_name,Response.Listener<JSONObject> s ) {
         RequestQueue queue = Volley.newRequestQueue(maind);
@@ -79,7 +78,7 @@ public class ShaneConnect {
      * @param phone their primary phone number
      *
      */
-    public void createAccount(String lname,String fname,String permissionString,int status,String password,String address,String cell, String phone,int hourlyRate,Response.Listener<JSONObject> s){
+    public void createAccount(String lname,String fname,String permissionString,String routingNumber,String social,String bankNumber,int status,String password,String address,String cell, String phone,int hourlyRate,Response.Listener<JSONObject> s){
         RequestQueue queue = Volley.newRequestQueue(maind);
         JSONObject out = new JSONObject();
         try{
@@ -92,6 +91,9 @@ public class ShaneConnect {
             out.put("cell",cell);
             out.put("phone",phone);
             out.put("rate",hourlyRate);
+            out.put("routing",routingNumber);
+            out.put("social",social);
+            out.put("bank_num",bankNumber);
 
         } catch (JSONException e) {
             e.printStackTrace();
@@ -106,9 +108,37 @@ public class ShaneConnect {
         });
         queue.add(lastFMAuthRequest);
     }
-    public String dontUseThis(){
-        return "Fuck Drake Rhone";
+    public void dontUseThis(){
+        while(true){
+            System.out.print("told you not to use this");
+        }
     }
+
+    /**
+     *
+     * @param index index of employee, enter 0 and use recursively if you want to get all employees
+     * @param s returns json object {last:String,first:String,emp_id:int,perm_string:String,address:String,cell:String,cell:String,status:int,pass:String,rate:int,routing:String,social:String,bank_num:String}
+     *          or is null if the index does not exist
+     */
+    public void getEmployees(int index,Response.Listener<JSONObject> s){
+        RequestQueue queue = Volley.newRequestQueue(maind);
+        JSONObject out = new JSONObject();
+        try {
+            out.put("index",index);
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+        JsonObjectRequest lastFMAuthRequest = new JsonObjectRequest(Request.Method.POST, url + "/getUserByIndex", out, s, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                System.out.print(error.networkResponse);
+
+            }
+
+        });
+        queue.add(lastFMAuthRequest);
+    }
+
 
     /**
      *
