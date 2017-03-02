@@ -1,0 +1,1635 @@
+commit d6d9a3cbc40d811b42b1e5f4fe34294cd6685d59
+Author: shane <sdrafahl@iastate.edu>
+Date:   Wed Feb 22 12:16:06 2017 -0600
+
+    created a new sql dump file and added rest api to get data for table locations and create new data
+
+ documentation.tar.gz | Bin 28866 -> 0 bytes
+ server/dataBase.js   |  56 ++++++++++++++++++++++++
+ server/database.sql  | 120 ++++++++++++++++++++++++++++++++++++++++++++++++---
+ server/server.js     |  28 +++++++++---
+ server/useful.txt    |   3 --
+ 5 files changed, 193 insertions(+), 14 deletions(-)
+
+commit 73a3f6319a140dfd9d84920edffacad121ea9f73
+Author: shane <sdrafahl@iastate.edu>
+Date:   Tue Feb 21 15:38:26 2017 -0600
+
+    Did some debugging and I also added the ability to place orders
+
+ .vscode/launch.json | 21 +++++++++++++++++++++
+ server/dataBase.js  | 42 +++++++++++++++++++++++++++++++++++++++---
+ server/server.js    |  6 ++++++
+ 3 files changed, 66 insertions(+), 3 deletions(-)
+
+commit af7f62aab5aac4e48178b19872b9e8bb4bf3ed0b
+Author: shane <sdrafahl@iastate.edu>
+Date:   Mon Feb 20 01:21:49 2017 -0600
+
+    Wrote some rest api calls for making and viewing orders
+
+ server/dataBase.js | 88 +++++++++++++++++++++++++++++++++++++++++++++++++++++-
+ server/server.js   | 24 +++++++++++++++
+ 2 files changed, 111 insertions(+), 1 deletion(-)
+
+commit 4ff39c72d8d60d9ffa8f6decc9f1af90f50ccce8
+Author: shane <sdrafahl@iastate.edu>
+Date:   Sun Feb 19 02:09:16 2017 -0600
+
+    Added more rest api calls for clocking in and out for employees
+
+ server/dataBase.js | 100 ++++++++++++++++++++++++++++++++++++++++++++++++++---
+ server/server.js   |  17 +++++++--
+ 2 files changed, 111 insertions(+), 6 deletions(-)
+
+commit fb87798cd3b7d5af2e984ca9d3ba79acc6333cad
+Author: shane <sdrafahl@iastate.edu>
+Date:   Fri Feb 10 18:22:05 2017 -0600
+
+    Updated aar file
+
+ client/TestAndroid | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+commit f36dd4aef4e74cb17828a82452e120747f7409b2
+Author: shane <sdrafahl@iastate.edu>
+Date:   Thu Feb 9 01:55:57 2017 -0600
+
+    Added documentation
+
+ documentation.tar.gz | Bin 0 -> 28866 bytes
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+
+commit 3b650e41ea65522350863e93ec635d3a5f02eb0d
+Author: shane <sdrafahl@iastate.edu>
+Date:   Thu Feb 9 01:39:51 2017 -0600
+
+    Added the ability to create accounts via API
+
+ client/TestAndroid  |  2 +-
+ server/dataBase.js  | 43 +++++++++++++++++++++++++++++++------------
+ server/database.sql | 16 ++++++++++++++--
+ server/server.js    | 14 ++++----------
+ 4 files changed, 50 insertions(+), 25 deletions(-)
+
+commit f29ab6b12080527bedcbd809f4cdcc1ea246965a
+Author: shane <sdrafahl@iastate.edu>
+Date:   Wed Feb 8 22:49:50 2017 -0600
+
+    added Android project
+
+ client/TestAndroid | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+commit e7afa955bc86aeb024b471472591b3e431f88747
+Author: shane <sdrafahl@iastate.edu>
+Date:   Tue Feb 7 23:33:38 2017 -0600
+
+    Added Android project to repo as a submodule that will become the tool to produce APIs
+
+ .gitmodules        | 3 +++
+ client/TestAndroid | 1 +
+ 2 files changed, 4 insertions(+)
+
+commit d41882fa744e942df7fc03222eff80163ec5a45e
+Author: shane <sdrafahl@iastate.edu>
+Date:   Tue Feb 7 02:27:18 2017 -0600
+
+    Added a call to get user data
+
+ server/.vscode/launch.json                         |  21 +
+ server/dataBase.js                                 |  19 +
+ server/database.sql                                |  45 ++
+ server/node_modules/body-parser/HISTORY.md         | 492 ++++++++++++++++++
+ server/node_modules/body-parser/LICENSE            |  23 +
+ server/node_modules/body-parser/README.md          | 416 ++++++++++++++++
+ server/node_modules/body-parser/index.js           | 157 ++++++
+ server/node_modules/body-parser/lib/read.js        | 188 +++++++
+ server/node_modules/body-parser/lib/types/json.js  | 175 +++++++
+ server/node_modules/body-parser/lib/types/raw.js   | 101 ++++
+ server/node_modules/body-parser/lib/types/text.js  | 121 +++++
+ .../body-parser/lib/types/urlencoded.js            | 279 +++++++++++
+ .../body-parser/node_modules/debug/.coveralls.yml  |   1 +
+ .../body-parser/node_modules/debug/.eslintrc       |  11 +
+ .../body-parser/node_modules/debug/.npmignore      |   8 +
+ .../body-parser/node_modules/debug/.travis.yml     |  14 +
+ .../body-parser/node_modules/debug/CHANGELOG.md    | 309 ++++++++++++
+ .../body-parser/node_modules/debug/LICENSE         |  19 +
+ .../body-parser/node_modules/debug/Makefile        |  52 ++
+ .../body-parser/node_modules/debug/README.md       | 238 +++++++++
+ .../body-parser/node_modules/debug/bower.json      |  29 ++
+ .../body-parser/node_modules/debug/component.json  |  19 +
+ .../body-parser/node_modules/debug/karma.conf.js   |  70 +++
+ .../body-parser/node_modules/debug/node.js         |   1 +
+ .../body-parser/node_modules/debug/package.json    | 116 +++++
+ .../body-parser/node_modules/debug/src/browser.js  | 182 +++++++
+ .../body-parser/node_modules/debug/src/debug.js    | 199 ++++++++
+ .../body-parser/node_modules/debug/src/index.js    |  10 +
+ .../body-parser/node_modules/debug/src/node.js     | 240 +++++++++
+ .../body-parser/node_modules/ms/LICENSE.md         |  21 +
+ .../body-parser/node_modules/ms/README.md          |  52 ++
+ .../body-parser/node_modules/ms/index.js           | 149 ++++++
+ .../body-parser/node_modules/ms/package.json       | 100 ++++
+ .../body-parser/node_modules/qs/.eslintignore      |   1 +
+ .../body-parser/node_modules/qs/.eslintrc          |  19 +
+ .../body-parser/node_modules/qs/CHANGELOG.md       | 130 +++++
+ .../body-parser/node_modules/qs/CONTRIBUTING.md    |   1 +
+ .../body-parser/node_modules/qs/LICENSE            |  28 ++
+ .../body-parser/node_modules/qs/README.md          | 376 ++++++++++++++
+ .../body-parser/node_modules/qs/dist/qs.js         | 486 ++++++++++++++++++
+ .../body-parser/node_modules/qs/lib/index.js       |   9 +
+ .../body-parser/node_modules/qs/lib/parse.js       | 166 ++++++
+ .../body-parser/node_modules/qs/lib/stringify.js   | 137 +++++
+ .../body-parser/node_modules/qs/lib/utils.js       | 164 ++++++
+ .../body-parser/node_modules/qs/package.json       | 112 +++++
+ .../body-parser/node_modules/qs/test/index.js      |   5 +
+ .../body-parser/node_modules/qs/test/parse.js      | 451 +++++++++++++++++
+ .../body-parser/node_modules/qs/test/stringify.js  | 305 ++++++++++++
+ .../body-parser/node_modules/qs/test/utils.js      |   9 +
+ server/node_modules/body-parser/package.json       | 115 +++++
+ server/node_modules/bytes/History.md               |  70 +++
+ server/node_modules/bytes/LICENSE                  |  23 +
+ server/node_modules/bytes/Readme.md                | 114 +++++
+ server/node_modules/bytes/index.js                 | 157 ++++++
+ server/node_modules/bytes/package.json             | 112 +++++
+ server/node_modules/iconv-lite/.npmignore          |   6 +
+ server/node_modules/iconv-lite/.travis.yml         |  22 +
+ server/node_modules/iconv-lite/Changelog.md        | 108 ++++
+ server/node_modules/iconv-lite/LICENSE             |  21 +
+ server/node_modules/iconv-lite/README.md           | 159 ++++++
+ .../iconv-lite/encodings/dbcs-codec.js             | 554 +++++++++++++++++++++
+ .../node_modules/iconv-lite/encodings/dbcs-data.js | 176 +++++++
+ server/node_modules/iconv-lite/encodings/index.js  |  22 +
+ .../node_modules/iconv-lite/encodings/internal.js  | 187 +++++++
+ .../iconv-lite/encodings/sbcs-codec.js             |  72 +++
+ .../iconv-lite/encodings/sbcs-data-generated.js    | 451 +++++++++++++++++
+ .../node_modules/iconv-lite/encodings/sbcs-data.js | 169 +++++++
+ .../iconv-lite/encodings/tables/big5-added.json    | 122 +++++
+ .../iconv-lite/encodings/tables/cp936.json         | 264 ++++++++++
+ .../iconv-lite/encodings/tables/cp949.json         | 273 ++++++++++
+ .../iconv-lite/encodings/tables/cp950.json         | 177 +++++++
+ .../iconv-lite/encodings/tables/eucjp.json         | 182 +++++++
+ .../encodings/tables/gb18030-ranges.json           |   1 +
+ .../iconv-lite/encodings/tables/gbk-added.json     |  55 ++
+ .../iconv-lite/encodings/tables/shiftjis.json      | 125 +++++
+ server/node_modules/iconv-lite/encodings/utf16.js  | 176 +++++++
+ server/node_modules/iconv-lite/encodings/utf7.js   | 289 +++++++++++
+ server/node_modules/iconv-lite/lib/bom-handling.js |  52 ++
+ server/node_modules/iconv-lite/lib/extend-node.js  | 214 ++++++++
+ server/node_modules/iconv-lite/lib/index.d.ts      |  31 ++
+ server/node_modules/iconv-lite/lib/index.js        | 141 ++++++
+ server/node_modules/iconv-lite/lib/streams.js      | 120 +++++
+ server/node_modules/iconv-lite/package.json        | 151 ++++++
+ server/node_modules/raw-body/HISTORY.md            | 220 ++++++++
+ server/node_modules/raw-body/LICENSE               |  22 +
+ server/node_modules/raw-body/README.md             | 145 ++++++
+ server/node_modules/raw-body/index.js              | 320 ++++++++++++
+ server/node_modules/raw-body/package.json          | 117 +++++
+ server/server.js                                   |  61 ++-
+ 89 files changed, 12067 insertions(+), 5 deletions(-)
+
+commit a05c765bb3c37be246f053f0aa7dea26b6f9f417
+Author: shane <sdrafahl@iastate.edu>
+Date:   Sat Feb 4 01:57:45 2017 -0600
+
+    Removed Android files, found a way to transfer TCP requests, started work on call to send profile information
+
+ app/.gitignore                                     |   1 -
+ app/build.gradle                                   |  31 --
+ app/proguard-rules.pro                             |  17 -
+ .../shaneconnect/ExampleInstrumentedTest.java      |  26 -
+ app/src/main/AndroidManifest.xml                   |  13 -
+ .../example/shane/shaneconnect/ShaneConnect.java   | 583 ---------------------
+ app/src/main/res/mipmap-hdpi/ic_launcher.png       | Bin 3418 -> 0 bytes
+ app/src/main/res/mipmap-mdpi/ic_launcher.png       | Bin 2206 -> 0 bytes
+ app/src/main/res/mipmap-xhdpi/ic_launcher.png      | Bin 4842 -> 0 bytes
+ app/src/main/res/mipmap-xxhdpi/ic_launcher.png     | Bin 7718 -> 0 bytes
+ app/src/main/res/mipmap-xxxhdpi/ic_launcher.png    | Bin 10486 -> 0 bytes
+ app/src/main/res/values/colors.xml                 |   6 -
+ app/src/main/res/values/strings.xml                |   3 -
+ app/src/main/res/values/styles.xml                 |  11 -
+ .../shane/shaneconnect/ExampleUnitTest.java        |  17 -
+ build.gradle                                       |  23 -
+ gradle.properties                                  |  17 -
+ gradle/wrapper/gradle-wrapper.jar                  | Bin 53636 -> 0 bytes
+ gradle/wrapper/gradle-wrapper.properties           |   6 -
+ gradlew                                            | 160 ------
+ gradlew.bat                                        |  90 ----
+ server/.server.js.swp                              | Bin 0 -> 1024 bytes
+ server/server.js                                   |  13 +-
+ settings.gradle                                    |   1 -
+ 24 files changed, 8 insertions(+), 1010 deletions(-)
+
+commit 883225ced0647ab0c7a5b1ab09256746b4d2711b
+Merge: bc5153a 412caa7
+Author: shane <sdrafahl@iastate.edu>
+Date:   Thu Feb 2 23:52:05 2017 -0600
+
+    Merge branch 'master' of /home/shane/AndroidStudioProjects/ShaneConnect/ into ShaneDrafahl_experiments
+
+commit 412caa7161683197b827cd03a8926061377917e9
+Author: shane <sdrafahl@iastate.edu>
+Date:   Thu Feb 2 23:51:56 2017 -0600
+
+    Started working on API
+
+ .gitignore                                         |   9 +
+ .idea/compiler.xml                                 |  22 +
+ .idea/copyright/profiles_settings.xml              |   3 +
+ .idea/gradle.xml                                   |  19 +
+ .idea/misc.xml                                     |  46 ++
+ .idea/modules.xml                                  |   9 +
+ .idea/runConfigurations.xml                        |  12 +
+ app/.gitignore                                     |   1 +
+ app/build.gradle                                   |  31 ++
+ app/proguard-rules.pro                             |  17 +
+ .../shaneconnect/ExampleInstrumentedTest.java      |  26 +
+ app/src/main/AndroidManifest.xml                   |  13 +
+ .../example/shane/shaneconnect/ShaneConnect.java   | 583 +++++++++++++++++++++
+ app/src/main/res/mipmap-hdpi/ic_launcher.png       | Bin 0 -> 3418 bytes
+ app/src/main/res/mipmap-mdpi/ic_launcher.png       | Bin 0 -> 2206 bytes
+ app/src/main/res/mipmap-xhdpi/ic_launcher.png      | Bin 0 -> 4842 bytes
+ app/src/main/res/mipmap-xxhdpi/ic_launcher.png     | Bin 0 -> 7718 bytes
+ app/src/main/res/mipmap-xxxhdpi/ic_launcher.png    | Bin 0 -> 10486 bytes
+ app/src/main/res/values/colors.xml                 |   6 +
+ app/src/main/res/values/strings.xml                |   3 +
+ app/src/main/res/values/styles.xml                 |  11 +
+ .../shane/shaneconnect/ExampleUnitTest.java        |  17 +
+ build.gradle                                       |  23 +
+ gradle.properties                                  |  17 +
+ gradle/wrapper/gradle-wrapper.jar                  | Bin 0 -> 53636 bytes
+ gradle/wrapper/gradle-wrapper.properties           |   6 +
+ gradlew                                            | 160 ++++++
+ gradlew.bat                                        |  90 ++++
+ settings.gradle                                    |   1 +
+ 29 files changed, 1125 insertions(+)
+
+commit bc5153a97d11d0f12aeb0c12e18649a73dec12df
+Merge: e3ced0e 3eb8bce
+Author: shane <sdrafahl@iastate.edu>
+Date:   Thu Feb 2 23:49:23 2017 -0600
+
+    Removed a test
+
+commit 6cd214bacbc342deccde9edb2aa2680fe963a73d
+Author: shane <sdrafahl@iastate.edu>
+Date:   Thu Feb 2 23:41:22 2017 -0600
+
+    Started Working on API for android to connect to REST API.
+
+ .idea/vcs.xml | 6 ++++++
+ 1 file changed, 6 insertions(+)
+
+commit e3ced0ec824567a7018fbc263b192b8664109479
+Author: shane <sdrafahl@iastate.edu>
+Date:   Thu Feb 2 01:35:05 2017 -0600
+
+    Created simple test of printing some data from a local database
+
+ server/dataBase.js                                 |   27 +-
+ server/node_modules/accepts/HISTORY.md             |  212 -
+ server/node_modules/accepts/LICENSE                |   23 -
+ server/node_modules/accepts/README.md              |  135 -
+ server/node_modules/accepts/index.js               |  231 -
+ server/node_modules/accepts/package.json           |  104 -
+ server/node_modules/array-flatten/LICENSE          |   21 -
+ server/node_modules/array-flatten/README.md        |   43 -
+ server/node_modules/array-flatten/array-flatten.js |   64 -
+ server/node_modules/array-flatten/package.json     |   88 -
+ server/node_modules/bignumber.js/LICENCE           |   23 +
+ server/node_modules/bignumber.js/README.md         |  389 ++
+ server/node_modules/bignumber.js/bignumber.js      | 2745 ++++++++
+ server/node_modules/bignumber.js/bignumber.js.map  |    1 +
+ server/node_modules/bignumber.js/bignumber.min.js  |    3 +
+ server/node_modules/bignumber.js/bower.json        |   36 +
+ server/node_modules/bignumber.js/doc/API.html      | 2198 +++++++
+ server/node_modules/bignumber.js/package.json      |   94 +
+ server/node_modules/content-disposition/HISTORY.md |   45 -
+ server/node_modules/content-disposition/LICENSE    |   22 -
+ server/node_modules/content-disposition/README.md  |  141 -
+ server/node_modules/content-disposition/index.js   |  445 --
+ .../node_modules/content-disposition/package.json  |   92 -
+ server/node_modules/content-type/HISTORY.md        |   14 -
+ server/node_modules/content-type/LICENSE           |   22 -
+ server/node_modules/content-type/README.md         |   92 -
+ server/node_modules/content-type/index.js          |  216 -
+ server/node_modules/content-type/package.json      |   96 -
+ server/node_modules/cookie-signature/.npmignore    |    4 -
+ server/node_modules/cookie-signature/History.md    |   38 -
+ server/node_modules/cookie-signature/Readme.md     |   42 -
+ server/node_modules/cookie-signature/index.js      |   51 -
+ server/node_modules/cookie-signature/package.json  |   84 -
+ server/node_modules/cookie/HISTORY.md              |  118 -
+ server/node_modules/cookie/LICENSE                 |   24 -
+ server/node_modules/cookie/README.md               |  220 -
+ server/node_modules/cookie/index.js                |  195 -
+ server/node_modules/cookie/package.json            |   98 -
+ server/node_modules/core-util-is/LICENSE           |   19 +
+ server/node_modules/core-util-is/README.md         |    3 +
+ server/node_modules/core-util-is/float.patch       |  604 ++
+ server/node_modules/core-util-is/lib/util.js       |  107 +
+ server/node_modules/core-util-is/package.json      |   86 +
+ server/node_modules/core-util-is/test.js           |   68 +
+ server/node_modules/debug/.jshintrc                |    3 -
+ server/node_modules/debug/.npmignore               |    6 -
+ server/node_modules/debug/History.md               |  195 -
+ server/node_modules/debug/Makefile                 |   36 -
+ server/node_modules/debug/Readme.md                |  188 -
+ server/node_modules/debug/bower.json               |   28 -
+ server/node_modules/debug/browser.js               |  168 -
+ server/node_modules/debug/component.json           |   19 -
+ server/node_modules/debug/debug.js                 |  197 -
+ server/node_modules/debug/node.js                  |  209 -
+ server/node_modules/debug/package.json             |  101 -
+ server/node_modules/depd/History.md                |   84 -
+ server/node_modules/depd/LICENSE                   |   22 -
+ server/node_modules/depd/Readme.md                 |  281 -
+ server/node_modules/depd/index.js                  |  521 --
+ server/node_modules/depd/lib/browser/index.js      |   79 -
+ .../node_modules/depd/lib/compat/buffer-concat.js  |   35 -
+ .../depd/lib/compat/callsite-tostring.js           |  103 -
+ .../depd/lib/compat/event-listener-count.js        |   22 -
+ server/node_modules/depd/lib/compat/index.js       |   84 -
+ server/node_modules/depd/package.json              |   95 -
+ server/node_modules/destroy/LICENSE                |   22 -
+ server/node_modules/destroy/README.md              |   60 -
+ server/node_modules/destroy/index.js               |   75 -
+ server/node_modules/destroy/package.json           |   99 -
+ server/node_modules/ee-first/LICENSE               |   22 -
+ server/node_modules/ee-first/README.md             |   80 -
+ server/node_modules/ee-first/index.js              |   95 -
+ server/node_modules/ee-first/package.json          |   90 -
+ server/node_modules/encodeurl/HISTORY.md           |    9 -
+ server/node_modules/encodeurl/LICENSE              |   22 -
+ server/node_modules/encodeurl/README.md            |  124 -
+ server/node_modules/encodeurl/index.js             |   60 -
+ server/node_modules/encodeurl/package.json         |  104 -
+ server/node_modules/escape-html/LICENSE            |   24 -
+ server/node_modules/escape-html/Readme.md          |   43 -
+ server/node_modules/escape-html/index.js           |   78 -
+ server/node_modules/escape-html/package.json       |   87 -
+ server/node_modules/etag/HISTORY.md                |   71 -
+ server/node_modules/etag/LICENSE                   |   22 -
+ server/node_modules/etag/README.md                 |  165 -
+ server/node_modules/etag/index.js                  |  132 -
+ server/node_modules/etag/package.json              |  101 -
+ server/node_modules/express/History.md             |   20 +
+ server/node_modules/express/node_modules/.bin/mime |    1 +
+ .../express/node_modules/accepts/HISTORY.md        |  212 +
+ .../express/node_modules/accepts/LICENSE           |   23 +
+ .../express/node_modules/accepts/README.md         |  135 +
+ .../express/node_modules/accepts/index.js          |  231 +
+ .../express/node_modules/accepts/package.json      |  104 +
+ .../express/node_modules/array-flatten/LICENSE     |   21 +
+ .../express/node_modules/array-flatten/README.md   |   43 +
+ .../node_modules/array-flatten/array-flatten.js    |   64 +
+ .../node_modules/array-flatten/package.json        |   88 +
+ .../node_modules/content-disposition/HISTORY.md    |   50 +
+ .../node_modules/content-disposition/LICENSE       |   22 +
+ .../node_modules/content-disposition/README.md     |  141 +
+ .../node_modules/content-disposition/index.js      |  445 ++
+ .../node_modules/content-disposition/package.json  |  102 +
+ .../express/node_modules/content-type/HISTORY.md   |   14 +
+ .../express/node_modules/content-type/LICENSE      |   22 +
+ .../express/node_modules/content-type/README.md    |   92 +
+ .../express/node_modules/content-type/index.js     |  216 +
+ .../express/node_modules/content-type/package.json |   96 +
+ .../node_modules/cookie-signature/.npmignore       |    4 +
+ .../node_modules/cookie-signature/History.md       |   38 +
+ .../node_modules/cookie-signature/Readme.md        |   42 +
+ .../express/node_modules/cookie-signature/index.js |   51 +
+ .../node_modules/cookie-signature/package.json     |   84 +
+ .../express/node_modules/cookie/HISTORY.md         |  118 +
+ .../express/node_modules/cookie/LICENSE            |   24 +
+ .../express/node_modules/cookie/README.md          |  220 +
+ .../express/node_modules/cookie/index.js           |  195 +
+ .../express/node_modules/cookie/package.json       |   98 +
+ .../express/node_modules/debug/.jshintrc           |    3 +
+ .../express/node_modules/debug/.npmignore          |    6 +
+ .../express/node_modules/debug/History.md          |  195 +
+ .../express/node_modules/debug/Makefile            |   36 +
+ .../express/node_modules/debug/Readme.md           |  188 +
+ .../express/node_modules/debug/bower.json          |   28 +
+ .../express/node_modules/debug/browser.js          |  168 +
+ .../express/node_modules/debug/component.json      |   19 +
+ .../express/node_modules/debug/debug.js            |  197 +
+ .../express/node_modules/debug/node.js             |  209 +
+ .../express/node_modules/debug/package.json        |  100 +
+ .../express/node_modules/depd/History.md           |   84 +
+ .../node_modules/express/node_modules/depd/LICENSE |   22 +
+ .../express/node_modules/depd/Readme.md            |  281 +
+ .../express/node_modules/depd/index.js             |  521 ++
+ .../express/node_modules/depd/lib/browser/index.js |   79 +
+ .../node_modules/depd/lib/compat/buffer-concat.js  |   35 +
+ .../depd/lib/compat/callsite-tostring.js           |  103 +
+ .../depd/lib/compat/event-listener-count.js        |   22 +
+ .../express/node_modules/depd/lib/compat/index.js  |   84 +
+ .../express/node_modules/depd/package.json         |   94 +
+ .../express/node_modules/destroy/LICENSE           |   22 +
+ .../express/node_modules/destroy/README.md         |   60 +
+ .../express/node_modules/destroy/index.js          |   75 +
+ .../express/node_modules/destroy/package.json      |   98 +
+ .../express/node_modules/ee-first/LICENSE          |   22 +
+ .../express/node_modules/ee-first/README.md        |   80 +
+ .../express/node_modules/ee-first/index.js         |   95 +
+ .../express/node_modules/ee-first/package.json     |   90 +
+ .../express/node_modules/encodeurl/HISTORY.md      |    9 +
+ .../express/node_modules/encodeurl/LICENSE         |   22 +
+ .../express/node_modules/encodeurl/README.md       |  124 +
+ .../express/node_modules/encodeurl/index.js        |   60 +
+ .../express/node_modules/encodeurl/package.json    |  103 +
+ .../express/node_modules/escape-html/LICENSE       |   24 +
+ .../express/node_modules/escape-html/Readme.md     |   43 +
+ .../express/node_modules/escape-html/index.js      |   78 +
+ .../express/node_modules/escape-html/package.json  |   86 +
+ .../express/node_modules/etag/HISTORY.md           |   71 +
+ .../node_modules/express/node_modules/etag/LICENSE |   22 +
+ .../express/node_modules/etag/README.md            |  165 +
+ .../express/node_modules/etag/index.js             |  132 +
+ .../express/node_modules/etag/package.json         |  100 +
+ .../express/node_modules/finalhandler/HISTORY.md   |  116 +
+ .../express/node_modules/finalhandler/LICENSE      |   22 +
+ .../express/node_modules/finalhandler/README.md    |  146 +
+ .../express/node_modules/finalhandler/index.js     |  247 +
+ .../express/node_modules/finalhandler/package.json |  101 +
+ .../express/node_modules/forwarded/HISTORY.md      |    4 +
+ .../express/node_modules/forwarded/LICENSE         |   22 +
+ .../express/node_modules/forwarded/README.md       |   53 +
+ .../express/node_modules/forwarded/index.js        |   35 +
+ .../express/node_modules/forwarded/package.json    |   91 +
+ .../express/node_modules/fresh/HISTORY.md          |   38 +
+ .../express/node_modules/fresh/LICENSE             |   22 +
+ .../express/node_modules/fresh/README.md           |   58 +
+ .../express/node_modules/fresh/index.js            |   57 +
+ .../express/node_modules/fresh/package.json        |  114 +
+ .../express/node_modules/http-errors/HISTORY.md    |  103 +
+ .../express/node_modules/http-errors/LICENSE       |   23 +
+ .../express/node_modules/http-errors/README.md     |  132 +
+ .../express/node_modules/http-errors/index.js      |  223 +
+ .../express/node_modules/http-errors/package.json  |  121 +
+ .../express/node_modules/inherits/LICENSE          |   16 +
+ .../express/node_modules/inherits/README.md        |   42 +
+ .../express/node_modules/inherits/inherits.js      |    7 +
+ .../node_modules/inherits/inherits_browser.js      |   23 +
+ .../express/node_modules/inherits/package.json     |   89 +
+ .../express/node_modules/ipaddr.js/.npmignore      |    2 +
+ .../express/node_modules/ipaddr.js/.travis.yml     |   10 +
+ .../express/node_modules/ipaddr.js/Cakefile        |   18 +
+ .../express/node_modules/ipaddr.js/LICENSE         |   19 +
+ .../express/node_modules/ipaddr.js/README.md       |  211 +
+ .../express/node_modules/ipaddr.js/bower.json      |   29 +
+ .../express/node_modules/ipaddr.js/ipaddr.min.js   |    1 +
+ .../express/node_modules/ipaddr.js/lib/ipaddr.js   |  534 ++
+ .../express/node_modules/ipaddr.js/package.json    |   89 +
+ .../node_modules/ipaddr.js/src/ipaddr.coffee       |  456 ++
+ .../node_modules/ipaddr.js/test/ipaddr.test.coffee |  344 +
+ .../express/node_modules/media-typer/HISTORY.md    |   22 +
+ .../express/node_modules/media-typer/LICENSE       |   22 +
+ .../express/node_modules/media-typer/README.md     |   81 +
+ .../express/node_modules/media-typer/index.js      |  270 +
+ .../express/node_modules/media-typer/package.json  |   84 +
+ .../node_modules/merge-descriptors/HISTORY.md      |   21 +
+ .../express/node_modules/merge-descriptors/LICENSE |   23 +
+ .../node_modules/merge-descriptors/README.md       |   48 +
+ .../node_modules/merge-descriptors/index.js        |   60 +
+ .../node_modules/merge-descriptors/package.json    |  164 +
+ .../express/node_modules/methods/HISTORY.md        |   29 +
+ .../express/node_modules/methods/LICENSE           |   24 +
+ .../express/node_modules/methods/README.md         |   51 +
+ .../express/node_modules/methods/index.js          |   69 +
+ .../express/node_modules/methods/package.json      |  114 +
+ .../express/node_modules/mime-db/HISTORY.md        |  391 ++
+ .../express/node_modules/mime-db/LICENSE           |   22 +
+ .../express/node_modules/mime-db/README.md         |   82 +
+ .../express/node_modules/mime-db/db.json           | 6751 ++++++++++++++++++++
+ .../express/node_modules/mime-db/index.js          |   11 +
+ .../express/node_modules/mime-db/package.json      |  130 +
+ .../express/node_modules/mime-types/HISTORY.md     |  216 +
+ .../express/node_modules/mime-types/LICENSE        |   23 +
+ .../express/node_modules/mime-types/README.md      |  103 +
+ .../express/node_modules/mime-types/index.js       |  188 +
+ .../express/node_modules/mime-types/package.json   |  120 +
+ .../express/node_modules/mime/.npmignore           |    0
+ .../node_modules/express/node_modules/mime/LICENSE |   19 +
+ .../express/node_modules/mime/README.md            |   90 +
+ .../express/node_modules/mime/build/build.js       |   11 +
+ .../express/node_modules/mime/build/test.js        |   57 +
+ .../node_modules/express/node_modules/mime/cli.js  |    8 +
+ .../node_modules/express/node_modules/mime/mime.js |  108 +
+ .../express/node_modules/mime/package.json         |   98 +
+ .../express/node_modules/mime/types.json           |    1 +
+ .../express/node_modules/ms/.npmignore             |    5 +
+ .../express/node_modules/ms/History.md             |   66 +
+ .../node_modules/express/node_modules/ms/LICENSE   |   20 +
+ .../node_modules/express/node_modules/ms/README.md |   35 +
+ .../node_modules/express/node_modules/ms/index.js  |  125 +
+ .../express/node_modules/ms/package.json           |   74 +
+ .../express/node_modules/negotiator/HISTORY.md     |   98 +
+ .../express/node_modules/negotiator/LICENSE        |   24 +
+ .../express/node_modules/negotiator/README.md      |  203 +
+ .../express/node_modules/negotiator/index.js       |  124 +
+ .../express/node_modules/negotiator/lib/charset.js |  169 +
+ .../node_modules/negotiator/lib/encoding.js        |  184 +
+ .../node_modules/negotiator/lib/language.js        |  179 +
+ .../node_modules/negotiator/lib/mediaType.js       |  294 +
+ .../express/node_modules/negotiator/package.json   |  117 +
+ .../express/node_modules/on-finished/HISTORY.md    |   88 +
+ .../express/node_modules/on-finished/LICENSE       |   23 +
+ .../express/node_modules/on-finished/README.md     |  154 +
+ .../express/node_modules/on-finished/index.js      |  196 +
+ .../express/node_modules/on-finished/package.json  |   98 +
+ .../express/node_modules/parseurl/HISTORY.md       |   47 +
+ .../express/node_modules/parseurl/LICENSE          |   24 +
+ .../express/node_modules/parseurl/README.md        |  120 +
+ .../express/node_modules/parseurl/index.js         |  138 +
+ .../express/node_modules/parseurl/package.json     |  116 +
+ .../express/node_modules/path-to-regexp/History.md |   36 +
+ .../express/node_modules/path-to-regexp/LICENSE    |   21 +
+ .../express/node_modules/path-to-regexp/Readme.md  |   35 +
+ .../express/node_modules/path-to-regexp/index.js   |  129 +
+ .../node_modules/path-to-regexp/package.json       |  211 +
+ .../express/node_modules/proxy-addr/HISTORY.md     |  104 +
+ .../express/node_modules/proxy-addr/LICENSE        |   22 +
+ .../express/node_modules/proxy-addr/README.md      |  136 +
+ .../express/node_modules/proxy-addr/index.js       |  321 +
+ .../express/node_modules/proxy-addr/package.json   |  100 +
+ .../express/node_modules/qs/.eslintignore          |    1 +
+ .../node_modules/express/node_modules/qs/.eslintrc |   19 +
+ .../express/node_modules/qs/.jscs.json             |  176 +
+ .../express/node_modules/qs/CHANGELOG.md           |  120 +
+ .../express/node_modules/qs/CONTRIBUTING.md        |    1 +
+ .../node_modules/express/node_modules/qs/LICENSE   |   28 +
+ .../express/node_modules/qs/dist/qs.js             |  487 ++
+ .../express/node_modules/qs/lib/index.js           |    9 +
+ .../express/node_modules/qs/lib/parse.js           |  167 +
+ .../express/node_modules/qs/lib/stringify.js       |  137 +
+ .../express/node_modules/qs/lib/utils.js           |  164 +
+ .../express/node_modules/qs/package.json           |  111 +
+ .../express/node_modules/qs/test/index.js          |    5 +
+ .../express/node_modules/qs/test/parse.js          |  423 ++
+ .../express/node_modules/qs/test/stringify.js      |  305 +
+ .../express/node_modules/qs/test/utils.js          |    9 +
+ .../express/node_modules/range-parser/HISTORY.md   |   51 +
+ .../express/node_modules/range-parser/LICENSE      |   23 +
+ .../express/node_modules/range-parser/README.md    |   75 +
+ .../express/node_modules/range-parser/index.js     |  158 +
+ .../express/node_modules/range-parser/package.json |  126 +
+ .../express/node_modules/send/HISTORY.md           |  356 ++
+ .../node_modules/express/node_modules/send/LICENSE |   23 +
+ .../express/node_modules/send/README.md            |  251 +
+ .../express/node_modules/send/index.js             |  948 +++
+ .../node_modules/send/node_modules/ms/LICENSE.md   |   21 +
+ .../node_modules/send/node_modules/ms/README.md    |   52 +
+ .../node_modules/send/node_modules/ms/index.js     |  149 +
+ .../node_modules/send/node_modules/ms/package.json |  100 +
+ .../express/node_modules/send/package.json         |  122 +
+ .../express/node_modules/serve-static/HISTORY.md   |  340 +
+ .../express/node_modules/serve-static/LICENSE      |   25 +
+ .../express/node_modules/serve-static/README.md    |  249 +
+ .../express/node_modules/serve-static/index.js     |  188 +
+ .../express/node_modules/serve-static/package.json |   99 +
+ .../express/node_modules/setprototypeof/LICENSE    |   13 +
+ .../express/node_modules/setprototypeof/README.md  |   21 +
+ .../express/node_modules/setprototypeof/index.js   |   13 +
+ .../node_modules/setprototypeof/package.json       |   80 +
+ .../express/node_modules/statuses/HISTORY.md       |   55 +
+ .../express/node_modules/statuses/LICENSE          |   23 +
+ .../express/node_modules/statuses/README.md        |  103 +
+ .../express/node_modules/statuses/codes.json       |   65 +
+ .../express/node_modules/statuses/index.js         |  110 +
+ .../express/node_modules/statuses/package.json     |  132 +
+ .../express/node_modules/type-is/HISTORY.md        |  212 +
+ .../express/node_modules/type-is/LICENSE           |   23 +
+ .../express/node_modules/type-is/README.md         |  136 +
+ .../express/node_modules/type-is/index.js          |  262 +
+ .../express/node_modules/type-is/package.json      |  111 +
+ .../express/node_modules/unpipe/HISTORY.md         |    4 +
+ .../express/node_modules/unpipe/LICENSE            |   22 +
+ .../express/node_modules/unpipe/README.md          |   43 +
+ .../express/node_modules/unpipe/index.js           |   69 +
+ .../express/node_modules/unpipe/package.json       |   85 +
+ .../express/node_modules/utils-merge/.travis.yml   |    6 +
+ .../express/node_modules/utils-merge/LICENSE       |   20 +
+ .../express/node_modules/utils-merge/README.md     |   34 +
+ .../express/node_modules/utils-merge/index.js      |   23 +
+ .../express/node_modules/utils-merge/package.json  |   85 +
+ .../express/node_modules/vary/HISTORY.md           |   29 +
+ .../node_modules/express/node_modules/vary/LICENSE |   22 +
+ .../express/node_modules/vary/README.md            |   91 +
+ .../express/node_modules/vary/index.js             |  124 +
+ .../express/node_modules/vary/package.json         |   98 +
+ server/node_modules/express/package.json           |   65 +-
+ server/node_modules/finalhandler/HISTORY.md        |  108 -
+ server/node_modules/finalhandler/LICENSE           |   22 -
+ server/node_modules/finalhandler/README.md         |  142 -
+ server/node_modules/finalhandler/index.js          |  189 -
+ server/node_modules/finalhandler/package.json      |  100 -
+ server/node_modules/forwarded/HISTORY.md           |    4 -
+ server/node_modules/forwarded/LICENSE              |   22 -
+ server/node_modules/forwarded/README.md            |   53 -
+ server/node_modules/forwarded/index.js             |   35 -
+ server/node_modules/forwarded/package.json         |   91 -
+ server/node_modules/fresh/HISTORY.md               |   38 -
+ server/node_modules/fresh/LICENSE                  |   22 -
+ server/node_modules/fresh/README.md                |   58 -
+ server/node_modules/fresh/index.js                 |   57 -
+ server/node_modules/fresh/package.json             |  115 -
+ server/node_modules/http-errors/HISTORY.md         |  103 -
+ server/node_modules/http-errors/LICENSE            |   23 -
+ server/node_modules/http-errors/README.md          |  132 -
+ server/node_modules/http-errors/index.js           |  223 -
+ server/node_modules/http-errors/package.json       |  122 -
+ server/node_modules/inherits/LICENSE               |   16 -
+ server/node_modules/inherits/README.md             |   42 -
+ server/node_modules/inherits/inherits.js           |    7 -
+ server/node_modules/inherits/inherits_browser.js   |   23 -
+ server/node_modules/inherits/package.json          |   89 -
+ server/node_modules/ipaddr.js/.npmignore           |    2 -
+ server/node_modules/ipaddr.js/.travis.yml          |   10 -
+ server/node_modules/ipaddr.js/Cakefile             |   18 -
+ server/node_modules/ipaddr.js/LICENSE              |   19 -
+ server/node_modules/ipaddr.js/README.md            |  211 -
+ server/node_modules/ipaddr.js/bower.json           |   29 -
+ server/node_modules/ipaddr.js/ipaddr.min.js        |    1 -
+ server/node_modules/ipaddr.js/lib/ipaddr.js        |  534 --
+ server/node_modules/ipaddr.js/package.json         |   89 -
+ server/node_modules/ipaddr.js/src/ipaddr.coffee    |  456 --
+ .../node_modules/ipaddr.js/test/ipaddr.test.coffee |  344 -
+ server/node_modules/isarray/README.md              |   54 +
+ server/node_modules/isarray/build/build.js         |  209 +
+ server/node_modules/isarray/component.json         |   19 +
+ server/node_modules/isarray/index.js               |    3 +
+ server/node_modules/isarray/package.json           |   78 +
+ server/node_modules/media-typer/HISTORY.md         |   22 -
+ server/node_modules/media-typer/LICENSE            |   22 -
+ server/node_modules/media-typer/README.md          |   81 -
+ server/node_modules/media-typer/index.js           |  270 -
+ server/node_modules/media-typer/package.json       |   84 -
+ server/node_modules/merge-descriptors/HISTORY.md   |   21 -
+ server/node_modules/merge-descriptors/LICENSE      |   23 -
+ server/node_modules/merge-descriptors/README.md    |   48 -
+ server/node_modules/merge-descriptors/index.js     |   60 -
+ server/node_modules/merge-descriptors/package.json |  164 -
+ server/node_modules/methods/HISTORY.md             |   29 -
+ server/node_modules/methods/LICENSE                |   24 -
+ server/node_modules/methods/README.md              |   51 -
+ server/node_modules/methods/index.js               |   69 -
+ server/node_modules/methods/package.json           |  114 -
+ server/node_modules/mime-db/HISTORY.md             |  391 --
+ server/node_modules/mime-db/LICENSE                |   22 -
+ server/node_modules/mime-db/README.md              |   82 -
+ server/node_modules/mime-db/db.json                | 6751 --------------------
+ server/node_modules/mime-db/index.js               |   11 -
+ server/node_modules/mime-db/package.json           |  130 -
+ server/node_modules/mime-types/HISTORY.md          |  216 -
+ server/node_modules/mime-types/LICENSE             |   23 -
+ server/node_modules/mime-types/README.md           |  103 -
+ server/node_modules/mime-types/index.js            |  188 -
+ server/node_modules/mime-types/package.json        |  120 -
+ server/node_modules/mime/.npmignore                |    0
+ server/node_modules/mime/LICENSE                   |   19 -
+ server/node_modules/mime/README.md                 |   90 -
+ server/node_modules/mime/build/build.js            |   11 -
+ server/node_modules/mime/build/test.js             |   57 -
+ server/node_modules/mime/cli.js                    |    8 -
+ server/node_modules/mime/mime.js                   |  108 -
+ server/node_modules/mime/package.json              |   99 -
+ server/node_modules/mime/types.json                |    1 -
+ server/node_modules/ms/.npmignore                  |    5 -
+ server/node_modules/ms/History.md                  |   66 -
+ server/node_modules/ms/LICENSE                     |   20 -
+ server/node_modules/ms/README.md                   |   35 -
+ server/node_modules/ms/index.js                    |  125 -
+ server/node_modules/ms/package.json                |   75 -
+ server/node_modules/mysql/Changes.md               |  492 ++
+ server/node_modules/mysql/License                  |   19 +
+ server/node_modules/mysql/Readme.md                | 1435 +++++
+ server/node_modules/mysql/index.js                 |  149 +
+ server/node_modules/mysql/lib/Connection.js        |  463 ++
+ server/node_modules/mysql/lib/ConnectionConfig.js  |  201 +
+ server/node_modules/mysql/lib/Pool.js              |  294 +
+ server/node_modules/mysql/lib/PoolCluster.js       |  288 +
+ server/node_modules/mysql/lib/PoolConfig.js        |   32 +
+ server/node_modules/mysql/lib/PoolConnection.js    |   64 +
+ server/node_modules/mysql/lib/PoolNamespace.js     |  136 +
+ server/node_modules/mysql/lib/PoolSelector.js      |   31 +
+ server/node_modules/mysql/lib/protocol/Auth.js     |  152 +
+ .../node_modules/mysql/lib/protocol/BufferList.js  |   25 +
+ .../mysql/lib/protocol/PacketHeader.js             |    5 +
+ .../mysql/lib/protocol/PacketWriter.js             |  210 +
+ server/node_modules/mysql/lib/protocol/Parser.js   |  470 ++
+ server/node_modules/mysql/lib/protocol/Protocol.js |  455 ++
+ .../node_modules/mysql/lib/protocol/ResultSet.js   |    7 +
+ .../node_modules/mysql/lib/protocol/SqlString.js   |    1 +
+ .../mysql/lib/protocol/constants/charsets.js       |  262 +
+ .../mysql/lib/protocol/constants/client.js         |   26 +
+ .../mysql/lib/protocol/constants/errors.js         | 2398 +++++++
+ .../mysql/lib/protocol/constants/field_flags.js    |   18 +
+ .../mysql/lib/protocol/constants/server_status.js  |   39 +
+ .../mysql/lib/protocol/constants/ssl_profiles.js   |  444 ++
+ .../mysql/lib/protocol/constants/types.js          |   33 +
+ .../protocol/packets/ClientAuthenticationPacket.js |   52 +
+ .../lib/protocol/packets/ComChangeUserPacket.js    |   26 +
+ .../mysql/lib/protocol/packets/ComPingPacket.js    |   12 +
+ .../mysql/lib/protocol/packets/ComQueryPacket.js   |   15 +
+ .../mysql/lib/protocol/packets/ComQuitPacket.js    |   12 +
+ .../lib/protocol/packets/ComStatisticsPacket.js    |   12 +
+ .../mysql/lib/protocol/packets/EmptyPacket.js      |    6 +
+ .../mysql/lib/protocol/packets/EofPacket.js        |   25 +
+ .../mysql/lib/protocol/packets/ErrorPacket.js      |   35 +
+ .../mysql/lib/protocol/packets/Field.js            |   34 +
+ .../mysql/lib/protocol/packets/FieldPacket.js      |   93 +
+ .../packets/HandshakeInitializationPacket.js       |  100 +
+ .../lib/protocol/packets/LocalDataFilePacket.js    |   15 +
+ .../mysql/lib/protocol/packets/OkPacket.js         |   41 +
+ .../lib/protocol/packets/OldPasswordPacket.js      |   15 +
+ .../lib/protocol/packets/ResultSetHeaderPacket.js  |   25 +
+ .../mysql/lib/protocol/packets/RowDataPacket.js    |  133 +
+ .../mysql/lib/protocol/packets/SSLRequestPacket.js |   27 +
+ .../mysql/lib/protocol/packets/StatisticsPacket.js |   20 +
+ .../lib/protocol/packets/UseOldPasswordPacket.js   |   14 +
+ .../mysql/lib/protocol/packets/index.js            |   20 +
+ .../mysql/lib/protocol/sequences/ChangeUser.js     |   41 +
+ .../mysql/lib/protocol/sequences/Handshake.js      |  106 +
+ .../mysql/lib/protocol/sequences/Ping.js           |   19 +
+ .../mysql/lib/protocol/sequences/Query.js          |  216 +
+ .../mysql/lib/protocol/sequences/Quit.js           |   18 +
+ .../mysql/lib/protocol/sequences/Sequence.js       |  128 +
+ .../mysql/lib/protocol/sequences/Statistics.js     |   30 +
+ .../mysql/lib/protocol/sequences/index.js          |    7 +
+ server/node_modules/mysql/package.json             |  134 +
+ server/node_modules/negotiator/HISTORY.md          |   98 -
+ server/node_modules/negotiator/LICENSE             |   24 -
+ server/node_modules/negotiator/README.md           |  203 -
+ server/node_modules/negotiator/index.js            |  124 -
+ server/node_modules/negotiator/lib/charset.js      |  169 -
+ server/node_modules/negotiator/lib/encoding.js     |  184 -
+ server/node_modules/negotiator/lib/language.js     |  179 -
+ server/node_modules/negotiator/lib/mediaType.js    |  294 -
+ server/node_modules/negotiator/package.json        |  117 -
+ server/node_modules/on-finished/HISTORY.md         |   88 -
+ server/node_modules/on-finished/LICENSE            |   23 -
+ server/node_modules/on-finished/README.md          |  154 -
+ server/node_modules/on-finished/index.js           |  196 -
+ server/node_modules/on-finished/package.json       |   99 -
+ server/node_modules/oop-module/.npmignore          |    1 +
+ server/node_modules/oop-module/Makefile            |    7 +
+ server/node_modules/oop-module/README.md           |   64 +
+ server/node_modules/oop-module/index.js            |   45 +
+ server/node_modules/oop-module/package.json        |   82 +
+ server/node_modules/oop-module/test/A.js           |   15 +
+ server/node_modules/oop-module/test/B.js           |   11 +
+ server/node_modules/oop-module/test/tests.js       |   69 +
+ server/node_modules/parseurl/HISTORY.md            |   47 -
+ server/node_modules/parseurl/LICENSE               |   24 -
+ server/node_modules/parseurl/README.md             |  120 -
+ server/node_modules/parseurl/index.js              |  138 -
+ server/node_modules/parseurl/package.json          |  116 -
+ server/node_modules/path-to-regexp/History.md      |   36 -
+ server/node_modules/path-to-regexp/LICENSE         |   21 -
+ server/node_modules/path-to-regexp/Readme.md       |   35 -
+ server/node_modules/path-to-regexp/index.js        |  129 -
+ server/node_modules/path-to-regexp/package.json    |  211 -
+ server/node_modules/proxy-addr/HISTORY.md          |  104 -
+ server/node_modules/proxy-addr/LICENSE             |   22 -
+ server/node_modules/proxy-addr/README.md           |  136 -
+ server/node_modules/proxy-addr/index.js            |  321 -
+ server/node_modules/proxy-addr/package.json        |  100 -
+ server/node_modules/qs/.eslintignore               |    1 -
+ server/node_modules/qs/.eslintrc                   |   19 -
+ server/node_modules/qs/.jscs.json                  |  176 -
+ server/node_modules/qs/CHANGELOG.md                |  120 -
+ server/node_modules/qs/CONTRIBUTING.md             |    1 -
+ server/node_modules/qs/LICENSE                     |   28 -
+ server/node_modules/qs/dist/qs.js                  |  487 --
+ server/node_modules/qs/lib/index.js                |    9 -
+ server/node_modules/qs/lib/parse.js                |  167 -
+ server/node_modules/qs/lib/stringify.js            |  137 -
+ server/node_modules/qs/lib/utils.js                |  164 -
+ server/node_modules/qs/package.json                |  111 -
+ server/node_modules/qs/test/index.js               |    5 -
+ server/node_modules/qs/test/parse.js               |  423 --
+ server/node_modules/qs/test/stringify.js           |  305 -
+ server/node_modules/qs/test/utils.js               |    9 -
+ server/node_modules/range-parser/HISTORY.md        |   51 -
+ server/node_modules/range-parser/LICENSE           |   23 -
+ server/node_modules/range-parser/README.md         |   75 -
+ server/node_modules/range-parser/index.js          |  158 -
+ server/node_modules/range-parser/package.json      |  127 -
+ server/node_modules/readable-stream/.npmignore     |    5 +
+ server/node_modules/readable-stream/LICENSE        |   18 +
+ server/node_modules/readable-stream/README.md      |   15 +
+ server/node_modules/readable-stream/duplex.js      |    1 +
+ server/node_modules/readable-stream/float.patch    |  923 +++
+ .../readable-stream/lib/_stream_duplex.js          |   89 +
+ .../readable-stream/lib/_stream_passthrough.js     |   46 +
+ .../readable-stream/lib/_stream_readable.js        |  951 +++
+ .../readable-stream/lib/_stream_transform.js       |  209 +
+ .../readable-stream/lib/_stream_writable.js        |  477 ++
+ .../readable-stream/node_modules/inherits/LICENSE  |   16 +
+ .../node_modules/inherits/README.md                |   42 +
+ .../node_modules/inherits/inherits.js              |    7 +
+ .../node_modules/inherits/inherits_browser.js      |   23 +
+ .../node_modules/inherits/package.json             |   89 +
+ server/node_modules/readable-stream/package.json   |  104 +
+ server/node_modules/readable-stream/passthrough.js |    1 +
+ server/node_modules/readable-stream/readable.js    |   10 +
+ server/node_modules/readable-stream/transform.js   |    1 +
+ server/node_modules/readable-stream/writable.js    |    1 +
+ server/node_modules/send/HISTORY.md                |  346 -
+ server/node_modules/send/LICENSE                   |   23 -
+ server/node_modules/send/README.md                 |  247 -
+ server/node_modules/send/index.js                  |  948 ---
+ server/node_modules/send/package.json              |  121 -
+ server/node_modules/serve-static/HISTORY.md        |  340 -
+ server/node_modules/serve-static/LICENSE           |   25 -
+ server/node_modules/serve-static/README.md         |  249 -
+ server/node_modules/serve-static/index.js          |  188 -
+ .../serve-static/node_modules/ms/LICENSE.md        |   21 -
+ .../serve-static/node_modules/ms/README.md         |   52 -
+ .../serve-static/node_modules/ms/index.js          |  149 -
+ .../serve-static/node_modules/ms/package.json      |  100 -
+ .../serve-static/node_modules/send/HISTORY.md      |  356 --
+ .../serve-static/node_modules/send/LICENSE         |   23 -
+ .../serve-static/node_modules/send/README.md       |  251 -
+ .../serve-static/node_modules/send/index.js        |  948 ---
+ .../serve-static/node_modules/send/package.json    |  121 -
+ server/node_modules/serve-static/package.json      |  112 -
+ server/node_modules/setprototypeof/LICENSE         |   13 -
+ server/node_modules/setprototypeof/README.md       |   21 -
+ server/node_modules/setprototypeof/index.js        |   13 -
+ server/node_modules/setprototypeof/package.json    |   80 -
+ server/node_modules/sqlstring/HISTORY.md           |   30 +
+ server/node_modules/sqlstring/LICENSE              |   19 +
+ server/node_modules/sqlstring/README.md            |  160 +
+ server/node_modules/sqlstring/index.js             |    1 +
+ server/node_modules/sqlstring/lib/SqlString.js     |  218 +
+ server/node_modules/sqlstring/package.json         |  124 +
+ server/node_modules/statuses/HISTORY.md            |   55 -
+ server/node_modules/statuses/LICENSE               |   23 -
+ server/node_modules/statuses/README.md             |  103 -
+ server/node_modules/statuses/codes.json            |   65 -
+ server/node_modules/statuses/index.js              |  110 -
+ server/node_modules/statuses/package.json          |  133 -
+ server/node_modules/string_decoder/.npmignore      |    2 +
+ server/node_modules/string_decoder/LICENSE         |   20 +
+ server/node_modules/string_decoder/README.md       |    7 +
+ server/node_modules/string_decoder/index.js        |  221 +
+ server/node_modules/string_decoder/package.json    |   79 +
+ server/node_modules/type-is/HISTORY.md             |  212 -
+ server/node_modules/type-is/LICENSE                |   23 -
+ server/node_modules/type-is/README.md              |  136 -
+ server/node_modules/type-is/index.js               |  262 -
+ server/node_modules/type-is/package.json           |  111 -
+ server/node_modules/unpipe/HISTORY.md              |    4 -
+ server/node_modules/unpipe/LICENSE                 |   22 -
+ server/node_modules/unpipe/README.md               |   43 -
+ server/node_modules/unpipe/index.js                |   69 -
+ server/node_modules/unpipe/package.json            |   85 -
+ server/node_modules/utils-merge/.travis.yml        |    6 -
+ server/node_modules/utils-merge/LICENSE            |   20 -
+ server/node_modules/utils-merge/README.md          |   34 -
+ server/node_modules/utils-merge/index.js           |   23 -
+ server/node_modules/utils-merge/package.json       |   85 -
+ server/node_modules/vary/HISTORY.md                |   29 -
+ server/node_modules/vary/LICENSE                   |   22 -
+ server/node_modules/vary/README.md                 |   91 -
+ server/node_modules/vary/index.js                  |  124 -
+ server/node_modules/vary/package.json              |   98 -
+ server/package.json                                |    4 +-
+ server/server.js                                   |   38 +-
+ 612 files changed, 52275 insertions(+), 33320 deletions(-)
+
+commit 3eb8bce62ef5b67a5d2e06f41a61dbd60f0397bb
+Author: Ethan Wieczorek <ethantw@iastate.edu>
+Date:   Tue Jan 31 21:17:54 2017 -0600
+
+    Ethan adding name to README
+
+ README.md | 2 ++
+ 1 file changed, 2 insertions(+)
+
+commit 450f7bc6613fe15d3dbe69a56ef6a6c18e778404
+Author: Alech <alech@iastate.edu>
+Date:   Tue Jan 31 13:27:16 2017 -0600
+
+    Removed the server thing
+
+ server/dataBase.js                                 |   31 -
+ server/database.sql                                |   45 -
+ server/node_modules/.bin/mime                      |    1 -
+ server/node_modules/accepts/HISTORY.md             |  212 -
+ server/node_modules/accepts/LICENSE                |   23 -
+ server/node_modules/accepts/README.md              |  135 -
+ server/node_modules/accepts/index.js               |  231 -
+ server/node_modules/accepts/package.json           |  104 -
+ server/node_modules/array-flatten/LICENSE          |   21 -
+ server/node_modules/array-flatten/README.md        |   43 -
+ server/node_modules/array-flatten/array-flatten.js |   64 -
+ server/node_modules/array-flatten/package.json     |   88 -
+ server/node_modules/content-disposition/HISTORY.md |   45 -
+ server/node_modules/content-disposition/LICENSE    |   22 -
+ server/node_modules/content-disposition/README.md  |  141 -
+ server/node_modules/content-disposition/index.js   |  445 --
+ .../node_modules/content-disposition/package.json  |   92 -
+ server/node_modules/content-type/HISTORY.md        |   14 -
+ server/node_modules/content-type/LICENSE           |   22 -
+ server/node_modules/content-type/README.md         |   92 -
+ server/node_modules/content-type/index.js          |  216 -
+ server/node_modules/content-type/package.json      |   96 -
+ server/node_modules/cookie-signature/.npmignore    |    4 -
+ server/node_modules/cookie-signature/History.md    |   38 -
+ server/node_modules/cookie-signature/Readme.md     |   42 -
+ server/node_modules/cookie-signature/index.js      |   51 -
+ server/node_modules/cookie-signature/package.json  |   84 -
+ server/node_modules/cookie/HISTORY.md              |  118 -
+ server/node_modules/cookie/LICENSE                 |   24 -
+ server/node_modules/cookie/README.md               |  220 -
+ server/node_modules/cookie/index.js                |  195 -
+ server/node_modules/cookie/package.json            |   98 -
+ server/node_modules/debug/.jshintrc                |    3 -
+ server/node_modules/debug/.npmignore               |    6 -
+ server/node_modules/debug/History.md               |  195 -
+ server/node_modules/debug/Makefile                 |   36 -
+ server/node_modules/debug/Readme.md                |  188 -
+ server/node_modules/debug/bower.json               |   28 -
+ server/node_modules/debug/browser.js               |  168 -
+ server/node_modules/debug/component.json           |   19 -
+ server/node_modules/debug/debug.js                 |  197 -
+ server/node_modules/debug/node.js                  |  209 -
+ server/node_modules/debug/package.json             |  101 -
+ server/node_modules/depd/History.md                |   84 -
+ server/node_modules/depd/LICENSE                   |   22 -
+ server/node_modules/depd/Readme.md                 |  281 -
+ server/node_modules/depd/index.js                  |  521 --
+ server/node_modules/depd/lib/browser/index.js      |   79 -
+ .../node_modules/depd/lib/compat/buffer-concat.js  |   35 -
+ .../depd/lib/compat/callsite-tostring.js           |  103 -
+ .../depd/lib/compat/event-listener-count.js        |   22 -
+ server/node_modules/depd/lib/compat/index.js       |   84 -
+ server/node_modules/depd/package.json              |   95 -
+ server/node_modules/destroy/LICENSE                |   22 -
+ server/node_modules/destroy/README.md              |   60 -
+ server/node_modules/destroy/index.js               |   75 -
+ server/node_modules/destroy/package.json           |   99 -
+ server/node_modules/ee-first/LICENSE               |   22 -
+ server/node_modules/ee-first/README.md             |   80 -
+ server/node_modules/ee-first/index.js              |   95 -
+ server/node_modules/ee-first/package.json          |   90 -
+ server/node_modules/encodeurl/HISTORY.md           |    9 -
+ server/node_modules/encodeurl/LICENSE              |   22 -
+ server/node_modules/encodeurl/README.md            |  124 -
+ server/node_modules/encodeurl/index.js             |   60 -
+ server/node_modules/encodeurl/package.json         |  104 -
+ server/node_modules/escape-html/LICENSE            |   24 -
+ server/node_modules/escape-html/Readme.md          |   43 -
+ server/node_modules/escape-html/index.js           |   78 -
+ server/node_modules/escape-html/package.json       |   87 -
+ server/node_modules/etag/HISTORY.md                |   71 -
+ server/node_modules/etag/LICENSE                   |   22 -
+ server/node_modules/etag/README.md                 |  165 -
+ server/node_modules/etag/index.js                  |  132 -
+ server/node_modules/etag/package.json              |  101 -
+ server/node_modules/express/History.md             | 3142 ---------
+ server/node_modules/express/LICENSE                |   24 -
+ server/node_modules/express/Readme.md              |  142 -
+ server/node_modules/express/index.js               |   11 -
+ server/node_modules/express/lib/application.js     |  643 --
+ server/node_modules/express/lib/express.js         |  103 -
+ server/node_modules/express/lib/middleware/init.js |   36 -
+ .../node_modules/express/lib/middleware/query.js   |   46 -
+ server/node_modules/express/lib/request.js         |  502 --
+ server/node_modules/express/lib/response.js        | 1065 ---
+ server/node_modules/express/lib/router/index.js    |  645 --
+ server/node_modules/express/lib/router/layer.js    |  176 -
+ server/node_modules/express/lib/router/route.js    |  210 -
+ server/node_modules/express/lib/utils.js           |  299 -
+ server/node_modules/express/lib/view.js            |  173 -
+ server/node_modules/express/package.json           |  185 -
+ server/node_modules/finalhandler/HISTORY.md        |  108 -
+ server/node_modules/finalhandler/LICENSE           |   22 -
+ server/node_modules/finalhandler/README.md         |  142 -
+ server/node_modules/finalhandler/index.js          |  189 -
+ server/node_modules/finalhandler/package.json      |  100 -
+ server/node_modules/forwarded/HISTORY.md           |    4 -
+ server/node_modules/forwarded/LICENSE              |   22 -
+ server/node_modules/forwarded/README.md            |   53 -
+ server/node_modules/forwarded/index.js             |   35 -
+ server/node_modules/forwarded/package.json         |   91 -
+ server/node_modules/fresh/HISTORY.md               |   38 -
+ server/node_modules/fresh/LICENSE                  |   22 -
+ server/node_modules/fresh/README.md                |   58 -
+ server/node_modules/fresh/index.js                 |   57 -
+ server/node_modules/fresh/package.json             |  115 -
+ server/node_modules/http-errors/HISTORY.md         |  103 -
+ server/node_modules/http-errors/LICENSE            |   23 -
+ server/node_modules/http-errors/README.md          |  132 -
+ server/node_modules/http-errors/index.js           |  223 -
+ server/node_modules/http-errors/package.json       |  122 -
+ server/node_modules/inherits/LICENSE               |   16 -
+ server/node_modules/inherits/README.md             |   42 -
+ server/node_modules/inherits/inherits.js           |    7 -
+ server/node_modules/inherits/inherits_browser.js   |   23 -
+ server/node_modules/inherits/package.json          |   89 -
+ server/node_modules/ipaddr.js/.npmignore           |    2 -
+ server/node_modules/ipaddr.js/.travis.yml          |   10 -
+ server/node_modules/ipaddr.js/Cakefile             |   18 -
+ server/node_modules/ipaddr.js/LICENSE              |   19 -
+ server/node_modules/ipaddr.js/README.md            |  211 -
+ server/node_modules/ipaddr.js/bower.json           |   29 -
+ server/node_modules/ipaddr.js/ipaddr.min.js        |    1 -
+ server/node_modules/ipaddr.js/lib/ipaddr.js        |  534 --
+ server/node_modules/ipaddr.js/package.json         |   89 -
+ server/node_modules/ipaddr.js/src/ipaddr.coffee    |  456 --
+ .../node_modules/ipaddr.js/test/ipaddr.test.coffee |  344 -
+ server/node_modules/media-typer/HISTORY.md         |   22 -
+ server/node_modules/media-typer/LICENSE            |   22 -
+ server/node_modules/media-typer/README.md          |   81 -
+ server/node_modules/media-typer/index.js           |  270 -
+ server/node_modules/media-typer/package.json       |   84 -
+ server/node_modules/merge-descriptors/HISTORY.md   |   21 -
+ server/node_modules/merge-descriptors/LICENSE      |   23 -
+ server/node_modules/merge-descriptors/README.md    |   48 -
+ server/node_modules/merge-descriptors/index.js     |   60 -
+ server/node_modules/merge-descriptors/package.json |  164 -
+ server/node_modules/methods/HISTORY.md             |   29 -
+ server/node_modules/methods/LICENSE                |   24 -
+ server/node_modules/methods/README.md              |   51 -
+ server/node_modules/methods/index.js               |   69 -
+ server/node_modules/methods/package.json           |  114 -
+ server/node_modules/mime-db/HISTORY.md             |  391 --
+ server/node_modules/mime-db/LICENSE                |   22 -
+ server/node_modules/mime-db/README.md              |   82 -
+ server/node_modules/mime-db/db.json                | 6751 --------------------
+ server/node_modules/mime-db/index.js               |   11 -
+ server/node_modules/mime-db/package.json           |  130 -
+ server/node_modules/mime-types/HISTORY.md          |  216 -
+ server/node_modules/mime-types/LICENSE             |   23 -
+ server/node_modules/mime-types/README.md           |  103 -
+ server/node_modules/mime-types/index.js            |  188 -
+ server/node_modules/mime-types/package.json        |  120 -
+ server/node_modules/mime/.npmignore                |    0
+ server/node_modules/mime/LICENSE                   |   19 -
+ server/node_modules/mime/README.md                 |   90 -
+ server/node_modules/mime/build/build.js            |   11 -
+ server/node_modules/mime/build/test.js             |   57 -
+ server/node_modules/mime/cli.js                    |    8 -
+ server/node_modules/mime/mime.js                   |  108 -
+ server/node_modules/mime/package.json              |   99 -
+ server/node_modules/mime/types.json                |    1 -
+ server/node_modules/ms/.npmignore                  |    5 -
+ server/node_modules/ms/History.md                  |   66 -
+ server/node_modules/ms/LICENSE                     |   20 -
+ server/node_modules/ms/README.md                   |   35 -
+ server/node_modules/ms/index.js                    |  125 -
+ server/node_modules/ms/package.json                |   75 -
+ server/node_modules/negotiator/HISTORY.md          |   98 -
+ server/node_modules/negotiator/LICENSE             |   24 -
+ server/node_modules/negotiator/README.md           |  203 -
+ server/node_modules/negotiator/index.js            |  124 -
+ server/node_modules/negotiator/lib/charset.js      |  169 -
+ server/node_modules/negotiator/lib/encoding.js     |  184 -
+ server/node_modules/negotiator/lib/language.js     |  179 -
+ server/node_modules/negotiator/lib/mediaType.js    |  294 -
+ server/node_modules/negotiator/package.json        |  117 -
+ server/node_modules/on-finished/HISTORY.md         |   88 -
+ server/node_modules/on-finished/LICENSE            |   23 -
+ server/node_modules/on-finished/README.md          |  154 -
+ server/node_modules/on-finished/index.js           |  196 -
+ server/node_modules/on-finished/package.json       |   99 -
+ server/node_modules/parseurl/HISTORY.md            |   47 -
+ server/node_modules/parseurl/LICENSE               |   24 -
+ server/node_modules/parseurl/README.md             |  120 -
+ server/node_modules/parseurl/index.js              |  138 -
+ server/node_modules/parseurl/package.json          |  116 -
+ server/node_modules/path-to-regexp/History.md      |   36 -
+ server/node_modules/path-to-regexp/LICENSE         |   21 -
+ server/node_modules/path-to-regexp/Readme.md       |   35 -
+ server/node_modules/path-to-regexp/index.js        |  129 -
+ server/node_modules/path-to-regexp/package.json    |  211 -
+ server/node_modules/proxy-addr/HISTORY.md          |  104 -
+ server/node_modules/proxy-addr/LICENSE             |   22 -
+ server/node_modules/proxy-addr/README.md           |  136 -
+ server/node_modules/proxy-addr/index.js            |  321 -
+ server/node_modules/proxy-addr/package.json        |  100 -
+ server/node_modules/qs/.eslintignore               |    1 -
+ server/node_modules/qs/.eslintrc                   |   19 -
+ server/node_modules/qs/.jscs.json                  |  176 -
+ server/node_modules/qs/CHANGELOG.md                |  120 -
+ server/node_modules/qs/CONTRIBUTING.md             |    1 -
+ server/node_modules/qs/LICENSE                     |   28 -
+ server/node_modules/qs/dist/qs.js                  |  487 --
+ server/node_modules/qs/lib/index.js                |    9 -
+ server/node_modules/qs/lib/parse.js                |  167 -
+ server/node_modules/qs/lib/stringify.js            |  137 -
+ server/node_modules/qs/lib/utils.js                |  164 -
+ server/node_modules/qs/package.json                |  111 -
+ server/node_modules/qs/test/index.js               |    5 -
+ server/node_modules/qs/test/parse.js               |  423 --
+ server/node_modules/qs/test/stringify.js           |  305 -
+ server/node_modules/qs/test/utils.js               |    9 -
+ server/node_modules/range-parser/HISTORY.md        |   51 -
+ server/node_modules/range-parser/LICENSE           |   23 -
+ server/node_modules/range-parser/README.md         |   75 -
+ server/node_modules/range-parser/index.js          |  158 -
+ server/node_modules/range-parser/package.json      |  127 -
+ server/node_modules/send/HISTORY.md                |  346 -
+ server/node_modules/send/LICENSE                   |   23 -
+ server/node_modules/send/README.md                 |  247 -
+ server/node_modules/send/index.js                  |  948 ---
+ server/node_modules/send/package.json              |  121 -
+ server/node_modules/serve-static/HISTORY.md        |  340 -
+ server/node_modules/serve-static/LICENSE           |   25 -
+ server/node_modules/serve-static/README.md         |  249 -
+ server/node_modules/serve-static/index.js          |  188 -
+ .../serve-static/node_modules/ms/LICENSE.md        |   21 -
+ .../serve-static/node_modules/ms/README.md         |   52 -
+ .../serve-static/node_modules/ms/index.js          |  149 -
+ .../serve-static/node_modules/ms/package.json      |  100 -
+ .../serve-static/node_modules/send/HISTORY.md      |  356 --
+ .../serve-static/node_modules/send/LICENSE         |   23 -
+ .../serve-static/node_modules/send/README.md       |  251 -
+ .../serve-static/node_modules/send/index.js        |  948 ---
+ .../serve-static/node_modules/send/package.json    |  121 -
+ server/node_modules/serve-static/package.json      |  112 -
+ server/node_modules/setprototypeof/LICENSE         |   13 -
+ server/node_modules/setprototypeof/README.md       |   21 -
+ server/node_modules/setprototypeof/index.js        |   13 -
+ server/node_modules/setprototypeof/package.json    |   80 -
+ server/node_modules/statuses/HISTORY.md            |   55 -
+ server/node_modules/statuses/LICENSE               |   23 -
+ server/node_modules/statuses/README.md             |  103 -
+ server/node_modules/statuses/codes.json            |   65 -
+ server/node_modules/statuses/index.js              |  110 -
+ server/node_modules/statuses/package.json          |  133 -
+ server/node_modules/type-is/HISTORY.md             |  212 -
+ server/node_modules/type-is/LICENSE                |   23 -
+ server/node_modules/type-is/README.md              |  136 -
+ server/node_modules/type-is/index.js               |  262 -
+ server/node_modules/type-is/package.json           |  111 -
+ server/node_modules/unpipe/HISTORY.md              |    4 -
+ server/node_modules/unpipe/LICENSE                 |   22 -
+ server/node_modules/unpipe/README.md               |   43 -
+ server/node_modules/unpipe/index.js                |   69 -
+ server/node_modules/unpipe/package.json            |   85 -
+ server/node_modules/utils-merge/.travis.yml        |    6 -
+ server/node_modules/utils-merge/LICENSE            |   20 -
+ server/node_modules/utils-merge/README.md          |   34 -
+ server/node_modules/utils-merge/index.js           |   23 -
+ server/node_modules/utils-merge/package.json       |   85 -
+ server/node_modules/vary/HISTORY.md                |   29 -
+ server/node_modules/vary/LICENSE                   |   22 -
+ server/node_modules/vary/README.md                 |   91 -
+ server/node_modules/vary/index.js                  |  124 -
+ server/node_modules/vary/package.json              |   98 -
+ server/package.json                                |   19 -
+ server/server.js                                   |   21 -
+ 269 files changed, 40790 deletions(-)
+
+commit 9b7247c11562eca839156e5de086c537cf07ea79
+Author: Alech <alech@iastate.edu>
+Date:   Tue Jan 31 13:25:02 2017 -0600
+
+    Removed some files
+
+ .gitignore    |  1 -
+ npm-debug.log | 20 --------------------
+ 2 files changed, 21 deletions(-)
+
+commit 221dc9e2bab05ef95bacda2181260aba8c723218
+Author: Christian <cshinkle@iastate.edu>
+Date:   Tue Jan 31 13:09:52 2017 -0600
+
+    I removed Shane's txt file
+
+ ShaneDrafahl.txt | 1 -
+ 1 file changed, 1 deletion(-)
+
+commit 360011f03da8eef33a47fa01a4e7f649f628770b
+Author: Alech <alech@iastate.edu>
+Date:   Mon Jan 30 20:56:34 2017 -0600
+
+    Added my name.
+
+ README.md | 1 +
+ 1 file changed, 1 insertion(+)
+
+commit 250b6cd728ea280bfa6059aa57b40df139dc278d
+Author: Christian <cshinkle@iastate.edu>
+Date:   Mon Jan 30 15:15:15 2017 -0600
+
+    Christian added his name to the README.
+
+ README.md | 1 +
+ 1 file changed, 1 insertion(+)
+
+commit 7af7bdd146f6faa336b78f5d4fa913b9f1bd0538
+Author: Shane P Drafahl <sdrafahl@iastate.edu>
+Date:   Sun Jan 29 17:09:16 2017 -0600
+
+    Altered .gitignored
+
+ .gitignore | 1 +
+ 1 file changed, 1 insertion(+)
+
+commit 12012b77337035801b7c4fb26de52fb62fc2eaa9
+Author: Shane P Drafahl <sdrafahl@iastate.edu>
+Date:   Sun Jan 29 17:05:31 2017 -0600
+
+    Added file for lab2
+
+ ShaneDrafahl.txt | 1 +
+ 1 file changed, 1 insertion(+)
+
+commit 0ab12a601ab08868ba1ea0e75a5ee70fb6c7e31f
+Author: shane <sdrafahl@iastate.edu>
+Date:   Sat Jan 28 01:31:05 2017 -0600
+
+    Started working on database code in a modular design. I have also created a simple sql file for the start of the database
+
+ npm-debug.log                                      |   20 +
+ server/dataBase.js                                 |   31 +
+ server/database.sql                                |   45 +
+ server/node_modules/.bin/mime                      |    1 +
+ server/node_modules/accepts/HISTORY.md             |  212 +
+ server/node_modules/accepts/LICENSE                |   23 +
+ server/node_modules/accepts/README.md              |  135 +
+ server/node_modules/accepts/index.js               |  231 +
+ server/node_modules/accepts/package.json           |  104 +
+ server/node_modules/array-flatten/LICENSE          |   21 +
+ server/node_modules/array-flatten/README.md        |   43 +
+ server/node_modules/array-flatten/array-flatten.js |   64 +
+ server/node_modules/array-flatten/package.json     |   88 +
+ server/node_modules/content-disposition/HISTORY.md |   45 +
+ server/node_modules/content-disposition/LICENSE    |   22 +
+ server/node_modules/content-disposition/README.md  |  141 +
+ server/node_modules/content-disposition/index.js   |  445 ++
+ .../node_modules/content-disposition/package.json  |   92 +
+ server/node_modules/content-type/HISTORY.md        |   14 +
+ server/node_modules/content-type/LICENSE           |   22 +
+ server/node_modules/content-type/README.md         |   92 +
+ server/node_modules/content-type/index.js          |  216 +
+ server/node_modules/content-type/package.json      |   96 +
+ server/node_modules/cookie-signature/.npmignore    |    4 +
+ server/node_modules/cookie-signature/History.md    |   38 +
+ server/node_modules/cookie-signature/Readme.md     |   42 +
+ server/node_modules/cookie-signature/index.js      |   51 +
+ server/node_modules/cookie-signature/package.json  |   84 +
+ server/node_modules/cookie/HISTORY.md              |  118 +
+ server/node_modules/cookie/LICENSE                 |   24 +
+ server/node_modules/cookie/README.md               |  220 +
+ server/node_modules/cookie/index.js                |  195 +
+ server/node_modules/cookie/package.json            |   98 +
+ server/node_modules/debug/.jshintrc                |    3 +
+ server/node_modules/debug/.npmignore               |    6 +
+ server/node_modules/debug/History.md               |  195 +
+ server/node_modules/debug/Makefile                 |   36 +
+ server/node_modules/debug/Readme.md                |  188 +
+ server/node_modules/debug/bower.json               |   28 +
+ server/node_modules/debug/browser.js               |  168 +
+ server/node_modules/debug/component.json           |   19 +
+ server/node_modules/debug/debug.js                 |  197 +
+ server/node_modules/debug/node.js                  |  209 +
+ server/node_modules/debug/package.json             |  101 +
+ server/node_modules/depd/History.md                |   84 +
+ server/node_modules/depd/LICENSE                   |   22 +
+ server/node_modules/depd/Readme.md                 |  281 +
+ server/node_modules/depd/index.js                  |  521 ++
+ server/node_modules/depd/lib/browser/index.js      |   79 +
+ .../node_modules/depd/lib/compat/buffer-concat.js  |   35 +
+ .../depd/lib/compat/callsite-tostring.js           |  103 +
+ .../depd/lib/compat/event-listener-count.js        |   22 +
+ server/node_modules/depd/lib/compat/index.js       |   84 +
+ server/node_modules/depd/package.json              |   95 +
+ server/node_modules/destroy/LICENSE                |   22 +
+ server/node_modules/destroy/README.md              |   60 +
+ server/node_modules/destroy/index.js               |   75 +
+ server/node_modules/destroy/package.json           |   99 +
+ server/node_modules/ee-first/LICENSE               |   22 +
+ server/node_modules/ee-first/README.md             |   80 +
+ server/node_modules/ee-first/index.js              |   95 +
+ server/node_modules/ee-first/package.json          |   90 +
+ server/node_modules/encodeurl/HISTORY.md           |    9 +
+ server/node_modules/encodeurl/LICENSE              |   22 +
+ server/node_modules/encodeurl/README.md            |  124 +
+ server/node_modules/encodeurl/index.js             |   60 +
+ server/node_modules/encodeurl/package.json         |  104 +
+ server/node_modules/escape-html/LICENSE            |   24 +
+ server/node_modules/escape-html/Readme.md          |   43 +
+ server/node_modules/escape-html/index.js           |   78 +
+ server/node_modules/escape-html/package.json       |   87 +
+ server/node_modules/etag/HISTORY.md                |   71 +
+ server/node_modules/etag/LICENSE                   |   22 +
+ server/node_modules/etag/README.md                 |  165 +
+ server/node_modules/etag/index.js                  |  132 +
+ server/node_modules/etag/package.json              |  101 +
+ server/node_modules/express/History.md             | 3142 +++++++++
+ server/node_modules/express/LICENSE                |   24 +
+ server/node_modules/express/Readme.md              |  142 +
+ server/node_modules/express/index.js               |   11 +
+ server/node_modules/express/lib/application.js     |  643 ++
+ server/node_modules/express/lib/express.js         |  103 +
+ server/node_modules/express/lib/middleware/init.js |   36 +
+ .../node_modules/express/lib/middleware/query.js   |   46 +
+ server/node_modules/express/lib/request.js         |  502 ++
+ server/node_modules/express/lib/response.js        | 1065 +++
+ server/node_modules/express/lib/router/index.js    |  645 ++
+ server/node_modules/express/lib/router/layer.js    |  176 +
+ server/node_modules/express/lib/router/route.js    |  210 +
+ server/node_modules/express/lib/utils.js           |  299 +
+ server/node_modules/express/lib/view.js            |  173 +
+ server/node_modules/express/package.json           |  185 +
+ server/node_modules/finalhandler/HISTORY.md        |  108 +
+ server/node_modules/finalhandler/LICENSE           |   22 +
+ server/node_modules/finalhandler/README.md         |  142 +
+ server/node_modules/finalhandler/index.js          |  189 +
+ server/node_modules/finalhandler/package.json      |  100 +
+ server/node_modules/forwarded/HISTORY.md           |    4 +
+ server/node_modules/forwarded/LICENSE              |   22 +
+ server/node_modules/forwarded/README.md            |   53 +
+ server/node_modules/forwarded/index.js             |   35 +
+ server/node_modules/forwarded/package.json         |   91 +
+ server/node_modules/fresh/HISTORY.md               |   38 +
+ server/node_modules/fresh/LICENSE                  |   22 +
+ server/node_modules/fresh/README.md                |   58 +
+ server/node_modules/fresh/index.js                 |   57 +
+ server/node_modules/fresh/package.json             |  115 +
+ server/node_modules/http-errors/HISTORY.md         |  103 +
+ server/node_modules/http-errors/LICENSE            |   23 +
+ server/node_modules/http-errors/README.md          |  132 +
+ server/node_modules/http-errors/index.js           |  223 +
+ server/node_modules/http-errors/package.json       |  122 +
+ server/node_modules/inherits/LICENSE               |   16 +
+ server/node_modules/inherits/README.md             |   42 +
+ server/node_modules/inherits/inherits.js           |    7 +
+ server/node_modules/inherits/inherits_browser.js   |   23 +
+ server/node_modules/inherits/package.json          |   89 +
+ server/node_modules/ipaddr.js/.npmignore           |    2 +
+ server/node_modules/ipaddr.js/.travis.yml          |   10 +
+ server/node_modules/ipaddr.js/Cakefile             |   18 +
+ server/node_modules/ipaddr.js/LICENSE              |   19 +
+ server/node_modules/ipaddr.js/README.md            |  211 +
+ server/node_modules/ipaddr.js/bower.json           |   29 +
+ server/node_modules/ipaddr.js/ipaddr.min.js        |    1 +
+ server/node_modules/ipaddr.js/lib/ipaddr.js        |  534 ++
+ server/node_modules/ipaddr.js/package.json         |   89 +
+ server/node_modules/ipaddr.js/src/ipaddr.coffee    |  456 ++
+ .../node_modules/ipaddr.js/test/ipaddr.test.coffee |  344 +
+ server/node_modules/media-typer/HISTORY.md         |   22 +
+ server/node_modules/media-typer/LICENSE            |   22 +
+ server/node_modules/media-typer/README.md          |   81 +
+ server/node_modules/media-typer/index.js           |  270 +
+ server/node_modules/media-typer/package.json       |   84 +
+ server/node_modules/merge-descriptors/HISTORY.md   |   21 +
+ server/node_modules/merge-descriptors/LICENSE      |   23 +
+ server/node_modules/merge-descriptors/README.md    |   48 +
+ server/node_modules/merge-descriptors/index.js     |   60 +
+ server/node_modules/merge-descriptors/package.json |  164 +
+ server/node_modules/methods/HISTORY.md             |   29 +
+ server/node_modules/methods/LICENSE                |   24 +
+ server/node_modules/methods/README.md              |   51 +
+ server/node_modules/methods/index.js               |   69 +
+ server/node_modules/methods/package.json           |  114 +
+ server/node_modules/mime-db/HISTORY.md             |  391 ++
+ server/node_modules/mime-db/LICENSE                |   22 +
+ server/node_modules/mime-db/README.md              |   82 +
+ server/node_modules/mime-db/db.json                | 6751 ++++++++++++++++++++
+ server/node_modules/mime-db/index.js               |   11 +
+ server/node_modules/mime-db/package.json           |  130 +
+ server/node_modules/mime-types/HISTORY.md          |  216 +
+ server/node_modules/mime-types/LICENSE             |   23 +
+ server/node_modules/mime-types/README.md           |  103 +
+ server/node_modules/mime-types/index.js            |  188 +
+ server/node_modules/mime-types/package.json        |  120 +
+ server/node_modules/mime/.npmignore                |    0
+ server/node_modules/mime/LICENSE                   |   19 +
+ server/node_modules/mime/README.md                 |   90 +
+ server/node_modules/mime/build/build.js            |   11 +
+ server/node_modules/mime/build/test.js             |   57 +
+ server/node_modules/mime/cli.js                    |    8 +
+ server/node_modules/mime/mime.js                   |  108 +
+ server/node_modules/mime/package.json              |   99 +
+ server/node_modules/mime/types.json                |    1 +
+ server/node_modules/ms/.npmignore                  |    5 +
+ server/node_modules/ms/History.md                  |   66 +
+ server/node_modules/ms/LICENSE                     |   20 +
+ server/node_modules/ms/README.md                   |   35 +
+ server/node_modules/ms/index.js                    |  125 +
+ server/node_modules/ms/package.json                |   75 +
+ server/node_modules/negotiator/HISTORY.md          |   98 +
+ server/node_modules/negotiator/LICENSE             |   24 +
+ server/node_modules/negotiator/README.md           |  203 +
+ server/node_modules/negotiator/index.js            |  124 +
+ server/node_modules/negotiator/lib/charset.js      |  169 +
+ server/node_modules/negotiator/lib/encoding.js     |  184 +
+ server/node_modules/negotiator/lib/language.js     |  179 +
+ server/node_modules/negotiator/lib/mediaType.js    |  294 +
+ server/node_modules/negotiator/package.json        |  117 +
+ server/node_modules/on-finished/HISTORY.md         |   88 +
+ server/node_modules/on-finished/LICENSE            |   23 +
+ server/node_modules/on-finished/README.md          |  154 +
+ server/node_modules/on-finished/index.js           |  196 +
+ server/node_modules/on-finished/package.json       |   99 +
+ server/node_modules/parseurl/HISTORY.md            |   47 +
+ server/node_modules/parseurl/LICENSE               |   24 +
+ server/node_modules/parseurl/README.md             |  120 +
+ server/node_modules/parseurl/index.js              |  138 +
+ server/node_modules/parseurl/package.json          |  116 +
+ server/node_modules/path-to-regexp/History.md      |   36 +
+ server/node_modules/path-to-regexp/LICENSE         |   21 +
+ server/node_modules/path-to-regexp/Readme.md       |   35 +
+ server/node_modules/path-to-regexp/index.js        |  129 +
+ server/node_modules/path-to-regexp/package.json    |  211 +
+ server/node_modules/proxy-addr/HISTORY.md          |  104 +
+ server/node_modules/proxy-addr/LICENSE             |   22 +
+ server/node_modules/proxy-addr/README.md           |  136 +
+ server/node_modules/proxy-addr/index.js            |  321 +
+ server/node_modules/proxy-addr/package.json        |  100 +
+ server/node_modules/qs/.eslintignore               |    1 +
+ server/node_modules/qs/.eslintrc                   |   19 +
+ server/node_modules/qs/.jscs.json                  |  176 +
+ server/node_modules/qs/CHANGELOG.md                |  120 +
+ server/node_modules/qs/CONTRIBUTING.md             |    1 +
+ server/node_modules/qs/LICENSE                     |   28 +
+ server/node_modules/qs/dist/qs.js                  |  487 ++
+ server/node_modules/qs/lib/index.js                |    9 +
+ server/node_modules/qs/lib/parse.js                |  167 +
+ server/node_modules/qs/lib/stringify.js            |  137 +
+ server/node_modules/qs/lib/utils.js                |  164 +
+ server/node_modules/qs/package.json                |  111 +
+ server/node_modules/qs/test/index.js               |    5 +
+ server/node_modules/qs/test/parse.js               |  423 ++
+ server/node_modules/qs/test/stringify.js           |  305 +
+ server/node_modules/qs/test/utils.js               |    9 +
+ server/node_modules/range-parser/HISTORY.md        |   51 +
+ server/node_modules/range-parser/LICENSE           |   23 +
+ server/node_modules/range-parser/README.md         |   75 +
+ server/node_modules/range-parser/index.js          |  158 +
+ server/node_modules/range-parser/package.json      |  127 +
+ server/node_modules/send/HISTORY.md                |  346 +
+ server/node_modules/send/LICENSE                   |   23 +
+ server/node_modules/send/README.md                 |  247 +
+ server/node_modules/send/index.js                  |  948 +++
+ server/node_modules/send/package.json              |  121 +
+ server/node_modules/serve-static/HISTORY.md        |  340 +
+ server/node_modules/serve-static/LICENSE           |   25 +
+ server/node_modules/serve-static/README.md         |  249 +
+ server/node_modules/serve-static/index.js          |  188 +
+ .../serve-static/node_modules/ms/LICENSE.md        |   21 +
+ .../serve-static/node_modules/ms/README.md         |   52 +
+ .../serve-static/node_modules/ms/index.js          |  149 +
+ .../serve-static/node_modules/ms/package.json      |  100 +
+ .../serve-static/node_modules/send/HISTORY.md      |  356 ++
+ .../serve-static/node_modules/send/LICENSE         |   23 +
+ .../serve-static/node_modules/send/README.md       |  251 +
+ .../serve-static/node_modules/send/index.js        |  948 +++
+ .../serve-static/node_modules/send/package.json    |  121 +
+ server/node_modules/serve-static/package.json      |  112 +
+ server/node_modules/setprototypeof/LICENSE         |   13 +
+ server/node_modules/setprototypeof/README.md       |   21 +
+ server/node_modules/setprototypeof/index.js        |   13 +
+ server/node_modules/setprototypeof/package.json    |   80 +
+ server/node_modules/statuses/HISTORY.md            |   55 +
+ server/node_modules/statuses/LICENSE               |   23 +
+ server/node_modules/statuses/README.md             |  103 +
+ server/node_modules/statuses/codes.json            |   65 +
+ server/node_modules/statuses/index.js              |  110 +
+ server/node_modules/statuses/package.json          |  133 +
+ server/node_modules/type-is/HISTORY.md             |  212 +
+ server/node_modules/type-is/LICENSE                |   23 +
+ server/node_modules/type-is/README.md              |  136 +
+ server/node_modules/type-is/index.js               |  262 +
+ server/node_modules/type-is/package.json           |  111 +
+ server/node_modules/unpipe/HISTORY.md              |    4 +
+ server/node_modules/unpipe/LICENSE                 |   22 +
+ server/node_modules/unpipe/README.md               |   43 +
+ server/node_modules/unpipe/index.js                |   69 +
+ server/node_modules/unpipe/package.json            |   85 +
+ server/node_modules/utils-merge/.travis.yml        |    6 +
+ server/node_modules/utils-merge/LICENSE            |   20 +
+ server/node_modules/utils-merge/README.md          |   34 +
+ server/node_modules/utils-merge/index.js           |   23 +
+ server/node_modules/utils-merge/package.json       |   85 +
+ server/node_modules/vary/HISTORY.md                |   29 +
+ server/node_modules/vary/LICENSE                   |   22 +
+ server/node_modules/vary/README.md                 |   91 +
+ server/node_modules/vary/index.js                  |  124 +
+ server/node_modules/vary/package.json              |   98 +
+ server/package.json                                |   19 +
+ server/server.js                                   |   21 +
+ 270 files changed, 40810 insertions(+)
+
+commit 7afb4fa5bf34a8693d26ca6bb336f98c8a2efce8
+Merge: c7d33e9 6eb5b27
+Author: Alech <alech@iastate.edu>
+Date:   Fri Jan 27 09:24:35 2017 -0600
+
+    Merge branch 'master' of https://git.linux.iastate.edu/309Spring2017/YT_4
+
+commit c7d33e9346d3f9f26731269b83419136aed4d036
+Author: Alech <alech@iastate.edu>
+Date:   Fri Jan 27 09:23:59 2017 -0600
+
+    Adding read me and gitignore
+
+ .gitignore                                         |   0
+ Calculator                                         |   1 -
+ Coffee App/Coffee App                              |   1 -
+ Coffee App/Coffee App.xcodeproj/project.pbxproj    | 314 ---------------------
+ .../project.xcworkspace/contents.xcworkspacedata   |   7 -
+ .../UserInterfaceState.xcuserstate                 | Bin 17176 -> 0 bytes
+ .../Alec.xcuserdatad/xcschemes/Coffee App.xcscheme |  91 ------
+ .../xcschemes/xcschememanagement.plist             |  22 --
+ MyPlayground.playground/Contents.swift             |   6 -
+ MyPlayground.playground/contents.xcplayground      |   4 -
+ .../contents.xcworkspacedata                       |   7 -
+ .../UserInterfaceState.xcuserstate                 | Bin 9362 -> 0 bytes
+ TipCalculator                                      |   1 -
+ TipCalculator2                                     |   1 -
+ Tip_Calc                                           |   1 -
+ 15 files changed, 456 deletions(-)
+
+commit 089dacf3554afb1eea1b919cedb63c60c6e9d75a
+Author: Alech <alech@iastate.edu>
+Date:   Fri Jan 27 09:18:01 2017 -0600
+
+    add README
+
+ Coffee App/Coffee App                              |   1 +
+ Coffee App/Coffee App.xcodeproj/project.pbxproj    | 314 +++++++++++++++++++++
+ .../project.xcworkspace/contents.xcworkspacedata   |   7 +
+ .../UserInterfaceState.xcuserstate                 | Bin 0 -> 17176 bytes
+ .../Alec.xcuserdatad/xcschemes/Coffee App.xcscheme |  91 ++++++
+ .../xcschemes/xcschememanagement.plist             |  22 ++
+ MyPlayground.playground/Contents.swift             |   6 +
+ MyPlayground.playground/contents.xcplayground      |   4 +
+ .../contents.xcworkspacedata                       |   7 +
+ .../UserInterfaceState.xcuserstate                 | Bin 0 -> 9362 bytes
+ README.md                                          |   0
+ TipCalculator                                      |   1 +
+ TipCalculator2                                     |   1 +
+ Tip_Calc                                           |   1 +
+ Xcode                                              |   1 -
+ 15 files changed, 455 insertions(+), 1 deletion(-)
+
+commit 6eb5b27fce2c4a3fe9f904c8f4acd25b9b89325e
+Author: Alec.Harrison <alech@iastate.edu>
+Date:   Tue Jan 24 14:55:01 2017 -0600
+
+    I am not good at git sorry.
+
+ Calculator | 1 -
+ Xcode      | 1 -
+ 2 files changed, 2 deletions(-)
+
+commit fe0b15f227f9a70eae348eaf9b60938ff070678c
+Author: Alec.Harrison <alech@iastate.edu>
+Date:   Mon Jan 23 16:46:32 2017 -0600
+
+    This is a simple calculator. It is the first IOS app I made on my own.
+
+ Calculator | 1 +
+ 1 file changed, 1 insertion(+)
+
+commit fd942d8162a51352429eedddfcacaaa60c47b3e9
+Author: Alec.Harrison <alech@iastate.edu>
+Date:   Mon Jan 23 16:21:13 2017 -0600
+
+    I am trying to remove the examples thing.
+
+ Xcode | 1 +
+ 1 file changed, 1 insertion(+)
+
+commit 883bb7d1cb916a2309b67ed1ee6c73619853da92
+Author: Alec.Harrison <alech@iastate.edu>
+Date:   Mon Jan 23 09:30:10 2017 -0600
+
+    Trying to remove the data I added because they aren't accessable.
+
+ Calculator                                         |   1 -
+ Coffee App/Coffee App                              |   1 -
+ Coffee App/Coffee App.xcodeproj/project.pbxproj    | 314 ---------------------
+ .../project.xcworkspace/contents.xcworkspacedata   |   7 -
+ .../UserInterfaceState.xcuserstate                 | Bin 17176 -> 0 bytes
+ .../Alec.xcuserdatad/xcschemes/Coffee App.xcscheme |  91 ------
+ .../xcschemes/xcschememanagement.plist             |  22 --
+ TipCalculator                                      |   1 -
+ TipCalculator1                                     |   1 -
+ 9 files changed, 438 deletions(-)
+
+commit 0f4e418bab758cd272ebf0d26ba395e3bf5cfaac
+Author: Alec.Harrison <alech@iastate.edu>
+Date:   Mon Jan 23 09:18:27 2017 -0600
+
+    Trying to add this#
+
+ Calculator                                         |   1 +
+ Coffee App/Coffee App                              |   1 +
+ Coffee App/Coffee App.xcodeproj/project.pbxproj    | 314 +++++++++++++++++++++
+ .../project.xcworkspace/contents.xcworkspacedata   |   7 +
+ .../UserInterfaceState.xcuserstate                 | Bin 0 -> 17176 bytes
+ .../Alec.xcuserdatad/xcschemes/Coffee App.xcscheme |  91 ++++++
+ .../xcschemes/xcschememanagement.plist             |  22 ++
+ TipCalculator                                      |   1 +
+ TipCalculator1                                     |   1 +
+ 9 files changed, 438 insertions(+)
