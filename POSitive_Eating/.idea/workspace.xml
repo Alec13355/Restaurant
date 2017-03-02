@@ -15,6 +15,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="5fd3d16b-2a8e-4857-8dfd-384f7d0f3675" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/modules/POSitive_Eating.iml" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/POSitive_Eating.iml" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/app/app.iml" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/modules.xml" afterPath="$PROJECT_DIR$/.idea/modules.xml" />
