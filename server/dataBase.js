@@ -25,14 +25,11 @@ var method = SQLDataBase.prototype;
 };
 
 
-/**Agnostic function that will do depending on json_instructions object
- * @param json_instructions object
- */
 method.setUser = function(json_input,callBack){
     
     
     
-        var sql = "INSERT INTO EMPLOYEES VALUES('" + json_input.lnam + "','" + json_input.fname + "',NULL,'" + json_input.perm + "'," + json_input.stat + ",'" + json_input.pass + "','" + json_input.address + "','" + json_input.cell + "','" + json_input.phone + "', " + json_input.rate + " )"; 
+        var sql = "INSERT INTO EMPLOYEES VALUES('" + json_input.lnam + "','" + json_input.fname + "',NULL,'" + json_input.perm + "'," + json_input.stat + ",'" + json_input.pass + "','" + json_input.address + "','" + json_input.cell + "','" + json_input.phone + "', " + json_input.rate + ",'" + json_input.routing + "','" + json_input.social + "','" + json_input.bank_num + "' )"; 
         console.log(sql);
         var tempcon = this.connection;
         this.connection.query(sql, function(err,rows){
@@ -109,9 +106,42 @@ method.getUser = function(json_user,callBack){
                 phone: rows[0].PHONE,
                 status: rows[0].STATUS,
                 pass: rows[0].PASS,
-                rate: rows[0].PAY_HR
+                rate: rows[0].PAY_HR,
+                routing: rows[0].ROUTING,
+                social: rows[0].SOCIAL,
+                bank_num: rows[0].BANK_NUM
             };
             return callBack(data);
+    });
+}
+
+method.getUserByIndex = function(json_info,callback){
+    var sql = "SELECT * FROM EMPLOYEES";
+    console.log(sql);
+    this.connection.query(sql, function(err,rows){
+        if(err){
+            throw err;
+        }
+        var i = json_info.index;
+        if(rows[i]){
+            var data = {
+                last: rows[i].L_NAME,
+                first: rows[i].F_NAME,
+                emp_id: rows[i].EMPLOYEE_ID,
+                perm_string: rows[i].PERM_STRING,
+                address: rows[i].ADDRESS,
+                cell: rows[i].CELL,
+                phone: rows[i].PHONE,
+                status: rows[i].STATUS,
+                pass: rows[i].PASS,
+                rate: rows[i].PAY_HR,
+                routing: rows[i].ROUTING,
+                social: rows[i].SOCIAL,
+                bank_num: rows[i].BANK_NUM
+            };
+            return callBack(data);
+        }
+        
     });
 }
 

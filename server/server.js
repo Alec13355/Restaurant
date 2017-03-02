@@ -13,14 +13,14 @@ var mysql = require("mysql");
  */
 //use bodyParser() to let us get the data from a POST
 app.use(bodyParser.json());
-var port = 2020;
+var port = 2021;
 app.use(bodyParser.urlencoded({ 
    extended: true 
 }));
 var router = express.Router();
 var path = __dirname + '/views/';
-var data_base = new DataBase(mysql,'localhost','dbu309yt4','ZDQyY2E5OTQ2','db309yt4');
-//var data_base = new DataBase(mysql,'localhost','shane','devPassword','restaurant');
+//var data_base = new DataBase(mysql,'localhost','dbu309yt4','ZDQyY2E5OTQ2','db309yt4');
+var data_base = new DataBase(mysql,'localhost','shane','devPassword','restaurant');
 app.use("/",router);
 app.listen(port,function(){
   console.log("Live at Port " + port);
@@ -96,6 +96,12 @@ router.post("/getTable", function(req,res){
 
 router.post("/getTableWithName", function(req,res){
   data_base.getTableByName(req.body, function(resp){
+    res.json(resp);
+  })
+});
+
+router.post("/getUserByIndex", function(req,res){
+  data_base.getUserByIndex(req.body, function(resp){
     res.json(resp);
   })
 });
