@@ -1,5 +1,14 @@
 package com.example.alec.positive_eating;
 
+import android.widget.TextView;
+
+import com.android.volley.Response;
+import com.example.shaneconnect.ShaneConnect;
+
+import org.json.JSONObject;
+
+import static android.R.attr.id;
+
 /**
  * Created by ethantw on 3/2/2017.
  */
@@ -12,10 +21,28 @@ public class Table {
     private String employeeID;
     private String customerID;
 
-    public void Table(String ID, int xPOS, int yPOS){
+    public void Table(String ID, int xPOS, int yPOS, int Status, String employeeID, String customerID){
         this.ID = ID;
         this.xPos = xPOS;
         this.yPos = yPOS;
+        this.Status = Status;
+        this.employeeID = employeeID;
+        this.customerID = customerID;
+    }
+
+    public void Table(String ID, int xPOS, int yPOS){
+        Table(ID, xPOS, yPOS, 0, null, null);
+    }
+
+    public void saveTable(){
+        ShaneConnect sc = new ShaneConnect("http://proj-309-yt-4.cs.iastate.edu:", this);
+        sc.setTable(ID, xPos, yPos, new Response.Listener<JSONObject>() {
+            @Override
+            public void onResponse(JSONObject response) {
+                TextView tv = (TextView) findViewById(R.id.text_edit);
+                tv.setText(response.toString());
+            }
+        });
     }
 
     protected void setX(int xPOS){
