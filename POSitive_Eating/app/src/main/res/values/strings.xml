@@ -1,0 +1,33 @@
+<resources>
+    <string name="app_name">POSitive_Eating</string>
+    <string name="user_name">User_Name:</string>
+    <string name="password">Password:</string>
+    <string name="login">Login</string>
+    <string name="ordering_menu">Ordering Menu</string>
+    <string name="button">Button</string>
+    <string name="button5">Button</string>
+    <string name="button6">Button</string>
+    <string name="order_status">Order Status</string>
+    <string name="seating">Seating</string>
+    <string name="schedule">Schedule</string>
+    <string name="payroll">Payrol</string>
+    <string name="payrol">Payroll</string>
+    <string name="editusers">EditUsers</string>
+    <string name="add_employee">Add_Employee</string>
+    <string name="bank_account">Bank Account</string>
+    <string name="first_name">First Name</string>
+    <string name="last_name">Last Name</string>
+    <string name="routing_number">Routing Number</string>
+    <string name="social">Social</string>
+    <string name="social1">Social</string>
+    <string name="banknumber">bankNumber</string>
+    <string name="firstname">firstName</string>
+    <string name="lastname">lastName</string>
+    <string name="routingnumber">routingNumber</string>
+    <string name="add_employee_button">Add Employee</string>
+    <string name="clock_in">Clock in?</string>
+    <string name="no">No</string>
+    <string name="yes">Yes</string>
+    <string name="title_activity_order_menu">order_menu</string>
+    <string name="button32">Button</string>
+</resources>

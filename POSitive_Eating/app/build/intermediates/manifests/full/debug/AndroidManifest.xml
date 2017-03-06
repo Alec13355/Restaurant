@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.example.alec.positive_eating"
+    android:versionCode="1"
+    android:versionName="1.0" >
+
+    <uses-sdk
+        android:minSdkVersion="15"
+        android:targetSdkVersion="23" />
+
+    <uses-permission android:name="android.permission.INTERNET" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme" >
+        <activity
+            android:name="com.example.alec.positive_eating.LoginWindow"
+            android:screenOrientation="portrait" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name="com.example.alec.positive_eating.MainScreen" />
+        <activity android:name="com.example.alec.positive_eating.OrderStatus" />
+        <activity android:name="com.example.alec.positive_eating.Menu" />
+        <activity android:name="com.example.alec.positive_eating.Seating" />
+        <activity android:name="com.example.alec.positive_eating.Schedule" />
+        <activity android:name="com.example.alec.positive_eating.EditStaff" />
+        <activity android:name="com.example.alec.positive_eating.Payroll" />
+        <activity android:name="com.example.alec.positive_eating.add_employee" />
+        <activity android:name="com.example.alec.positive_eating.Clocking_in" />
+
+        <service
+            android:name="com.example.alec.positive_eating.ShaneConnectService"
+            android:enabled="true"
+            android:exported="false" />
+
+        <activity
+            android:name="com.example.alec.positive_eating.order_menu"
+            android:label="@string/title_activity_order_menu"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name="com.example.alec.positive_eating.tableMap" />
+        <activity android:name="com.example.alec.positive_eating.viewTableMap" />
+    </application>
+
+</manifest>
