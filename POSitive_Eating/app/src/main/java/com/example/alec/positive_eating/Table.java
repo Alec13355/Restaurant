@@ -44,7 +44,9 @@ public class Table {
         sc.getTable(ID, new Response.Listener<JSONObject>() {
             @Override
             public void onResponse(JSONObject response) {
+
                 //call Table(ID, x, y, status, employeeid, customerid) with the retrieved data.
+
                 TextView tv = (TextView) findViewById(R.id.text_edit);
                 tv.setText(response.toString());
             }
@@ -70,52 +72,107 @@ public class Table {
 
     protected void setX(int xPOS){
         this.xPos = xPOS;
-        saveTable(); //save the new information to the server
+        ShaneConnect sc = new ShaneConnect("http://proj-309-yt-4.cs.iastate.edu:", this);
+        sc.changeTableX(ID, xPOS, new Response.Listener<JSONObject>() {
+            @Override
+            public void onResponse(JSONObject response) {
+                TextView tv = (TextView) findViewById(R.id.text_edit);
+                tv.setText(response.toString());
+            }
+        });
     }
 
     protected void setY(int yPOS){
         this.yPos = yPOS;
-        saveTable(); //save the new information to the server
+        ShaneConnect sc = new ShaneConnect("http://proj-309-yt-4.cs.iastate.edu:", this);
+        sc.changeTableY(ID, yPOS, new Response.Listener<JSONObject>() {
+            @Override
+            public void onResponse(JSONObject response) {
+                TextView tv = (TextView) findViewById(R.id.text_edit);
+                tv.setText(response.toString());
+            }
+        });
     }
 
     protected void setStatus(int Status){
         this.Status = Status;
-        saveTable(); //save the new information to the server
+        ShaneConnect sc = new ShaneConnect("http://proj-309-yt-4.cs.iastate.edu:", this);
+        sc.changeTableStatus(ID, Status, new Response.Listener<JSONObject>() {
+            @Override
+            public void onResponse(JSONObject response) {
+                TextView tv = (TextView) findViewById(R.id.text_edit);
+                tv.setText(response.toString());
+            }
+        });
     }
 
     protected void setEmployeeID(String employeeID){
         this.employeeID = employeeID;
-        saveTable(); //save the new information to the server
+        ShaneConnect sc = new ShaneConnect("http://proj-309-yt-4.cs.iastate.edu:", this);
+        sc.changeTableEmployeeID(ID, employeeID, new Response.Listener<JSONObject>() {
+            @Override
+            public void onResponse(JSONObject response) {
+                TextView tv = (TextView) findViewById(R.id.text_edit);
+                tv.setText(response.toString());
+            }
+        });
     }
 
     protected void setCustomerID(String customerID){
         this.customerID = customerID;
-        saveTable(); //save the new information to the server
+        ShaneConnect sc = new ShaneConnect("http://proj-309-yt-4.cs.iastate.edu:", this);
+        sc.changeTableCustomerID(ID, customerID, new Response.Listener<JSONObject>() {
+            @Override
+            public void onResponse(JSONObject response) {
+                TextView tv = (TextView) findViewById(R.id.text_edit);
+                tv.setText(response.toString());
+            }
+        });
     }
 
 
     protected String getID(){
+        updateTable();
         return this.ID;
     }
 
     protected int getX(){
+        updateTable();
         return this.xPos;
     }
 
     protected  int getY(){
+        updateTable();
         return this.yPos;
     }
 
     protected  int getStatus(){
+        updateTable();
         return this.Status;
     }
 
     protected String getEmployeeID(){
+        updateTable();
         return this.employeeID;
     }
 
     protected  String getCustomerID(){
+        updateTable();
         return this.customerID;
+    }
+
+    protected void updateTable(){
+        ShaneConnect sc = new ShaneConnect("http://proj-309-yt-4.cs.iastate.edu:", this);
+        sc.getTable(ID, new Response.Listener<JSONObject>() {
+            @Override
+            public void onResponse(JSONObject response) {
+
+                //call Table(ID, x, y, status, employeeid, customerid) with the retrieved data.
+
+                TextView tv = (TextView) findViewById(R.id.text_edit);
+                tv.setText(response.toString());
+            }
+        });
     }
 
 }
