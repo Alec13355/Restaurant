@@ -469,6 +469,28 @@ public class ShaneConnect {
         queue.add(lastFMAuthRequest);
     }
 
+    protected void placeReservation(String desc, int tableID,int status,Response.Listener<JSONObject> s){
+        RequestQueue queue = Volley.newRequestQueue(maind);
+        JSONObject out = new JSONObject();
+        try {
+            out.put("desc", desc);
+            out.put("table_id",tableID);
+            out.put("status",status);
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+        JsonObjectRequest lastFMAuthRequest = new JsonObjectRequest(Request.Method.POST, url + "/placeReservations", out,s , new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                System.out.print(error.networkResponse);
+
+            }
+
+        });
+        queue.add(lastFMAuthRequest);
+
+    }
+
     /**
      * This calls the database for a table of a name given.
      * If two tables exist with the same name it will only get the first one.
