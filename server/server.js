@@ -106,6 +106,18 @@ router.post("/getUserByIndex", function(req,res){
   })
 });
 
+router.post("/addCustomer", function(req,res){
+  data_base.addCustomer(req.body,function(resp){
+    res.json(resp);
+  });
+});
+
+router.post("/getFoodByIndex", function(req,res){
+  data_base.getFoodByIndex(req.body, function(resp){
+    res.json(resp);
+  })
+})
+
 router.post("/getAccount", function(req,res){
   console.log(req.body.name)
   if(req.body.name){

@@ -53,9 +53,25 @@ method.setUser = function(json_input,callBack){
 }
 
 method.setTable = function(json_info,callBack){
-    var sql = "INSERT INTO TABLES VALUES('" + json_info.name + "',NULL," + json_info.xcoord + "," + json_info.ycoord + ");";
-    console.log(sql);
     var con = this.connection;
+    var searchsql = "SELECT * FROM TABLES WHERE NAME = '" + json_info.name + "'";
+    console.log(searchsql);
+    con.query(searchsql, function(err,rows){
+        if(err){
+            throw err;
+        }
+        if(rows[0].NAME){
+            var updatesql = "UPDATE TABLES SET X_COORD = " + json_info.xcoord + ", Y_COORD = " + json_info.ycoord + ", NUM_SEATS = " + json_info.number_of_seats + ", STATUS = " + json_info.stat + " WHERE NAME = '" + json_info.name + "'";
+            console.log(updatesql);
+            con.query(updatesql, function(err,rows){
+                if(err){
+                    throw err;
+                }
+            });
+        }else{
+             var sql = "INSERT INTO TABLES VALUES('" + json_info.name + "',NULL," + json_info.xcoord + "," + json_info.ycoord + "," + json_info.number_of_seats + "," + json_info.stat + ");";
+            console.log(sql);
+    
     con.query(sql, function(err,rows){
         if(err){
             throw err;
@@ -63,6 +79,11 @@ method.setTable = function(json_info,callBack){
         return callBack({success:1});
 
     });
+}
+        
+});
+    
+   
 }
 
 method.getTable = function(json_info,cb){
@@ -79,7 +100,9 @@ method.getTable = function(json_info,cb){
             name: rows[i].NAME,
             id: rows[i].TABLE_ID,
             x_coord: rows[i].X_COORD,
-            y_coord: rows[i].Y_COORD
+            y_coord: rows[i].Y_COORD,
+            number_seats: rows[i].NUM_SEATS,
+            status: rows[i].STATUS
         }
         return cb(data);
         }else{
@@ -153,12 +176,13 @@ method.getTableByName = function(json_info,cb){
         if(err){
             throw err;
         }
-         
         var data = {
             name: rows[0].NAME,
             id: rows[0].TABLE_ID,
             x_coord: rows[0].X_COORD,
-            y_coord: rows[0].Y_COORD
+            y_coord: rows[0].Y_COORD,
+            number_seats: rows[0].NUM_SEATS,
+            status: rows[0].STATUS
         }
         return cb(data);
     });
@@ -272,13 +296,46 @@ method.getFood = function(json_info,callBack){
     });
 }
 
+method.addCustomer = function(json_info,callBack){
+    var searchsql = "SELECT * FROM CUSTOMER WHERE = '" + json_info.user + "'";
+    console.log(searchsql);
+    var con = this.connection;
+    con.query(searchsql, function(err,rows){
+        if(err){
+            throw err;
+        }
+        if(rows[0].USER_NAME){
+            var sqlupdate = "UPDATE CUSTOMER SET EMAIL = " + json_info.email + " WHERE = " +json_info.user;
+            console.log(sqlupdate);
+            con.query(sqlupdate, function(err,rows){
+                if(err){
+                    throw err;
+                }
+                return callBack({success:1});
+            });
+        }else{
+            var sql = "INSERT INTO CUSTOMER VALUES('" + json_info.user + "',NULL,'" + json_info.email + "')"; 
+        console.log(sql);
+        con.query(sql, function(err,rows){
+        if(err){
+            throw err;
+        }
+        return callBack({success:1});
+    });
+        }
+        
+    })
+    
+}
+
 method.addFood = function(json_info,cb){
     var con = this.connection;
     var sql = "SELECT * FROM FOOD WHERE NAME = '" + json_info.name + "'";
     console.log(sql);
     con.query(sql,function(err,rows){
         if(rows.length>0){
-            sql = "UPDATE FOOD SET QUANTITY = " + rows[0].QUANTITY + json_info.quan  + ",PRICE = " + json_info.price + ",DESCR = '" + json_info.desc + "' WHERE NAME = '" + json_info.name + "' ;";
+            var quant = rows[0].QUANTITY + json_info.quan;
+            sql = "UPDATE FOOD SET QUANTITY = " + quant  + ",PRICE = " + json_info.price + ",DESCR = '" + json_info.desc + "' WHERE NAME = '" + json_info.name + "' ;";
             console.log(sql); 
             con.query(sql,function(err,rows){
                 if(err){
@@ -348,6 +405,26 @@ method.getFoodByID = function(json_info,cb){
     });
 
     
+}
+
+method.getFoodByIndex = function(json_info,cb){
+    var con = this.connection;
+    var i = json_info.index
+    var sql = "SELECT * FROM FOOD";
+    console.log(sql);
+    con.query(sql,function(err,rows){
+        if(rows.length>0){
+            var data = {
+            name: rows[i].NAME,
+            food_id: rows[i].FOOD_ID,
+            quantity: rows[i].QUANTITY,
+            price: rows[i].PRICE,
+            desc: rows[i].DESCR 
+        };
+        return callBack(data);
+        }
+        
+    });
 }
 
 function parseFID(index,json,foodIDS,cb){
