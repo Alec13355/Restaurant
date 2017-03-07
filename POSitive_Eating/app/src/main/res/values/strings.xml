@@ -30,4 +30,11 @@
     <string name="yes">Yes</string>
     <string name="title_activity_order_menu">order_menu</string>
     <string name="button32">Button</string>
+    <string name="name">Name</string>
+    <string name="description">Description</string>
+    <string name="add_food">Add Food</string>
+    <string name="food">Food</string>
+    <string name="name12">Name</string>
+    <string name="name14">Name</string>
+    <string name="price">Price</string>
 </resources>
