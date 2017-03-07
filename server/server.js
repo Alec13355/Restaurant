@@ -70,6 +70,12 @@ router.post("/placeOrder", function(req,res){
   });
 });
 
+router.post("/placeReservations", function(req,res){
+  data_base.placeReservation(req.body,function(resp){
+    res.json(resp);
+  });
+});
+
 router.post("/getOrder", function(req,res){
   data_base.getOrders(req.body, function(resp){
     res.json(resp);

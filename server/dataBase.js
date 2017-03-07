@@ -26,9 +26,6 @@ var method = SQLDataBase.prototype;
 
 
 method.setUser = function(json_input,callBack){
-    
-    
-    
         var sql = "INSERT INTO EMPLOYEES VALUES('" + json_input.lnam + "','" + json_input.fname + "',NULL,'" + json_input.perm + "'," + json_input.stat + ",'" + json_input.pass + "','" + json_input.address + "','" + json_input.cell + "','" + json_input.phone + "', " + json_input.rate + ",'" + json_input.routing + "','" + json_input.social + "','" + json_input.bank_num + "' )"; 
         console.log(sql);
         var tempcon = this.connection;
@@ -51,6 +48,32 @@ method.setUser = function(json_input,callBack){
     }); 
         
 }
+
+method.placeReservation = function(json_input, callBack){
+    var con = this.connection;
+    var sqlsearch = "SELECT * RESERVATIONS WHERE DESCRIPTION = '" + json_input.desc + "'";
+    con.query(sqlsearch,function(err,rows){
+        if(rows[0].ID){
+            var sqlupdate = "UPDATE RESERVATIONS SET TABLE_ID = " + json_input.table_id + ", STATUS = " + json_input.status + " WHERE DESCRIPTION = '" + json_input.desc + "'";
+            console.log(sqlupdate);
+            con.query(sqlupdate, function(err,rows){
+                if(err){
+                    throw err;
+                }
+            }); 
+        }else{
+            var insertsql = "INSERT INTO RESERVATIONS VALUES ('" + json_input.desc + "',NULL," + json_input.table_id + "," + json_input.status + ")";
+            console.log(insertsql);
+            con.query(insertsql,function(err,rows){
+                if(err){
+                    throw err;
+                }
+                
+            });
+        }
+    }); 
+}
+
 
 method.setTable = function(json_info,callBack){
     var con = this.connection;
