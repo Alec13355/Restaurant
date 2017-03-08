@@ -49,6 +49,48 @@ method.setUser = function(json_input,callBack){
         
 }
 
+method.getResservation = function(json_input, callback){
+    var sql = "SELECT * FROM RESERVATIONS";
+    var con = this.connection;
+    con.query(sql,function(err,rows){
+        if(err){
+            throw err;
+        }
+        var i = json_input.index;
+        if(rows[i].TABLE_ID){
+            var data={
+            DESCRIPTION:rows[i].DESCRIPTION,
+            ID:rows[i].ID,
+            TABLE_ID:rows[i].TABLE_ID,
+            STATUS:rows[i].STATUS
+            };
+            return callback(data);
+        }
+        
+
+    });
+}
+
+method.getTableByID = function(json,callback){
+    var sql = "SELECT * FROM TABLES WHERE TABLE_ID = " + json.id;
+    this.connection.query(sql,function(err,rows){
+        if(err){
+            throw err;
+        }
+        
+            var data = {
+            name: rows[0].NAME,
+            id: rows[0].TABLE_ID,
+            x_coord: rows[0].X_COORD,
+            y_coord: rows[0].Y_COORD,
+            number_seats: rows[0].NUM_SEATS,
+            status: rows[0].STATUS
+        }
+        return callback(data);
+        
+    });
+}
+
 method.placeReservation = function(json_input, callBack){
     var con = this.connection;
     var sqlsearch = "SELECT * RESERVATIONS WHERE DESCRIPTION = '" + json_input.desc + "'";
@@ -68,7 +110,7 @@ method.placeReservation = function(json_input, callBack){
                 if(err){
                     throw err;
                 }
-                
+
             });
         }
     }); 
@@ -311,7 +353,8 @@ method.getFood = function(json_info,callBack){
             food_id: rows[0].FOOD_ID,
             quantity: rows[0].QUANTITY,
             price: rows[0].PRICE,
-            desc: rows[0].DESCR 
+            desc: rows[0].DESCR, 
+            options: rows[0].OPTIONS
         };
         return callBack(data);
         }
@@ -358,7 +401,7 @@ method.addFood = function(json_info,cb){
     con.query(sql,function(err,rows){
         if(rows.length>0){
             var quant = rows[0].QUANTITY + json_info.quan;
-            sql = "UPDATE FOOD SET QUANTITY = " + quant  + ",PRICE = " + json_info.price + ",DESCR = '" + json_info.desc + "' WHERE NAME = '" + json_info.name + "' ;";
+            sql = "UPDATE FOOD SET QUANTITY = " + quant  + ",PRICE = " + json_info.price + ",DESCR = '" + json_info.desc + "',OPTIONS = '" + json_info.opt + "' WHERE NAME = '" + json_info.name + "' ;";
             console.log(sql); 
             con.query(sql,function(err,rows){
                 if(err){
@@ -367,7 +410,7 @@ method.addFood = function(json_info,cb){
                 return cb({added:1});
             });
         }else{
-            sql = "INSERT INTO FOOD VALUES('" + json_info.name + "',NULL," + json_info.quan + "," + json_info.price + ",'" + json_info.desc + "');"
+            sql = "INSERT INTO FOOD VALUES('" + json_info.name + "',NULL," + json_info.quan + "," + json_info.price + ",'" + json_info.desc + "','" + json_info.opt + "');"
             console.log(sql);
             con.query(sql,function(err,rows_){
                 if(err){
@@ -442,7 +485,9 @@ method.getFoodByIndex = function(json_info,cb){
             food_id: rows[i].FOOD_ID,
             quantity: rows[i].QUANTITY,
             price: rows[i].PRICE,
-            desc: rows[i].DESCR 
+            desc: rows[i].DESCR,
+            options:rows[i].OPTIONS
+             
         };
         return callBack(data);
         }
@@ -452,9 +497,13 @@ method.getFoodByIndex = function(json_info,cb){
 
 function parseFID(index,json,foodIDS,cb){
     var con = this.connection;
+    var cache= "";
+    
     for(var x=0;x<food.length;x++){
         if(food.charAt(x)==="-"){
-          var sql = "SELECT * FROM FOOD WHERE FOOD_ID =" + cache;
+          var dat = parseOption(cache);
+          cache="";
+          var sql = "SELECT * FROM FOOD WHERE FOOD_ID =" + dat.food;
            console.log(sql);
            con.query(sql,function(err,rows){
                if(err){
@@ -465,6 +514,7 @@ function parseFID(index,json,foodIDS,cb){
                json["QUANTITY"+index] = rows[0].QUANTITY;
                json["PRICE"+index] = rows[0].PRICE;
                json["DESCR"+index] = rows[0].DESCR;
+               json["OPTIONS"+index] = dat.option;
                parseFID(index+1,json,foodIDS.substring(x+1,foodIDS.length),cb);
            }); 
         }else{
@@ -474,6 +524,28 @@ function parseFID(index,json,foodIDS,cb){
     return cb(json);
 }
 
+function parseOption(optionString){
+    var food="";
+    var option="";
+    var temp ="";
+    for(var x=0;x<optionString.length;x++){
+        temp += optionString.charAt(x);
+        if(temp==="("){
+            food=temp;
+            temp="";
+        }
+        if(temp===")"){
+            option=temp;
+            temp="";
+            var data ={
+                food:foo,
+                option:option
+            };
+            return data;
+        }
+        
+    }
+}
 
 
 

@@ -76,6 +76,18 @@ router.post("/placeReservations", function(req,res){
   });
 });
 
+router.post("/getReservation", function(req,res){
+  data_base.getResservation(req.body,function(resp){
+    res.json(resp);
+  });
+});
+
+router.post("/getTableByID", function(req,res){
+  data_base.getTableByID(req.body,function(resp){
+    
+  });
+});
+
 router.post("/getOrder", function(req,res){
   data_base.getOrders(req.body, function(resp){
     res.json(resp);
