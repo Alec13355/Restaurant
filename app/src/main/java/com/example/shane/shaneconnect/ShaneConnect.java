@@ -205,7 +205,7 @@ public class ShaneConnect {
     /**
      * The response should provide a json object in the form {name:String,food_id:int,quantity: int,price:int,desc:String} returns null if nothing found.
      * @param name of food
-     * @param s response listenter that the response json object is in the form {name:String,food_id:String,quantity:int,price:int,desc:String}
+     * @param s response listenter that the response json object is in the form {name:String,food_id:String,quantity:int,price:int,desc:String,opt}
      */
     public void getFood(String name,Response.Listener<JSONObject> s){
         RequestQueue queue = Volley.newRequestQueue(maind);
@@ -234,14 +234,17 @@ public class ShaneConnect {
      * @param quan the quantity of items
      * @param s call back method response will be null if did not work
      */
-    public void addFood(String name,int price,String desc,int quan, Response.Listener<JSONObject> s ){
+    public void addFood(String name,int price,String desc,int quan,ArrayList<String> options, Response.Listener<JSONObject> s ){
         RequestQueue queue = Volley.newRequestQueue(maind);
         JSONObject out = new JSONObject();
+        String opt = optionParser(options);
+
         try{
             out.put("name",name);
             out.put("quan", quan);
             out.put("price", price);
             out.put("desc", desc);
+            out.put("opt",opt);
         }catch (JSONException e){
             e.printStackTrace();
         }
@@ -255,6 +258,14 @@ public class ShaneConnect {
         });
         queue.add(lastFMAuthRequest);
     }
+    private String optionParser(ArrayList<String> options){
+        String result = "";
+        for(int x=0;x<options.size();x++){
+            result+=options.get(x);
+            result+="-";
+        }
+        return result;
+    }
 
     /**
      * Method used to place orders
@@ -263,12 +274,12 @@ public class ShaneConnect {
      * @param local A string that holds the location or where the meal will go. For example table 9
      * @param s response method that responds with a json object in the form of {success:1} but if it failed to do it wont return anything and be null.
      */
-    public void placeOrder(String desc,ArrayList<String> comp,int price, String local, Response.Listener<JSONObject> s ){
+    public void placeOrder(String desc,ArrayList<String> comp,ArrayList<String> options,int price, String local, Response.Listener<JSONObject> s ){
         String par = "";
-        placeOrders(0,price,desc,comp,local,par,s);
+        placeOrder(0,price,desc,comp,options,local,par,s);
     }
 
-    private void placeOrders(final int index, final int price, final String desc, final ArrayList<String> list, final String local, final String parsed , final Response.Listener<JSONObject> s ){
+    private void placeOrder(final int index, final int price, final String desc, final ArrayList<String> list, final ArrayList<String> options, final String local, final String parsed , final Response.Listener<JSONObject> s ){
         if(index==list.size()){
             RequestQueue queue = Volley.newRequestQueue(maind);
             JSONObject out = new JSONObject();
@@ -297,8 +308,9 @@ public class ShaneConnect {
                     try {
                         String c = "" + response.get("food_id");
                         String newParsed = parsed + c;
+                        newParsed+= "(" + options.get(index) + ")";
                         newParsed += "-";
-                        placeOrders(index+1,price,desc,list,local,newParsed,s);
+                        placeOrder(index+1,price,desc,list,options,local,newParsed,s);
                     } catch (JSONException e) {
                         e.printStackTrace();
                     }
@@ -306,6 +318,8 @@ public class ShaneConnect {
             });
         }
     }
+
+
 
     /**
      * Gets orders, Response.Listener must be used recursively to call this function. If Response is empty then that means there are no more orders.
@@ -334,7 +348,7 @@ public class ShaneConnect {
 
     /**
      * Method to get all the food in a given id string. May be useful when working with getting orders.
-     * @param foodIDS a string of food orders in the form x-x-x- . The format given from calling getOrders should work when using the componentString from the given JSON object.
+     * @param foodIDS a string of food orders in the form x(option1)-x(option2)-x(option3- . The format given from calling getOrders should work when using the componentString from the given JSON object.
      * @param s response method, the response json object is in the format {NAME(ID):String,FOOD_ID(ID):int,QUANTITY(ID):int,PRICE(ID):int,DESCR(ID):String}, Where (ID) is the concatenation of DESCR + ID for example.
      * Here is some sample code on how to use this to get all orders
      *          public void test(final int index, final ShaneConnect s, final TextView v) {
@@ -516,7 +530,42 @@ public class ShaneConnect {
         queue.add(lastFMAuthRequest);
     }
 
+    protected void getReservation(int index, Response.Listener<JSONObject> s){
+        RequestQueue queue = Volley.newRequestQueue(maind);
+        JSONObject out = new JSONObject();
+        try{
+            out.put("index",index);
+        }catch (JSONException e){
+            e.printStackTrace();
+        }
+        JsonObjectRequest lastFMAuthRequest = new JsonObjectRequest(Request.Method.POST, url + "/getReservation", out,s , new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                System.out.print(error.networkResponse);
 
+            }
 
+        });
+        queue.add(lastFMAuthRequest);
+    }
+
+    protected void getTableByID(int id,Response.Listener<JSONObject> s){
+        RequestQueue queue = Volley.newRequestQueue(maind);
+        JSONObject out = new JSONObject();
+        try{
+            out.put("id",id);
+        }catch (JSONException e){
+            e.printStackTrace();
+        }
+        JsonObjectRequest lastFMAuthRequest = new JsonObjectRequest(Request.Method.POST, url + "/getTableByID", out,s , new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                System.out.print(error.networkResponse);
+
+            }
+
+        });
+        queue.add(lastFMAuthRequest);
+    }
 
 }

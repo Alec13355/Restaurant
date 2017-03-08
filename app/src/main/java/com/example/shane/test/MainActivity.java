@@ -41,13 +41,7 @@ public class MainActivity extends AppCompatActivity {
 
         s.add("burger");
         s.add("fries");
-        d.placeOrder("burger and fries", s, 40, "table 9", new Response.Listener<JSONObject>() {
-            @Override
-            public void onResponse(JSONObject response) {
-                v.setText(response.toString());
-            }
 
-        });
     }
 
 
