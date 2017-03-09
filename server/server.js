@@ -70,6 +70,24 @@ router.post("/placeOrder", function(req,res){
   });
 });
 
+router.post("/placeReservations", function(req,res){
+  data_base.placeReservation(req.body,function(resp){
+    res.json(resp);
+  });
+});
+
+router.post("/getReservation", function(req,res){
+  data_base.getResservation(req.body,function(resp){
+    res.json(resp);
+  });
+});
+
+router.post("/getTableByID", function(req,res){
+  data_base.getTableByID(req.body,function(resp){
+    
+  });
+});
+
 router.post("/getOrder", function(req,res){
   data_base.getOrders(req.body, function(resp){
     res.json(resp);
@@ -105,6 +123,18 @@ router.post("/getUserByIndex", function(req,res){
     res.json(resp);
   })
 });
+
+router.post("/addCustomer", function(req,res){
+  data_base.addCustomer(req.body,function(resp){
+    res.json(resp);
+  });
+});
+
+router.post("/getFoodByIndex", function(req,res){
+  data_base.getFoodByIndex(req.body, function(resp){
+    res.json(resp);
+  })
+})
 
 router.post("/getAccount", function(req,res){
   console.log(req.body.name)

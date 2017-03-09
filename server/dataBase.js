@@ -24,11 +24,10 @@ var method = SQLDataBase.prototype;
 });
 };
 
-
+/** Method to add employee or edit current employee
+ * @param json_input object to hold information about employee
+ */
 method.setUser = function(json_input,callBack){
-    
-    
-    
         var sql = "INSERT INTO EMPLOYEES VALUES('" + json_input.lnam + "','" + json_input.fname + "',NULL,'" + json_input.perm + "'," + json_input.stat + ",'" + json_input.pass + "','" + json_input.address + "','" + json_input.cell + "','" + json_input.phone + "', " + json_input.rate + ",'" + json_input.routing + "','" + json_input.social + "','" + json_input.bank_num + "' )"; 
         console.log(sql);
         var tempcon = this.connection;
@@ -51,11 +50,110 @@ method.setUser = function(json_input,callBack){
     }); 
         
 }
-
-method.setTable = function(json_info,callBack){
-    var sql = "INSERT INTO TABLES VALUES('" + json_info.name + "',NULL," + json_info.xcoord + "," + json_info.ycoord + ");";
-    console.log(sql);
+/**
+ * Gets reservation by index
+ * @param json object with index
+ * @return reservation information in json
+ */
+method.getResservation = function(json_input, callback){
+    var sql = "SELECT * FROM RESERVATIONS";
     var con = this.connection;
+    con.query(sql,function(err,rows){
+        if(err){
+            throw err;
+        }
+        var i = json_input.index;
+        if(rows[i].TABLE_ID){
+            var data={
+            DESCRIPTION:rows[i].DESCRIPTION,
+            ID:rows[i].ID,
+            TABLE_ID:rows[i].TABLE_ID,
+            STATUS:rows[i].STATUS
+            };
+            return callback(data);
+        }
+        
+
+    });
+}
+/**
+ * Gets table by ID number_of_seats
+ * @param json object with ID 
+ * @return json object with table information
+ */
+method.getTableByID = function(json,callback){
+    var sql = "SELECT * FROM TABLES WHERE TABLE_ID = " + json.id;
+    this.connection.query(sql,function(err,rows){
+        if(err){
+            throw err;
+        }
+        
+            var data = {
+            name: rows[0].NAME,
+            id: rows[0].TABLE_ID,
+            x_coord: rows[0].X_COORD,
+            y_coord: rows[0].Y_COORD,
+            number_seats: rows[0].NUM_SEATS,
+            status: rows[0].STATUS
+        }
+        return callback(data);
+        
+    });
+}
+/**
+ * Places a reservation
+ * @param json object with reservation information
+ */
+method.placeReservation = function(json_input, callBack){
+    var con = this.connection;
+    var sqlsearch = "SELECT * RESERVATIONS WHERE DESCRIPTION = '" + json_input.desc + "'";
+    con.query(sqlsearch,function(err,rows){
+        if(rows[0].ID){
+            var sqlupdate = "UPDATE RESERVATIONS SET TABLE_ID = " + json_input.table_id + ", STATUS = " + json_input.status + " WHERE DESCRIPTION = '" + json_input.desc + "'";
+            console.log(sqlupdate);
+            con.query(sqlupdate, function(err,rows){
+                if(err){
+                    throw err;
+                }
+            }); 
+        }else{
+            var insertsql = "INSERT INTO RESERVATIONS VALUES ('" + json_input.desc + "',NULL," + json_input.table_id + "," + json_input.status + ")";
+            console.log(insertsql);
+            con.query(insertsql,function(err,rows){
+                if(err){
+                    throw err;
+                }
+
+            });
+        }
+    }); 
+}
+
+/**
+ * Method create or edit a table
+ * @param json object with table information
+ * 
+ */
+method.setTable = function(json_info,callBack){
+    var con = this.connection;
+    var searchsql = "SELECT * FROM TABLES WHERE NAME = '" + json_info.name + "'";
+    console.log(searchsql);
+    con.query(searchsql, function(err,rows){
+        if(err){
+            throw err;
+        }
+        if(rows[0].NAME){
+            var updatesql = "UPDATE TABLES SET X_COORD = " + json_info.xcoord + ", Y_COORD = " + json_info.ycoord + ", NUM_SEATS = " + json_info.number_of_seats + ", STATUS = " + json_info.stat + " WHERE NAME = '" + json_info.name + "'";
+            console.log(updatesql);
+            con.query(updatesql, function(err,rows){
+                if(err){
+                    throw err;
+                }
+            });
+        }else{
+             var sql = "INSERT INTO TABLES VALUES('" + json_info.name + "',NULL," + json_info.xcoord + "," + json_info.ycoord + "," + json_info.number_of_seats + "," + json_info.stat + ");";
+            console.log(sql);
+    
     con.query(sql, function(err,rows){
         if(err){
             throw err;
@@ -64,7 +162,16 @@ method.setTable = function(json_info,callBack){
 
     });
 }
-
+        
+});
+    
+   
+}
+/**
+ * Gets table information
+ * @param json object with index
+ * @return json object with table information
+ */
 method.getTable = function(json_info,cb){
     var sql = "SELECT * FROM TABLES";
     console.log(sql);
@@ -79,7 +186,9 @@ method.getTable = function(json_info,cb){
             name: rows[i].NAME,
             id: rows[i].TABLE_ID,
             x_coord: rows[i].X_COORD,
-            y_coord: rows[i].Y_COORD
+            y_coord: rows[i].Y_COORD,
+            number_seats: rows[i].NUM_SEATS,
+            status: rows[i].STATUS
         }
         return cb(data);
         }else{
@@ -88,7 +197,11 @@ method.getTable = function(json_info,cb){
         
     });
 }
-
+/**
+ * gets user information
+ * @param json object with employee USER_NAME
+ * @return json object with employee information
+ */
 method.getUser = function(json_user,callBack){
     var sql = "SELECT * FROM EMPLOYEES WHERE L_NAME = '" + json_user.lname + "' AND F_NAME = '" + json_user.fname + "' AND EMPLOYEE_ID = " + json_user.id ;
     console.log(sql);
@@ -114,7 +227,11 @@ method.getUser = function(json_user,callBack){
             return callBack(data);
     });
 }
-
+/**
+ * Gets users by index
+ * @param json object with index
+ * @return json object with user information
+ */
 method.getUserByIndex = function(json_info,callback){
     var sql = "SELECT * FROM EMPLOYEES";
     console.log(sql);
@@ -144,7 +261,11 @@ method.getUserByIndex = function(json_info,callback){
         
     });
 }
-
+/**
+ * Gets Table information with name
+ * @param json with table name
+ * @return json with table information
+ */
 method.getTableByName = function(json_info,cb){
     var name = json_info.name;
     var sql = "SELECT * FROM TABLES WHERE NAME = '" + name + "'";
@@ -153,17 +274,23 @@ method.getTableByName = function(json_info,cb){
         if(err){
             throw err;
         }
-         
         var data = {
             name: rows[0].NAME,
             id: rows[0].TABLE_ID,
             x_coord: rows[0].X_COORD,
-            y_coord: rows[0].Y_COORD
+            y_coord: rows[0].Y_COORD,
+            number_seats: rows[0].NUM_SEATS,
+            status: rows[0].STATUS
         }
         return cb(data);
     });
 }
-
+/**
+ * gets log events
+ * @return json with logs
+ * @param json with employee id
+ *
+ */
 method.getLogEvent = function(json_info,callBack){
     var data;
     var connection  = this.connection;
@@ -183,7 +310,11 @@ method.getLogEvent = function(json_info,callBack){
     });
     
 }
-
+/**
+ * 
+ * @param {*} user string of username 
+ * @param {*} cb callback with parsed information
+ */
 function pars(user,cb){
     console.log(user);
     var last="";
@@ -217,7 +348,9 @@ function pars(user,cb){
     return cb(out)
 }
 
-
+/**
+ * logs events with database
+ */
 method.logEvent = function(json_info,callBack){
     var data = {
         error: 0
@@ -251,7 +384,9 @@ method.logEvent = function(json_info,callBack){
 });
    
 }
-
+/**
+ * gets food items
+ */
 method.getFood = function(json_info,callBack){
     var con = this.connection;
     var foodName = json_info.name;
@@ -264,21 +399,59 @@ method.getFood = function(json_info,callBack){
             food_id: rows[0].FOOD_ID,
             quantity: rows[0].QUANTITY,
             price: rows[0].PRICE,
-            desc: rows[0].DESCR 
+            desc: rows[0].DESCR, 
+            options: rows[0].OPTIONS
         };
         return callBack(data);
         }
         
     });
 }
-
+/**
+ * adds the customer to the database
+ */
+method.addCustomer = function(json_info,callBack){
+    var searchsql = "SELECT * FROM CUSTOMER WHERE = '" + json_info.user + "'";
+    console.log(searchsql);
+    var con = this.connection;
+    con.query(searchsql, function(err,rows){
+        if(err){
+            throw err;
+        }
+        if(rows[0].USER_NAME){
+            var sqlupdate = "UPDATE CUSTOMER SET EMAIL = " + json_info.email + " WHERE = " +json_info.user;
+            console.log(sqlupdate);
+            con.query(sqlupdate, function(err,rows){
+                if(err){
+                    throw err;
+                }
+                return callBack({success:1});
+            });
+        }else{
+            var sql = "INSERT INTO CUSTOMER VALUES('" + json_info.user + "',NULL,'" + json_info.email + "')"; 
+        console.log(sql);
+        con.query(sql, function(err,rows){
+        if(err){
+            throw err;
+        }
+        return callBack({success:1});
+    });
+        }
+        
+    })
+    
+}
+/**
+ * adds food to the database
+ */
 method.addFood = function(json_info,cb){
     var con = this.connection;
     var sql = "SELECT * FROM FOOD WHERE NAME = '" + json_info.name + "'";
     console.log(sql);
     con.query(sql,function(err,rows){
         if(rows.length>0){
-            sql = "UPDATE FOOD SET QUANTITY = " + rows[0].QUANTITY + json_info.quan  + ",PRICE = " + json_info.price + ",DESCR = '" + json_info.desc + "' WHERE NAME = '" + json_info.name + "' ;";
+            var quant = rows[0].QUANTITY + json_info.quan;
+            sql = "UPDATE FOOD SET QUANTITY = " + quant  + ",PRICE = " + json_info.price + ",DESCR = '" + json_info.desc + "',OPTIONS = '" + json_info.opt + "' WHERE NAME = '" + json_info.name + "' ;";
             console.log(sql); 
             con.query(sql,function(err,rows){
                 if(err){
@@ -287,7 +460,7 @@ method.addFood = function(json_info,cb){
                 return cb({added:1});
             });
         }else{
-            sql = "INSERT INTO FOOD VALUES('" + json_info.name + "',NULL," + json_info.quan + "," + json_info.price + ",'" + json_info.desc + "');"
+            sql = "INSERT INTO FOOD VALUES('" + json_info.name + "',NULL," + json_info.quan + "," + json_info.price + ",'" + json_info.desc + "','" + json_info.opt + "');"
             console.log(sql);
             con.query(sql,function(err,rows_){
                 if(err){
@@ -298,7 +471,9 @@ method.addFood = function(json_info,cb){
         }
     });
 }
-
+/**
+ * add order to the database
+ */
 method.placeOrder = function(json_info,cb){
     var con = this.connection;
     console.log(json_info);
@@ -315,7 +490,9 @@ method.placeOrder = function(json_info,cb){
         return cb({success:1});
     });
 }
-
+/**
+ * gets and order from the database
+ */
 method.getOrders = function(json_info,cb){
     var con = this.connection;
     var i = json_info.index;
@@ -339,7 +516,9 @@ method.getOrders = function(json_info,cb){
 
     })
 }
-
+/**
+ * gets a food json via id of food
+ */
 method.getFoodByID = function(json_info,cb){
     var json;
     var food = json_input.food;
@@ -349,12 +528,46 @@ method.getFoodByID = function(json_info,cb){
 
     
 }
-
+/**
+ * gets food by index
+ */
+method.getFoodByIndex = function(json_info,cb){
+    var con = this.connection;
+    var i = json_info.index
+    var sql = "SELECT * FROM FOOD";
+    console.log(sql);
+    con.query(sql,function(err,rows){
+        if(rows.length>0){
+            var data = {
+            name: rows[i].NAME,
+            food_id: rows[i].FOOD_ID,
+            quantity: rows[i].QUANTITY,
+            price: rows[i].PRICE,
+            desc: rows[i].DESCR,
+            options:rows[i].OPTIONS
+             
+        };
+        return callBack(data);
+        }
+        
+    });
+}
+/**
+ * 
+ * @param {*} index index number 
+ * @param {*} json json with information
+ * @param {*} foodIDS string of food ids
+ * @param {*} cb call back function
+ */
 function parseFID(index,json,foodIDS,cb){
     var con = this.connection;
+    var cache= "";
+    
     for(var x=0;x<food.length;x++){
-        if(food.charAt(x)==="-"){
-          var sql = "SELECT * FROM FOOD WHERE FOOD_ID =" + cache;
+        if(foodIDS.charAt(x)==="-"){
+          var dat = parseOption(cache);
+          cache="";
+          var sql = "SELECT * FROM FOOD WHERE FOOD_ID =" + dat.foodIDS;
            console.log(sql);
            con.query(sql,function(err,rows){
                if(err){
@@ -365,15 +578,45 @@ function parseFID(index,json,foodIDS,cb){
                json["QUANTITY"+index] = rows[0].QUANTITY;
                json["PRICE"+index] = rows[0].PRICE;
                json["DESCR"+index] = rows[0].DESCR;
+               json["OPTIONS"+index] = dat.option;
                parseFID(index+1,json,foodIDS.substring(x+1,foodIDS.length),cb);
            }); 
         }else{
-            cache+=food.charAt(x);
+            cache+=foodIDS.charAt(x);
         }
     }
     return cb(json);
 }
+/**
+ * 
+ * @param {*} optionString string of food options 
+ */
+function parseOption(optionString){
+    for(var x=0;x<optionString.length;x++){
+        if(optionString.charAt(x)==="("){
+            var json;
+            var temp ="";
+            var indexed = "";
+            var counter=0;
+            for(var t=x+1;t<optionString.length;t++){
+                indexed+=optionString.charAt(t);
+                if(indexed===")"){
 
+                }
+                if(indexed===","){
+                    json["OPTION" + counter] = temp;
+                    counter++;
+                    temp="";
+                }else{
+                    temp += indexed;
+                }
+                
+                
+            }
+        }
+    }
+    
+}
 
 
 
