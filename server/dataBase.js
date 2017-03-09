@@ -87,8 +87,8 @@ method.getTableByID = function(json,callback){
         if(err){
             throw err;
         }
-        
-            var data = {
+        if(rows[0].NAME){
+             var data = {
             name: rows[0].NAME,
             id: rows[0].TABLE_ID,
             x_coord: rows[0].X_COORD,
@@ -97,7 +97,7 @@ method.getTableByID = function(json,callback){
             status: rows[0].STATUS
         }
         return callback(data);
-        
+        }
     });
 }
 /**
@@ -191,8 +191,6 @@ method.getTable = function(json_info,cb){
             status: rows[i].STATUS
         }
         return cb(data);
-        }else{
-            return cb({done:1});
         }
         
     });
@@ -209,7 +207,8 @@ method.getUser = function(json_user,callBack){
         if(err){
             throw err;
         }
-        var data = {
+        if(rows[0].L_NAME){
+            var data = {
                 last: rows[0].L_NAME,
                 first: rows[0].F_NAME,
                 emp_id: rows[0].EMPLOYEE_ID,
@@ -225,6 +224,8 @@ method.getUser = function(json_user,callBack){
                 bank_num: rows[0].BANK_NUM
             };
             return callBack(data);
+        }
+        
     });
 }
 /**
@@ -237,7 +238,7 @@ method.getUserByIndex = function(json_info,callback){
     console.log(sql);
     this.connection.query(sql, function(err,rows){
         if(err){
-            throw err;
+            throw err;processSegment
         }
         var i = json_info.index;
         if(rows[i]){
@@ -274,7 +275,8 @@ method.getTableByName = function(json_info,cb){
         if(err){
             throw err;
         }
-        var data = {
+        if(rows[0].NAME){
+            var data = {
             name: rows[0].NAME,
             id: rows[0].TABLE_ID,
             x_coord: rows[0].X_COORD,
@@ -283,6 +285,8 @@ method.getTableByName = function(json_info,cb){
             status: rows[0].STATUS
         }
         return cb(data);
+        }
+        
     });
 }
 /**
@@ -561,14 +565,14 @@ method.getFoodByIndex = function(json_info,cb){
  */
 function parseFID(index,json,foodIDS,cb){
     var con = this.connection;
-    var cache= "";
+    var cache = "";
     
     for(var x=0;x<food.length;x++){
         if(foodIDS.charAt(x)==="-"){
-          var dat = parseOption(cache);
-          cache="";
-          var sql = "SELECT * FROM FOOD WHERE FOOD_ID =" + dat.foodIDS;
+            var foodData = processSegment(cache);
+          var sql = "SELECT * FROM FOOD WHERE FOOD_ID =" + foodData.foodID;
            console.log(sql);
+           cache="";
            con.query(sql,function(err,rows){
                if(err){
                    throw err;
@@ -578,7 +582,7 @@ function parseFID(index,json,foodIDS,cb){
                json["QUANTITY"+index] = rows[0].QUANTITY;
                json["PRICE"+index] = rows[0].PRICE;
                json["DESCR"+index] = rows[0].DESCR;
-               json["OPTIONS"+index] = dat.option;
+               json["OPTIONS"+index] = foodData.options;
                parseFID(index+1,json,foodIDS.substring(x+1,foodIDS.length),cb);
            }); 
         }else{
@@ -587,36 +591,40 @@ function parseFID(index,json,foodIDS,cb){
     }
     return cb(json);
 }
-/**
- * 
- * @param {*} optionString string of food options 
- */
-function parseOption(optionString){
-    for(var x=0;x<optionString.length;x++){
-        if(optionString.charAt(x)==="("){
-            var json;
-            var temp ="";
-            var indexed = "";
-            var counter=0;
-            for(var t=x+1;t<optionString.length;t++){
-                indexed+=optionString.charAt(t);
-                if(indexed===")"){
 
-                }
-                if(indexed===","){
-                    json["OPTION" + counter] = temp;
-                    counter++;
-                    temp="";
+function processSegment(segString){
+    var parsedInfo;
+    var temp = "";
+    var optionNum = 0;
+    var options;
+    for(var x=0;x<segString.length;x++){
+        if(segString.charAt(x)==="("){
+            parseedInfo.foodID = temp;
+            temp="";
+        }else{
+            if(segString.charAt(x)===","){
+                parsedInfo["OPTION" + optionNum] = temp;
+                temp="";
+                optionNum++;
+            }else{
+                if(segString.charAt(x)===")"){
+                    options["OPTION" + optionNum] = temp;
+                    parsedInfo.options = options;
+                    return parsedInfo;
                 }else{
-                    temp += indexed;
+                    temp+=segString.charAt(x);
                 }
-                
-                
             }
+            
+            
         }
+        
+        
+
     }
-    
 }
+
+
 
 
 
