@@ -1,4 +1,4 @@
-package com.example.shane.shaneconnect;
+package shaneconnect;
 
 
 
@@ -30,7 +30,7 @@ public class TableReservation implements Comparable<TableReservation> {
      * @param table_id the id of the table
      * @param status the current status of the reservations, status 3 means the reservation is done
      */
-    public TableReservation(String desc,int id,int table_id,int status){
+    public TableReservation(String desc, int id, int table_id, int status){
         this.desc=desc;
         this.id=id;
         this.table_id=table_id;

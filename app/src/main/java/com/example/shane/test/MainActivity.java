@@ -17,12 +17,15 @@ import com.android.volley.toolbox.Volley;
 
 
 import com.example.shane.shaneconnect.ShaneConnect;
+import com.example.shane.shaneconnect.TableReservation;
+
 import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.PriorityQueue;
 
 
 /**
@@ -32,15 +35,7 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
-        final TextView v = (TextView) findViewById(R.id.display);
-        //authGetRequest();
-        final ShaneConnect d = new ShaneConnect("http://10.0.2.2:2021", this);
-        ArrayList<String> s = new ArrayList<String>();
 
-        s.add("burger");
-        s.add("fries");
 
     }
 

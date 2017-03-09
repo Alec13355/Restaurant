@@ -1,6 +1,7 @@
-package com.example.shane.shaneconnect;
+package shaneconnect;
 
 import com.android.volley.Response;
+
 
 import org.json.JSONException;
 import org.json.JSONObject;
