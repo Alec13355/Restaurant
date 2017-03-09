@@ -24,7 +24,9 @@ var method = SQLDataBase.prototype;
 });
 };
 
-
+/** Method to add employee or edit current employee
+ * @param json_input object to hold information about employee
+ */
 method.setUser = function(json_input,callBack){
         var sql = "INSERT INTO EMPLOYEES VALUES('" + json_input.lnam + "','" + json_input.fname + "',NULL,'" + json_input.perm + "'," + json_input.stat + ",'" + json_input.pass + "','" + json_input.address + "','" + json_input.cell + "','" + json_input.phone + "', " + json_input.rate + ",'" + json_input.routing + "','" + json_input.social + "','" + json_input.bank_num + "' )"; 
         console.log(sql);
@@ -48,7 +50,11 @@ method.setUser = function(json_input,callBack){
     }); 
         
 }
-
+/**
+ * Gets reservation by index
+ * @param json object with index
+ * @return reservation information in json
+ */
 method.getResservation = function(json_input, callback){
     var sql = "SELECT * FROM RESERVATIONS";
     var con = this.connection;
@@ -70,7 +76,11 @@ method.getResservation = function(json_input, callback){
 
     });
 }
-
+/**
+ * Gets table by ID number_of_seats
+ * @param json object with ID 
+ * @return json object with table information
+ */
 method.getTableByID = function(json,callback){
     var sql = "SELECT * FROM TABLES WHERE TABLE_ID = " + json.id;
     this.connection.query(sql,function(err,rows){
@@ -90,7 +100,10 @@ method.getTableByID = function(json,callback){
         
     });
 }
-
+/**
+ * Places a reservation
+ * @param json object with reservation information
+ */
 method.placeReservation = function(json_input, callBack){
     var con = this.connection;
     var sqlsearch = "SELECT * RESERVATIONS WHERE DESCRIPTION = '" + json_input.desc + "'";
@@ -116,7 +129,11 @@ method.placeReservation = function(json_input, callBack){
     }); 
 }
 
-
+/**
+ * Method create or edit a table
+ * @param json object with table information
+ * 
+ */
 method.setTable = function(json_info,callBack){
     var con = this.connection;
     var searchsql = "SELECT * FROM TABLES WHERE NAME = '" + json_info.name + "'";
@@ -150,7 +167,11 @@ method.setTable = function(json_info,callBack){
     
    
 }
-
+/**
+ * Gets table information
+ * @param json object with index
+ * @return json object with table information
+ */
 method.getTable = function(json_info,cb){
     var sql = "SELECT * FROM TABLES";
     console.log(sql);
@@ -176,7 +197,11 @@ method.getTable = function(json_info,cb){
         
     });
 }
-
+/**
+ * gets user information
+ * @param json object with employee USER_NAME
+ * @return json object with employee information
+ */
 method.getUser = function(json_user,callBack){
     var sql = "SELECT * FROM EMPLOYEES WHERE L_NAME = '" + json_user.lname + "' AND F_NAME = '" + json_user.fname + "' AND EMPLOYEE_ID = " + json_user.id ;
     console.log(sql);
@@ -202,7 +227,11 @@ method.getUser = function(json_user,callBack){
             return callBack(data);
     });
 }
-
+/**
+ * Gets users by index
+ * @param json object with index
+ * @return json object with user information
+ */
 method.getUserByIndex = function(json_info,callback){
     var sql = "SELECT * FROM EMPLOYEES";
     console.log(sql);
@@ -232,7 +261,11 @@ method.getUserByIndex = function(json_info,callback){
         
     });
 }
-
+/**
+ * Gets Table information with name
+ * @param json with table name
+ * @return json with table information
+ */
 method.getTableByName = function(json_info,cb){
     var name = json_info.name;
     var sql = "SELECT * FROM TABLES WHERE NAME = '" + name + "'";
@@ -252,7 +285,12 @@ method.getTableByName = function(json_info,cb){
         return cb(data);
     });
 }
-
+/**
+ * gets log events
+ * @return json with logs
+ * @param json with employee id
+ *
+ */
 method.getLogEvent = function(json_info,callBack){
     var data;
     var connection  = this.connection;
@@ -272,7 +310,11 @@ method.getLogEvent = function(json_info,callBack){
     });
     
 }
-
+/**
+ * 
+ * @param {*} user string of username 
+ * @param {*} cb callback with parsed information
+ */
 function pars(user,cb){
     console.log(user);
     var last="";
@@ -306,7 +348,9 @@ function pars(user,cb){
     return cb(out)
 }
 
-
+/**
+ * logs events with database
+ */
 method.logEvent = function(json_info,callBack){
     var data = {
         error: 0
@@ -340,7 +384,9 @@ method.logEvent = function(json_info,callBack){
 });
    
 }
-
+/**
+ * gets food items
+ */
 method.getFood = function(json_info,callBack){
     var con = this.connection;
     var foodName = json_info.name;
@@ -361,7 +407,9 @@ method.getFood = function(json_info,callBack){
         
     });
 }
-
+/**
+ * adds the customer to the database
+ */
 method.addCustomer = function(json_info,callBack){
     var searchsql = "SELECT * FROM CUSTOMER WHERE = '" + json_info.user + "'";
     console.log(searchsql);
@@ -393,7 +441,9 @@ method.addCustomer = function(json_info,callBack){
     })
     
 }
-
+/**
+ * adds food to the database
+ */
 method.addFood = function(json_info,cb){
     var con = this.connection;
     var sql = "SELECT * FROM FOOD WHERE NAME = '" + json_info.name + "'";
@@ -421,7 +471,9 @@ method.addFood = function(json_info,cb){
         }
     });
 }
-
+/**
+ * add order to the database
+ */
 method.placeOrder = function(json_info,cb){
     var con = this.connection;
     console.log(json_info);
@@ -438,7 +490,9 @@ method.placeOrder = function(json_info,cb){
         return cb({success:1});
     });
 }
-
+/**
+ * gets and order from the database
+ */
 method.getOrders = function(json_info,cb){
     var con = this.connection;
     var i = json_info.index;
@@ -462,7 +516,9 @@ method.getOrders = function(json_info,cb){
 
     })
 }
-
+/**
+ * gets a food json via id of food
+ */
 method.getFoodByID = function(json_info,cb){
     var json;
     var food = json_input.food;
@@ -472,7 +528,9 @@ method.getFoodByID = function(json_info,cb){
 
     
 }
-
+/**
+ * gets food by index
+ */
 method.getFoodByIndex = function(json_info,cb){
     var con = this.connection;
     var i = json_info.index
@@ -494,16 +552,22 @@ method.getFoodByIndex = function(json_info,cb){
         
     });
 }
-
+/**
+ * 
+ * @param {*} index index number 
+ * @param {*} json json with information
+ * @param {*} foodIDS string of food ids
+ * @param {*} cb call back function
+ */
 function parseFID(index,json,foodIDS,cb){
     var con = this.connection;
     var cache= "";
     
     for(var x=0;x<food.length;x++){
-        if(food.charAt(x)==="-"){
+        if(foodIDS.charAt(x)==="-"){
           var dat = parseOption(cache);
           cache="";
-          var sql = "SELECT * FROM FOOD WHERE FOOD_ID =" + dat.food;
+          var sql = "SELECT * FROM FOOD WHERE FOOD_ID =" + dat.foodIDS;
            console.log(sql);
            con.query(sql,function(err,rows){
                if(err){
@@ -518,33 +582,40 @@ function parseFID(index,json,foodIDS,cb){
                parseFID(index+1,json,foodIDS.substring(x+1,foodIDS.length),cb);
            }); 
         }else{
-            cache+=food.charAt(x);
+            cache+=foodIDS.charAt(x);
         }
     }
     return cb(json);
 }
-
+/**
+ * 
+ * @param {*} optionString string of food options 
+ */
 function parseOption(optionString){
-    var food="";
-    var option="";
-    var temp ="";
     for(var x=0;x<optionString.length;x++){
-        temp += optionString.charAt(x);
-        if(temp==="("){
-            food=temp;
-            temp="";
+        if(optionString.charAt(x)==="("){
+            var json;
+            var temp ="";
+            var indexed = "";
+            var counter=0;
+            for(var t=x+1;t<optionString.length;t++){
+                indexed+=optionString.charAt(t);
+                if(indexed===")"){
+
+                }
+                if(indexed===","){
+                    json["OPTION" + counter] = temp;
+                    counter++;
+                    temp="";
+                }else{
+                    temp += indexed;
+                }
+                
+                
+            }
         }
-        if(temp===")"){
-            option=temp;
-            temp="";
-            var data ={
-                food:foo,
-                option:option
-            };
-            return data;
-        }
-        
     }
+    
 }
 
 
