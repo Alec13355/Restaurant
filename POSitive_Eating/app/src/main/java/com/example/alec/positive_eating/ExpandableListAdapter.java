@@ -1,12 +1,11 @@
 package com.example.alec.positive_eating;
 
 /**
+ * @author Not_Alec
  * Found on http://www.androhub.com/android-expandablelistview/
  * Implementing my own data into it.
+ *
  */
-
-import java.util.HashMap;
-import java.util.List;
 
 import android.content.Context;
 import android.graphics.Typeface;
@@ -16,6 +15,9 @@ import android.view.ViewGroup;
 import android.widget.BaseExpandableListAdapter;
 import android.widget.TextView;
 
+import java.util.HashMap;
+import java.util.List;
+
 //For expandable list view use BaseExpandableListAdapter
 public class ExpandableListAdapter extends BaseExpandableListAdapter {
     private Context _context;
@@ -23,6 +25,12 @@ public class ExpandableListAdapter extends BaseExpandableListAdapter {
     // Child data in format of header title, child title
     private HashMap<String, List<String>> child;
 
+    /**
+     *
+     * @param context
+     * @param listDataHeader
+     * @param listChildData
+     */
     public ExpandableListAdapter(Context context, List<String> listDataHeader,
                                  HashMap<String, List<String>> listChildData) {
         this._context = context;
@@ -30,6 +38,12 @@ public class ExpandableListAdapter extends BaseExpandableListAdapter {
         this.child = listChildData;
     }
 
+    /**
+     *
+     * @param groupPosition
+     * @param childPosititon
+     * @return
+     */
     @Override
     public Object getChild(int groupPosition, int childPosititon) {
 
@@ -38,11 +52,26 @@ public class ExpandableListAdapter extends BaseExpandableListAdapter {
                 childPosititon);
     }
 
+    /**
+     *
+     * @param groupPosition
+     * @param childPosition
+     * @return
+     */
     @Override
     public long getChildId(int groupPosition, int childPosition) {
         return childPosition;
     }
 
+    /**
+     *
+     * @param groupPosition
+     * @param childPosition
+     * @param isLastChild
+     * @param convertView
+     * @param parent
+     * @return
+     */
     @Override
     public View getChildView(int groupPosition, final int childPosition,
                              boolean isLastChild, View convertView, ViewGroup parent) {
@@ -63,6 +92,11 @@ public class ExpandableListAdapter extends BaseExpandableListAdapter {
         return convertView;
     }
 
+    /**
+     *
+     * @param groupPosition
+     * @return
+     */
     @Override
     public int getChildrenCount(int groupPosition) {
 
@@ -70,6 +104,11 @@ public class ExpandableListAdapter extends BaseExpandableListAdapter {
         return this.child.get(this.header.get(groupPosition)).size();
     }
 
+    /**
+     *
+     * @param groupPosition
+     * @return
+     */
     @Override
     public Object getGroup(int groupPosition) {
 
@@ -77,6 +116,10 @@ public class ExpandableListAdapter extends BaseExpandableListAdapter {
         return this.header.get(groupPosition);
     }
 
+    /**
+     *
+     * @return
+     */
     @Override
     public int getGroupCount() {
 
@@ -84,11 +127,24 @@ public class ExpandableListAdapter extends BaseExpandableListAdapter {
         return this.header.size();
     }
 
+    /**
+     *
+     * @param groupPosition
+     * @return
+     */
     @Override
     public long getGroupId(int groupPosition) {
         return groupPosition;
     }
 
+    /**
+     *
+     * @param groupPosition
+     * @param isExpanded
+     * @param convertView
+     * @param parent
+     * @return
+     */
     @Override
     public View getGroupView(int groupPosition, boolean isExpanded,
                              View convertView, ViewGroup parent) {
@@ -125,11 +181,21 @@ public class ExpandableListAdapter extends BaseExpandableListAdapter {
         return convertView;
     }
 
+    /**
+     *
+     * @return
+     */
     @Override
     public boolean hasStableIds() {
         return false;
     }
 
+    /**
+     *
+     * @param groupPosition
+     * @param childPosition
+     * @return
+     */
     @Override
     public boolean isChildSelectable(int groupPosition, int childPosition) {
         return true;

@@ -1,12 +1,9 @@
 package com.example.alec.positive_eating;
-import com.example.shaneconnect.ShaneConnect;
-import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
-import android.widget.Button;
-import android.widget.EditText;
-import android.util.Log;
-import android.view.View;
 import android.content.Intent;
+import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
+import android.view.View;
+import android.widget.Button;
 
 public class MainScreen extends AppCompatActivity {
 Button Seating,Menu,Status,schedule,Edit_users,Payroll,addTableMap,viewTableMap;//Delares the button variables

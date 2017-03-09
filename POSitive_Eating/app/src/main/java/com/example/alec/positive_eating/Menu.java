@@ -1,12 +1,5 @@
 package com.example.alec.positive_eating;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-/*
-*Found on http://www.androhub.com/android-expandablelistview/
- * Implementing my own data into it.
- */
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
 import android.view.View;
@@ -16,12 +9,29 @@ import android.widget.ExpandableListView.OnGroupClickListener;
 import android.widget.ExpandableListView.OnGroupExpandListener;
 import android.widget.Toast;
 
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+
+/*
+*Found on http://www.androhub.com/android-expandablelistview/
+ * Implementing my own data into it.
+ */
+
+/**
+ * @author Alec & Where found above.
+ */
+
 public class Menu extends ActionBarActivity {
     private static ExpandableListView expandableListView;
     private static ExpandableListAdapter adapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        /**
+         * Makes an expandable list view variable sets it to null then calls
+         * setItem() and setListener()
+         */
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_menu);
 
@@ -36,6 +46,13 @@ public class Menu extends ActionBarActivity {
     }
 
     // Setting headers and childs to expandable listview
+
+    /**
+     * Set tiems will make string array lists.
+     * Then it is currently hard coded until we can iterate through the server to set items
+     * and the tables.
+     * The hashMap is also set with each header and children.
+     */
     void setItems() {
 
         // Array list for header
@@ -97,6 +114,10 @@ public class Menu extends ActionBarActivity {
     }
 
     // Setting different listeners to expandablelistview
+
+    /**
+     * Sets listeners so when you touch the expandable list parts
+     */
     void setListener() {
 
         // This listener will show toast on group click
@@ -133,6 +154,9 @@ public class Menu extends ActionBarActivity {
                 });
 
         // This listener will show toast on child click
+        /**
+         * This is the toast to show people what they touched.
+         */
         expandableListView.setOnChildClickListener(new OnChildClickListener() {
 
             @Override

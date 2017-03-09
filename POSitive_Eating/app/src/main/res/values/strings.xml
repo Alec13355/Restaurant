@@ -37,4 +37,8 @@
     <string name="name12">Name</string>
     <string name="name14">Name</string>
     <string name="price">Price</string>
+    <string name="password3">Password</string>
+    <string name="pay_hour">Pay/Hour</string>
+    <string name="phone">Phone</string>
+    <string name="positionnum">PositionNum</string>
 </resources>

@@ -3,7 +3,7 @@ package com.example.alec.positive_eating;
 import android.widget.TextView;
 
 import com.android.volley.Response;
-import com.example.shaneconnect.ShaneConnect;
+import com.example.shane.shaneconnect.ShaneConnect;
 
 import org.json.JSONObject;
 
@@ -11,6 +11,7 @@ import static android.R.attr.id;
 
 /**
  * Created by ethantw on 3/2/2017.
+ * @author Ethan
  */
 
 public class Table {

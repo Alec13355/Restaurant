@@ -8,15 +8,22 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import com.android.volley.Response;
-import com.example.shaneconnect.ShaneConnect;
+import com.example.shane.shaneconnect.ShaneConnect;
 
 import org.json.JSONObject;
 
 import static com.example.alec.positive_eating.Singleton_ShaneConnect_Factory.getShaneConnect;
 
+/**
+ * @author Alec
+ * This class is what the manager can use to add food to the server.
+ */
 public class Edit_menu extends AppCompatActivity {
     EditText food,price,descriton;
 
+    /**
+     * Has 3 text boxes to take food price and descriptions
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -37,7 +44,12 @@ public class Edit_menu extends AppCompatActivity {
         );
     }
 
-
+    /**
+     * @param name
+     * @param price
+     * @param disc
+     * Takes the 3 parameters and submits them to the server in this function when the add button is hit.
+     */
     private void ChangeFood(String name, String price, String disc){
         ShaneConnect vista = getShaneConnect();
         //ShaneConnect vista = new ShaneConnect("http://proj-309-yt-4.cs.iastate.edu:1234", this);

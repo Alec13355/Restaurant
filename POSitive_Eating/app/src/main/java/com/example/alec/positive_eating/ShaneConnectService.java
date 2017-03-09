@@ -7,6 +7,10 @@ import android.os.IBinder;
 
 import static com.example.alec.positive_eating.Singleton_ShaneConnect_Factory.getShaneConnect;
 
+/**
+ * @author Shane
+ * Shane Connect java file
+ */
 public class ShaneConnectService extends Service {
 
     private final IBinder myBinder = new MyLocalBinder();

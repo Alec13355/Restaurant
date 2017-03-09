@@ -7,7 +7,13 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
+/**
+ * @author Alec
+ */
 public class LoginWindow extends AppCompatActivity {
+    /**
+     * Setting a variable for a Button and 2 edit texts for user name password and login button
+     */
     Button LogInButton;
     EditText userName;
     EditText password;
@@ -25,7 +31,9 @@ public class LoginWindow extends AppCompatActivity {
         password = (EditText) findViewById(R.id.password);
         userName = (EditText) findViewById(R.id.userName);
 
-
+        /**
+         * When it's clicked it will compare what is given to fake data.
+         */
         LogInButton.setOnClickListener(
                 new View.OnClickListener() {
                     public void onClick(View view) {

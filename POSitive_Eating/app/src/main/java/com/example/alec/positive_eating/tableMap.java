@@ -2,35 +2,25 @@ package com.example.alec.positive_eating;
 /*
 @author Ethan Wieczorek
  */
-import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
-
 import android.app.Activity;
-import android.content.Context;
-import android.graphics.Canvas;
 import android.graphics.Color;
-import android.graphics.Rect;
-import android.graphics.drawable.Drawable;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.AttributeSet;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.FrameLayout;
-import android.widget.HorizontalScrollView;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
-
-import com.example.shaneconnect.ShaneConnect;
 
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
+/**
+ * @author Ethan
+ */
 public class tableMap extends Activity {
     private List<View> allTables = new ArrayList<>();
     private ViewGroup mRootLayout;

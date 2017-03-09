@@ -1,14 +1,16 @@
 package com.example.alec.positive_eating;
 
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
-import android.widget.EditText;
 
 public class EditStaff extends AppCompatActivity {
-
+    /**
+     *@author Alec
+     * This class will be used to manage and get current workers.
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

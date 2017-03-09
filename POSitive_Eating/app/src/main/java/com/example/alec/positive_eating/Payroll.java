@@ -3,6 +3,10 @@ package com.example.alec.positive_eating;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
+/**
+ * @author Alec This class will be used to payout the employees
+ * It will set their hours, paid hours, and set counters to zero.
+ */
 public class Payroll extends AppCompatActivity {
 
     @Override

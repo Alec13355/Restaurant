@@ -1,8 +1,11 @@
 package com.example.alec.positive_eating;
 
 import android.content.Context;
-import com.example.shaneconnect.ShaneConnect;
+import com.example.shane.shaneconnect.ShaneConnect;
 
+/**
+ * @author Shane/Christian
+ */
 public class Singleton_ShaneConnect_Factory {
 
     private static ShaneConnect sc = null;

@@ -1,14 +1,14 @@
 package com.example.alec.positive_eating;
-
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import java.util.Date;
-import java.text.DateFormat;
-import android.view.View;
-import android.widget.Button;
-import android.widget.EditText;
+import android.support.v7.app.AppCompatActivity;
 import android.widget.TextView;
+import java.text.DateFormat;
+import java.util.Date;
 
+/**
+ * @author Alec
+ * This class will handle all clocking in functionality
+ */
 public class Clocking_in extends AppCompatActivity {
 
     @Override
