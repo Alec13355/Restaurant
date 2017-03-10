@@ -15,9 +15,9 @@ import java.util.Iterator;
 import java.util.List;
 
 /**
+ * This class makes a basic view of the table map after pulling all of the tables from the database.
  * @author Ethan
  */
-
 public class  viewTableMap extends AppCompatActivity {
     private ViewGroup mRootLayout;
     private List<View> allTables = new ArrayList<>();

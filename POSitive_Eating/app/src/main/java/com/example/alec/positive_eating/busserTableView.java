@@ -22,7 +22,7 @@ import java.util.List;
 import static android.os.Build.ID;
 
 /**
- * This is the host table view. All tables can be clicked on to change the status of the table for seating purposes. Statuses: Seated, Empty, Needs Cleaning.
+ * This is the busser table view. All tables can be clicked on to change the status of the table for seating purposes. Statuses: Seated, Empty, Needs Cleaning.
  * @author Ethan
  */
 public class hostTableView extends AppCompatActivity {

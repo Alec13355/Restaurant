@@ -27,6 +27,10 @@ public class tableMap extends Activity {
     private int _xDelta;
     private int _yDelta;
 
+    /**
+     * onCreate first updates based on the
+     * @param savedInstanceState
+     */
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -173,7 +177,10 @@ public class tableMap extends Activity {
     }
 
 
-
+    /**
+     * MyTouchListener is the drag and drop listener that allows the user to move a view around another view.
+     * @PARAMS View view: any XML view that isn't the top level.
+     */
     private final class MyTouchListener implements View.OnTouchListener {
         public boolean onTouch(View view, MotionEvent event) {
             final int X = (int) event.getRawX();
