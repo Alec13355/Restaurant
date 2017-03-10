@@ -307,8 +307,12 @@
     <string name="order_status">Order Status</string>
     <string name="ordering_menu">Ordering Menu</string>
     <string name="password">Password:</string>
+    <string name="password3">Password</string>
+    <string name="pay_hour">Pay/Hour</string>
     <string name="payrol">Payroll</string>
     <string name="payroll">Payrol</string>
+    <string name="phone">Phone</string>
+    <string name="positionnum">PositionNum</string>
     <string name="price">Price</string>
     <string name="routing_number">Routing Number</string>
     <string name="routingnumber">routingNumber</string>

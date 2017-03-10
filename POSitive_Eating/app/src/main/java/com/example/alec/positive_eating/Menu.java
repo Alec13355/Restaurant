@@ -14,13 +14,11 @@ import java.util.HashMap;
 import java.util.List;
 
 /*
-*Found on http://www.androhub.com/android-expandablelistview/
+*@author  http://www.androhub.com/android-expandablelistview/
  * Implementing my own data into it.
  */
 
-/**
- * @author Alec & Where found above.
- */
+
 
 public class Menu extends ActionBarActivity {
     private static ExpandableListView expandableListView;

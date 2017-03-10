@@ -17,15 +17,15 @@ import com.example.shane.shaneconnect.ShaneConnect;
 import org.json.JSONObject;
 
 import static com.example.alec.positive_eating.Singleton_ShaneConnect_Factory.getShaneConnect;
-
+/**
+ *
+ * Simple on create for the page add employee. This java file is used to add new employees or users to the system.
+ * To allow people access to the POS terminal
+ */
 public class add_employee extends AppCompatActivity {
 Button add;
 
-    /**
-     *
-     * Simple on create for the page add employee. This java file is used to add new employees or users to the system.
-     * To allow people access to the POS terminal
-     */
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

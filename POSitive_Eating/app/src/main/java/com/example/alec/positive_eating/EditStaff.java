@@ -8,11 +8,11 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
-
+/**
+ * This class will be used to manage and get current workers.
+ */
 public class EditStaff extends AppCompatActivity {
-    /**
-     * This class will be used to manage and get current workers.
-     */
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

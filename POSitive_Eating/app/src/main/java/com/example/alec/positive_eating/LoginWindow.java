@@ -10,11 +10,11 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
-
+/**
+ * Setting a variable for a Button and 2 edit texts for user name password and login button
+ */
 public class LoginWindow extends AppCompatActivity {
-    /**
-     * Setting a variable for a Button and 2 edit texts for user name password and login button
-     */
+
     Button LogInButton;
     EditText userName;
     EditText password;
