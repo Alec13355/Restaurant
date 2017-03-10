@@ -25,7 +25,7 @@ import static android.os.Build.ID;
  * This is the busser table view. All tables can be clicked on to change the status of the table for seating purposes. Statuses: Seated, Empty, Needs Cleaning.
  * @author Ethan
  */
-public class hostTableView extends AppCompatActivity {
+public class busserTableView extends AppCompatActivity {
 
     List<Table> tables = new ArrayList<>();
 
@@ -96,26 +96,26 @@ public class hostTableView extends AppCompatActivity {
         }
 
 
-        private final class MyTouchListener implements View.OnTouchListener {
-            public boolean onTouch(View view, MotionEvent event) {
-                final int X = (int) event.getRawX();
-                final int Y = (int) event.getRawY();
-                switch (event.getAction() & MotionEvent.ACTION_MASK) {
-                    case MotionEvent.ACTION_DOWN:
-                        RelativeLayout.LayoutParams lParams = (RelativeLayout.LayoutParams) view.getLayoutParams();
-                        break;
-                    case MotionEvent.ACTION_UP:
-                        break;
-                    case MotionEvent.ACTION_POINTER_DOWN:
-                        break;
-                    case MotionEvent.ACTION_POINTER_UP:
-                        break;
-                    case MotionEvent.ACTION_MOVE:
-                        break;
-                }
-                mRootLayout.invalidate();
-                return true;
+    }
+    private final class MyTouchListener implements View.OnTouchListener {
+        public boolean onTouch(View view, MotionEvent event) {
+            final int X = (int) event.getRawX();
+            final int Y = (int) event.getRawY();
+            switch (event.getAction() & MotionEvent.ACTION_MASK) {
+                case MotionEvent.ACTION_DOWN:
+                    RelativeLayout.LayoutParams lParams = (RelativeLayout.LayoutParams) view.getLayoutParams();
+                    break;
+                case MotionEvent.ACTION_UP:
+                    break;
+                case MotionEvent.ACTION_POINTER_DOWN:
+                    break;
+                case MotionEvent.ACTION_POINTER_UP:
+                    break;
+                case MotionEvent.ACTION_MOVE:
+                    break;
             }
+            mRootLayout.invalidate();
+            return true;
         }
     }
 }

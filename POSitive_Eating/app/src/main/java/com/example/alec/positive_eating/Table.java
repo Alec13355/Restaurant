@@ -10,9 +10,8 @@ import org.json.JSONObject;
 import static android.R.attr.id;
 
 /**
- * Created by ethantw on 3/2/2017.
- * @author Ethan
  * This is the table class. Any tables created in a tableMap view will be an object of this class.
+ * @author Ethan
  */
 public class Table {
     private String ID;
