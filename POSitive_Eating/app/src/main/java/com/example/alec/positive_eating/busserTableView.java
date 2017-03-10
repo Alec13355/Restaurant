@@ -11,7 +11,7 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.android.volley.Response;
-import com.example.shaneconnect.ShaneConnect;
+import com.example.shane.shaneconnect.ShaneConnect;
 
 import org.json.JSONObject;
 

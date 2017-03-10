@@ -1,3 +1,6 @@
+/**
+ * @author Alec
+ */
 package com.example.alec.positive_eating;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -6,8 +9,8 @@ import java.text.DateFormat;
 import java.util.Date;
 
 /**
- * @author Alec
- * This class will handle all clocking in functionality
+ *
+ *  This class will handle all clocking in functionality
  */
 public class Clocking_in extends AppCompatActivity {
 

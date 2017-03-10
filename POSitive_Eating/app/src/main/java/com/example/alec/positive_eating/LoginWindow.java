@@ -1,3 +1,6 @@
+/**
+ * @author Alec
+ */
 package com.example.alec.positive_eating;
 import android.content.Intent;
 import android.os.Bundle;
@@ -7,9 +10,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
-/**
- * @author Alec
- */
+
 public class LoginWindow extends AppCompatActivity {
     /**
      * Setting a variable for a Button and 2 edit texts for user name password and login button

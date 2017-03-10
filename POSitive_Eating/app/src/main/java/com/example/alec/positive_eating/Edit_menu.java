@@ -1,3 +1,6 @@
+/**
+ * @author Alec
+ */
 package com.example.alec.positive_eating;
 
 import android.os.Bundle;
@@ -5,6 +8,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+
 import android.widget.Toast;
 
 import com.android.volley.Response;
@@ -15,7 +19,7 @@ import org.json.JSONObject;
 import static com.example.alec.positive_eating.Singleton_ShaneConnect_Factory.getShaneConnect;
 
 /**
- * @author Alec
+ *
  * This class is what the manager can use to add food to the server.
  */
 public class Edit_menu extends AppCompatActivity {

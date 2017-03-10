@@ -1,7 +1,9 @@
+/**
+ * @author http://www.androhub.com/android-expandablelistview/
+ */
 package com.example.alec.positive_eating;
 
 /**
- * @author Not_Alec
  * Found on http://www.androhub.com/android-expandablelistview/
  * Implementing my own data into it.
  *

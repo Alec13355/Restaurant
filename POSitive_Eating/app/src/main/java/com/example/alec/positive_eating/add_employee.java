@@ -1,3 +1,7 @@
+/**
+ * @author Alec
+ */
+
 package com.example.alec.positive_eating;
 
 import android.os.Bundle;
@@ -13,10 +17,6 @@ import com.example.shane.shaneconnect.ShaneConnect;
 import org.json.JSONObject;
 
 import static com.example.alec.positive_eating.Singleton_ShaneConnect_Factory.getShaneConnect;
-
-/**
- * @author Alec
- */
 
 public class add_employee extends AppCompatActivity {
 Button add;

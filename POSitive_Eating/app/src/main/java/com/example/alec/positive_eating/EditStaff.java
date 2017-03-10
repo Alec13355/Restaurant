@@ -1,3 +1,6 @@
+/**
+ * @author Alec
+ */
 package com.example.alec.positive_eating;
 
 import android.content.Intent;
@@ -8,7 +11,6 @@ import android.widget.Button;
 
 public class EditStaff extends AppCompatActivity {
     /**
-     *@author Alec
      * This class will be used to manage and get current workers.
      */
     @Override

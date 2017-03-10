@@ -1,3 +1,6 @@
+/**
+ * @author Alec
+ */
 package com.example.alec.positive_eating;
 
 import android.support.v7.app.AppCompatActivity;
@@ -11,7 +14,6 @@ import java.util.HashMap;
 import java.util.List;
 
 /**
- * @author Alec
  * This will be the page the cook goes to, to see what needs to be cooked and in the
  * order it was recived.
  */

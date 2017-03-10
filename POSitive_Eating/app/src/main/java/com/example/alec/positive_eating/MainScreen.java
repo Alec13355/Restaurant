@@ -1,3 +1,6 @@
+/**
+ * @author Alec
+ */
 package com.example.alec.positive_eating;
 import android.content.Intent;
 import android.os.Bundle;
@@ -5,6 +8,9 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 
+/**
+ * This class is the main landing page and will change views depending on what button is pressed.
+ */
 public class MainScreen extends AppCompatActivity {
 Button Seating,Menu,Status,schedule,Edit_users,Payroll,addTableMap,viewTableMap;//Delares the button variables
     @Override
