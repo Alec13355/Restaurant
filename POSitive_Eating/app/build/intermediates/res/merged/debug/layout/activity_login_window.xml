@@ -15,11 +15,33 @@
         android:layout_height="wrap_content"
         android:inputType="textPersonName"
         android:ems="10"
-        android:id="@+id/userName"
+        android:id="@+id/editText"
         android:layout_alignParentTop="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:hint="@string/user_name" />
+        android:hint="@string/user_number" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="textPersonName"
+        android:ems="10"
+        android:id="@+id/Firstnamelog"
+        android:hint="@string/first_name22"
+        android:layout_below="@+id/editText"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="textPersonName"
+        android:ems="10"
+        android:id="@+id/lastnamelog"
+        android:hint="@string/last_name22"
+        android:layout_below="@+id/Firstnamelog"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
 
     <EditText
         android:layout_width="wrap_content"
@@ -28,7 +50,7 @@
         android:ems="10"
         android:id="@+id/password"
         android:hint="@string/password"
-        android:layout_below="@+id/userName"
+        android:layout_below="@+id/lastnamelog"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true" />
 
@@ -39,8 +61,8 @@
         android:visibility="visible"
         android:text="@string/login"
         android:layout_below="@+id/password"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
         android:layout_alignRight="@+id/password"
-        android:layout_alignEnd="@+id/password" />
+        android:layout_alignEnd="@+id/password"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
 </RelativeLayout>

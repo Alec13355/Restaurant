@@ -2,13 +2,22 @@
  * @author Alec
  */
 package com.example.alec.positive_eating;
+
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
+
+import com.android.volley.Response;
+import com.example.shane.shaneconnect.ShaneConnect;
+
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import static com.example.alec.positive_eating.Singleton_ShaneConnect_Factory.getShaneConnect;
 
 /**
  * Setting a variable for a Button and 2 edit texts for user name password and login button
@@ -16,8 +25,12 @@ import android.widget.EditText;
 public class LoginWindow extends AppCompatActivity {
 
     Button LogInButton;
-    EditText userName;
+    EditText userNumber;
     EditText password;
+    EditText Firstname;
+    EditText Lastname;
+    boolean user;
+    int counter;
 
 
 
@@ -30,27 +43,53 @@ public class LoginWindow extends AppCompatActivity {
 
         LogInButton = (Button) findViewById(R.id.logInButton);
         password = (EditText) findViewById(R.id.password);
-        userName = (EditText) findViewById(R.id.userName);
-
+        userNumber = (EditText) findViewById(R.id.editText);
+        Firstname  = (EditText) findViewById(R.id.Firstnamelog);
+        Lastname  = (EditText) findViewById(R.id.lastnamelog);
+        counter=0;
         /**
          * When it's clicked it will compare what is given to fake data.
          */
         LogInButton.setOnClickListener(
                 new View.OnClickListener() {
                     public void onClick(View view) {
-                        Log.v("EditText", userName.getText().toString());
-                        if (userName.getText().toString().equals("alec")) {
-                            if (password.getText().toString().equals("abc123")) {
-                                Intent myIntent = new Intent(LoginWindow.this, MainScreen.class); /** Class name here */
-                                LoginWindow.this.startActivity(myIntent);
-                            }
-                        }
+
+                        String Userdata= Lastname.getText().toString()+"_"+Firstname.getText().toString()+"_"+userNumber.getText().toString();
+                        checkuser(Userdata,password.getText().toString());
+
+
                     }
                 });
     }
 
+    public void checkuser (String a, final String b){
+        ShaneConnect vista = getShaneConnect();
+       user=false;
+        vista.getAccountData(a,new Response.Listener<JSONObject>() {
 
+            @Override
+            public void onResponse(JSONObject response) {
 
+                Toast.makeText(getApplicationContext(), response.toString(), Toast.LENGTH_LONG).show();
+                try {
+                    correct(response.get("pass").toString(),b);
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+                if(user) {
+
+                    Intent myIntent = new Intent(LoginWindow.this, MainScreen.class); /** Class name here */
+                    LoginWindow.this.startActivity(myIntent);
+                }
+            }
+
+        });
+    }
+    public void correct(String a,String b){
+        if(a.equals(b)){
+            user=true;
+        }
+    }
 
 }
 

@@ -67,7 +67,7 @@ Button add;
      */
     private void add_User(String first, String last, String social, String bankroute,String bankAccount,String Pass, String Pay,String PhoneNumber,String Position ){
         ShaneConnect vista = getShaneConnect();
-        vista.createAccount(last,first,"Don'tKnow", Integer.parseInt(Position),Pass,"Not relevant",PhoneNumber,"Not relevent",Integer.parseInt(Pay),new Response.Listener<JSONObject>() {
+        vista.createAccount(last,first,"DontKnow", Integer.parseInt(Position),Pass,"Not relevant",PhoneNumber,"Not relevent",Integer.parseInt(Pay),new Response.Listener<JSONObject>() {
             @Override
             public void onResponse(JSONObject response) {
                 Toast.makeText(getApplicationContext(), response.toString(), Toast.LENGTH_LONG).show();

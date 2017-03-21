@@ -10,7 +10,7 @@ public class Singleton_ShaneConnect_Factory {
 
     private static ShaneConnect sc = null;
 
-    private static final int PORT_NUMBER = 2221;
+    private static final int PORT_NUMBER = 2223;
 
     public static ShaneConnect getShaneConnect(String URL, Context context) {
         if (sc == null) {
