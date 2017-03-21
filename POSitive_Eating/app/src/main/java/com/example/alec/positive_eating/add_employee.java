@@ -25,16 +25,16 @@ import static com.example.alec.positive_eating.Singleton_ShaneConnect_Factory.ge
 public class add_employee extends AppCompatActivity {
 Button add;
 
-
+//LogInButton = (Button) findViewById(R.id.logInButton);
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_employee);
-        add= (Button)(findViewById(R.id.Add_Employee));
+        add= (Button) findViewById(R.id.Add_Person);
         add.setOnClickListener(
-                new View.OnClickListener()
-                {
+                new View.OnClickListener(){
                     public void onClick(View view){
+
                         String firstName=((EditText)findViewById(R.id.firstName)).getText().toString() ;
                         String lastName= ((EditText)findViewById(R.id.lastName)).getText().toString();
                         String Social= ((EditText)findViewById(R.id.Social)).getText().toString();
@@ -45,6 +45,7 @@ Button add;
                         String PhoneNum= ((EditText)findViewById(R.id.Phone)).getText().toString();
                         String Position= ((EditText)findViewById(R.id.Position)).getText().toString();
                        add_User(firstName,lastName,Social,bankRoute,bankAccount,Pass,Pay,PhoneNum,Position);
+
                     }
                 }
         );

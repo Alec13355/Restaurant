@@ -47,6 +47,7 @@
             android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name="com.example.alec.positive_eating.tableMap" />
         <activity android:name="com.example.alec.positive_eating.viewTableMap" />
+        <activity android:name="com.example.alec.positive_eating.Edit_menu" />
     </application>
 
 </manifest>

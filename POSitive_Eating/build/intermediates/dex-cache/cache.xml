@@ -43,7 +43,7 @@
         jumboMode="true"
         optimize="true"
         revision="25.0.2"
-        sha1="facfa890a3123c5bb4e385d3aa0b3d9e71c0158d">
+        sha1="be0c05aaf515fd4b253911488c2ef40e31e130a4">
         <dex dex="/Users/Alec/Desktop/untitled folder/POSitive_Eating/app/build/intermediates/transforms/dex/debug/folders/1000/10/instant-run_25d718c8201bf60365eb212b78e2e508b4e69adc/classes.dex" />
     </item>
     <item
@@ -70,7 +70,7 @@
         jumboMode="true"
         optimize="true"
         revision="25.0.2"
-        sha1="3bd311c2ea6a78c70f9cf1430127ae7944ab63bb">
+        sha1="49d7510c568229f1c61a26057c12fb584c9f9b5b">
         <dex dex="/Users/Alec/Desktop/untitled folder/POSitive_Eating/app/build/intermediates/transforms/dex/debug/folders/1000/10/instant-run-bootstrap_5408adcbed458c3fb09a67ae944abb5f3a405585/classes.dex" />
     </item>
     <item
@@ -88,7 +88,7 @@
         jumboMode="true"
         optimize="true"
         revision="25.0.2"
-        sha1="f112c42eb42cb0f8e9bc4611627e7f36a88f762b">
+        sha1="fb710ff3448f719a50090f2349976ac9b3dc2924">
         <dex dex="/Users/Alec/Desktop/untitled folder/POSitive_Eating/app/build/intermediates/transforms/dex/debug/folders/1000/10/intermediates-exploded-aar-shaneconnect-release_4a19280ad78fa24edbe7db356e203e3a54943e82/classes.dex" />
     </item>
     <item
