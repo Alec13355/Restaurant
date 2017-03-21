@@ -109,6 +109,30 @@ public class ShaneConnect {
         queue.add(lastFMAuthRequest);
     }
 
+    /**
+     * Get food by index is a way to recursively return all food items.
+     * @param index the index number for the food item
+     * @param s is a asynchronous callback function that responds with a json object of the form {name:String,food_id:int,quantity:int,price:int,desc:string,options:string}
+     */
+    public void getFoodByIndex(int index,Response.Listener<JSONObject> s){
+        RequestQueue queue = Volley.newRequestQueue(maind);
+        JSONObject out = new JSONObject();
+        try {
+            out.put("index",index);
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+        JsonObjectRequest lastFMAuthRequest = new JsonObjectRequest(Request.Method.POST, url + "/getFoodByIndex", out, s, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                System.out.print(error.networkResponse);
+
+            }
+
+        });
+        queue.add(lastFMAuthRequest);
+    }
+
     public void dontUseThis(){
         while(true){
             System.out.print("told you not to use this");
@@ -441,6 +465,12 @@ public class ShaneConnect {
 
     }
 
+    /**
+     * Method to add a customer to the database
+     * @param user Their username, this could be anything including the email address
+     * @param email Their email,
+     * @param s will return response object of the form {success:int} and 1 if it had a success
+     */
     public void addCustomer(String user,String email,Response.Listener<JSONObject> s){
         RequestQueue queue = Volley.newRequestQueue(maind);
         JSONObject out = new JSONObject();
@@ -451,6 +481,31 @@ public class ShaneConnect {
             e.printStackTrace();
         }
         JsonObjectRequest lastFMAuthRequest = new JsonObjectRequest(Request.Method.POST, url + "/addCustomer", out,s , new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                System.out.print(error.networkResponse);
+
+            }
+
+        });
+        queue.add(lastFMAuthRequest);
+
+    }
+
+    /**
+     *
+     * @param user The username you are searching for
+     * @param s will return response object of the form {user:string,id:int,email:string}
+     */
+    public void getCustomer(String user,Response.Listener<JSONObject> s){
+        RequestQueue queue = Volley.newRequestQueue(maind);
+        JSONObject out = new JSONObject();
+        try {
+            out.put("user", user);
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+        JsonObjectRequest lastFMAuthRequest = new JsonObjectRequest(Request.Method.POST, url + "/getCustomer", out,s , new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
                 System.out.print(error.networkResponse);
