@@ -207,7 +207,7 @@ method.getUser = function(json_user,callBack){
         if(err){
             throw err;
         }
-        if(rows[0].L_NAME){
+        if(rows.length>0){
             var data = {
                 last: rows[0].L_NAME,
                 first: rows[0].F_NAME,
@@ -411,11 +411,23 @@ method.getFood = function(json_info,callBack){
         
     });
 }
+
+
+method.getCustomer = function(json_info,callBack){
+    var sql = "SELECT * FROM CUSTOMER WHERE USER_NAME = '" + json_info.user + "'"; 
+    console.log(sql);
+    this.connection.query(sql, function(err,rows){
+        if(err){
+            throw err;
+        }
+        return callBack({user:rows[0].USER_NAME,id:rows[0].CUSTOMER_ID,email: rows[0].EMAIL});
+    });
+}
 /**
  * adds the customer to the database
  */
 method.addCustomer = function(json_info,callBack){
-    var searchsql = "SELECT * FROM CUSTOMER WHERE = '" + json_info.user + "'";
+    var searchsql = "SELECT * FROM CUSTOMER WHERE USER_NAME = '" + json_info.user + "'";
     console.log(searchsql);
     var con = this.connection;
     con.query(searchsql, function(err,rows){
@@ -591,7 +603,10 @@ function parseFID(index,json,foodIDS,cb){
     }
     return cb(json);
 }
-
+/**
+ * Parses the component string parts
+ * @param {*} segString part of the component string 
+ */
 function processSegment(segString){
     var parsedInfo;
     var temp = "";

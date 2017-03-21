@@ -130,11 +130,17 @@ router.post("/addCustomer", function(req,res){
   });
 });
 
+router.post("/getCustomer", function(req,res){
+  data_base.getCustomer(req.body,function(resp){
+    res.json(resp);
+  });
+});
+
 router.post("/getFoodByIndex", function(req,res){
   data_base.getFoodByIndex(req.body, function(resp){
     res.json(resp);
-  })
-})
+  });
+});
 
 router.post("/getAccount", function(req,res){
   console.log(req.body.name)
