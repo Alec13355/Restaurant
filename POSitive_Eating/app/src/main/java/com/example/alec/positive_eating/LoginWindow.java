@@ -55,6 +55,7 @@ public class LoginWindow extends AppCompatActivity {
                     public void onClick(View view) {
 
                         String Userdata= Lastname.getText().toString()+"_"+Firstname.getText().toString()+"_"+userNumber.getText().toString();
+                        Clockin(Userdata);
                         checkuser(Userdata,password.getText().toString());
 
 
@@ -77,7 +78,6 @@ public class LoginWindow extends AppCompatActivity {
                     e.printStackTrace();
                 }
                 if(user) {
-
                     Intent myIntent = new Intent(LoginWindow.this, MainScreen.class); /** Class name here */
                     LoginWindow.this.startActivity(myIntent);
                 }
@@ -89,6 +89,17 @@ public class LoginWindow extends AppCompatActivity {
         if(a.equals(b)){
             user=true;
         }
+    }
+    public void Clockin(String a){
+        ShaneConnect vista = getShaneConnect();
+        vista.newEmployeeLog(a,1,new Response.Listener<JSONObject>() {
+
+            @Override
+            public void onResponse(JSONObject response) {
+
+            }
+
+        });
     }
 
 }
