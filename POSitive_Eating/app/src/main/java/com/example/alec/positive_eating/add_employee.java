@@ -44,7 +44,8 @@ Button add;
                         String Pay= ((EditText)findViewById(R.id.Pay)).getText().toString();
                         String PhoneNum= ((EditText)findViewById(R.id.Phone)).getText().toString();
                         String Position= ((EditText)findViewById(R.id.Position)).getText().toString();
-                       add_User(firstName,lastName,Social,bankRoute,bankAccount,Pass,Pay,PhoneNum,Position);
+                        String Avail = ((EditText)findViewById(R.id.Shift)).getText().toString();
+                       add_User(firstName,lastName,Social,bankRoute,bankAccount,Pass,Pay,PhoneNum,Position,Avail);
 
                     }
                 }
@@ -65,9 +66,9 @@ Button add;
      * @param Position
      * Takes in the parameters given in the text boxes to create a new employee user on the server. This also will set their roles
      */
-    private void add_User(String first, String last, String social, String bankroute,String bankAccount,String Pass, String Pay,String PhoneNumber,String Position ){
+    private void add_User(String first, String last, String social, String bankroute,String bankAccount,String Pass, String Pay,String PhoneNumber,String Position,String Avail ){
         ShaneConnect vista = getShaneConnect();
-        vista.createAccount(last,first,"DontKnow", Integer.parseInt(Position),Pass,"Not relevant",PhoneNumber,"Not relevent",Integer.parseInt(Pay),new Response.Listener<JSONObject>() {
+        vista.createAccount(last,first,"DontKnow", Integer.parseInt(Position),Pass,Avail,PhoneNumber,"Not relevent",Integer.parseInt(Pay),new Response.Listener<JSONObject>() {
             @Override
             public void onResponse(JSONObject response) {
                 Toast.makeText(getApplicationContext(), response.toString(), Toast.LENGTH_LONG).show();

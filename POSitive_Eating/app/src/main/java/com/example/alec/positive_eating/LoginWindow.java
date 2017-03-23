@@ -102,16 +102,16 @@ public class LoginWindow extends AppCompatActivity {
         });
     }
     public void correct(String a,String b,String c){
-        if(c.equals(1)){
+        if(c.equals("1")){
         if(a.equals(b)){
             usermanager=true;
         }}
-        if(c.equals(2)){
+        else if(c.equals("2")){
             if(a.equals(b)){
                 userwaitstaff=true;
             }
         }
-        if(c.equals(3)){
+        else if(c.equals("3")){
             if(a.equals(b)){
                 cook=true;
             }
