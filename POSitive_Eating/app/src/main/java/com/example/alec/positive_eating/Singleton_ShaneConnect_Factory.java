@@ -1,7 +1,7 @@
 package com.example.alec.positive_eating;
 
 import android.content.Context;
-import com.example.shane.shaneconnect.ShaneConnect;
+import shaneconnect.ShaneConnect;
 
 /**
  * @author Shane/Christian

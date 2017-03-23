@@ -11,11 +11,11 @@ import android.widget.Button;
 import android.widget.ExpandableListView;
 import android.widget.Toast;
 
-import com.example.shane.shaneconnect.ShaneConnect;
-
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+
+import shaneconnect.ShaneConnect;
 
 import static com.example.alec.positive_eating.Singleton_ShaneConnect_Factory.getShaneConnect;
 
