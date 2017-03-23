@@ -8,13 +8,13 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-
 import android.widget.Toast;
 
 import com.android.volley.Response;
-import com.example.shane.shaneconnect.ShaneConnect;
 
 import org.json.JSONObject;
+
+import java.util.ArrayList;
 
 import static com.example.alec.positive_eating.Singleton_ShaneConnect_Factory.getShaneConnect;
 
@@ -55,10 +55,11 @@ public class Edit_menu extends AppCompatActivity {
      * Takes the 3 parameters and submits them to the server in this function when the add button is hit.
      */
     private void ChangeFood(String name, String price, String disc){
-        ShaneConnect vista = getShaneConnect();
+        shaneconnect.ShaneConnect vista = getShaneConnect();
         //ShaneConnect vista = new ShaneConnect("http://proj-309-yt-4.cs.iastate.edu:1234", this);
         int a = Integer.parseInt(price);
-        vista.addFood(name, a, disc, 1, new Response.Listener<JSONObject>() {
+        ArrayList b = new ArrayList();
+        vista.addFood(name, a, disc, 1,b,new Response.Listener<JSONObject>() {
             @Override
             public void onResponse(JSONObject response) {
                 Toast.makeText(getApplicationContext(), response.toString(), Toast.LENGTH_LONG).show();

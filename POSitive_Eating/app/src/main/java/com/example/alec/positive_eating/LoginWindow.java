@@ -12,7 +12,6 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import com.android.volley.Response;
-import com.example.shane.shaneconnect.ShaneConnect;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -66,7 +65,7 @@ public class LoginWindow extends AppCompatActivity {
     }
 
     public void checkuser (String a, final String b){
-        ShaneConnect vista = getShaneConnect();
+        shaneconnect.ShaneConnect vista = getShaneConnect();
         usermanager=false;
         userwaitstaff=false;
         cook=false;
@@ -118,7 +117,7 @@ public class LoginWindow extends AppCompatActivity {
         }
     }
     public void Clockin(String a){
-        ShaneConnect vista = getShaneConnect();
+        shaneconnect.ShaneConnect vista = getShaneConnect();
         vista.newEmployeeLog(a,1,new Response.Listener<JSONObject>() {
 
             @Override

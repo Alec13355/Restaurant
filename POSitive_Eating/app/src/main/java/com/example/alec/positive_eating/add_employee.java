@@ -12,9 +12,10 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import com.android.volley.Response;
-import shaneconnect.ShaneConnect;
 
 import org.json.JSONObject;
+
+import shaneconnect.ShaneConnect;
 
 import static com.example.alec.positive_eating.Singleton_ShaneConnect_Factory.getShaneConnect;
 /**
@@ -68,7 +69,7 @@ Button add;
      */
     private void add_User(String first, String last, String social, String bankroute,String bankAccount,String Pass, String Pay,String PhoneNumber,String Position,String Avail ){
         ShaneConnect vista = getShaneConnect();
-        vista.createAccount(last,first,"DontKnow", Integer.parseInt(Position),Pass,Avail,PhoneNumber,"Not relevent",Integer.parseInt(Pay),new Response.Listener<JSONObject>() {
+        vista.createAccount(last,first,"DontKnow",bankroute,social,bankAccount,Integer.parseInt(Position),Pass,Avail,"Not relevent",PhoneNumber,Integer.parseInt(Pay),new Response.Listener<JSONObject>() {
             @Override
             public void onResponse(JSONObject response) {
                 Toast.makeText(getApplicationContext(), response.toString(), Toast.LENGTH_LONG).show();

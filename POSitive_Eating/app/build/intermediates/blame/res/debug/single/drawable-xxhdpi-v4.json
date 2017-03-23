@@ -88,12 +88,12 @@
         "source": "/Users/Alec/Desktop/untitled folder/POSitive_Eating/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.4.0/res/drawable-xxhdpi-v4/abc_ic_menu_selectall_mtrl_alpha.png"
     },
     {
-        "merged": "/Users/Alec/Desktop/untitled folder/POSitive_Eating/app/build/intermediates/res/merged/debug/drawable-xxhdpi-v4/abc_btn_rating_star_on_mtrl_alpha.png",
-        "source": "/Users/Alec/Desktop/untitled folder/POSitive_Eating/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.4.0/res/drawable-xxhdpi-v4/abc_btn_rating_star_on_mtrl_alpha.png"
-    },
-    {
         "merged": "/Users/Alec/Desktop/untitled folder/POSitive_Eating/app/build/intermediates/res/merged/debug/drawable-xxhdpi-v4/abc_textfield_activated_mtrl_alpha.9.png",
         "source": "/Users/Alec/Desktop/untitled folder/POSitive_Eating/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.4.0/res/drawable-xxhdpi-v4/abc_textfield_activated_mtrl_alpha.9.png"
+    },
+    {
+        "merged": "/Users/Alec/Desktop/untitled folder/POSitive_Eating/app/build/intermediates/res/merged/debug/drawable-xxhdpi-v4/abc_btn_rating_star_on_mtrl_alpha.png",
+        "source": "/Users/Alec/Desktop/untitled folder/POSitive_Eating/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.4.0/res/drawable-xxhdpi-v4/abc_btn_rating_star_on_mtrl_alpha.png"
     },
     {
         "merged": "/Users/Alec/Desktop/untitled folder/POSitive_Eating/app/build/intermediates/res/merged/debug/drawable-xxhdpi-v4/abc_ic_ab_back_mtrl_am_alpha.png",

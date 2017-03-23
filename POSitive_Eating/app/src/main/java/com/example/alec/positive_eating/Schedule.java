@@ -7,11 +7,6 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
-import android.widget.Toast;
-import com.android.volley.Response;
-import com.example.shane.shaneconnect.ShaneConnect;
-import org.json.JSONObject;
-import static com.example.alec.positive_eating.Singleton_ShaneConnect_Factory.getShaneConnect;
 
 /**
  * This will display the current weeks schdeule
@@ -35,14 +30,6 @@ public class Schedule extends AppCompatActivity {
                 });
 
     }
-    private void confirmOrder(){
-        ShaneConnect vista = getShaneConnect();
-        //ShaneConnect vista = new ShaneConnect("http://proj-309-yt-4.cs.iastate.edu:1234", this);
-        vista.addFood("Apples", 10, "Apples", 1, new Response.Listener<JSONObject>() {
-            @Override
-            public void onResponse(JSONObject response) {
-                Toast.makeText(getApplicationContext(), response.toString(), Toast.LENGTH_LONG).show();
-            }
-        });
-        }
+    private void confirmOrder() {
+    }
 }
