@@ -29,7 +29,9 @@ public class LoginWindow extends AppCompatActivity {
     EditText password;
     EditText Firstname;
     EditText Lastname;
-    boolean user;
+    boolean usermanager;
+    boolean userwaitstaff;
+    boolean cook;
     int counter;
 
 
@@ -65,7 +67,9 @@ public class LoginWindow extends AppCompatActivity {
 
     public void checkuser (String a, final String b){
         ShaneConnect vista = getShaneConnect();
-       user=false;
+        usermanager=false;
+        userwaitstaff=false;
+        cook=false;
         vista.getAccountData(a,new Response.Listener<JSONObject>() {
 
             @Override
@@ -73,21 +77,44 @@ public class LoginWindow extends AppCompatActivity {
 
                 Toast.makeText(getApplicationContext(), response.toString(), Toast.LENGTH_LONG).show();
                 try {
-                    correct(response.get("pass").toString(),b);
+                    correct(response.get("pass").toString(),b, response.get("status").toString());
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }
-                if(user) {
-                    Intent myIntent = new Intent(LoginWindow.this, MainScreen.class); /** Class name here */
-                    LoginWindow.this.startActivity(myIntent);
-                }
+
+                    if(usermanager){
+                        Intent myIntent = new Intent(LoginWindow.this, MainScreen.class); /** Class name here */
+                        LoginWindow.this.startActivity(myIntent);
+                    }
+                    if(userwaitstaff){
+                        Intent myIntent = new Intent(LoginWindow.this, Menu.class); /** Class name here */
+                        LoginWindow.this.startActivity(myIntent);
+                    }
+                    if(cook){
+                        Intent myIntent = new Intent(LoginWindow.this, OrderStatus.class); /** Class name here */
+                        LoginWindow.this.startActivity(myIntent);
+                    }
+
+
+
             }
 
         });
     }
-    public void correct(String a,String b){
+    public void correct(String a,String b,String c){
+        if(c.equals(1)){
         if(a.equals(b)){
-            user=true;
+            usermanager=true;
+        }}
+        if(c.equals(2)){
+            if(a.equals(b)){
+                userwaitstaff=true;
+            }
+        }
+        if(c.equals(3)){
+            if(a.equals(b)){
+                cook=true;
+            }
         }
     }
     public void Clockin(String a){

@@ -73,11 +73,4 @@ Button add;
                 Toast.makeText(getApplicationContext(), response.toString(), Toast.LENGTH_LONG).show();
             }
         });
-//        ShaneConnect vista = new ShaneConnect("http://proj-309-yt-4.cs.iastate.edu:1234", this);
-//        vista.createAccount(,new Response.Listener<JSONObject>() {
-//            @Override
-//            public void onResponse(JSONObject response) {
-//                Toast.makeText(getApplicationContext(), response.toString(), Toast.LENGTH_LONG).show();
-//            }
-//        });
 }}
