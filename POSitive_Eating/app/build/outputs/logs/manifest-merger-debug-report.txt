@@ -19,7 +19,7 @@ ADDED from /Users/Alec/Desktop/untitled folder/POSitive_Eating/app/src/main/Andr
 		ADDED from /Users/Alec/Desktop/untitled folder/POSitive_Eating/app/src/main/AndroidManifest.xml:5:22-64
 application
 ADDED from /Users/Alec/Desktop/untitled folder/POSitive_Eating/app/src/main/AndroidManifest.xml:7:5-44:19
-MERGED from [:shaneconnect-release:] /Users/Alec/Desktop/untitled folder/POSitive_Eating/app/build/intermediates/exploded-aar/shaneconnect-release/AndroidManifest.xml:11:5-15:19
+MERGED from [:shaneconnect-release1:] /Users/Alec/Desktop/untitled folder/POSitive_Eating/app/build/intermediates/exploded-aar/shaneconnect-release1/AndroidManifest.xml:11:5-15:19
 MERGED from [com.android.volley:volley:1.0.0] /Users/Alec/Desktop/untitled folder/POSitive_Eating/app/build/intermediates/exploded-aar/com.android.volley/volley/1.0.0/AndroidManifest.xml:9:5-20
 MERGED from [com.android.support:design:23.4.0] /Users/Alec/Desktop/untitled folder/POSitive_Eating/app/build/intermediates/exploded-aar/com.android.support/design/23.4.0/AndroidManifest.xml:22:5-20
 MERGED from [com.android.support:appcompat-v7:23.4.0] /Users/Alec/Desktop/untitled folder/POSitive_Eating/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.4.0/AndroidManifest.xml:25:5-20
@@ -118,7 +118,7 @@ ADDED from /Users/Alec/Desktop/untitled folder/POSitive_Eating/app/src/main/Andr
 		ADDED from /Users/Alec/Desktop/untitled folder/POSitive_Eating/app/src/main/AndroidManifest.xml:43:19-44
 uses-sdk
 INJECTED from /Users/Alec/Desktop/untitled folder/POSitive_Eating/app/src/main/AndroidManifest.xml reason: use-sdk injection requested
-MERGED from [:shaneconnect-release:] /Users/Alec/Desktop/untitled folder/POSitive_Eating/app/build/intermediates/exploded-aar/shaneconnect-release/AndroidManifest.xml:7:5-9:41
+MERGED from [:shaneconnect-release1:] /Users/Alec/Desktop/untitled folder/POSitive_Eating/app/build/intermediates/exploded-aar/shaneconnect-release1/AndroidManifest.xml:7:5-9:41
 MERGED from [com.android.volley:volley:1.0.0] /Users/Alec/Desktop/untitled folder/POSitive_Eating/app/build/intermediates/exploded-aar/com.android.volley/volley/1.0.0/AndroidManifest.xml:7:5-43
 MERGED from [com.android.support:design:23.4.0] /Users/Alec/Desktop/untitled folder/POSitive_Eating/app/build/intermediates/exploded-aar/com.android.support/design/23.4.0/AndroidManifest.xml:20:5-43
 MERGED from [com.android.support:recyclerview-v7:23.4.0] /Users/Alec/Desktop/untitled folder/POSitive_Eating/app/build/intermediates/exploded-aar/com.android.support/recyclerview-v7/23.4.0/AndroidManifest.xml:20:5-43
