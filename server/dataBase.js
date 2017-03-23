@@ -87,7 +87,7 @@ method.getTableByID = function(json,callback){
         if(err){
             throw err;
         }
-        if(rows[0].NAME){
+        if(rows[0].length>0){
              var data = {
             name: rows[0].NAME,
             id: rows[0].TABLE_ID,
@@ -108,7 +108,7 @@ method.placeReservation = function(json_input, callBack){
     var con = this.connection;
     var sqlsearch = "SELECT * RESERVATIONS WHERE DESCRIPTION = '" + json_input.desc + "'";
     con.query(sqlsearch,function(err,rows){
-        if(rows[0].ID){
+        if(rows[0].length>0){
             var sqlupdate = "UPDATE RESERVATIONS SET TABLE_ID = " + json_input.table_id + ", STATUS = " + json_input.status + " WHERE DESCRIPTION = '" + json_input.desc + "'";
             console.log(sqlupdate);
             con.query(sqlupdate, function(err,rows){
@@ -142,7 +142,7 @@ method.setTable = function(json_info,callBack){
         if(err){
             throw err;
         }
-        if(rows[0].NAME){
+        if(rows[0].length>0){
             var updatesql = "UPDATE TABLES SET X_COORD = " + json_info.xcoord + ", Y_COORD = " + json_info.ycoord + ", NUM_SEATS = " + json_info.number_of_seats + ", STATUS = " + json_info.stat + " WHERE NAME = '" + json_info.name + "'";
             console.log(updatesql);
             con.query(updatesql, function(err,rows){
@@ -275,7 +275,7 @@ method.getTableByName = function(json_info,cb){
         if(err){
             throw err;
         }
-        if(rows[0].NAME){
+        if(rows[0].length>0){
             var data = {
             name: rows[0].NAME,
             id: rows[0].TABLE_ID,
@@ -434,7 +434,7 @@ method.addCustomer = function(json_info,callBack){
         if(err){
             throw err;
         }
-        if(rows[0].USER_NAME){
+        if(rows[0].length>0){
             var sqlupdate = "UPDATE CUSTOMER SET EMAIL = " + json_info.email + " WHERE = " +json_info.user;
             console.log(sqlupdate);
             con.query(sqlupdate, function(err,rows){
