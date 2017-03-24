@@ -1,7 +1,10 @@
 package com.example.alec.positive_eating;
 
 import android.content.Context;
+import android.content.DialogInterface;
 import android.graphics.Color;
+import android.support.v7.app.AlertDialog;
+import android.text.InputType;
 import android.util.Log;
 import android.view.MotionEvent;
 import android.view.ViewGroup;
@@ -37,6 +40,7 @@ public class Table {
     private ViewGroup mRootLayout;
     private FrameLayout tempFrame;
     private TextView tempName;
+    private int Seats;
 
     /**
      * Default constructor builds a table with all given information. Also saves this table to the server.
@@ -48,17 +52,18 @@ public class Table {
      * @param employeeID
      * @param customerID
      */
-    Table(String ID, int xPOS, int yPOS, int Status, String employeeID, String customerID, Context context, ViewGroup mRootLayout) {
+    Table(String ID, int xPOS, int yPOS, int Status, String employeeID, String customerID, int Seats, Context context, ViewGroup mRootLayout) {
         this.ID = ID;
         if(xPOS > 0) { this.xPos = xPOS; }
         else{ this.xPos = 10; }
         if(yPOS > 0) { this.yPos = yPOS; }
         else{ this.yPos = 10; }
-        this.Status = Status;
         this.employeeID = employeeID;
         this.customerID = customerID;
         this.tableContext = context;
         this.mRootLayout = mRootLayout;
+        this.Seats = Seats;
+        this.Status = Status;
        // saveTable();
     }
 
@@ -70,11 +75,15 @@ public class Table {
      * @param yPOS
      */
     Table(String ID, int xPOS, int yPOS, Context context, ViewGroup mRootLayout) {
-        this(ID, xPOS, yPOS, 0, "", "", context, mRootLayout);
+        this(ID, xPOS, yPOS, 0, "", "", 0, context, mRootLayout);
     }
 
     Table(String ID, Context context, ViewGroup mRootLayout){
-        this(ID, 100, 100, 0, "", "", context, mRootLayout);
+        this(ID, 100, 100, 0, "", "", 0, context, mRootLayout);
+    }
+
+    Table(String ID, int Seats, Context context, ViewGroup mRootLayout){
+        this(ID, 100, 100, 0, "", "", Seats, context, mRootLayout);
     }
 
     /**
@@ -82,7 +91,7 @@ public class Table {
      */
     protected void saveTable() {
         shaneconnect.ShaneConnect vista = getShaneConnect();
-        vista.setTable(ID, xPos, yPos, 4, Status, new Response.Listener<JSONObject>() {
+        vista.setTable(ID, xPos, yPos, Seats, Status, new Response.Listener<JSONObject>() {
             @Override
             public void onResponse(JSONObject response) {
                 System.out.println(response.toString());
@@ -152,6 +161,10 @@ public class Table {
         this.saveTable();
     }
 
+    protected void setSeats(int Seats) {
+        this.Seats = Seats;
+        saveTable(); //save the new information to the server
+    }
 
     /**
      * Gets the ID of this table after making sure the table is updated with the server.
@@ -211,6 +224,11 @@ public class Table {
     protected String getCustomerID() {
         updateTable();
         return this.customerID;
+    }
+
+    protected int getSeats() {
+        updateTable();
+        return this.Seats;
     }
 
     /**
@@ -376,28 +394,66 @@ public class Table {
     private final class MyClickListener implements View.OnClickListener {
         @Override
         public void onClick(View view) {
-            switch (Status) {
+            AlertDialog.Builder builder = new AlertDialog.Builder(tableContext);
+            builder.setTitle(ID);
+
+            TextView input = new TextView(tableContext);
+            String stringStatus = "";
+            switch (Status){
                 case 0: {
-                    tempName.setTextColor(Color.GREEN);
-                    setStatus(1);
+                    stringStatus = "Nothing";
                     break;
                 }
                 case 1: {
-                    tempName.setTextColor(Color.RED);
-                    setStatus(2);
+                    stringStatus = "Empty";
                     break;
                 }
                 case 2: {
-                    tempName.setTextColor(Color.YELLOW);
-                    setStatus(3);
+                    stringStatus = "Sat";
                     break;
                 }
                 case 3: {
-                    tempName.setTextColor(Color.BLACK);
-                    setStatus(0);
+                    stringStatus = "Needs Cleaning";
                     break;
                 }
             }
+            input.setText("\nNumber of Seats: " + Seats + "\nStatus: " + stringStatus);
+            builder.setView(input);
+
+            builder.setPositiveButton("Switch Status", new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialog, int which) {
+                    switch (Status) {
+                        case 0: {
+                            tempName.setTextColor(Color.GREEN);
+                            setStatus(1);
+                            break;
+                        }
+                        case 1: {
+                            tempName.setTextColor(Color.RED);
+                            setStatus(2);
+                            break;
+                        }
+                        case 2: {
+                            tempName.setTextColor(Color.YELLOW);
+                            setStatus(3);
+                            break;
+                        }
+                        case 3: {
+                            tempName.setTextColor(Color.BLACK);
+                            setStatus(0);
+                            break;
+                        }
+                    }
+                }
+            });
+            builder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialog, int which) {
+                    dialog.cancel();
+                }
+            });
+            builder.show();
             saveTable();
         }
     }

@@ -4,6 +4,7 @@ package com.example.alec.positive_eating;
 @author Ethan Wieczorek
  */
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.view.ViewGroup;
@@ -18,7 +19,7 @@ import com.android.volley.Response;
 
 import org.json.JSONException;
 import org.json.JSONObject;
-
+import com.example.alec.positive_eating.Table;
 import static com.example.alec.positive_eating.Singleton_ShaneConnect_Factory.getShaneConnect;
 
 /**
@@ -45,6 +46,18 @@ public class  viewTableMap extends Activity {
         index = 0;
         retrieveTables(index, vista);
 
+        Button listView = (Button) findViewById(R.id.goToListView);
+        listView.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View v) {
+                Intent myIntent = new Intent(viewTableMap.this, viewTableMap.class); /** Class name here */
+                myIntent.putExtra("allThetables", (ArrayList<Table>) allTheTables);
+
+                viewTableMap.this.startActivity(myIntent);
+            }
+        });
+
         Button saveData = (Button) findViewById(R.id.sendToServer);
         saveData.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -66,7 +79,7 @@ public class  viewTableMap extends Activity {
             public void onResponse(JSONObject response) {
                 try{
                     //Toast.makeText(getApplicationContext(), response.toString(), Toast.LENGTH_LONG).show();
-                    Table temp = new Table(response.getString("name"), response.getInt("x_coord"), response.getInt("y_coord"), response.getInt("status"), "", "", viewTableMap.this, mRootLayout);
+                    Table temp = new Table(response.getString("name"), response.getInt("x_coord"), response.getInt("y_coord"), response.getInt("status"), "", "", response.getInt("number_seats"), viewTableMap.this, mRootLayout);
                     allTheTables.add(temp);
                     temp.drawTable();
                     retrieveTables(index+1,s);

@@ -48,16 +48,18 @@ public class LoginWindow extends AppCompatActivity {
         Firstname  = (EditText) findViewById(R.id.Firstnamelog);
         Lastname  = (EditText) findViewById(R.id.lastnamelog);
         counter=0;
-
+        /**
+         * When it's clicked it will compare what is given to fake data.
+         */
         LogInButton.setOnClickListener(
                 new View.OnClickListener() {
                     public void onClick(View view) {
                         Intent myIntent = new Intent(LoginWindow.this, MainScreen.class); /** Class name here */
                         LoginWindow.this.startActivity(myIntent);
-
-                        String Userdata= Lastname.getText().toString()+"_"+Firstname.getText().toString()+"_"+userNumber.getText().toString();
-                        Clockin(Userdata);
-                        checkuser(Userdata,password.getText().toString());
+//
+//                        String Userdata= Lastname.getText().toString()+"_"+Firstname.getText().toString()+"_"+userNumber.getText().toString();
+//                        Clockin(Userdata);
+//                        checkuser(Userdata,password.getText().toString());
 
 
                     }

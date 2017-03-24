@@ -9,16 +9,10 @@
     <ExpandableListView
         android:id="@+id/simple_expandable_listview"
         android:layout_width="fill_parent"
-        android:divider="#000000"
-        android:dividerHeight="1dp"
-        android:layout_height="450dp">
-    </ExpandableListView>
-
-    <Button
-        android:text="@string/place_order"
-        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/Order1" />
+        android:divider="#000000"
+        android:dividerHeight="1dp" >
+    </ExpandableListView>
 
 </LinearLayout>
 
