@@ -50,7 +50,7 @@ public class Menu extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
 
 
-a=(Button) findViewById(R.id.Order1);
+        a=(Button) findViewById(R.id.Order1);
         indexholder=0;
         counter=0;
         extrastuff="";
@@ -71,6 +71,7 @@ a=(Button) findViewById(R.id.Order1);
 
 
 
+
     }
 
     // Setting headers and childs to expandable listview
@@ -84,7 +85,8 @@ a=(Button) findViewById(R.id.Order1);
     void setItems() {
         // Array list for header
         ArrayList<String> header = new ArrayList<String>();
-
+        thefood.add(0,"Hamburger");
+        extras.add(0,"cheese");
         // Array list for child items
         List<String> child1 = new ArrayList<String>();
         List<String> child2 = new ArrayList<String>();
@@ -300,14 +302,14 @@ a=(Button) findViewById(R.id.Order1);
                     }
                 }
 
-//                a.setOnClickListener(
-//                        new View.OnClickListener()
-//                        {
-//                            public void onClick(View view){
-//                                placeorder();
-//                            }
-//                        }
-//                );
+                a.setOnClickListener(
+                        new View.OnClickListener()
+                        {
+                            public void onClick(View view){
+                                placeorder();
+                            }
+                        }
+                );
 
                 return false;
             }
@@ -401,14 +403,7 @@ a=(Button) findViewById(R.id.Order1);
                 indexholder++;
             }
 
-            a.setOnClickListener(
-                    new View.OnClickListener()
-                    {
-                        public void onClick(View view){
-                            placeorder();
-                        }
-                    }
-            );
+
 
 
 
