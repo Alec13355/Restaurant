@@ -37,9 +37,10 @@ public class Menu extends ActionBarActivity {
     int counter;
     int food;
     int groupprev;
+    String extrastuff;
     Button Thisbutton;
-    ArrayList<String> thefood=new ArrayList<String>();
-    ArrayList<String> extras=new ArrayList<String>();
+    ArrayList<String> thefood=new ArrayList<String>(10);
+    ArrayList<String> extras=new ArrayList<String>(10);
     int indexholder;
 
 
@@ -47,7 +48,7 @@ public class Menu extends ActionBarActivity {
     protected void onCreate(Bundle savedInstanceState) {
         indexholder=0;
         counter=0;
-
+        extrastuff="";
 
         /**
          * Makes an expandable list view variable sets it to null then calls
@@ -123,7 +124,8 @@ public class Menu extends ActionBarActivity {
         child5.add("Cesar");
         child5.add("French");
         child5.add("Plain");
-
+        thefood.add(0,"Hamburger");
+        extras.add(0,"Cheese");
         // Adding header and childs to hash map
         hashMap.put(header.get(0), child1);
         hashMap.put(header.get(1), child2);
@@ -206,6 +208,7 @@ public class Menu extends ActionBarActivity {
                 }
                 else if(groupPos==1){
                         if(groupprev!=1){
+                            extrastuff="";
                             fixfood(groupprev,food);
                             thefood.add(counter,"Hamburger");
                             counter+=counter;
@@ -235,6 +238,7 @@ public class Menu extends ActionBarActivity {
                     }
                     else if(groupPos==2){
                         if(groupprev!=2){
+                            extrastuff="";
                             fixfood(groupprev,food);
                             thefood.add(counter,"Chicken Sandwhich");
                             counter+=counter;
@@ -261,6 +265,7 @@ public class Menu extends ActionBarActivity {
                     }
                     else if(groupPos==3){
                         if(groupprev!=3){
+                            extrastuff="";
                             fixfood(groupprev,food);
                             thefood.add(counter,"Fettuccine Alfredo");
                             counter+=counter;
@@ -274,6 +279,7 @@ public class Menu extends ActionBarActivity {
                     }
                     else if(groupPos==4){
                         if(groupprev!=4){
+                            extrastuff="";
                             fixfood(groupprev,food);
                             thefood.add(counter,"Salad");
                             counter+=counter;
@@ -309,15 +315,20 @@ public class Menu extends ActionBarActivity {
     public void fixfood(int groupprev, int food){
         if(food>12){
             food = food-13;
+
             extras.add(indexholder,"Pickles");
+            indexholder++;
             if(food>6){
                 food = food -7;
                 extras.add(indexholder,"Onion");
+                indexholder++;
                 if(food>4){
                     food =food -5;
                     extras.add(indexholder,"Tomato");
+                    indexholder++;
                     if(food>0){
                         extras.add(indexholder,"Cheese");
+                        indexholder++;
                         food = food-1;
 
                     }
@@ -329,14 +340,18 @@ public class Menu extends ActionBarActivity {
             if(food>12){
                 food = food-13;
                 extras.add(indexholder,"Pickles");
+                indexholder++;
                 if(food>6){
                     food = food -7;
                     extras.add(indexholder,"Onion");
+                    indexholder++;
                     if(food>4){
                         food =food -5;
                         extras.add(indexholder,"Tomato");
+                        indexholder++;
                         if(food>0){
                             extras.add(indexholder,"Cheese");
+                            indexholder++;
                             food = food-1;
                         }
                     }
@@ -346,32 +361,41 @@ public class Menu extends ActionBarActivity {
         }
         else if(groupprev==3){
         if(food>0){
-            extras.add(indexholder,"Extra Cheese");
+            extrastuff=extrastuff+"Extra Cheese";
+
+
         }
         }
         else if(groupprev==4) {
             if (food > 23) {
                 food = food - 24;
-                extras.add(indexholder,"Plain");
+                extrastuff=extrastuff+"Plain";
+            }
                 if (food > 12) {
                     food = food - 13;
-                    extras.add(indexholder,"French");
+                    extrastuff=extrastuff+"French";
+                }
                     if (food > 6) {
                         food = food - 7;
-                        extras.add(indexholder,"Cesar");
+                        extrastuff=extrastuff+"Cesar";
+                    }
                         if (food > 4) {
                             food = food - 5;
-                            extras.add(indexholder,"Honey Mustard");
+                            extrastuff=extrastuff+"Honey Mustard";
+                        }
                             if (food > 0) {
                                 food = food - 1;
-                                extras.add(indexholder,"Ranch");
+                                extrastuff=extrastuff+"Ranch";
+                                extras.add(indexholder, extrastuff);
+                                indexholder++;
                             }
-                        }
-                    }
 
-                }
 
-            }
+
+
+
+
+
         }
     }
 public void placeorder(){

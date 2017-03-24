@@ -116,6 +116,10 @@
         "source": "/Users/Alec/Desktop/untitled folder/POSitive_Eating/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.4.0/res/layout/abc_alert_dialog_button_bar_material.xml"
     },
     {
+        "merged": "/Users/Alec/Desktop/untitled folder/POSitive_Eating/app/build/intermediates/res/merged/debug/layout/cook_list_item.xml",
+        "source": "/Users/Alec/Desktop/untitled folder/POSitive_Eating/app/src/main/res/layout/cook_list_item.xml"
+    },
+    {
         "merged": "/Users/Alec/Desktop/untitled folder/POSitive_Eating/app/build/intermediates/res/merged/debug/layout/activity_edit_menu.xml",
         "source": "/Users/Alec/Desktop/untitled folder/POSitive_Eating/app/src/main/res/layout/activity_edit_menu.xml"
     },
@@ -144,12 +148,12 @@
         "source": "/Users/Alec/Desktop/untitled folder/POSitive_Eating/app/src/main/res/layout/activity_clocking_in.xml"
     },
     {
-        "merged": "/Users/Alec/Desktop/untitled folder/POSitive_Eating/app/build/intermediates/res/merged/debug/layout/abc_screen_content_include.xml",
-        "source": "/Users/Alec/Desktop/untitled folder/POSitive_Eating/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.4.0/res/layout/abc_screen_content_include.xml"
-    },
-    {
         "merged": "/Users/Alec/Desktop/untitled folder/POSitive_Eating/app/build/intermediates/res/merged/debug/layout/activity_table.xml",
         "source": "/Users/Alec/Desktop/untitled folder/POSitive_Eating/app/src/main/res/layout/activity_table.xml"
+    },
+    {
+        "merged": "/Users/Alec/Desktop/untitled folder/POSitive_Eating/app/build/intermediates/res/merged/debug/layout/abc_screen_content_include.xml",
+        "source": "/Users/Alec/Desktop/untitled folder/POSitive_Eating/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.4.0/res/layout/abc_screen_content_include.xml"
     },
     {
         "merged": "/Users/Alec/Desktop/untitled folder/POSitive_Eating/app/build/intermediates/res/merged/debug/layout/abc_list_menu_item_radio.xml",
@@ -190,6 +194,10 @@
     {
         "merged": "/Users/Alec/Desktop/untitled folder/POSitive_Eating/app/build/intermediates/res/merged/debug/layout/abc_action_bar_view_list_nav_layout.xml",
         "source": "/Users/Alec/Desktop/untitled folder/POSitive_Eating/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.4.0/res/layout/abc_action_bar_view_list_nav_layout.xml"
+    },
+    {
+        "merged": "/Users/Alec/Desktop/untitled folder/POSitive_Eating/app/build/intermediates/res/merged/debug/layout/cook_list_group.xml",
+        "source": "/Users/Alec/Desktop/untitled folder/POSitive_Eating/app/src/main/res/layout/cook_list_group.xml"
     },
     {
         "merged": "/Users/Alec/Desktop/untitled folder/POSitive_Eating/app/build/intermediates/res/merged/debug/layout/abc_action_bar_up_container.xml",
