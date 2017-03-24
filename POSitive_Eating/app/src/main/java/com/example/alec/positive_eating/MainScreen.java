@@ -113,8 +113,8 @@ Button Seating,Menu,Status,schedule,Edit_users,Payroll,addTableMap,viewTableMap,
                     {
 
 
-                        Intent myIntent = new Intent(MainScreen.this, tableMap.class); /** Class name here */
-                        MainScreen.this.startActivity(myIntent);
+                        //Intent myIntent = new Intent(MainScreen.this, tableMap.class); /** Class name here */
+                        //MainScreen.this.startActivity(myIntent);
                     }
                 }
 
@@ -127,8 +127,8 @@ Button Seating,Menu,Status,schedule,Edit_users,Payroll,addTableMap,viewTableMap,
                     {
 
 
-                        Intent myIntent = new Intent(MainScreen.this, tableMap.class); /** Class name here */
-                        MainScreen.this.startActivity(myIntent);
+                      //  Intent myIntent = new Intent(MainScreen.this, tableMap.class); /** Class name here */
+                        //MainScreen.this.startActivity(myIntent);
                     }
                 }
 
