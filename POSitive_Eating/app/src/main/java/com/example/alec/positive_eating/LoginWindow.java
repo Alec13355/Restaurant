@@ -48,9 +48,7 @@ public class LoginWindow extends AppCompatActivity {
         Firstname  = (EditText) findViewById(R.id.Firstnamelog);
         Lastname  = (EditText) findViewById(R.id.lastnamelog);
         counter=0;
-        /**
-         * When it's clicked it will compare what is given to fake data.
-         */
+
         LogInButton.setOnClickListener(
                 new View.OnClickListener() {
                     public void onClick(View view) {

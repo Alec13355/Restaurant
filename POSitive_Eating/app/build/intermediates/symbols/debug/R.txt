@@ -586,13 +586,13 @@ int id Edit_Users 0x7f0c008e
 int id Firstnamelog 0x7f0c0085
 int id FoodName 0x7f0c007c
 int id No 0x7f0c007a
+int id Order1 0x7f0c0094
 int id OrderStatButton 0x7f0c008c
 int id Ordering_Menu 0x7f0c008b
 int id Pass 0x7f0c0070
 int id Pay 0x7f0c0072
 int id Payroll 0x7f0c008f
 int id Phone 0x7f0c0071
-int id Place_Order 0x7f0c0094
 int id Position 0x7f0c0073
 int id PriceofFood 0x7f0c007d
 int id Schedule 0x7f0c008d

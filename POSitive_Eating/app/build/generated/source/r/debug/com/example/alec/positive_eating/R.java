@@ -2285,13 +2285,13 @@ containing a value of this type.
         public static final int Firstnamelog=0x7f0c0085;
         public static final int FoodName=0x7f0c007c;
         public static final int No=0x7f0c007a;
+        public static final int Order1=0x7f0c0094;
         public static final int OrderStatButton=0x7f0c008c;
         public static final int Ordering_Menu=0x7f0c008b;
         public static final int Pass=0x7f0c0070;
         public static final int Pay=0x7f0c0072;
         public static final int Payroll=0x7f0c008f;
         public static final int Phone=0x7f0c0071;
-        public static final int Place_Order=0x7f0c0094;
         public static final int Position=0x7f0c0073;
         public static final int PriceofFood=0x7f0c007d;
         public static final int Schedule=0x7f0c008d;
