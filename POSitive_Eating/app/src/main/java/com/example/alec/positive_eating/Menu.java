@@ -48,7 +48,8 @@ public class Menu extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_menu);
 
         a=(Button) findViewById(R.id.Order1);
         indexholder=0;
@@ -58,8 +59,7 @@ public class Menu extends AppCompatActivity {
          * Makes an expandable list view variable sets it to null then calls
          * setItem() and setListener()
          */
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_menu);
+
 
         expandableListView = (ExpandableListView) findViewById(R.id.simple_expandable_listview);
 
@@ -302,18 +302,19 @@ public class Menu extends AppCompatActivity {
                     }
                 }
 
-                a.setOnClickListener(
-                        new View.OnClickListener()
-                        {
-                            public void onClick(View view){
-                                placeorder();
-                            }
-                        }
-                );
+
 
                 return false;
             }
         });
+        a.setOnClickListener(
+                new View.OnClickListener()
+                {
+                    public void onClick(View view){
+                        placeorder();
+                    }
+                }
+        );
     }
 
     public void fixfood(int groupprev, int food){

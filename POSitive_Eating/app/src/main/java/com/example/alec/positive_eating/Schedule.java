@@ -67,8 +67,8 @@ public class Schedule extends AppCompatActivity {
                     return;
                 } else {
                     try {
-                        String desc = response.getString("fname");
-                        String orderNum = "Address" + response.get("ADRESS");
+                        String desc = response.getString("first");
+                        String orderNum = "Address" + response.get("address");
                         ArrayList<String> itemsInTheOrder = new ArrayList<String>();
                         itemsInTheOrder.add(desc);
                         listDataHeader.add(orderNum);
