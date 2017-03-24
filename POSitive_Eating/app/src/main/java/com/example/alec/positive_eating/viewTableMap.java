@@ -52,7 +52,6 @@ public class  viewTableMap extends Activity {
             @Override
             public void onClick(View v) {
                 Intent myIntent = new Intent(viewTableMap.this, viewTableMap.class); /** Class name here */
-                myIntent.putExtra("allThetables", (ArrayList<Table>) allTheTables);
 
                 viewTableMap.this.startActivity(myIntent);
             }

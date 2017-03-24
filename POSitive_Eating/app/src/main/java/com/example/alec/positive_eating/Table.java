@@ -478,4 +478,15 @@ public class Table {
             }
         }
     }
+
+    public void addListItem(ViewGroup mRootLayout2){
+        TextView tempName = new TextView(tableContext);
+        tempName.setHeight(FILL);
+        tempName.setWidth(FILL);
+        tempName.setText(
+                "Table: " + ID + "\nX: " + getX() + " Y: " + getY() + "\nNumber of seats: " + getSeats() + "\nStatus: " + getStatus()
+        );
+        tempName.setTextColor(Color.BLACK);
+        mRootLayout2.addView(tempName);
+    }
 }

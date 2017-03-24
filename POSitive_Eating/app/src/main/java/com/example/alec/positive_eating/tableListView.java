@@ -8,36 +8,49 @@ import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import com.android.volley.Response;
+
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
 import static android.view.Gravity.FILL;
+import static com.example.alec.positive_eating.Singleton_ShaneConnect_Factory.getShaneConnect;
 
 public class tableListView extends AppCompatActivity {
+    private int index;
+    ViewGroup mRootLayout;
     private List<Table> allTheTables = new ArrayList<>();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_table_list_view);
-        allTheTables = (ArrayList<Table>) getIntent().getSerializableExtra("allthetables");
-        ViewGroup mRootLayout = (LinearLayout) findViewById(R.id.linearView);
+        //allTheTables = (ArrayList<Table>) getIntent().getSerializableExtra("allthetables");
+        mRootLayout = (LinearLayout) findViewById(R.id.linearView);
 
-        if(allTheTables != null){
-            if(!allTheTables.isEmpty()){
-                Iterator<Table> tableIterator = allTheTables.iterator();
-                while(tableIterator.hasNext()){
-                    Table temp = tableIterator.next();
-                    TextView tempName = new TextView(tableListView.this);
-                    tempName.setHeight(FILL);
-                    tempName.setWidth(FILL);
-                    tempName.setText(
-                            "Table: " + temp.getID() + "\nX: " + temp.getX() + " Y: " + temp.getY() + "\nNumber of seats: " + temp.getSeats() + "\nStatus: " + temp.getStatus()
-                    );
-                    tempName.setTextColor(Color.BLACK);
-                    mRootLayout.addView(tempName);
+        shaneconnect.ShaneConnect vista = getShaneConnect();
+        index = 0;
+        retrieveTables(index, vista);
+    }
+
+    public void retrieveTables(final int index, final shaneconnect.ShaneConnect s) {
+        s.getTables(index, new Response.Listener<JSONObject>() {
+            @Override
+            public void onResponse(JSONObject response) {
+                try{
+                    //Toast.makeText(getApplicationContext(), response.toString(), Toast.LENGTH_LONG).show();
+                    Table temp = new Table(response.getString("name"), response.getInt("x_coord"), response.getInt("y_coord"), response.getInt("status"), "", "", response.getInt("number_seats"), tableListView.this, mRootLayout);
+                    allTheTables.add(temp);
+                    temp.addListItem(mRootLayout);
+                    retrieveTables(index+1,s);
+                } catch (JSONException e) {
+                    return;
                 }
             }
-        }
+
+        });
     }
 }
