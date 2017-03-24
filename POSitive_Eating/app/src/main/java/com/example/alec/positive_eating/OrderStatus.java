@@ -47,11 +47,6 @@ public class OrderStatus extends AppCompatActivity {
         List<String> child3 = new ArrayList<String>();
         List<String> child4 = new ArrayList<String>();
         List<String> child5 = new ArrayList<String>();
-        List<String> child6 = new ArrayList<String>();
-        List<String> child7 = new ArrayList<String>();
-        List<String> child8 = new ArrayList<String>();
-        List<String> child9 = new ArrayList<String>();
-        List<String> child10 = new ArrayList<String>();
 
         // Hash map for both header and child
         HashMap<String, List<String>> hashMap = new HashMap<String, List<String>>();

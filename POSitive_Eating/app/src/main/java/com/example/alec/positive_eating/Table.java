@@ -19,6 +19,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;;
 
+import static android.view.Gravity.*;
 import static com.example.alec.positive_eating.Singleton_ShaneConnect_Factory.getShaneConnect;
 
 /**
@@ -34,6 +35,8 @@ public class Table {
     private String customerID;
     private Context tableContext;
     private ViewGroup mRootLayout;
+    private FrameLayout tempFrame;
+    private TextView tempName;
 
     /**
      * Default constructor builds a table with all given information. Also saves this table to the server.
@@ -47,14 +50,15 @@ public class Table {
      */
     Table(String ID, int xPOS, int yPOS, int Status, String employeeID, String customerID, Context context, ViewGroup mRootLayout) {
         this.ID = ID;
-        this.xPos = xPOS;
-        this.yPos = yPOS;
+        if(xPOS > 0) { this.xPos = xPOS; }
+        else{ this.xPos = 10; }
+        if(yPOS > 0) { this.yPos = yPOS; }
+        else{ this.yPos = 10; }
         this.Status = Status;
         this.employeeID = employeeID;
         this.customerID = customerID;
         this.tableContext = context;
         this.mRootLayout = mRootLayout;
-        drawManagerTable();
        // saveTable();
     }
 
@@ -223,17 +227,11 @@ public class Table {
 //        });
     }
 
-    protected void drawManagerTable(){ //View parentView
-        FrameLayout tempFrame = new FrameLayout(tableContext);
+    protected void drawTable(){ //View parentView
+        tempFrame = new FrameLayout(tableContext);
         tempFrame.setX((float) xPos);
         tempFrame.setY((float) yPos);
-//        RelativeLayout.LayoutParams layouts = (RelativeLayout.LayoutParams) tempFrame.getLayoutParams();
-//        layouts.leftMargin = xPos;
-//        layouts.topMargin = yPos;
-//        layouts.rightMargin = 150;
-//        layouts.bottomMargin = 150;
-//        tempFrame.setLayoutParams(layouts);
-
+        tempFrame.setForegroundGravity(CENTER);
 
         ImageView temp = new ImageView(tableContext);
         temp.setImageResource(R.drawable.squaretable);
@@ -243,7 +241,44 @@ public class Table {
         tempFrame.addView(temp);
 
         //This is adding a label above the imageView so you know which table it is
-        TextView tempName = new TextView(tableContext);
+        tempName = new TextView(tableContext);
+        tempName.setHeight(FILL);
+        tempName.setWidth(FILL);
+        tempName.setText(String.valueOf(ID));
+        tempName.setTextColor(Color.BLACK);
+
+        RelativeLayout.LayoutParams textLayoutParams = new RelativeLayout.LayoutParams(150,150);
+//        textLayoutParams.addRule(RelativeLayout.ALIGN_LEFT, temp.getId());
+//        textLayoutParams.addRule(RelativeLayout.ALIGN_RIGHT, temp.getId());
+//        textLayoutParams.addRule(RelativeLayout.ALIGN_TOP, temp.getId());
+//        textLayoutParams.addRule(RelativeLayout.ALIGN_BOTTOM, temp.getId());
+        textLayoutParams.addRule(RelativeLayout.CENTER_VERTICAL);
+        tempName.setLayoutParams(textLayoutParams);
+        tempFrame.addView(tempName);
+
+        //System.out.println(String.valueOf(allTables.size())); //debug statement
+
+        Log.d("touch", "about to initialize listener");
+        mRootLayout.addView(tempFrame);
+        colorTable();
+        tempFrame.setOnClickListener(new MyClickListener());
+        saveTable();
+    }
+
+    protected void drawManagerTable(){ //View parentView
+        tempFrame = new FrameLayout(tableContext);
+        tempFrame.setX((float) xPos);
+        tempFrame.setY((float) yPos);
+
+        ImageView temp = new ImageView(tableContext);
+        temp.setImageResource(R.drawable.squaretable);
+        RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(150, 150);
+        temp.setLayoutParams(layoutParams);
+        //temp.setId(allTables.size()); //the id for the button we be it's index in the array + 1, this way there is no table 0 when it comes to labeling.
+        tempFrame.addView(temp);
+
+        //This is adding a label above the imageView so you know which table it is
+        tempName = new TextView(tableContext);
         tempName.setHeight(temp.getHeight());
         tempName.setWidth(temp.getWidth());
         tempName.setText(String.valueOf(ID));
@@ -263,20 +298,15 @@ public class Table {
         Log.d("touch", "about to initialize listener");
         tempFrame.setOnTouchListener(new MyTouchListener());
         mRootLayout.addView(tempFrame);
+        colorTable();
         saveTable();
     }
 
     protected void drawHostTable(){ //View parentView
-        FrameLayout tempFrame = new FrameLayout(tableContext);
+        RelativeLayout tempFrame = new RelativeLayout(tableContext);
         tempFrame.setX((float) xPos);
         tempFrame.setY((float) yPos);
-//        RelativeLayout.LayoutParams layouts = (RelativeLayout.LayoutParams) tempFrame.getLayoutParams();
-//        layouts.leftMargin = xPos;
-//        layouts.topMargin = yPos;
-//        layouts.rightMargin = 150;
-//        layouts.bottomMargin = 150;
-//        tempFrame.setLayoutParams(layouts);
-
+        tempFrame.setGravity(CENTER);
 
         ImageView temp = new ImageView(tableContext);
         temp.setImageResource(R.drawable.squaretable);
@@ -286,26 +316,24 @@ public class Table {
         tempFrame.addView(temp);
 
         //This is adding a label above the imageView so you know which table it is
-        TextView tempName = new TextView(tableContext);
-        tempName.setHeight(temp.getHeight());
-        tempName.setWidth(temp.getWidth());
+        tempName = new TextView(tableContext);
         tempName.setText(String.valueOf(ID));
         tempName.setTextColor(Color.BLACK);
 
         RelativeLayout.LayoutParams textLayoutParams = new RelativeLayout.LayoutParams(150,150);
         textLayoutParams.addRule(RelativeLayout.ALIGN_LEFT, temp.getId());
-        textLayoutParams.addRule(RelativeLayout.ALIGN_RIGHT, temp.getId());
         textLayoutParams.addRule(RelativeLayout.ALIGN_TOP, temp.getId());
-        textLayoutParams.addRule(RelativeLayout.ALIGN_BOTTOM, temp.getId());
-        textLayoutParams.addRule(RelativeLayout.CENTER_VERTICAL);
+        //textLayoutParams.addRule(RelativeLayout.CENTER_VERTICAL);
         tempName.setLayoutParams(textLayoutParams);
+        tempName.setTextSize(200);
         tempFrame.addView(tempName);
 
         //System.out.println(String.valueOf(allTables.size())); //debug statement
 
         Log.d("touch", "about to initialize listener");
-        tempFrame.setOnTouchListener(new MyTouchListener());
+        tempFrame.setOnClickListener(new MyClickListener());
         mRootLayout.addView(tempFrame);
+        colorTable();
         saveTable();
     }
 
@@ -331,17 +359,67 @@ public class Table {
                 case MotionEvent.ACTION_MOVE:
                     RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) view.getLayoutParams();
                     layoutParams.leftMargin = X - _xDelta;
-                    xPos = X - _xDelta;
                     layoutParams.topMargin = Y - _yDelta;
-                    yPos = Y - _yDelta;
                     layoutParams.rightMargin = 150;
                     layoutParams.bottomMargin = 150;
                     view.setLayoutParams(layoutParams);
+                    if(view.getX() > 0) xPos = (int) view.getX();
+                    if(view.getY() > 0) yPos = (int) view.getY();
  //                   System.out.println("X: " + String.valueOf(view.getX()) + ", Y: " + String.valueOf(view.getY())); //debug
                     break;
             }
             mRootLayout.invalidate();
             return true;
+        }
+    }
+
+    private final class MyClickListener implements View.OnClickListener {
+        @Override
+        public void onClick(View view) {
+            switch (Status) {
+                case 0: {
+                    tempName.setTextColor(Color.GREEN);
+                    setStatus(1);
+                    break;
+                }
+                case 1: {
+                    tempName.setTextColor(Color.RED);
+                    setStatus(2);
+                    break;
+                }
+                case 2: {
+                    tempName.setTextColor(Color.YELLOW);
+                    setStatus(3);
+                    break;
+                }
+                case 3: {
+                    tempName.setTextColor(Color.BLACK);
+                    setStatus(0);
+                    break;
+                }
+            }
+            saveTable();
+        }
+    }
+
+    private void colorTable(){
+        switch(Status){
+            case 0: {
+                tempName.setTextColor(Color.BLACK);
+                break;
+            }
+            case 1: {
+                tempName.setTextColor(Color.GREEN);
+                break;
+            }
+            case 2: {
+                tempName.setTextColor(Color.RED);
+                break;
+            }
+            case 3: {
+                tempName.setTextColor(Color.YELLOW);
+                break;
+            }
         }
     }
 }
