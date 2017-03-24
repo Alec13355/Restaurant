@@ -281,6 +281,7 @@
     <string name="add_employee">Add_Employee</string>
     <string name="add_employee_button">Add Employee</string>
     <string name="add_food">Add Food</string>
+    <string name="addfood">AddFood</string>
     <string name="app_name">POSitive_Eating</string>
     <string name="appbar_scrolling_view_behavior" translatable="false">android.support.design.widget.AppBarLayout$ScrollingViewBehavior</string>
     <string name="bank_account">Bank Account</string>
