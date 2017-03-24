@@ -54,10 +54,12 @@ public class LoginWindow extends AppCompatActivity {
         LogInButton.setOnClickListener(
                 new View.OnClickListener() {
                     public void onClick(View view) {
-
-                        String Userdata= Lastname.getText().toString()+"_"+Firstname.getText().toString()+"_"+userNumber.getText().toString();
-                        Clockin(Userdata);
-                        checkuser(Userdata,password.getText().toString());
+                        Intent myIntent = new Intent(LoginWindow.this, MainScreen.class); /** Class name here */
+                        LoginWindow.this.startActivity(myIntent);
+//
+//                        String Userdata= Lastname.getText().toString()+"_"+Firstname.getText().toString()+"_"+userNumber.getText().toString();
+//                        Clockin(Userdata);
+//                        checkuser(Userdata,password.getText().toString());
 
 
                     }

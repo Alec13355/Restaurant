@@ -2,6 +2,7 @@ package com.example.alec.positive_eating;
 
 import android.content.Context;
 import android.graphics.Color;
+import android.util.Log;
 import android.view.MotionEvent;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
@@ -53,7 +54,7 @@ public class Table {
         this.customerID = customerID;
         this.tableContext = context;
         this.mRootLayout = mRootLayout;
-        drawTable();
+        drawManagerTable();
        // saveTable();
     }
 
@@ -69,7 +70,7 @@ public class Table {
     }
 
     Table(String ID, Context context, ViewGroup mRootLayout){
-        this(ID, 10, 10, 0, "", "", context, mRootLayout);
+        this(ID, 100, 100, 0, "", "", context, mRootLayout);
     }
 
     /**
@@ -222,8 +223,17 @@ public class Table {
 //        });
     }
 
-    protected void drawTable(){ //View parentView
+    protected void drawManagerTable(){ //View parentView
         FrameLayout tempFrame = new FrameLayout(tableContext);
+        tempFrame.setX((float) xPos);
+        tempFrame.setY((float) yPos);
+//        RelativeLayout.LayoutParams layouts = (RelativeLayout.LayoutParams) tempFrame.getLayoutParams();
+//        layouts.leftMargin = xPos;
+//        layouts.topMargin = yPos;
+//        layouts.rightMargin = 150;
+//        layouts.bottomMargin = 150;
+//        tempFrame.setLayoutParams(layouts);
+
 
         ImageView temp = new ImageView(tableContext);
         temp.setImageResource(R.drawable.squaretable);
@@ -250,6 +260,50 @@ public class Table {
 
         //System.out.println(String.valueOf(allTables.size())); //debug statement
 
+        Log.d("touch", "about to initialize listener");
+        tempFrame.setOnTouchListener(new MyTouchListener());
+        mRootLayout.addView(tempFrame);
+        saveTable();
+    }
+
+    protected void drawHostTable(){ //View parentView
+        FrameLayout tempFrame = new FrameLayout(tableContext);
+        tempFrame.setX((float) xPos);
+        tempFrame.setY((float) yPos);
+//        RelativeLayout.LayoutParams layouts = (RelativeLayout.LayoutParams) tempFrame.getLayoutParams();
+//        layouts.leftMargin = xPos;
+//        layouts.topMargin = yPos;
+//        layouts.rightMargin = 150;
+//        layouts.bottomMargin = 150;
+//        tempFrame.setLayoutParams(layouts);
+
+
+        ImageView temp = new ImageView(tableContext);
+        temp.setImageResource(R.drawable.squaretable);
+        RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(150, 150);
+        temp.setLayoutParams(layoutParams);
+        //temp.setId(allTables.size()); //the id for the button we be it's index in the array + 1, this way there is no table 0 when it comes to labeling.
+        tempFrame.addView(temp);
+
+        //This is adding a label above the imageView so you know which table it is
+        TextView tempName = new TextView(tableContext);
+        tempName.setHeight(temp.getHeight());
+        tempName.setWidth(temp.getWidth());
+        tempName.setText(String.valueOf(ID));
+        tempName.setTextColor(Color.BLACK);
+
+        RelativeLayout.LayoutParams textLayoutParams = new RelativeLayout.LayoutParams(150,150);
+        textLayoutParams.addRule(RelativeLayout.ALIGN_LEFT, temp.getId());
+        textLayoutParams.addRule(RelativeLayout.ALIGN_RIGHT, temp.getId());
+        textLayoutParams.addRule(RelativeLayout.ALIGN_TOP, temp.getId());
+        textLayoutParams.addRule(RelativeLayout.ALIGN_BOTTOM, temp.getId());
+        textLayoutParams.addRule(RelativeLayout.CENTER_VERTICAL);
+        tempName.setLayoutParams(textLayoutParams);
+        tempFrame.addView(tempName);
+
+        //System.out.println(String.valueOf(allTables.size())); //debug statement
+
+        Log.d("touch", "about to initialize listener");
         tempFrame.setOnTouchListener(new MyTouchListener());
         mRootLayout.addView(tempFrame);
         saveTable();
@@ -258,6 +312,7 @@ public class Table {
     private final class MyTouchListener implements View.OnTouchListener {
         private int _xDelta;
         private int _yDelta;
+        @Override
         public boolean onTouch(View view, MotionEvent event) {
             final int X = (int) event.getRawX();
             final int Y = (int) event.getRawY();
@@ -276,16 +331,16 @@ public class Table {
                 case MotionEvent.ACTION_MOVE:
                     RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) view.getLayoutParams();
                     layoutParams.leftMargin = X - _xDelta;
+                    xPos = X - _xDelta;
                     layoutParams.topMargin = Y - _yDelta;
-                    layoutParams.rightMargin = 350;
-                    layoutParams.bottomMargin = 350;
+                    yPos = Y - _yDelta;
+                    layoutParams.rightMargin = 150;
+                    layoutParams.bottomMargin = 150;
                     view.setLayoutParams(layoutParams);
-                    System.out.println("X: " + String.valueOf(X) + ", Y " + String.valueOf(Y)); //debug
+ //                   System.out.println("X: " + String.valueOf(view.getX()) + ", Y: " + String.valueOf(view.getY())); //debug
                     break;
             }
-//            setX(X);
-//            setY(Y);
-            //mRootLayout.invalidate();
+            mRootLayout.invalidate();
             return true;
         }
     }

@@ -26,9 +26,8 @@ import static com.example.alec.positive_eating.Singleton_ShaneConnect_Factory.ge
 public class tableMap extends Activity {
     private List<Table> allTheTables = new ArrayList<>();
     private ViewGroup mRootLayout;
-    private int _xDelta;
-    private int _yDelta;
-
+    private int index;
+    private boolean returnBool = false;
     /**
      * onCreate first updates based on the
      * @param savedInstanceState
@@ -39,24 +38,11 @@ public class tableMap extends Activity {
         setContentView(R.layout.activity_table_map);
         mRootLayout = (RelativeLayout) findViewById(R.id.activity_table_map);
 
+        shaneconnect.ShaneConnect vista = getShaneConnect();
+        index = 0;
+        retrieveTables(index, vista);
 
         //TODO get tables add to allthetables
-        shaneconnect.ShaneConnect vista = getShaneConnect();
-        int index = 0;
-        vista.getTables(index, new Response.Listener<JSONObject>() {
-            @Override
-            public void onResponse(JSONObject response) {
-                try{
-                    allTheTables.add(new Table(response.getString("ID"), response.getInt("x"), response.getInt("y"), tableMap.this, mRootLayout));
-                    index++;
-
-                } catch (JSONException e) {
-                    return;
-            }
-
-            }
-        });
-        index++;
 
 
 
@@ -81,6 +67,24 @@ public class tableMap extends Activity {
                 }
             }
             }
+        });
+    }
+
+    public void retrieveTables(final int index, final shaneconnect.ShaneConnect s) {
+        s.getTables(index, new Response.Listener<JSONObject>() {
+            @Override
+            public void onResponse(JSONObject response) {
+                try{
+                    if(response.length()>0){
+                        Toast.makeText(getApplicationContext(), response.toString(), Toast.LENGTH_LONG).show();
+                        allTheTables.add(new Table(response.getString("name"), response.getInt("x_coord"), response.getInt("y_coord"), tableMap.this, mRootLayout));
+                        retrieveTables(index+1,s);
+                    }
+                } catch (JSONException e) {
+                    return;
+                }
+            }
+
         });
     }
 }
