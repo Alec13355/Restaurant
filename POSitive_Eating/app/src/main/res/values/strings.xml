@@ -44,4 +44,5 @@
     <string name="first_name22">First Name:</string>
     <string name="last_name22">Last Name:</string>
     <string name="user_number">User Number:</string>
+    <string name="place_order">Place_Order</string>
 </resources>

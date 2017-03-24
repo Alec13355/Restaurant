@@ -43,7 +43,7 @@
         jumboMode="true"
         optimize="true"
         revision="25.0.2"
-        sha1="ae4fca75c96d0980bd49ba63d01a4215cde9aa10">
+        sha1="bc9946443ce102cefe2784cdb3855d694802b4e0">
         <dex dex="/Users/Alec/Desktop/untitled folder/POSitive_Eating/app/build/intermediates/transforms/dex/debug/folders/1000/10/instant-run_25d718c8201bf60365eb212b78e2e508b4e69adc/classes.dex" />
     </item>
     <item
@@ -70,7 +70,7 @@
         jumboMode="true"
         optimize="true"
         revision="25.0.2"
-        sha1="61ee076751ebc082e56563dee4febfcbbe44750a">
+        sha1="a46513b2fe7caea0ed81473b86c04065bd400b6f">
         <dex dex="/Users/Alec/Desktop/untitled folder/POSitive_Eating/app/build/intermediates/transforms/dex/debug/folders/1000/10/instant-run-bootstrap_5408adcbed458c3fb09a67ae944abb5f3a405585/classes.dex" />
     </item>
     <item

@@ -3,19 +3,29 @@ package com.example.alec.positive_eating;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ExpandableListView;
 import android.widget.ExpandableListView.OnChildClickListener;
 import android.widget.ExpandableListView.OnGroupClickListener;
 import android.widget.ExpandableListView.OnGroupExpandListener;
 import android.widget.Toast;
 
+import com.android.volley.Response;
+
+import org.json.JSONObject;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
+import shaneconnect.ShaneConnect;
+
+import static com.example.alec.positive_eating.Singleton_ShaneConnect_Factory.getShaneConnect;
+
 /*
 *@author  http://www.androhub.com/android-expandablelistview/
  * Implementing my own data into it.
+ * @author Alec
  */
 
 
@@ -23,9 +33,22 @@ import java.util.List;
 public class Menu extends ActionBarActivity {
     private static ExpandableListView expandableListView;
     private static ExpandableListAdapter adapter;
+    int table;
+    int counter;
+    int food;
+    int groupprev;
+    Button Thisbutton;
+    ArrayList<String> thefood=new ArrayList<String>();
+    ArrayList<String> extras=new ArrayList<String>();
+    int indexholder;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        indexholder=0;
+        counter=0;
+
+
         /**
          * Makes an expandable list view variable sets it to null then calls
          * setItem() and setListener()
@@ -40,6 +63,9 @@ public class Menu extends ActionBarActivity {
 
         setItems();
         setListener();
+
+
+
 
     }
 
@@ -117,7 +143,14 @@ public class Menu extends ActionBarActivity {
      * Sets listeners so when you touch the expandable list parts
      */
     void setListener() {
+        Thisbutton = (Button) findViewById(R.id.Place_Order);
+        Thisbutton.setOnClickListener(
+                new View.OnClickListener() {
+                    public void onClick(View view) {
+                        placeorder();
+                    }
 
+                });
         // This listener will show toast on group click
         expandableListView.setOnGroupClickListener(new OnGroupClickListener() {
 
@@ -151,6 +184,7 @@ public class Menu extends ActionBarActivity {
 
                 });
 
+
         // This listener will show toast on child click
         /**
          * This is the toast to show people what they touched.
@@ -160,12 +194,194 @@ public class Menu extends ActionBarActivity {
             @Override
             public boolean onChildClick(ExpandableListView listview, View view,
                                         int groupPos, int childPos, long id) {
+
+
                 Toast.makeText(
                         Menu.this,
                         "You clicked : " + adapter.getChild(groupPos, childPos),
                         Toast.LENGTH_SHORT).show();
+                    if(groupPos==0){
+                        table = Integer.parseInt(adapter.getChild(groupPos, childPos).toString());
+
+                }
+                else if(groupPos==1){
+                        if(groupprev!=1){
+                            fixfood(groupprev,food);
+                            thefood.add(counter,"Hamburger");
+                            counter+=counter;
+                            groupprev=1;
+
+
+                            food=0;
+                        }
+                            if(childPos>=0){
+                                if(childPos==0&&food<26){
+                                    food+=childPos+1;
+                                }
+                                else if(childPos==1&&food<26){
+                                    food+=childPos+4;
+                                }
+                                else if(childPos==2&&food<26){
+                                    food+=childPos+5;
+                                }
+                                else if(childPos==3&&food<26){
+                                    food+=childPos+10;
+                                }
+
+
+
+                        }
+
+                    }
+                    else if(groupPos==2){
+                        if(groupprev!=2){
+                            fixfood(groupprev,food);
+                            thefood.add(counter,"Chicken Sandwhich");
+                            counter+=counter;
+                            groupprev=2;
+                            food=0;
+                        }
+                        if(childPos>=0){
+
+                                if(childPos==0&&food<26){
+                                    food+=childPos+1;
+                                }
+                                else if(childPos==1&&food<26){
+                                    food+=childPos+4;
+                                }
+                                else if(childPos==2&&food<26){
+                                    food+=childPos+5;
+                                }
+                                else if(childPos==3&&food<26){
+                                    food+=childPos+10;
+                                }
+
+                        }
+
+                    }
+                    else if(groupPos==3){
+                        if(groupprev!=3){
+                            fixfood(groupprev,food);
+                            thefood.add(counter,"Fettuccine Alfredo");
+                            counter+=counter;
+                            groupprev=3;
+
+                            food=0;
+                        }
+                        if(childPos>=0){
+                            food+=childPos+1;
+                        }
+                    }
+                    else if(groupPos==4){
+                        if(groupprev!=4){
+                            fixfood(groupprev,food);
+                            thefood.add(counter,"Salad");
+                            counter+=counter;
+                            groupprev=4;
+                            food=0;
+                        }
+                        if(childPos>=0){
+                            if(childPos==0&&food<50){
+                                food+=childPos+1;
+                            }
+                            else if(childPos==1&&food<50){
+                                food+=childPos+4;
+                            }
+                            else if(childPos==2&&food<50){
+                                food+=childPos+5;
+                            }
+                            else if(childPos==3&&food<50){
+                                food+=childPos+10;
+                            }
+                            else if(childPos==4&&food<50){
+                                food+=childPos+20;
+                            }
+
+                        }
+                    }
+
+
                 return false;
             }
         });
+
     }
+    public void fixfood(int groupprev, int food){
+        if(food>12){
+            food = food-13;
+            extras.add(indexholder,"Pickles");
+            if(food>6){
+                food = food -7;
+                extras.add(indexholder,"Onion");
+                if(food>4){
+                    food =food -5;
+                    extras.add(indexholder,"Tomato");
+                    if(food>0){
+                        extras.add(indexholder,"Cheese");
+                        food = food-1;
+
+                    }
+                }
+
+            }
+        }
+        else if(groupprev==2){
+            if(food>12){
+                food = food-13;
+                extras.add(indexholder,"Pickles");
+                if(food>6){
+                    food = food -7;
+                    extras.add(indexholder,"Onion");
+                    if(food>4){
+                        food =food -5;
+                        extras.add(indexholder,"Tomato");
+                        if(food>0){
+                            extras.add(indexholder,"Cheese");
+                            food = food-1;
+                        }
+                    }
+                }
+
+            }
+        }
+        else if(groupprev==3){
+        if(food>0){
+            extras.add(indexholder,"Extra Cheese");
+        }
+        }
+        else if(groupprev==4) {
+            if (food > 23) {
+                food = food - 24;
+                extras.add(indexholder,"Plain");
+                if (food > 12) {
+                    food = food - 13;
+                    extras.add(indexholder,"French");
+                    if (food > 6) {
+                        food = food - 7;
+                        extras.add(indexholder,"Cesar");
+                        if (food > 4) {
+                            food = food - 5;
+                            extras.add(indexholder,"Honey Mustard");
+                            if (food > 0) {
+                                food = food - 1;
+                                extras.add(indexholder,"Ranch");
+                            }
+                        }
+                    }
+
+                }
+
+            }
+        }
+    }
+public void placeorder(){
+    ShaneConnect vista = getShaneConnect();
+    vista.placeOrder(String.valueOf(table), thefood, extras, 1, "Hi Shane", new Response.Listener<JSONObject>(){
+
+        @Override
+        public void onResponse(JSONObject response) {
+            Toast.makeText(getApplicationContext(), response.toString(), Toast.LENGTH_LONG).show();
+        }
+    });
+}
 }
