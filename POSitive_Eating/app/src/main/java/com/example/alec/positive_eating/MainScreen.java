@@ -12,7 +12,7 @@ import android.widget.Button;
  * This class is the main landing page and will change views depending on what button is pressed.
  */
 public class MainScreen extends AppCompatActivity {
-Button Seating,Menu,Status,schedule,Edit_users,Payroll,addTableMap,viewTableMap;//Delares the button variables
+Button Seating,Menu,Status,schedule,Edit_users,Payroll,addTableMap,viewTableMap,editfood;//Delares the button variables
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -25,8 +25,17 @@ Button Seating,Menu,Status,schedule,Edit_users,Payroll,addTableMap,viewTableMap;
         Payroll=(Button)findViewById(R.id.Payroll);
         addTableMap=(Button)findViewById(R.id.addTableMap);
         viewTableMap=(Button)findViewById(R.id.viewTableMap);
+        editfood=(Button)findViewById(R.id.AddFood);
         //Initilizes the buttons.
-
+        editfood.setOnClickListener(
+                new View.OnClickListener()
+                {
+                    public void onClick(View view){
+                        Intent myIntent = new Intent(MainScreen.this, Edit_menu.class); /** Class name here */
+                        MainScreen.this.startActivity(myIntent);
+                    }
+                }
+        );
         Edit_users.setOnClickListener(
             new View.OnClickListener()
              {
