@@ -13,11 +13,20 @@ import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
+
+import com.android.volley.Response;
 import com.example.alec.positive_eating.Table;
+
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import static com.example.alec.positive_eating.Singleton_ShaneConnect_Factory.getShaneConnect;
+
 /**
  * @author Ethan
  */
@@ -39,6 +48,24 @@ public class tableMap extends Activity {
 
 
         //TODO get tables add to allthetables
+        shaneconnect.ShaneConnect vista = getShaneConnect();
+        int index = 0;
+        vista.getTables(index, new Response.Listener<JSONObject>() {
+            @Override
+            public void onResponse(JSONObject response) {
+                try{
+                    allTheTables.add(new Table(response.getString("ID"), response.getInt("x"), response.getInt("y"), tableMap.this, mRootLayout));
+                    index++;
+
+                } catch (JSONException e) {
+                    return;
+            }
+
+            }
+        });
+        index++;
+
+
 
 
         Button tableAdd = (Button) findViewById(R.id.addTable);
