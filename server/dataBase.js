@@ -176,12 +176,12 @@ method.getTable = function(json_info,cb){
     var sql = "SELECT * FROM TABLES";
     console.log(sql);
     var con = this.connection;
+    var i = json_info.index;
     con.query(sql,function(err,rows){
         if(err){
             throw err;
         }
         if(rows[i]){
-            var i = json_info.index;
             var data = {
             name: rows[i].NAME,
             id: rows[i].TABLE_ID,
@@ -388,6 +388,33 @@ method.logEvent = function(json_info,callBack){
 });
    
 }
+
+method.getScheduleWithID = function(json_info,callBack){
+    var employeeID = json_info.emp_id;
+    var sql = "SELECT * FROM SCHEDULE WHERE sched_id = " + employeeID;
+    console.log(sql);
+    this.connection.query(sql, function(err,rows){
+        if(err){
+            throw err;
+        }
+        if(rows.length>0){
+            return callBack(rows);
+        }else{
+            return callBack({status:empty});
+        }
+    }); 
+}
+
+method.addSchedule = function(json_info,callBack){
+    var day = json_info.day;
+    var start = json_info.start;
+    var end = json_info.end;
+    var emp_id = json_info.emp_id;
+
+
+}
+
+
 /**
  * gets food items
  */
@@ -457,6 +484,7 @@ method.addCustomer = function(json_info,callBack){
     })
     
 }
+
 /**
  * adds food to the database
  */
@@ -518,7 +546,7 @@ method.getOrders = function(json_info,cb){
         if(err){
             throw err;
         }
-        if(rows.length > 0){
+        if(rows.length > 0 && i < rows.length){
             var json = {
             desc: rows[i].DESCRIP,
             order_id: rows[i].ORDER_ID,
@@ -527,10 +555,12 @@ method.getOrders = function(json_info,cb){
             price: rows[i].PRICE
             };
             return cb(json);
+        }else{
+            return cb({none:1}); 
         }
         
 
-    })
+    });
 }
 /**
  * gets a food json via id of food
