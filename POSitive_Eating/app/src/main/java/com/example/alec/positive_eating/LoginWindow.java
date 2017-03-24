@@ -31,7 +31,6 @@ public class LoginWindow extends AppCompatActivity {
     boolean usermanager;
     boolean userwaitstaff;
     boolean cook;
-    boolean waitress;
     int counter;
 
 
@@ -72,7 +71,6 @@ public class LoginWindow extends AppCompatActivity {
         usermanager=false;
         userwaitstaff=false;
         cook=false;
-        waitress=false;
         vista.getAccountData(a,new Response.Listener<JSONObject>() {
 
             @Override
@@ -98,11 +96,6 @@ public class LoginWindow extends AppCompatActivity {
                         LoginWindow.this.startActivity(myIntent);
                     }
 
-                    if(waitress){
-                        Intent myIntent = new Intent(LoginWindow.this, Seating.class); /** Class name here */
-                        LoginWindow.this.startActivity(myIntent);
-                    }
-
 
 
             }
@@ -122,11 +115,6 @@ public class LoginWindow extends AppCompatActivity {
         else if(c.equals("3")){
             if(a.equals(b)){
                 cook=true;
-            }
-        }
-        else if(c.equals("4")){
-            if(a.equals(b)){
-                waitress=true;
             }
         }
     }

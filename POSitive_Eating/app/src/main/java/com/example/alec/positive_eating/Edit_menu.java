@@ -59,29 +59,6 @@ public class Edit_menu extends AppCompatActivity {
         //ShaneConnect vista = new ShaneConnect("http://proj-309-yt-4.cs.iastate.edu:1234", this);
         int a = Integer.parseInt(price);
         ArrayList b = new ArrayList();
-        if(name.equals("Hamburger")){
-            b.add(0,"Cheese");
-            b.add(1,"Tomato");
-            b.add(2,"Onion");
-            b.add(3,"Pickles");
-        }
-        else if(name.equals("Chicken Sandwhich")){
-            b.add(0,"Cheese");
-            b.add(1,"Tomato");
-            b.add(2,"Onion");
-            b.add(3,"Pickles");
-        }
-        else if(name.equals("Fettuccine Alfredo")){
-            b.add(0,"Extra Cheese");
-
-        }
-        else if(name.equals("Salad")){
-            b.add(0,"Ranch");
-            b.add(1,"Honey Mustard");
-            b.add(2,"Cesar");
-            b.add(3,"French");
-            b.add(4,"Plain");
-        }
         vista.addFood(name, a, disc, 1,b,new Response.Listener<JSONObject>() {
             @Override
             public void onResponse(JSONObject response) {

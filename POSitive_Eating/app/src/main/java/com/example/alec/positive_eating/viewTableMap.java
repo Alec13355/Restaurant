@@ -1,81 +1,80 @@
 package com.example.alec.positive_eating;
 
-import android.graphics.Color;
-import android.support.v7.app.AppCompatActivity;
+/*
+@author Ethan Wieczorek
+ */
+import android.app.Activity;
 import android.os.Bundle;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.FrameLayout;
-import android.widget.ImageView;
+import android.widget.Button;
 import android.widget.RelativeLayout;
-import android.widget.TextView;
 
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
+import com.android.volley.Response;
+
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import static com.example.alec.positive_eating.Singleton_ShaneConnect_Factory.getShaneConnect;
+
 /**
  * This class makes a basic view of the table map after pulling all of the tables from the database.
  * @author Ethan
  */
-public class  viewTableMap extends AppCompatActivity {
+public class  viewTableMap extends Activity {
+    private List<Table> allTheTables = new ArrayList<>();
     private ViewGroup mRootLayout;
-    private List<View> allTables = new ArrayList<>();
-    private int _xDelta;
-    private int _yDelta;
-
+    private int index;
+    private boolean returnBool = false;
+    /**
+     * onCreate first updates based on the
+     * @param savedInstanceState
+     */
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_view_table_map);
-        mRootLayout = (RelativeLayout) findViewById(R.id.activity_table_map);
+        mRootLayout = (RelativeLayout) findViewById(R.id.activity_view_table_map);
 
 
-        if (!allTables.isEmpty()) { //TODO if server table is not empty
-            String id;
-            int tempX, tempY;
-            Iterator iterator = allTables.iterator();
-            while (iterator.hasNext()) {
-                //add to server
-                View tempView = (View) iterator.next();
-                id = String.valueOf(tempView.getId()); //server
-                tempX = (int) tempView.getX(); //server
-                tempY = (int) tempView.getY(); //server
+        shaneconnect.ShaneConnect vista = getShaneConnect();
+        index = 0;
+        retrieveTables(index, vista);
 
-
-                FrameLayout tempFrame = new FrameLayout(viewTableMap.this);
-
-                ImageView temp = new ImageView(viewTableMap.this);
-                temp.setImageResource(R.drawable.squaretable);
-                RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(150, 150);
-                temp.setLayoutParams(layoutParams);
-                temp.setX((float) tempX);
-                temp.setY((float) tempY);
-                temp.setId(allTables.size()); //the id for the button we be it's index in the array + 1, this way there is no table 0 when it comes to labeling.
-                tempFrame.addView(temp);
-
-                //This is adding a label above the imageView so you know which table it is
-                TextView tempName = new TextView(viewTableMap.this);
-                tempName.setHeight(temp.getHeight());
-                tempName.setWidth(temp.getWidth());
-                tempName.setText(id);
-                tempName.setTextColor(Color.BLACK);
-
-                RelativeLayout.LayoutParams textLayoutParams = new RelativeLayout.LayoutParams(150,150);
-                textLayoutParams.addRule(RelativeLayout.ALIGN_LEFT, temp.getId());
-                textLayoutParams.addRule(RelativeLayout.ALIGN_RIGHT, temp.getId());
-                textLayoutParams.addRule(RelativeLayout.ALIGN_TOP, temp.getId());
-                textLayoutParams.addRule(RelativeLayout.ALIGN_BOTTOM, temp.getId());
-                textLayoutParams.addRule(RelativeLayout.CENTER_VERTICAL);
-                tempName.setLayoutParams(textLayoutParams);
-                tempFrame.addView(tempName);
-
-                //System.out.println(String.valueOf(allTables.size())); //debug statement
-
-                mRootLayout.addView(tempFrame);
-                allTables.add(tempFrame);
+        Button saveData = (Button) findViewById(R.id.sendToServer);
+        saveData.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(!allTheTables.isEmpty()){
+                    Iterator<Table> tableIterator = allTheTables.iterator();
+                    while(tableIterator.hasNext()){
+                        tableIterator.next().saveTable();
+                    }
+                }
             }
-        }
+        });
+    }
 
+
+    public void retrieveTables(final int index, final shaneconnect.ShaneConnect s) {
+        s.getTables(index, new Response.Listener<JSONObject>() {
+            @Override
+            public void onResponse(JSONObject response) {
+                try{
+                    //Toast.makeText(getApplicationContext(), response.toString(), Toast.LENGTH_LONG).show();
+                    Table temp = new Table(response.getString("name"), response.getInt("x_coord"), response.getInt("y_coord"), response.getInt("status"), "", "", viewTableMap.this, mRootLayout);
+                    allTheTables.add(temp);
+                    temp.drawTable();
+                    retrieveTables(index+1,s);
+                } catch (JSONException e) {
+                    return;
+                }
+            }
+
+        });
     }
 }

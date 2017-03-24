@@ -3,29 +3,19 @@ package com.example.alec.positive_eating;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
 import android.view.View;
-import android.widget.Button;
 import android.widget.ExpandableListView;
 import android.widget.ExpandableListView.OnChildClickListener;
 import android.widget.ExpandableListView.OnGroupClickListener;
 import android.widget.ExpandableListView.OnGroupExpandListener;
 import android.widget.Toast;
 
-import com.android.volley.Response;
-
-import org.json.JSONObject;
-
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
-import shaneconnect.ShaneConnect;
-
-import static com.example.alec.positive_eating.Singleton_ShaneConnect_Factory.getShaneConnect;
-
 /*
 *@author  http://www.androhub.com/android-expandablelistview/
  * Implementing my own data into it.
- * @author Alec
  */
 
 
@@ -33,6 +23,7 @@ import static com.example.alec.positive_eating.Singleton_ShaneConnect_Factory.ge
 public class Menu extends ActionBarActivity {
     private static ExpandableListView expandableListView;
     private static ExpandableListAdapter adapter;
+<<<<<<< HEAD
     int table;
     int counter;
     int food;
@@ -50,6 +41,11 @@ public class Menu extends ActionBarActivity {
         counter=0;
         extrastuff="";
 
+=======
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+>>>>>>> f1c2d10f983c043c4842a1f8f1beac438e0f41a7
         /**
          * Makes an expandable list view variable sets it to null then calls
          * setItem() and setListener()
@@ -64,9 +60,6 @@ public class Menu extends ActionBarActivity {
 
         setItems();
         setListener();
-
-
-
 
     }
 
@@ -145,14 +138,7 @@ public class Menu extends ActionBarActivity {
      * Sets listeners so when you touch the expandable list parts
      */
     void setListener() {
-        Thisbutton = (Button) findViewById(R.id.Place_Order);
-        Thisbutton.setOnClickListener(
-                new View.OnClickListener() {
-                    public void onClick(View view) {
-                        placeorder();
-                    }
 
-                });
         // This listener will show toast on group click
         expandableListView.setOnGroupClickListener(new OnGroupClickListener() {
 
@@ -186,7 +172,6 @@ public class Menu extends ActionBarActivity {
 
                 });
 
-
         // This listener will show toast on child click
         /**
          * This is the toast to show people what they touched.
@@ -196,12 +181,11 @@ public class Menu extends ActionBarActivity {
             @Override
             public boolean onChildClick(ExpandableListView listview, View view,
                                         int groupPos, int childPos, long id) {
-
-
                 Toast.makeText(
                         Menu.this,
                         "You clicked : " + adapter.getChild(groupPos, childPos),
                         Toast.LENGTH_SHORT).show();
+<<<<<<< HEAD
                     if(groupPos==0){
                         table = Integer.parseInt(adapter.getChild(groupPos, childPos).toString());
 
@@ -307,11 +291,13 @@ public class Menu extends ActionBarActivity {
                     }
 
 
+=======
+>>>>>>> f1c2d10f983c043c4842a1f8f1beac438e0f41a7
                 return false;
             }
         });
-
     }
+<<<<<<< HEAD
     public void fixfood(int groupprev, int food){
         if(food>12){
             food = food-13;
@@ -408,4 +394,6 @@ public void placeorder(){
         }
     });
 }
+=======
+>>>>>>> f1c2d10f983c043c4842a1f8f1beac438e0f41a7
 }

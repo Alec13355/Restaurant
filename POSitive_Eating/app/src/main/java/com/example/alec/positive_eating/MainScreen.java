@@ -12,7 +12,7 @@ import android.widget.Button;
  * This class is the main landing page and will change views depending on what button is pressed.
  */
 public class MainScreen extends AppCompatActivity {
-Button Seating,Menu,Status,schedule,Edit_users,Payroll,addTableMap,viewTableMap,Editmenu;//Delares the button variables
+Button Seating,Menu,Status,schedule,Edit_users,Payroll,addTableMap,viewTableMap;//Delares the button variables
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -25,26 +25,16 @@ Button Seating,Menu,Status,schedule,Edit_users,Payroll,addTableMap,viewTableMap,
         Payroll=(Button)findViewById(R.id.Payroll);
         addTableMap=(Button)findViewById(R.id.addTableMap);
         viewTableMap=(Button)findViewById(R.id.viewTableMap);
-        Editmenu=(Button)findViewById(R.id.AddFood);
         //Initilizes the buttons.
 
-        Editmenu.setOnClickListener(
+        Edit_users.setOnClickListener(
             new View.OnClickListener()
              {
                 public void onClick(View view){
-                  Intent myIntent = new Intent(MainScreen.this, Edit_menu.class); /** Class name here */
+                  Intent myIntent = new Intent(MainScreen.this, EditStaff.class); /** Class name here */
                    MainScreen.this.startActivity(myIntent);
                 }
         }
-        );
-        Edit_users.setOnClickListener(
-                new View.OnClickListener()
-                {
-                    public void onClick(View view){
-                        Intent myIntent = new Intent(MainScreen.this, EditStaff.class); /** Class name here */
-                        MainScreen.this.startActivity(myIntent);
-                    }
-                }
         );
         Payroll.setOnClickListener(
         new View.OnClickListener()
@@ -113,13 +103,13 @@ Button Seating,Menu,Status,schedule,Edit_users,Payroll,addTableMap,viewTableMap,
                     {
 
 
-                        //Intent myIntent = new Intent(MainScreen.this, tableMap.class); /** Class name here */
-                        //MainScreen.this.startActivity(myIntent);
+                        Intent myIntent = new Intent(MainScreen.this, tableMap.class); /** Class name here */
+                        MainScreen.this.startActivity(myIntent);
                     }
                 }
 
         );
-        addTableMap.setOnClickListener(
+        viewTableMap.setOnClickListener(
 
                 new View.OnClickListener()
                 {
@@ -127,8 +117,8 @@ Button Seating,Menu,Status,schedule,Edit_users,Payroll,addTableMap,viewTableMap,
                     {
 
 
-                      //  Intent myIntent = new Intent(MainScreen.this, tableMap.class); /** Class name here */
-                        //MainScreen.this.startActivity(myIntent);
+                        Intent myIntent = new Intent(MainScreen.this, viewTableMap.class); /** Class name here */
+                        MainScreen.this.startActivity(myIntent);
                     }
                 }
 
