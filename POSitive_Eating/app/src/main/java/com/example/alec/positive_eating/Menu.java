@@ -3,15 +3,24 @@ package com.example.alec.positive_eating;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ExpandableListView;
 import android.widget.ExpandableListView.OnChildClickListener;
 import android.widget.ExpandableListView.OnGroupClickListener;
 import android.widget.ExpandableListView.OnGroupExpandListener;
 import android.widget.Toast;
 
+import com.android.volley.Response;
+
+import org.json.JSONObject;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+
+import shaneconnect.ShaneConnect;
+
+import static com.example.alec.positive_eating.Singleton_ShaneConnect_Factory.getShaneConnect;
 
 /*
 *@author  http://www.androhub.com/android-expandablelistview/
@@ -23,7 +32,7 @@ import java.util.List;
 public class Menu extends ActionBarActivity {
     private static ExpandableListView expandableListView;
     private static ExpandableListAdapter adapter;
-<<<<<<< HEAD
+
     int table;
     int counter;
     int food;
@@ -35,17 +44,12 @@ public class Menu extends ActionBarActivity {
     int indexholder;
 
 
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        indexholder=0;
-        counter=0;
-        extrastuff="";
-
-=======
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
->>>>>>> f1c2d10f983c043c4842a1f8f1beac438e0f41a7
+            indexholder=0;
+            counter=0;
+            extrastuff="";
         /**
          * Makes an expandable list view variable sets it to null then calls
          * setItem() and setListener()
@@ -185,7 +189,7 @@ public class Menu extends ActionBarActivity {
                         Menu.this,
                         "You clicked : " + adapter.getChild(groupPos, childPos),
                         Toast.LENGTH_SHORT).show();
-<<<<<<< HEAD
+
                     if(groupPos==0){
                         table = Integer.parseInt(adapter.getChild(groupPos, childPos).toString());
 
@@ -291,13 +295,11 @@ public class Menu extends ActionBarActivity {
                     }
 
 
-=======
->>>>>>> f1c2d10f983c043c4842a1f8f1beac438e0f41a7
                 return false;
             }
         });
     }
-<<<<<<< HEAD
+
     public void fixfood(int groupprev, int food){
         if(food>12){
             food = food-13;
@@ -394,6 +396,5 @@ public void placeorder(){
         }
     });
 }
-=======
->>>>>>> f1c2d10f983c043c4842a1f8f1beac438e0f41a7
+
 }
