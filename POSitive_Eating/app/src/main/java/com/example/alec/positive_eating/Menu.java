@@ -3,6 +3,7 @@ package com.example.alec.positive_eating;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ExpandableListView;
 import android.widget.ExpandableListView.OnChildClickListener;
 import android.widget.ExpandableListView.OnGroupClickListener;
@@ -23,19 +24,23 @@ import java.util.List;
 public class Menu extends ActionBarActivity {
     private static ExpandableListView expandableListView;
     private static ExpandableListAdapter adapter;
+    Button a;
+    int counter, indexholder, groupprev, groupPos, food;
+    String extrastuff;
+    int table;
+    ArrayList<String> thefood = new ArrayList<String>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-<<<<<<< HEAD
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_menu);
 
-        a=(Button) findViewById(R.id.Order1);
-        indexholder=0;
-        counter=0;
-        extrastuff="";
-=======
->>>>>>> f9199b2efe848cc321c6a01194f2ffce66b5c64f
+        a = (Button) findViewById(R.id.Order1);
+        indexholder = 0;
+        counter = 0;
+        extrastuff = "";
+
         /**
          * Makes an expandable list view variable sets it to null then calls
          * setItem() and setListener()
@@ -82,8 +87,8 @@ public class Menu extends ActionBarActivity {
         header.add("Fettuccine Alfredo");
         header.add("Salad");
 
-        for(int i =1;i<16;i++) {
-            child1.add(""+i);
+        for (int i = 1; i < 16; i++) {
+            child1.add("" + i);
         }
         // Adding child data
 
@@ -173,126 +178,118 @@ public class Menu extends ActionBarActivity {
                         Menu.this,
                         "You clicked : " + adapter.getChild(groupPos, childPos),
                         Toast.LENGTH_SHORT).show();
-<<<<<<< HEAD
 
-                if(groupPos==0){
+
+                if (groupPos == 0) {
                     table = Integer.parseInt(adapter.getChild(groupPos, childPos).toString());
 
-                }
-                else if(groupPos==1){
-                    if(groupprev!=1){
-                        extrastuff="";
-                        fixfood(groupprev,food);
-                        thefood.add(counter,"Hamburger");
+                } else if (groupPos == 1) {
+                    if (groupprev != 1) {
+                        extrastuff = "";
+                        fixfood(groupprev, food);
+                        thefood.add(counter, "Hamburger");
                         counter++;
-                        groupprev=1;
+                        groupprev = 1;
 
 
-                        food=0;
+                        food = 0;
                     }
-                    if(childPos>=0){
-                        if(childPos==0&&food<26){
-                            food+=childPos+1;
+                    if (childPos >= 0) {
+                        if (childPos == 0 && food < 26) {
+                            food += childPos + 1;
+                        } else if (childPos == 1 && food < 26) {
+                            food += childPos + 4;
+                        } else if (childPos == 2 && food < 26) {
+                            food += childPos + 5;
+                        } else if (childPos == 3 && food < 26) {
+                            food += childPos + 10;
                         }
-                        else if(childPos==1&&food<26){
-                            food+=childPos+4;
-                        }
-                        else if(childPos==2&&food<26){
-                            food+=childPos+5;
-                        }
-                        else if(childPos==3&&food<26){
-                            food+=childPos+10;
-                        }
-
 
 
                     }
 
-                }
-                else if(groupPos==2){
-                    if(groupprev!=2){
-                        extrastuff="";
-                        fixfood(groupprev,food);
-                        thefood.add(counter,"Chicken Sandwhich");
+                } else if (groupPos == 2) {
+                    if (groupprev != 2) {
+                        extrastuff = "";
+                        fixfood(groupprev, food);
+                        thefood.add(counter, "Chicken Sandwhich");
                         counter++;
-                        groupprev=2;
-                        food=0;
+                        groupprev = 2;
+                        food = 0;
                     }
-                    if(childPos>=0){
+                    if (childPos >= 0) {
 
-                        if(childPos==0&&food<26){
-                            food+=childPos+1;
-                        }
-                        else if(childPos==1&&food<26){
-                            food+=childPos+4;
-                        }
-                        else if(childPos==2&&food<26){
-                            food+=childPos+5;
-                        }
-                        else if(childPos==3&&food<26){
-                            food+=childPos+10;
+                        if (childPos == 0 && food < 26) {
+                            food += childPos + 1;
+                        } else if (childPos == 1 && food < 26) {
+                            food += childPos + 4;
+                        } else if (childPos == 2 && food < 26) {
+                            food += childPos + 5;
+                        } else if (childPos == 3 && food < 26) {
+                            food += childPos + 10;
                         }
 
                     }
 
-                }
-                else if(groupPos==3){
-                    if(groupprev!=3){
-                        extrastuff="";
-                        fixfood(groupprev,food);
-                        thefood.add(counter,"Fettuccine Alfredo");
+                } else if (groupPos == 3) {
+                    if (groupprev != 3) {
+                        extrastuff = "";
+                        fixfood(groupprev, food);
+                        thefood.add(counter, "Fettuccine Alfredo");
                         counter++;
-                        groupprev=3;
+                        groupprev = 3;
 
-                        food=0;
+                        food = 0;
                     }
-                    if(childPos>=0){
-                        food+=childPos+1;
+                    if (childPos >= 0) {
+                        food += childPos + 1;
                     }
-                }
-                else if(groupPos==4){
-                    if(groupprev!=4){
-                        extrastuff="";
-                        fixfood(groupprev,food);
-                        thefood.add(counter,"Salad");
+                } else if (groupPos == 4) {
+                    if (groupprev != 4) {
+                        extrastuff = "";
+                        fixfood(groupprev, food);
+                        thefood.add(counter, "Salad");
                         counter++;
-                        groupprev=4;
-                        food=0;
+                        groupprev = 4;
+                        food = 0;
                     }
-                    if(childPos>=0){
-                        if(childPos==0&&food<50){
-                            food+=childPos+1;
-                        }
-                        else if(childPos==1&&food<50){
-                            food+=childPos+4;
-                        }
-                        else if(childPos==2&&food<50){
-                            food+=childPos+5;
-                        }
-                        else if(childPos==3&&food<50){
-                            food+=childPos+10;
-                        }
-                        else if(childPos==4&&food<50){
-                            food+=childPos+20;
+                    if (childPos >= 0) {
+                        if (childPos == 0 && food < 50) {
+                            food += childPos + 1;
+                        } else if (childPos == 1 && food < 50) {
+                            food += childPos + 4;
+                        } else if (childPos == 2 && food < 50) {
+                            food += childPos + 5;
+                        } else if (childPos == 3 && food < 50) {
+                            food += childPos + 10;
+                        } else if (childPos == 4 && food < 50) {
+                            food += childPos + 20;
                         }
 
                     }
                 }
 
 
-
-=======
->>>>>>> f9199b2efe848cc321c6a01194f2ffce66b5c64f
                 return false;
             }
         });
         a.setOnClickListener(
-                new View.OnClickListener()
-                {
-                    public void onClick(View view){
+                new View.OnClickListener() {
+                    public void onClick(View view) {
                         placeorder();
                     }
                 }
         );
+    }
+
+    private void placeorder() {
+        //Was used to place orders. Git removed it....
+    }
+
+
+
+    private void fixfood(int groupprev, int food) {
+        //Used by something git removed it....
+
     }
 }
