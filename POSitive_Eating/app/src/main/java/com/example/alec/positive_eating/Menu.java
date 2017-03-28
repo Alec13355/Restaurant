@@ -284,12 +284,17 @@ public class Menu extends ActionBarActivity {
 
     private void placeorder() {
         //Was used to place orders. Git removed it....
+        //Need to re add shane connect stuff and actually place the order.
+        //TODO
     }
 
 
 
     private void fixfood(int groupprev, int food) {
+        //TODO
         //Used by something git removed it....
+        //Tranverses food and add the stuff to a text string to add it to a sting to be added
+        //To a server
 
     }
 }
