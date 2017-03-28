@@ -1,26 +1,17 @@
 package com.example.alec.positive_eating;
 
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
+import android.support.v7.app.ActionBarActivity;
 import android.view.View;
-import android.widget.Button;
 import android.widget.ExpandableListView;
 import android.widget.ExpandableListView.OnChildClickListener;
 import android.widget.ExpandableListView.OnGroupClickListener;
 import android.widget.ExpandableListView.OnGroupExpandListener;
 import android.widget.Toast;
 
-import com.android.volley.Response;
-
-import org.json.JSONObject;
-
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
-
-import shaneconnect.ShaneConnect;
-
-import static com.example.alec.positive_eating.Singleton_ShaneConnect_Factory.getShaneConnect;
 
 /*
 *@author  http://www.androhub.com/android-expandablelistview/
@@ -29,25 +20,13 @@ import static com.example.alec.positive_eating.Singleton_ShaneConnect_Factory.ge
 
 
 
-public class Menu extends AppCompatActivity {
-    Button a;
+public class Menu extends ActionBarActivity {
     private static ExpandableListView expandableListView;
     private static ExpandableListAdapter adapter;
 
-    int table;
-    int counter;
-    int food;
-    int groupprev;
-    String extrastuff;
-
-    ArrayList<String> thefood=new ArrayList<String>(10);
-    ArrayList<String> extras=new ArrayList<String>(10);
-    int indexholder;
-
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+<<<<<<< HEAD
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_menu);
 
@@ -55,6 +34,8 @@ public class Menu extends AppCompatActivity {
         indexholder=0;
         counter=0;
         extrastuff="";
+=======
+>>>>>>> f9199b2efe848cc321c6a01194f2ffce66b5c64f
         /**
          * Makes an expandable list view variable sets it to null then calls
          * setItem() and setListener()
@@ -69,9 +50,6 @@ public class Menu extends AppCompatActivity {
         setItems();
         setListener();
 
-
-
-
     }
 
     // Setting headers and childs to expandable listview
@@ -83,10 +61,10 @@ public class Menu extends AppCompatActivity {
      * The hashMap is also set with each header and children.
      */
     void setItems() {
+
         // Array list for header
         ArrayList<String> header = new ArrayList<String>();
-        thefood.add(0,"Hamburger");
-        extras.add(0,"cheese");
+
         // Array list for child items
         List<String> child1 = new ArrayList<String>();
         List<String> child2 = new ArrayList<String>();
@@ -149,7 +127,6 @@ public class Menu extends AppCompatActivity {
      */
     void setListener() {
 
-
         // This listener will show toast on group click
         expandableListView.setOnGroupClickListener(new OnGroupClickListener() {
 
@@ -183,7 +160,6 @@ public class Menu extends AppCompatActivity {
 
                 });
 
-
         // This listener will show toast on child click
         /**
          * This is the toast to show people what they touched.
@@ -197,6 +173,7 @@ public class Menu extends AppCompatActivity {
                         Menu.this,
                         "You clicked : " + adapter.getChild(groupPos, childPos),
                         Toast.LENGTH_SHORT).show();
+<<<<<<< HEAD
 
                 if(groupPos==0){
                     table = Integer.parseInt(adapter.getChild(groupPos, childPos).toString());
@@ -304,6 +281,8 @@ public class Menu extends AppCompatActivity {
 
 
 
+=======
+>>>>>>> f9199b2efe848cc321c6a01194f2ffce66b5c64f
                 return false;
             }
         });
@@ -316,111 +295,4 @@ public class Menu extends AppCompatActivity {
                 }
         );
     }
-
-    public void fixfood(int groupprev, int food){
-        if(food>12) {
-            food = food - 13;
-            extrastuff=extrastuff+"Pickles";
-
-        }
-        if(food>6) {
-            food = food - 7;
-            extrastuff=extrastuff+"Onion";
-
-        }
-        if(food>4) {
-            food = food - 5;
-            extrastuff=extrastuff+"Tomato";
-
-        }
-        if(food>0) {
-            extrastuff=extrastuff+"Cheese";
-            indexholder++;
-            extras.add(indexholder, extrastuff);
-            food = food - 1;
-        }
-        else if(groupprev==2){
-            if(food>12) {
-                food = food - 13;
-                extrastuff=extrastuff+"Pickles";
-
-            }
-            if(food>6) {
-                food = food - 7;
-                extrastuff=extrastuff+"Onion";
-
-            }
-            if(food>4) {
-                food = food - 5;
-                extrastuff=extrastuff+"Tomato";
-
-            }
-            if(food>0) {
-                extrastuff=extrastuff+"Cheese";
-                indexholder++;
-                extras.add(indexholder, extrastuff);
-                food = food - 1;
-            }
-
-
-
-
-
-        }
-        else if(groupprev==3){
-            if(food>0){
-                extrastuff=extrastuff+"Extra Cheese";
-                extras.add(indexholder, extrastuff);
-                indexholder++;
-
-
-            }
-        }
-        else if(groupprev==4) {
-            if (food > 23) {
-                food = food - 24;
-                extrastuff=extrastuff+"Plain";
-
-            }
-            if (food > 12) {
-                food = food - 13;
-                extrastuff=extrastuff+"French";
-
-            }
-            if (food > 6) {
-                food = food - 7;
-                extrastuff=extrastuff+"Cesar";
-
-            }
-            if (food > 4) {
-                food = food - 5;
-                extrastuff=extrastuff+"Honey Mustard";
-
-            }
-            if (food > 0) {
-                food = food - 1;
-                extrastuff=extrastuff+"Ranch";
-                extras.add(indexholder, extrastuff);
-                indexholder++;
-            }
-
-
-
-
-
-
-
-        }
-    }
-    public void placeorder(){
-        ShaneConnect vista = getShaneConnect();
-        vista.placeOrder("1", thefood, extras, 1, "Hi Shane", new Response.Listener<JSONObject>(){
-
-            @Override
-            public void onResponse(JSONObject response) {
-                Toast.makeText(getApplicationContext(), response.toString(), Toast.LENGTH_LONG).show();
-            }
-        });
-    }
-
 }

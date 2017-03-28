@@ -1,61 +1,36 @@
+/**
+ * @author Alec
+ */
 package com.example.alec.positive_eating;
 
-import android.content.Context;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
-import android.widget.ExpandableListView;
-import android.widget.Toast;
 
-import com.android.volley.Response;
-
-import org.json.JSONObject;
-
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-
-import shaneconnect.ShaneConnect;
-
-import static com.example.alec.positive_eating.Singleton_ShaneConnect_Factory.getShaneConnect;
-
+/**
+ * This will display the current weeks schdeule
+ */
 public class Schedule extends AppCompatActivity {
-
-    private ExpandableListAdapter listAdapter;
-    private ExpandableListView expListView;
-    private List<String> listDataHeader;
-    private HashMap<String, List<String>> listDataChild;
-    private ShaneConnect ModelM;
-    private int recursiveInc;
-    private Context context;
+   Button Button_a;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_order_status);
+        setContentView(R.layout.activity_schedule);
+        Button_a=(Button) findViewById(R.id.Button22);
 
-        context = getApplicationContext();
-        prepareListData();
-        Button b = (Button) findViewById(R.id.load);
-        b.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                expListView = (ExpandableListView) findViewById(R.id.lvExp);
+        Button_a.setOnClickListener(
+                new View.OnClickListener() {
+                    public void onClick(View view) {
+                        confirmOrder();
+                    }
 
-                listAdapter = new ExpandableListAdapter(context, listDataHeader, listDataChild);
+                });
 
-                // setting list adapter
-                expListView.setAdapter(listAdapter);
-            }
-        });
     }
-
-    private void prepareListData() {
-        listDataHeader = new ArrayList<String>();
-        listDataChild = new HashMap<String, List<String>>();
-        getAllOrders();
-    }
+<<<<<<< HEAD
 
     private void getAllOrders() {
         ModelM = getShaneConnect();
@@ -84,5 +59,8 @@ public class Schedule extends AppCompatActivity {
                 }
             }
         });
+=======
+    private void confirmOrder() {
+>>>>>>> f9199b2efe848cc321c6a01194f2ffce66b5c64f
     }
 }
