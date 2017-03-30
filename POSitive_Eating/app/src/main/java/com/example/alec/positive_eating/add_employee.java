@@ -25,7 +25,7 @@ import static com.example.alec.positive_eating.Singleton_ShaneConnect_Factory.ge
  */
 public class add_employee extends AppCompatActivity {
 Button add;
-
+//This is Christian's comment.
 //LogInButton = (Button) findViewById(R.id.logInButton);
     @Override
     protected void onCreate(Bundle savedInstanceState) {
