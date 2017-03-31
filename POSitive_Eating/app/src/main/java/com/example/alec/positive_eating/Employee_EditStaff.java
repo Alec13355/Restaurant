@@ -22,7 +22,7 @@ import static com.example.alec.positive_eating.Singleton_ShaneConnect_Factory.ge
 /**
  * This class will be used to manage and get current workers.
  */
-public class EditStaff extends ActionBarActivity {
+public class Employee_EditStaff extends ActionBarActivity {
     private static ExpandableListView expandableListView;
     private static ExpandableListAdapter adapter;
     @Override
@@ -36,8 +36,8 @@ public class EditStaff extends ActionBarActivity {
                 new View.OnClickListener()
                 {
                     public void onClick(View view){
-                        Intent myIntent = new Intent(EditStaff.this, add_employee.class); /** Class name here */
-                        EditStaff.this.startActivity(myIntent);
+                        Intent myIntent = new Intent(Employee_EditStaff.this, Employee_add_employee.class); /** Class name here */
+                        Employee_EditStaff.this.startActivity(myIntent);
                     }
                 }
         );
@@ -116,7 +116,7 @@ public class EditStaff extends ActionBarActivity {
         hashMap.put(header.get(3), child4);
         hashMap.put(header.get(4), child5);
 
-        adapter = new ExpandableListAdapter(EditStaff.this, header, hashMap);
+        adapter = new ExpandableListAdapter(Employee_EditStaff.this, header, hashMap);
 
         // Setting adpater over expandablelistview
         expandableListView.setAdapter(adapter);
@@ -136,7 +136,7 @@ public class EditStaff extends ActionBarActivity {
             public boolean onGroupClick(ExpandableListView listview, View view,
                                         int group_pos, long id) {
 
-                Toast.makeText(EditStaff.this,
+                Toast.makeText(Employee_EditStaff.this,
                         "You clicked : " + adapter.getGroup(group_pos),
                         Toast.LENGTH_SHORT).show();
                 return false;
@@ -172,7 +172,7 @@ public class EditStaff extends ActionBarActivity {
             public boolean onChildClick(ExpandableListView listview, View view,
                                         int groupPos, int childPos, long id) {
                 Toast.makeText(
-                        EditStaff.this,
+                        Employee_EditStaff.this,
                         "You clicked : " + adapter.getChild(groupPos, childPos),
                         Toast.LENGTH_SHORT).show();
                 return false;

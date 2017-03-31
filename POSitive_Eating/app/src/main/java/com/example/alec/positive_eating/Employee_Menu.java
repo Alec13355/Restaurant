@@ -21,9 +21,9 @@ import java.util.List;
 
 
 
-public class Menu extends ActionBarActivity {
+public class Employee_Menu extends ActionBarActivity {
     private static ExpandableListView expandableListView;
-    private static ExpandableListAdapter adapter;
+    private static Employee_ExpandableListAdapter adapter;
     Button a;
     int counter, indexholder, groupprev, groupPos, food;
     String extrastuff;
@@ -119,7 +119,7 @@ public class Menu extends ActionBarActivity {
         hashMap.put(header.get(3), child4);
         hashMap.put(header.get(4), child5);
 
-        adapter = new ExpandableListAdapter(Menu.this, header, hashMap);
+        adapter = new Employee_ExpandableListAdapter(Employee_Menu.this, header, hashMap);
 
         // Setting adpater over expandablelistview
         expandableListView.setAdapter(adapter);
@@ -139,7 +139,7 @@ public class Menu extends ActionBarActivity {
             public boolean onGroupClick(ExpandableListView listview, View view,
                                         int group_pos, long id) {
 
-                Toast.makeText(Menu.this,
+                Toast.makeText(Employee_Menu.this,
                         "You clicked : " + adapter.getGroup(group_pos),
                         Toast.LENGTH_SHORT).show();
                 return false;
@@ -175,7 +175,7 @@ public class Menu extends ActionBarActivity {
             public boolean onChildClick(ExpandableListView listview, View view,
                                         int groupPos, int childPos, long id) {
                 Toast.makeText(
-                        Menu.this,
+                        Employee_Menu.this,
                         "You clicked : " + adapter.getChild(groupPos, childPos),
                         Toast.LENGTH_SHORT).show();
 

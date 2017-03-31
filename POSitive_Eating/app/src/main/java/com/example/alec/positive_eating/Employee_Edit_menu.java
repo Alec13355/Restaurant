@@ -22,7 +22,7 @@ import static com.example.alec.positive_eating.Singleton_ShaneConnect_Factory.ge
  *
  * This class is what the manager can use to add food to the server.
  */
-public class Edit_menu extends AppCompatActivity {
+public class Employee_Edit_menu extends AppCompatActivity {
     EditText food,price,descriton;
 
     /**

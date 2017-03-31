@@ -7,14 +7,13 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
 /**
- * This class will be used to payout the employees
- * It will set their hours, paid hours, and set counters to zero.
+ * This class will hold status of seats.
  */
-public class Payroll extends AppCompatActivity {
+public class Employee_Seating extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_payroll);
+        setContentView(R.layout.activity_seating);
     }
 }

@@ -17,10 +17,10 @@ import java.util.List;
  * This will be the page the cook goes to, to see what needs to be cooked and in the
  * order it was recived.
  */
-public class Schedule extends AppCompatActivity {
+public class Employee_OrderStatus extends AppCompatActivity {
 
     private static ExpandableListView expandableListView;
-    private static ExpandableListAdapter adapter;
+    private static Employee_ExpandableListAdapter adapter;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -90,7 +90,7 @@ public class Schedule extends AppCompatActivity {
         hashMap.put(header.get(3), child4);
         hashMap.put(header.get(4), child5);
 
-        adapter = new ExpandableListAdapter(Schedule.this, header, hashMap);
+        adapter = new Employee_ExpandableListAdapter(Employee_OrderStatus.this, header, hashMap);
 
         // Setting adpater over expandablelistview
         expandableListView.setAdapter(adapter);
@@ -106,7 +106,7 @@ public class Schedule extends AppCompatActivity {
             public boolean onGroupClick(ExpandableListView listview, View view,
                                         int group_pos, long id) {
 
-                Toast.makeText(Schedule.this,"You clicked : " + adapter.getGroup(group_pos),
+                Toast.makeText(Employee_OrderStatus.this,"You clicked : " + adapter.getGroup(group_pos),
                         Toast.LENGTH_SHORT).show();
                 return false;
             }
@@ -138,7 +138,7 @@ public class Schedule extends AppCompatActivity {
             public boolean onChildClick(ExpandableListView listview, View view,
                                         int groupPos, int childPos, long id) {
                 Toast.makeText(
-                        Schedule.this,
+                        Employee_OrderStatus.this,
                         "You clicked : " + adapter.getChild(groupPos, childPos),
                         Toast.LENGTH_SHORT).show();
                 return false;

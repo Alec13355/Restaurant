@@ -23,7 +23,7 @@ import static com.example.alec.positive_eating.Singleton_ShaneConnect_Factory.ge
  * Simple on create for the page add employee. This java file is used to add new employees or users to the system.
  * To allow people access to the POS terminal
  */
-public class add_employee extends AppCompatActivity {
+public class Employee_add_employee extends AppCompatActivity {
 Button add;
 //This is Christian's comment.
 //This is another comment.

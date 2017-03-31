@@ -12,7 +12,7 @@ import java.util.Date;
  *
  *  This class will handle all clocking in functionality
  */
-public class Clocking_in extends AppCompatActivity {
+public class Employee_Clocking_in extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

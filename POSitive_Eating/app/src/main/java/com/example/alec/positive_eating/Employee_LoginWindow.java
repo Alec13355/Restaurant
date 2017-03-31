@@ -21,7 +21,7 @@ import static com.example.alec.positive_eating.Singleton_ShaneConnect_Factory.ge
 /**
  * Setting a variable for a Button and 2 edit texts for user name password and login button
  */
-public class LoginWindow extends AppCompatActivity {
+public class Employee_LoginWindow extends AppCompatActivity {
 
     Button LogInButton;
     EditText userNumber;
@@ -55,8 +55,8 @@ public class LoginWindow extends AppCompatActivity {
                 new View.OnClickListener() {
                     public void onClick(View view) {
 
-//                        Intent myIntent = new Intent(LoginWindow.this, MainScreen.class); /** Class name here */
-//                        LoginWindow.this.startActivity(myIntent);
+//                        Intent myIntent = new Intent(Employee_LoginWindow.this, MainScreen.class); /** Class name here */
+//                        Employee_LoginWindow.this.startActivity(myIntent);
 
 
                         String Userdata= Lastname.getText().toString()+"_"+Firstname.getText().toString()+"_"+userNumber.getText().toString();
@@ -86,16 +86,16 @@ public class LoginWindow extends AppCompatActivity {
                 }
 
                     if(usermanager){
-                        Intent myIntent = new Intent(LoginWindow.this, MainScreen.class); /** Class name here */
-                        LoginWindow.this.startActivity(myIntent);
+                        Intent myIntent = new Intent(Employee_LoginWindow.this, MainScreen.class); /** Class name here */
+                        Employee_LoginWindow.this.startActivity(myIntent);
                     }
                     if(userwaitstaff){
-                        Intent myIntent = new Intent(LoginWindow.this, Menu.class); /** Class name here */
-                        LoginWindow.this.startActivity(myIntent);
+                        Intent myIntent = new Intent(Employee_LoginWindow.this, Menu.class); /** Class name here */
+                        Employee_LoginWindow.this.startActivity(myIntent);
                     }
                     if(cook){
-                        Intent myIntent = new Intent(LoginWindow.this, OrderStatus.class); /** Class name here */
-                        LoginWindow.this.startActivity(myIntent);
+                        Intent myIntent = new Intent(Employee_LoginWindow.this, OrderStatus.class); /** Class name here */
+                        Employee_LoginWindow.this.startActivity(myIntent);
                     }
 
             }
