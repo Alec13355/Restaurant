@@ -23,7 +23,7 @@ import java.util.List;
 
 public class Employee_Menu extends ActionBarActivity {
     private static ExpandableListView expandableListView;
-    private static Employee_ExpandableListAdapter adapter;
+    private static ExpandableListAdapter adapter;
     Button a;
     int counter, indexholder, groupprev, groupPos, food;
     String extrastuff;
@@ -119,7 +119,7 @@ public class Employee_Menu extends ActionBarActivity {
         hashMap.put(header.get(3), child4);
         hashMap.put(header.get(4), child5);
 
-        adapter = new Employee_ExpandableListAdapter(Employee_Menu.this, header, hashMap);
+        adapter = new ExpandableListAdapter(Employee_Menu.this, header, hashMap);
 
         // Setting adpater over expandablelistview
         expandableListView.setAdapter(adapter);

@@ -55,7 +55,7 @@ public class Employee_LoginWindow extends AppCompatActivity {
                 new View.OnClickListener() {
                     public void onClick(View view) {
 
-//                        Intent myIntent = new Intent(Employee_LoginWindow.this, MainScreen.class); /** Class name here */
+//                        Intent myIntent = new Intent(Employee_LoginWindow.this, Employee_MainScreen.class); /** Class name here */
 //                        Employee_LoginWindow.this.startActivity(myIntent);
 
 
@@ -86,15 +86,15 @@ public class Employee_LoginWindow extends AppCompatActivity {
                 }
 
                     if(usermanager){
-                        Intent myIntent = new Intent(Employee_LoginWindow.this, MainScreen.class); /** Class name here */
+                        Intent myIntent = new Intent(Employee_LoginWindow.this, Employee_MainScreen.class); /** Class name here */
                         Employee_LoginWindow.this.startActivity(myIntent);
                     }
                     if(userwaitstaff){
-                        Intent myIntent = new Intent(Employee_LoginWindow.this, Menu.class); /** Class name here */
+                        Intent myIntent = new Intent(Employee_LoginWindow.this, Employee_Menu.class); /** Class name here */
                         Employee_LoginWindow.this.startActivity(myIntent);
                     }
                     if(cook){
-                        Intent myIntent = new Intent(Employee_LoginWindow.this, OrderStatus.class); /** Class name here */
+                        Intent myIntent = new Intent(Employee_LoginWindow.this, Employee_OrderStatus.class); /** Class name here */
                         Employee_LoginWindow.this.startActivity(myIntent);
                     }
 

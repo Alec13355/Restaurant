@@ -40,7 +40,7 @@ Button Seating,Menu,Status,schedule,Edit_users,Payroll,addTableMap,viewTableMap;
         new View.OnClickListener()
         {
             public void onClick(View view){
-                Intent myIntent = new Intent(Employee_MainScreen.this, Payroll.class); /** Class name here */
+                Intent myIntent = new Intent(Employee_MainScreen.this, Employee_Payroll.class); /** Class name here */
                 Employee_MainScreen.this.startActivity(myIntent);
             }
         }
@@ -49,7 +49,7 @@ Button Seating,Menu,Status,schedule,Edit_users,Payroll,addTableMap,viewTableMap;
                 new View.OnClickListener()
                 {
                     public void onClick(View view){
-                        Intent myIntent = new Intent(Employee_MainScreen.this, Schedule.class); /** Class name here */
+                        Intent myIntent = new Intent(Employee_MainScreen.this, Employee_Schedule.class); /** Class name here */
                         Employee_MainScreen.this.startActivity(myIntent);
                     }
                 }
@@ -61,7 +61,7 @@ Button Seating,Menu,Status,schedule,Edit_users,Payroll,addTableMap,viewTableMap;
                     {
 
 
-                        Intent myIntent = new Intent(Employee_MainScreen.this, OrderStatus.class); /** Class name here */
+                        Intent myIntent = new Intent(Employee_MainScreen.this, Employee_OrderStatus.class); /** Class name here */
                         Employee_MainScreen.this.startActivity(myIntent);
                     }
                 }
@@ -75,7 +75,7 @@ Button Seating,Menu,Status,schedule,Edit_users,Payroll,addTableMap,viewTableMap;
                     {
 
 
-                        Intent myIntent = new Intent(Employee_MainScreen.this, Menu.class); /** Class name here */
+                        Intent myIntent = new Intent(Employee_MainScreen.this, Employee_Menu.class); /** Class name here */
                         Employee_MainScreen.this.startActivity(myIntent);
                     }
                 }
@@ -89,7 +89,7 @@ Button Seating,Menu,Status,schedule,Edit_users,Payroll,addTableMap,viewTableMap;
                     {
 
 
-                        Intent myIntent = new Intent(Employee_MainScreen.this, Seating.class); /** Class name here */
+                        Intent myIntent = new Intent(Employee_MainScreen.this, Employee_Seating.class); /** Class name here */
                         Employee_MainScreen.this.startActivity(myIntent);
                     }
                 }

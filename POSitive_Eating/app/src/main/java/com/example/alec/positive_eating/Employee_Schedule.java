@@ -20,7 +20,7 @@ import java.util.List;
 public class Employee_Schedule extends AppCompatActivity {
 
     private static ExpandableListView expandableListView;
-    private static Employee_ExpandableListAdapter adapter;
+    private static ExpandableListAdapter adapter;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -90,7 +90,7 @@ public class Employee_Schedule extends AppCompatActivity {
         hashMap.put(header.get(3), child4);
         hashMap.put(header.get(4), child5);
 
-        adapter = new Employee_ExpandableListAdapter(Employee_Schedule.this, header, hashMap);
+        adapter = new ExpandableListAdapter(Employee_Schedule.this, header, hashMap);
 
         // Setting adpater over expandablelistview
         expandableListView.setAdapter(adapter);
