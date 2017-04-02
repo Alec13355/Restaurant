@@ -47,4 +47,31 @@
     <string name="place_order">Place_Order</string>
     <string name="addfood">AddFood</string>
     <string name="place_order11">Place Order</string>
+
+    <!--> This is the Customer strings-->
+    <string name="google_maps_key" translatable="false" templateMergeStrategy="preserve"
+        >AIzaSyBWr9kT1JbMg3JEa23YSbM3v7AnDf1ONss</string>
+    <string name="prompt_email">Email</string>
+    <string name="prompt_password">Password</string>
+    <string name="action_sign_in">Sign in!</string>
+    <string name="action_sign_in_short">Sign in, again!</string>
+    <string name="error_invalid_email">This email address is invalid</string>
+    <string name="error_invalid_password">This password is too short</string>
+    <string name="error_incorrect_password">This password is incorrect</string>
+    <string name="error_field_required">This field is required</string>
+    <string name="permission_rationale">"Contacts permissions are needed for providing email
+        completions."
+    </string>
+    <string name="title_activity_menu">Menu</string>
+    <string name="res_size_prompt">Choose Size of Party</string>
+    <string-array name="table_size_array">
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+        <item>5</item>
+        <item>6</item>
+        <item>7</item>
+        <item>8</item>
+    </string-array>
 </resources>
