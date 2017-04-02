@@ -10,4 +10,24 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="com.example.alec.positive_eating.Launch_Screen">
 
+    <Button
+        android:text="Customer App"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/Customer"
+        style="@style/Widget.AppCompat.Button"
+        android:layout_marginTop="72dp"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true" />
+
+    <Button
+        android:text="Employee App"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/Employee"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginBottom="117dp" />
+
 </RelativeLayout>
