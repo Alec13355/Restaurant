@@ -28,26 +28,40 @@ var method = SQLDataBase.prototype;
  * @param json_input object to hold information about employee
  */
 method.setUser = function(json_input,callBack){
-        var sql = "INSERT INTO EMPLOYEES VALUES('" + json_input.lnam + "','" + json_input.fname + "',NULL,'" + json_input.perm + "'," + json_input.stat + ",'" + json_input.pass + "','" + json_input.address + "','" + json_input.cell + "','" + json_input.phone + "', " + json_input.rate + ",'" + json_input.routing + "','" + json_input.social + "','" + json_input.bank_num + "' )"; 
-        console.log(sql);
-        var tempcon = this.connection;
-        this.connection.query(sql, function(err,rows){
-            if(err){
-                throw err;
+        var searchsql = "SELECT * FROM EMPLOYEES WHERE  L_NAME = '" + json_input.lnam + "' AND F_NAME = '" + json_input.fname + "'";
+        console.log(searchsql);
+        var con = this.connection;
+        this.connection.query(searchsql, function(err,out_rows){
+            if(out_rows.length>0){
+                var updatesql = "UPDATE EMPLOYEES SET PERM_STRING = '" + json_input.perm + "', STATUS = " + json_input.stat + " , PASS = '" + json_input.pass + "' , ADDRESS = '" + json_input.address + "' , CELL = '" + json_input.cell + "' , PHONE = '" + json_input.phone + "' , PAY_HR = " + json_input.rate + ", ROUTING = '" + json_input.routing + "', SOCIAL = '" + json_input.social + "', BANK_NUM = '" + json_input.bank_num + "'";
+                console.log(updatesql);
+                con.query(updatesql, function(err,rows){
+                    return callBack(out_rows[0].L_NAME + "_" + out_rows[0].F_NAME + "_" + out_rows[0].out_rows);
+                });
+            }else{
+                var sql = "INSERT INTO EMPLOYEES VALUES('" + json_input.lnam + "','" + json_input.fname + "',NULL,'" + json_input.perm + "'," + json_input.stat + ",'" + json_input.pass + "','" + json_input.address + "','" + json_input.cell + "','" + json_input.phone + "', " + json_input.rate + ",'" + json_input.routing + "','" + json_input.social + "','" + json_input.bank_num + "' )"; 
+                console.log(sql);
+                var tempcon = this.connection;
+                con.query(sql, function(err,rows){
+                if(err){
+                    throw err;
+                }
+                console.log("returning");
+                var sizeSQL = "SELECT * FROM EMPLOYEES";
+                console.log(sizeSQL);
+                tempcon.query(sizeSQL, function(err,rows_){
+                if(err){
+                    throw err;
+                }
+                return callBack(rows_[rows_.length-1].L_NAME + "_" + rows_[rows_.length-1].F_NAME + "_" + rows_.length);
+                        
+                    });
+                }); 
             }
-            console.log("returning");
-           var sizeSQL = "SELECT * FROM EMPLOYEES";
-            console.log(sizeSQL);
-           tempcon.query(sizeSQL, function(err,rows_){
-            if(err){
-                throw err;
-            }
-            
-            //return callBack(json_input.lnam + "_" + json_input.fname + "_" + rows_.length);
-            return callBack(rows_[rows_.length-1].L_NAME + "_" + rows_[rows_.length-1].F_NAME + "_" + rows_.length);
-            
         });
-    }); 
+        
+        
+        
         
 }
 /**
@@ -68,7 +82,8 @@ method.getResservation = function(json_input, callback){
             DESCRIPTION:rows[i].DESCRIPTION,
             ID:rows[i].ID,
             TABLE_ID:rows[i].TABLE_ID,
-            STATUS:rows[i].STATUS
+            STATUS:rows[i].STATUS,
+            CUSTOMER_ID:rows[I].CUSTOMER_ID
             };
             return callback(data);
         }
@@ -87,7 +102,7 @@ method.getTableByID = function(json,callback){
         if(err){
             throw err;
         }
-        if(rows[0].length>0){
+        if(rows.length>0){
              var data = {
             name: rows[0].NAME,
             id: rows[0].TABLE_ID,
@@ -100,7 +115,7 @@ method.getTableByID = function(json,callback){
         }
     });
 }
-/**
+/**[0].le
  * Places a reservation
  * @param json object with reservation information
  */
@@ -108,8 +123,8 @@ method.placeReservation = function(json_input, callBack){
     var con = this.connection;
     var sqlsearch = "SELECT * RESERVATIONS WHERE DESCRIPTION = '" + json_input.desc + "'";
     con.query(sqlsearch,function(err,rows){
-        if(rows[0].length>0){
-            var sqlupdate = "UPDATE RESERVATIONS SET TABLE_ID = " + json_input.table_id + ", STATUS = " + json_input.status + " WHERE DESCRIPTION = '" + json_input.desc + "'";
+        if(rows.length>0){
+            var sqlupdate = "UPDATE RESERVATIONS SET TABLE_ID = " + json_input.table_id + ", STATUS = " + json_input.status + ", CUSTOMER_ID = " + json_input.customerID + " WHERE DESCRIPTION = '" + json_input.desc + "'";
             console.log(sqlupdate);
             con.query(sqlupdate, function(err,rows){
                 if(err){
@@ -117,7 +132,7 @@ method.placeReservation = function(json_input, callBack){
                 }
             }); 
         }else{
-            var insertsql = "INSERT INTO RESERVATIONS VALUES ('" + json_input.desc + "',NULL," + json_input.table_id + "," + json_input.status + ")";
+            var insertsql = "INSERT INTO RESERVATIONS VALUES ('" + json_input.desc + "',NULL," + json_input.table_id + "," + json_input.status + "," + json_input.customerID + ")";
             console.log(insertsql);
             con.query(insertsql,function(err,rows){
                 if(err){
@@ -152,8 +167,8 @@ method.setTable = function(json_info,callBack){
         if(err){
             throw err;
         }
-        if(rows[0].length>0){
-            var updatesql = "UPDATE TABLES SET X_COORD = " + json_info.xcoord + ", Y_COORD = " + json_info.ycoord + ", NUM_SEATS = " + json_info.number_of_seats + ", STATUS = " + json_info.stat + " WHERE NAME = '" + json_info.name + "'";
+        if(rows.length>0){
+            var updatesql = "UPDATE TABLES SET X_COORD = " + json_info.xcoord + ", Y_COORD = " + json_info.ycoord + ", NUM_SEATS = " + json_info.number_of_seats + ", STATUS = " + json_info.stat + " WHERE NAME = '" + json_info.name + "', EMPLOYEE_ID = " + json_info.employeeID;
             console.log(updatesql);
             con.query(updatesql, function(err,rows){
                 if(err){
@@ -161,7 +176,7 @@ method.setTable = function(json_info,callBack){
                 }
             });
         }else{
-             var sql = "INSERT INTO TABLES VALUES('" + json_info.name + "',NULL," + json_info.xcoord + "," + json_info.ycoord + "," + json_info.number_of_seats + "," + json_info.stat + ");";
+             var sql = "INSERT INTO TABLES VALUES('" + json_info.name + "',NULL," + json_info.xcoord + "," + json_info.ycoord + "," + json_info.number_of_seats + "," + json_info.stat + "," + json_info.employeeID + ");";
             console.log(sql);
     
     con.query(sql, function(err,rows){
@@ -285,7 +300,7 @@ method.getTableByName = function(json_info,cb){
         if(err){
             throw err;
         }
-        if(rows[0].length>0){
+        if(rows.length>0){
             var data = {
             name: rows[0].NAME,
             id: rows[0].TABLE_ID,
