@@ -12,6 +12,7 @@ import com.android.volley.toolbox.Volley;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.io.Console;
 import java.util.ArrayList;
 
 /**
@@ -418,7 +419,7 @@ public class ShaneConnect {
      * Gets a table with an index. This is used to get all tables because it can be used recursively similarly to the example
      * given for getFoodByID
      * @param index the index of each table
-     * @param s response function, response will be in the form {name:String,id:int,x_coord:int,y_coord:int, number_seats:int} or if requesting
+     * @param s response function, response will be in the form {name:String,id:int,x_coord:int,y_coord:int, number_seats:int,status:int} or if requesting
      *          an index that does not exist response will be in the form {done:1}
      */
     public void getTables(int index,Response.Listener<JSONObject> s){
@@ -469,14 +470,16 @@ public class ShaneConnect {
      * Method to add a customer to the database
      * @param user Their username, this could be anything including the email address
      * @param email Their email,
+     * @param password the password to login for the user
      * @param s will return response object of the form {success:int} and 1 if it had a success
      */
-    public void addCustomer(String user,String email,Response.Listener<JSONObject> s){
+    public void addCustomer(String user,String email,String password,Response.Listener<JSONObject> s){
         RequestQueue queue = Volley.newRequestQueue(maind);
         JSONObject out = new JSONObject();
         try {
             out.put("user", user);
             out.put("email",email);
+            out.put("pass", password);
         } catch (JSONException e) {
             e.printStackTrace();
         }
@@ -495,7 +498,7 @@ public class ShaneConnect {
     /**
      *
      * @param user The username you are searching for
-     * @param s will return response object of the form {user:string,id:int,email:string}
+     * @param s will return response object of the form {user:string,id:int,email:string, pass:String}
      */
     public void getCustomer(String user,Response.Listener<JSONObject> s){
         RequestQueue queue = Volley.newRequestQueue(maind);
@@ -571,10 +574,40 @@ public class ShaneConnect {
     }
 
     /**
+     * This method removes a order from the database given a description
+     * @param desc The description name of the order that will be removed
+     * @param s response method, doesnt do anything but needs to
+     */
+    public void removeOrder(String desc,Response.Listener<JSONObject> s){
+        RequestQueue queue = Volley.newRequestQueue(maind);
+        JSONObject out = new JSONObject();
+        try {
+            out.put("desc", desc);
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+        JsonObjectRequest lastFMAuthRequest = new JsonObjectRequest(Request.Method.POST, url + "/removeOrder", out,new Response.Listener<JSONObject>(){
+            @Override
+            public void onResponse(JSONObject response) {
+                System.out.print("Deleted Item");
+            }
+        } , new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                System.out.print(error.networkResponse);
+
+            }
+
+        });
+        queue.add(lastFMAuthRequest);
+    }
+
+
+    /**
      * This calls the database for a table of a name given.
      * If two tables exist with the same name it will only get the first one.
      * @param name name of the table you are searching for
-     * @param s response function that the response will have the form of {name:String,id:int,x_coord:int,y_coord:int,number_seats:int}.
+     * @param s response function that the response will have the form of {name:String,id:int,x_coord:int,y_coord:int,number_seats:int,status:int}.
      */
     public void getTableByName(String name,Response.Listener<JSONObject> s){
         RequestQueue queue = Volley.newRequestQueue(maind);
