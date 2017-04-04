@@ -112,6 +112,14 @@ router.post("/getTable", function(req,res){
   });
 });
 
+router.post("/removeOrder", function(req,res){
+  data_base.removeOrder(req.body, function(resp){
+    res.json(resp);
+  });
+});
+
+
+
 router.post("/getTableWithName", function(req,res){
   data_base.getTableByName(req.body, function(resp){
     res.json(resp);

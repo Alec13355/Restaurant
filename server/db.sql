@@ -16,14 +16,6 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Current Database: `restaurant`
---
-
-CREATE DATABASE /*!32312 IF NOT EXISTS*/ `restaurant` /*!40100 DEFAULT CHARACTER SET latin1 */;
-
-USE `restaurant`;
-
---
 -- Table structure for table `CUSTOMER`
 --
 
@@ -117,7 +109,7 @@ DROP TABLE IF EXISTS `FOOD`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `FOOD` (
-  `NAME` varchar(30) NOT NULL,
+  `NAME` varchar(200) NOT NULL,
   `FOOD_ID` mediumint(9) NOT NULL AUTO_INCREMENT,
   `QUANTITY` mediumint(9) NOT NULL,
   `PRICE` mediumint(9) NOT NULL,
@@ -151,7 +143,7 @@ CREATE TABLE `ORDERS` (
   `LOCATION` varchar(30) NOT NULL,
   `PRICE` int(11) DEFAULT NULL,
   PRIMARY KEY (`ORDER_ID`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -160,7 +152,7 @@ CREATE TABLE `ORDERS` (
 
 LOCK TABLES `ORDERS` WRITE;
 /*!40000 ALTER TABLE `ORDERS` DISABLE KEYS */;
-INSERT INTO `ORDERS` VALUES ('Buger',1,'','table 9',40),('Buger',2,'1-','table 9',40),('Buger',3,'1-','table 9',40),('Raw Cow',4,'1-','table 9',40),('burger and fries',5,'1-3-','table 9',40);
+INSERT INTO `ORDERS` VALUES ('Buger',1,'','table 9',40),('Buger',2,'1-','table 9',40),('Buger',3,'1-','table 9',40),('Raw Cow',4,'1-','table 9',40),('burger and fries',5,'1-3-','table 9',40),('SPECIAL 9',6,'1(extra meat)-3(extra crispy)-','table 9',1500);
 /*!40000 ALTER TABLE `ORDERS` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -187,6 +179,32 @@ CREATE TABLE `RESERVATIONS` (
 LOCK TABLES `RESERVATIONS` WRITE;
 /*!40000 ALTER TABLE `RESERVATIONS` DISABLE KEYS */;
 /*!40000 ALTER TABLE `RESERVATIONS` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `SCHEDULE`
+--
+
+DROP TABLE IF EXISTS `SCHEDULE`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `SCHEDULE` (
+  `sched_id` mediumint(50) NOT NULL AUTO_INCREMENT,
+  `EMPLOYEE_ID` mediumint(50) NOT NULL,
+  `DAY_OF_WEEK` mediumint(9) NOT NULL,
+  `START_TIME` mediumint(9) NOT NULL,
+  `END_TIME` mediumint(9) NOT NULL,
+  PRIMARY KEY (`sched_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `SCHEDULE`
+--
+
+LOCK TABLES `SCHEDULE` WRITE;
+/*!40000 ALTER TABLE `SCHEDULE` DISABLE KEYS */;
+/*!40000 ALTER TABLE `SCHEDULE` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -225,4 +243,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2017-03-08 21:57:21
+-- Dump completed on 2017-03-24  0:00:54

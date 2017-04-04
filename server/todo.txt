@@ -1,0 +1,2 @@
+1. Delete tables and ect
+3. employee id and customer id for table reservations

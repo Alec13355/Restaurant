@@ -129,6 +129,16 @@ method.placeReservation = function(json_input, callBack){
     }); 
 }
 
+method.removeOrder = function(json_input, callBack){
+    var sql = "DELETE FROM ORDERS WHERE DESCRIP ='" + json_input.descript + "'";
+    console.log(sql);
+    this.connection.query(sql,function(err,rows){
+        if(err){
+            throw err;
+        }
+    });
+}
+
 /**
  * Method create or edit a table
  * @param json object with table information
@@ -447,7 +457,7 @@ method.getCustomer = function(json_info,callBack){
         if(err){
             throw err;
         }
-        return callBack({user:rows[0].USER_NAME,id:rows[0].CUSTOMER_ID,email: rows[0].EMAIL});
+        return callBack({user:rows[0].USER_NAME, id:rows[0].CUSTOMER_ID , email: rows[0].EMAIL,pass: rows[0].PASS});
     });
 }
 /**
@@ -462,7 +472,7 @@ method.addCustomer = function(json_info,callBack){
             throw err;
         }
         if(rows[0].length>0){
-            var sqlupdate = "UPDATE CUSTOMER SET EMAIL = " + json_info.email + " WHERE = " +json_info.user;
+            var sqlupdate = "UPDATE CUSTOMER SET EMAIL = " + json_info.email + ", PASS = '" + json_info.pass + "' WHERE USER_NAME = '" + json_info.user + "'" ;
             console.log(sqlupdate);
             con.query(sqlupdate, function(err,rows){
                 if(err){
@@ -471,7 +481,7 @@ method.addCustomer = function(json_info,callBack){
                 return callBack({success:1});
             });
         }else{
-            var sql = "INSERT INTO CUSTOMER VALUES('" + json_info.user + "',NULL,'" + json_info.email + "')"; 
+            var sql = "INSERT INTO CUSTOMER VALUES('" + json_info.user + "',NULL,'" + json_info.email + "','" + json_info.pass + "')"; 
         console.log(sql);
         con.query(sql, function(err,rows){
         if(err){
