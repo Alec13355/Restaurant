@@ -1,26 +1,19 @@
 package com.example.alec.positive_eating;
 
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import org.json.JSONObject;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.AdapterView.OnItemSelectedListener;
 import android.widget.Button;
-import android.widget.ListView;
 import android.widget.Spinner;
 import android.widget.Toast;
+
 import shaneconnect.ShaneConnect;
 import shaneconnect.TableCache;
-import shaneconnect.TableReservation;
 
-import java.sql.BatchUpdateException;
-import java.util.ArrayList;
-import com.android.volley.Response;
-import org.json.JSONObject;
-import static christianshinkle.positiveeating.Singleton_ShaneConnect_Factory.getShaneConnect;
-import android.widget.AdapterView;
-import android.widget.AdapterView.OnItemSelectedListener;
+import static com.example.alec.positive_eating.Singleton_ShaneConnect_Factory.getShaneConnect;
 
 /**
  * The CustomerReservations is used to reserve table for a party of any size the customer chooses.

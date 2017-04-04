@@ -6,7 +6,7 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
 
-import static christianshinkle.positiveeating.CustomerOrderMenu.getOrderList;
+import static com.example.alec.positive_eating.CustomerOrderMenu.getOrderList;
 
 /**
  * The CustomerSidesList class is an activity that displays the sides offered at the

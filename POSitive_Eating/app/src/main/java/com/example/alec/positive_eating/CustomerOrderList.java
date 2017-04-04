@@ -8,7 +8,8 @@ import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import static christianshinkle.positiveeating.CustomerOrderMenu.getOrderList;
+import static com.example.alec.positive_eating.CustomerOrderMenu.getOrderList;
+
 
 /**
  * @author Christian Shinkle

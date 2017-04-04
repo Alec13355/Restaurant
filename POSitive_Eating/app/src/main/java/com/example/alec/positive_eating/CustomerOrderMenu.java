@@ -1,19 +1,23 @@
 package com.example.alec.positive_eating;
 
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.ListView;
 import android.widget.Toast;
-import shaneconnect.ShaneConnect;
-import java.util.ArrayList;
-import com.android.volley.Response;
-import org.json.JSONObject;
-import static christianshinkle.positiveeating.Singleton_ShaneConnect_Factory.getShaneConnect;
 
+import com.android.volley.Response;
+
+import org.json.JSONObject;
+
+import java.util.ArrayList;
+
+import shaneconnect.ShaneConnect;
+
+import static com.example.alec.positive_eating.Singleton_ShaneConnect_Factory.getShaneConnect;
 /**
  * @author Christian Shinkle
  * The CustomerOrderMenu class is used to create orders and sumbit them to the server. It includes

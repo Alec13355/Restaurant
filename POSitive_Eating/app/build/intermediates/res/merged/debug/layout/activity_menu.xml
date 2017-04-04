@@ -4,7 +4,7 @@
     android:layout_height="fill_parent"
     android:orientation="vertical"
     android:padding="5dp"
-    tools:context="com.example.alec.positive_eating.Menu"
+    tools:context="com.example.alec.positive_eating.Employee_Menu"
     android:weightSum="1">
 
     <ExpandableListView
