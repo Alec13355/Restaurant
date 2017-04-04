@@ -526,9 +526,10 @@ public class ShaneConnect {
      * @param x the x coordinate
      * @param y the y coordinate
      * @param seats number of seats for the table
+     * @param employeeID the id number of an employee
      * @param s the response method that has a response in the form {success:1} if it was able to create a table
      */
-    public void setTable(String name,int x,int y,int seats,int status,Response.Listener<JSONObject> s){
+    public void setTable(String name,int x,int y,int seats,int status,int employeeID,Response.Listener<JSONObject> s){
         RequestQueue queue = Volley.newRequestQueue(maind);
         JSONObject out = new JSONObject();
         try{
@@ -537,6 +538,7 @@ public class ShaneConnect {
             out.put("ycoord",y);
             out.put("number_of_seats",seats);
             out.put("stat",status);
+            out.put("employeeID", employeeID);
         }catch (JSONException e){
             e.printStackTrace();
         }
@@ -551,13 +553,14 @@ public class ShaneConnect {
         queue.add(lastFMAuthRequest);
     }
 
-    protected void placeReservation(String desc, int tableID,int status,Response.Listener<JSONObject> s){
+    protected void placeReservation(String desc, int tableID,int status,int customerID,Response.Listener<JSONObject> s){
         RequestQueue queue = Volley.newRequestQueue(maind);
         JSONObject out = new JSONObject();
         try {
             out.put("desc", desc);
             out.put("table_id",tableID);
             out.put("status",status);
+            out.put("customerID",customerID );
         } catch (JSONException e) {
             e.printStackTrace();
         }

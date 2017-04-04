@@ -47,7 +47,7 @@ public class TableCache {
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }
-                connect.placeReservation(res.getDesc(),res.get_table_ID(),res.getStatus(),new Response.Listener<JSONObject>(){
+                connect.placeReservation(res.getDesc(),res.get_table_ID(),res.getStatus(),res.getCustomerID(),new Response.Listener<JSONObject>(){
                     @Override
                     public void onResponse(JSONObject response) {
                         System.out.println("Updated the server");
@@ -76,7 +76,7 @@ public class TableCache {
                             public void onResponse(JSONObject tableinfo) {
                                 try {
                                     PriorityQueue<TableReservation> temp = list.get(tableinfo.getInt("number_seats"));
-                                    TableReservation res = new TableReservation(reservationInfo.getString("DESCRIPTION"),reservationInfo.getInt("ID"), reservationInfo.getInt("TABLE_ID"), reservationInfo.getInt("STATUS"));
+                                    TableReservation res = new TableReservation(reservationInfo.getString("DESCRIPTION"),reservationInfo.getInt("ID"), reservationInfo.getInt("TABLE_ID"), reservationInfo.getInt("STATUS"),reservationInfo.getInt("CUSTOMER_ID") );
                                     if(temp.contains(res)){
                                         temp.remove(res);
                                         if(res.getStatus()!=3){

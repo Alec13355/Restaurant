@@ -24,17 +24,24 @@ public class TableReservation implements Comparable<TableReservation> {
     private int status;
 
     /**
+     * id for the customer
+     */
+    private int customerID;
+
+    /**
      * The constructor
      * @param desc the description
      * @param id the id of the reservation
      * @param table_id the id of the table
+     * @param customer the id of the customer
      * @param status the current status of the reservations, status 3 means the reservation is done
      */
-    public TableReservation(String desc, int id, int table_id, int status){
+    public TableReservation(String desc, int id, int table_id, int status, int customer){
         this.desc=desc;
         this.id=id;
         this.table_id=table_id;
         this.status=status;
+        this.customerID = customer;
     }
 
     /**
@@ -51,6 +58,14 @@ public class TableReservation implements Comparable<TableReservation> {
      */
     public int getID(){
         return this.id;
+    }
+
+    /**
+     *
+     * @return returns the customer ID.
+     */
+    public int getCustomerID() {
+        return this.customerID;
     }
 
     /**
@@ -74,11 +89,13 @@ public class TableReservation implements Comparable<TableReservation> {
      * @param newDesc new description
      * @param table_id new table ID
      * @param stat new stats
+     * @param customerID the id number of the customer
      */
-    public void updateData(String newDesc,int table_id,int stat){
+    public void updateData(String newDesc,int table_id,int stat, int customerID){
         this.desc=newDesc;
         this.table_id=table_id;
         this.status=stat;
+        this.customerID = customerID;
     }
 
 
