@@ -605,6 +605,25 @@ public class ShaneConnect {
         queue.add(lastFMAuthRequest);
     }
 
+    protected void delete(DeleteDecorator dec,Response.Listener<JSONObject> s){
+        RequestQueue queue = Volley.newRequestQueue(maind);
+        JSONObject out = new JSONObject();
+        try{
+            out.put("sql",dec.getSql());
+        }catch (JSONException e){
+            e.printStackTrace();
+        }
+        JsonObjectRequest lastFMAuthRequest = new JsonObjectRequest(Request.Method.POST, url + "/delete", out,s , new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                System.out.print(error.networkResponse);
+
+            }
+
+        });
+        queue.add(lastFMAuthRequest);
+    }
+
 
     /**
      * This calls the database for a table of a name given.
