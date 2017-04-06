@@ -67,15 +67,13 @@ public class CustomerReservations extends AppCompatActivity {
     }
 
     private void finishUp() {
-        Intent i = new Intent();
-        i.putExtra("TABLE_SIZE", reservationSize);
-        setResult(RESULT_OK, i);
+        setResult(RESULT_OK, new Intent().putExtra("TABLE_SIZE", reservationSize));
         finish();
     }
 
     private void placeReservation() {
-        ShaneConnect connection = getShaneConnect();
-        TableCache tc = new TableCache(connection);
+        ShaneConnect connect = getShaneConnect();
+        TableCache tc = new TableCache(connect);
         tc.updateQue();
         //TableReservation tr = new TableReservation("jim@bob.com", 8, ,-1)
     }

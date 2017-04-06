@@ -106,7 +106,10 @@ public class CustomerOrderMenu extends AppCompatActivity implements View.OnClick
         ArrayList<String> tmp = new ArrayList<String>();
         ArrayList<String> options = new ArrayList<String>();
         String desc = "";
-        for(CustomerOrderItem oi : orderList){
+        for(CustomerOrderItem oi : orderList) {
+            //TODO
+            //desc needs to be some sort of unique identifier
+            //that way, the removeOrder() in SC will work.
             tmp.add(oi.getEntree());
             options.add("entree place holder");
             desc+=oi.toString();
@@ -119,7 +122,10 @@ public class CustomerOrderMenu extends AppCompatActivity implements View.OnClick
         vista.placeOrder(desc, tmp, options, 10, "To Go", new Response.Listener<JSONObject>() {
             @Override
             public void onResponse(JSONObject response) {
-                Toast.makeText(getApplicationContext(), "The order was successfully placed!", Toast.LENGTH_LONG).show();
+                Toast.makeText(getApplicationContext(), "The order was successfully placed!",
+                        Toast.LENGTH_LONG).show();
+                //TODO
+                //add the finishUp() method, like in Reservations, and make the Toast appear there.
             }
         });
 

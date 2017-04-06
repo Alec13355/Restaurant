@@ -41,7 +41,6 @@ public class CookOrderList extends AppCompatActivity {
 
                 listAdapter = new ExpandableListAdapter(context, listDataHeader, listDataChild);
 
-                // setting list adapter
                 expListView.setAdapter(listAdapter);
             }
         });
@@ -56,28 +55,38 @@ public class CookOrderList extends AppCompatActivity {
     private void getAllOrders() {
         ModelM = getShaneConnect();
         recursiveInc = 0;
+        ArrayList<String> itemsInTheOrder = new ArrayList<String>();
         ModelM.getOrders(recursiveInc, new Response.Listener<JSONObject>(){
             @Override
             public void onResponse (JSONObject response){
             if (response.has("none")) {
-                return;
-            } else {
-                try {
-                    String desc = response.getString("desc");
-                    String orderNum = "Order #" + response.getInt("order_id");
-                    ArrayList<String> itemsInTheOrder = new ArrayList<String>();
-                    itemsInTheOrder.add(desc);
-                    listDataHeader.add(orderNum);
-                    listDataChild.put(orderNum, itemsInTheOrder);
-                    recursiveInc++;
-                    ModelM.getOrders(recursiveInc, this);
-                } catch (Exception e) {
-                    Toast.makeText(context,
-                            "An error occurred. Please press the back button and try again.",
-                            Toast.LENGTH_LONG).show();
                     return;
+                } else {
+                    try {
+                        String compString = response.getString("componentString");
+                        final String orderNum = "Order #" + response.getInt("order_id");
+                        listDataHeader.add(orderNum);
+                        ModelM.getFoodByID(compString, new Response.Listener<JSONObject>() {
+                            @Override
+                            public void onResponse(JSONObject response) {
+                                try {
+                                    String tmp = response.toString();
+                                    ModelM.getOrders(++recursiveInc, this);
+                                } catch(Exception e) {
+                                    Toast.makeText(context,
+                                        "An error occurred in getFoodByID(). " +
+                                                "Please press the back button and try again.",
+                                        Toast.LENGTH_LONG).show();
+                                }
+                            }
+                        });
+                    } catch (Exception e) {
+                        Toast.makeText(context,
+                            "An error occurred in getOrders(). " +
+                                    "Please press the back button and try again.",
+                            Toast.LENGTH_LONG).show();
+                    }
                 }
-            }
             }
         });
     }
