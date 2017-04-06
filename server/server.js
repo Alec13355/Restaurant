@@ -150,6 +150,12 @@ router.post("/getFoodByIndex", function(req,res){
   });
 });
 
+router.post("/delete", function(req,res){
+  data_base.executeDelete(req.body, function(resp){
+    res.json(resp);
+  });
+});
+
 router.post("/getAccount", function(req,res){
   console.log(req.body.name)
   if(req.body.name){
@@ -196,6 +202,3 @@ router.post("/getAccount", function(req,res){
 });
 
 
-//json_user.lname + " AND F_NAME = " json_user.fname + "AND EMPLOYEE_ID = " json_user.id;
-
-//userFormat -> SMITH_BOB_1

@@ -3,6 +3,8 @@
 
 var method = SQLDataBase.prototype;
 
+var deleteModule = require('./delete.js');
+
 /**
  * constructor
  * @param db, the database api, host, the name in the form of a string,
@@ -21,6 +23,7 @@ var method = SQLDataBase.prototype;
         return;
     }
     console.log("Connection Established With MYSQL");
+    
 });
 };
 
@@ -33,7 +36,7 @@ method.setUser = function(json_input,callBack){
         var con = this.connection;
         this.connection.query(searchsql, function(err,out_rows){
             if(out_rows.length>0){
-                var updatesql = "UPDATE EMPLOYEES SET PERM_STRING = '" + json_input.perm + "', STATUS = " + json_input.stat + " , PASS = '" + json_input.pass + "' , ADDRESS = '" + json_input.address + "' , CELL = '" + json_input.cell + "' , PHONE = '" + json_input.phone + "' , PAY_HR = " + json_input.rate + ", ROUTING = '" + json_input.routing + "', SOCIAL = '" + json_input.social + "', BANK_NUM = '" + json_input.bank_num + "'";
+                var updatesql = "UPDATE EMPLOYEES SET PERM_STRING = '" + json_input.perm + "', STATUS = " + json_input.stat + " , PASS = '" + json_input.pass + "' , ADDRESS = '" + json_input.address + "' , CELL = '" + json_input.cell + "' , PHONE = '" + json_input.phone + "' , PAY_HR = " + json_input.rate + ", ROUTING = '" + json_input.routing + "', SOCIAL = '" + json_input.social + "', BANK_NUM = '" + json_input.bank_num + "' WHERE  L_NAME = '" + json_input.lnam + "' AND F_NAME = '" + json_input.fname + "'";
                 console.log(updatesql);
                 con.query(updatesql, function(err,rows){
                     return callBack(out_rows[0].L_NAME + "_" + out_rows[0].F_NAME + "_" + out_rows[0].out_rows);
@@ -43,18 +46,18 @@ method.setUser = function(json_input,callBack){
                 console.log(sql);
                 var tempcon = this.connection;
                 con.query(sql, function(err,rows){
-                if(err){
-                    throw err;
-                }
-                console.log("returning");
-                var sizeSQL = "SELECT * FROM EMPLOYEES";
-                console.log(sizeSQL);
-                tempcon.query(sizeSQL, function(err,rows_){
-                if(err){
-                    throw err;
-                }
-                return callBack(rows_[rows_.length-1].L_NAME + "_" + rows_[rows_.length-1].F_NAME + "_" + rows_.length);
-                        
+                        if(err){
+                            throw err;
+                        }
+                        console.log("returning");
+                        var sizeSQL = "SELECT * FROM EMPLOYEES";
+                        console.log(sizeSQL);
+                        tempcon.query(sizeSQL, function(err,rows_){
+                        if(err){
+                            throw err;
+                        }
+                        return callBack(rows_[rows_.length-1].L_NAME + "_" + rows_[rows_.length-1].F_NAME + "_" + rows_.length);
+                                
                     });
                 }); 
             }
@@ -64,6 +67,17 @@ method.setUser = function(json_input,callBack){
         
         
 }
+/**
+ * Delete method
+ */
+method.executeDelete = function(json,callBack){
+    var deleteCommand = new deleteModule(json.sql,this.connection);
+    deleteCommand.execute(function(resp){
+        return callBack(resp);
+    });
+};
+
+
 /**
  * Gets reservation by index
  * @param json object with index
@@ -414,6 +428,9 @@ method.logEvent = function(json_info,callBack){
    
 }
 
+
+
+
 method.getScheduleWithID = function(json_info,callBack){
     var employeeID = json_info.emp_id;
     var sql = "SELECT * FROM SCHEDULE WHERE sched_id = " + employeeID;
@@ -596,9 +613,10 @@ method.getFoodByID = function(json_info,cb){
     parseFID(0,json,food,function(res){
         return cb(res);
     });
-
-    
+ 
 }
+
+
 /**
  * gets food by index
  */
