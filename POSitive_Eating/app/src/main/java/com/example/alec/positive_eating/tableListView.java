@@ -42,7 +42,8 @@ public class tableListView extends AppCompatActivity {
             public void onResponse(JSONObject response) {
                 try{
                     //Toast.makeText(getApplicationContext(), response.toString(), Toast.LENGTH_LONG).show();
-                    Table temp = new Table(response.getString("name"), response.getInt("x_coord"), response.getInt("y_coord"), response.getInt("status"), "", "", response.getInt("number_seats"), tableListView.this, mRootLayout);
+                    //// TODO
+                    Table temp = new Table(response.getString("name"), response.getInt("x_coord"), response.getInt("y_coord"), response.getInt("status"), response.getInt("employeeID"), "", response.getInt("number_seats"), tableListView.this, mRootLayout);
                     allTheTables.add(temp);
                     temp.addListItem(mRootLayout);
                     retrieveTables(index+1,s);

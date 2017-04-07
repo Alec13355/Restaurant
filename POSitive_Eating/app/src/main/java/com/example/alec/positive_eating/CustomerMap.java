@@ -36,7 +36,8 @@ import java.util.ArrayList;
  * written by Github user Akexorcist.
  */
 public class CustomerMap extends AppCompatActivity implements OnMapReadyCallback,
-        DirectionCallback, GoogleApiClient.ConnectionCallbacks, GoogleApiClient.OnConnectionFailedListener {
+        DirectionCallback, GoogleApiClient.ConnectionCallbacks,
+        GoogleApiClient.OnConnectionFailedListener {
 
     private GoogleMap googleMap;
     private String serverKey = "AIzaSyC9KxRvcZhsLFBf7ggjZN4zO1lOJCUoMy4";
@@ -61,6 +62,7 @@ public class CustomerMap extends AppCompatActivity implements OnMapReadyCallback
         mapFragment.getMapAsync(this);
         */
     }
+
     @Override
     protected void onStart() {
         client.connect();
@@ -84,7 +86,8 @@ public class CustomerMap extends AppCompatActivity implements OnMapReadyCallback
     public void onMapReady(GoogleMap gMap) {
         googleMap = gMap;
         googleMap.animateCamera(CameraUpdateFactory.newLatLngZoom(camera, 13));
-        if (ContextCompat.checkSelfPermission(this, android.Manifest.permission.ACCESS_FINE_LOCATION)
+        if (ContextCompat.checkSelfPermission(this,
+                android.Manifest.permission.ACCESS_FINE_LOCATION)
                 == PackageManager.PERMISSION_GRANTED) {
             googleMap.setMyLocationEnabled(true);
         } else {

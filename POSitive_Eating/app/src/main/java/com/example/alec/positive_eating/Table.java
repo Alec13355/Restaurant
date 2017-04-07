@@ -34,7 +34,8 @@ public class Table {
     private int xPos;
     private int yPos;
     private int Status;
-    private String employeeID;
+    private int employeeID;
+    //TODO
     private String customerID;
     private Context tableContext;
     private ViewGroup mRootLayout;
@@ -52,7 +53,8 @@ public class Table {
      * @param employeeID
      * @param customerID
      */
-    Table(String ID, int xPOS, int yPOS, int Status, String employeeID, String customerID, int Seats, Context context, ViewGroup mRootLayout) {
+    //TODO
+    Table(String ID, int xPOS, int yPOS, int Status, int employeeID, String customerID, int Seats, Context context, ViewGroup mRootLayout) {
         this.ID = ID;
         if(xPOS > 0) { this.xPos = xPOS; }
         else{ this.xPos = 10; }
@@ -75,15 +77,15 @@ public class Table {
      * @param yPOS
      */
     Table(String ID, int xPOS, int yPOS, Context context, ViewGroup mRootLayout) {
-        this(ID, xPOS, yPOS, 0, "", "", 0, context, mRootLayout);
+        this(ID, xPOS, yPOS, 0, -1, "", 0, context, mRootLayout);
     }
 
     Table(String ID, Context context, ViewGroup mRootLayout){
-        this(ID, 100, 100, 0, "", "", 0, context, mRootLayout);
+        this(ID, 100, 100, 0, -1, "", 0, context, mRootLayout);
     }
 
     Table(String ID, int Seats, Context context, ViewGroup mRootLayout){
-        this(ID, 100, 100, 0, "", "", Seats, context, mRootLayout);
+        this(ID, 100, 100, 0, -1, "", Seats, context, mRootLayout);
     }
 
     /**
@@ -91,7 +93,7 @@ public class Table {
      */
     protected void saveTable() {
         shaneconnect.ShaneConnect vista = getShaneConnect();
-        vista.setTable(ID, xPos, yPos, Seats, Status, new Response.Listener<JSONObject>() {
+        vista.setTable(ID, xPos, yPos, Seats, Status, employeeID, new Response.Listener<JSONObject>() {
             @Override
             public void onResponse(JSONObject response) {
                 System.out.println(response.toString());
@@ -146,7 +148,7 @@ public class Table {
      *
      * @param employeeID
      */
-    protected void setEmployeeID(String employeeID) {
+    protected void setEmployeeID(int employeeID) {
         this.employeeID = employeeID;
         this.saveTable();
     }
@@ -156,6 +158,7 @@ public class Table {
      *
      * @param customerID
      */
+    //TODO
     protected void setCustomerID(String customerID) {
         this.customerID = customerID;
         this.saveTable();
@@ -211,7 +214,7 @@ public class Table {
      *
      * @return employeeID
      */
-    protected String getEmployeeID() {
+    protected int getEmployeeID() {
         updateTable();
         return this.employeeID;
     }
@@ -221,6 +224,7 @@ public class Table {
      *
      * @return customerID
      */
+    //TODO
     protected String getCustomerID() {
         updateTable();
         return this.customerID;

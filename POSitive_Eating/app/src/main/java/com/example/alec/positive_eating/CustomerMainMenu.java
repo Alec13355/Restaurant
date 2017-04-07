@@ -42,8 +42,6 @@ public class CustomerMainMenu extends AppCompatActivity implements View.OnClickL
                 loadMenu();break;
             case R.id.reservation:
                 loadRes();break;
-            case R.id.orders:
-                loadOrders();break;
             default:
                 break;
         }
@@ -93,7 +91,4 @@ public class CustomerMainMenu extends AppCompatActivity implements View.OnClickL
         startActivity(new Intent(this, CustomerOrderMenu.class));
     }
 
-    private void loadOrders() {
-        startActivity(new Intent(this, CookOrderList.class));
-    }
 }
