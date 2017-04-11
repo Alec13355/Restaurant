@@ -26,6 +26,7 @@ CREATE TABLE `CUSTOMER` (
   `USER_NAME` varchar(30) NOT NULL,
   `CUSTOMER_ID` mediumint(255) NOT NULL AUTO_INCREMENT,
   `EMAIL` varchar(50) NOT NULL,
+  `PASS` varchar(50) NOT NULL,
   PRIMARY KEY (`CUSTOMER_ID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -109,7 +110,7 @@ DROP TABLE IF EXISTS `FOOD`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `FOOD` (
-  `NAME` varchar(200) NOT NULL,
+  `NAME` varchar(30) NOT NULL,
   `FOOD_ID` mediumint(9) NOT NULL AUTO_INCREMENT,
   `QUANTITY` mediumint(9) NOT NULL,
   `PRICE` mediumint(9) NOT NULL,
@@ -168,6 +169,7 @@ CREATE TABLE `RESERVATIONS` (
   `ID` mediumint(9) NOT NULL AUTO_INCREMENT,
   `TABLE_ID` mediumint(9) NOT NULL,
   `STATUS` int(11) NOT NULL,
+  `CUSTOMER_ID` mediumint(50) NOT NULL,
   PRIMARY KEY (`ID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -179,32 +181,6 @@ CREATE TABLE `RESERVATIONS` (
 LOCK TABLES `RESERVATIONS` WRITE;
 /*!40000 ALTER TABLE `RESERVATIONS` DISABLE KEYS */;
 /*!40000 ALTER TABLE `RESERVATIONS` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
--- Table structure for table `SCHEDULE`
---
-
-DROP TABLE IF EXISTS `SCHEDULE`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `SCHEDULE` (
-  `sched_id` mediumint(50) NOT NULL AUTO_INCREMENT,
-  `EMPLOYEE_ID` mediumint(50) NOT NULL,
-  `DAY_OF_WEEK` mediumint(9) NOT NULL,
-  `START_TIME` mediumint(9) NOT NULL,
-  `END_TIME` mediumint(9) NOT NULL,
-  PRIMARY KEY (`sched_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `SCHEDULE`
---
-
-LOCK TABLES `SCHEDULE` WRITE;
-/*!40000 ALTER TABLE `SCHEDULE` DISABLE KEYS */;
-/*!40000 ALTER TABLE `SCHEDULE` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -221,6 +197,7 @@ CREATE TABLE `TABLES` (
   `Y_COORD` int(11) NOT NULL,
   `NUM_SEATS` int(11) NOT NULL,
   `STATUS` int(11) NOT NULL,
+  `EMPLOYEE_ID` mediumint(50) NOT NULL,
   PRIMARY KEY (`TABLE_ID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -243,4 +220,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2017-03-24  0:00:54
+-- Dump completed on 2017-04-06 12:43:22
