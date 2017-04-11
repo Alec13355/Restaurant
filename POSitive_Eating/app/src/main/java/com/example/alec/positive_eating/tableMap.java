@@ -13,14 +13,14 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.RelativeLayout;
 
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.List;
-
 import com.android.volley.Response;
 
 import org.json.JSONException;
 import org.json.JSONObject;
+
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
 
 import static com.example.alec.positive_eating.Singleton_ShaneConnect_Factory.getShaneConnect;
 
@@ -106,7 +106,7 @@ public class tableMap extends Activity {
                 try{
                     //Toast.makeText(getApplicationContext(), response.toString(), Toast.LENGTH_LONG).show();
                     //TODO
-                    Table temp = new Table(response.getString("name"), response.getInt("x_coord"), response.getInt("y_coord"), response.getInt("status"), response.getInt("employeeID"), "", response.getInt("number_seats"), tableMap.this, mRootLayout);
+                    Table temp = new Table(response.getString("name"), response.getInt("x_coord"), response.getInt("y_coord"), response.getInt("status"), response.getInt("employee_id"), "", response.getInt("number_seats"), tableMap.this, mRootLayout);
                     allTheTables.add(temp);
                     temp.drawManagerTable();
                     retrieveTables(index+1,s);

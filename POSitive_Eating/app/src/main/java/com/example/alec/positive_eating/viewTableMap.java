@@ -11,15 +11,15 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.RelativeLayout;
 
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.List;
-
 import com.android.volley.Response;
 
 import org.json.JSONException;
 import org.json.JSONObject;
-import com.example.alec.positive_eating.Table;
+
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
+
 import static com.example.alec.positive_eating.Singleton_ShaneConnect_Factory.getShaneConnect;
 
 /**
@@ -51,7 +51,7 @@ public class  viewTableMap extends Activity {
 
             @Override
             public void onClick(View v) {
-                Intent myIntent = new Intent(viewTableMap.this, viewTableMap.class); /** Class name here */
+                Intent myIntent = new Intent(viewTableMap.this, tableListView.class); /** Class name here */
 
                 viewTableMap.this.startActivity(myIntent);
             }
@@ -79,7 +79,7 @@ public class  viewTableMap extends Activity {
                 try{
                     //Toast.makeText(getApplicationContext(), response.toString(), Toast.LENGTH_LONG).show();
                     //TODO
-                    Table temp = new Table(response.getString("name"), response.getInt("x_coord"), response.getInt("y_coord"), response.getInt("status"), response.getInt("employeeID"), "", response.getInt("number_seats"), viewTableMap.this, mRootLayout);
+                    Table temp = new Table(response.getString("name"), response.getInt("x_coord"), response.getInt("y_coord"), response.getInt("status"), 0, " ", response.getInt("number_seats"), viewTableMap.this, mRootLayout);
                     allTheTables.add(temp);
                     temp.drawTable();
                     retrieveTables(index+1,s);
