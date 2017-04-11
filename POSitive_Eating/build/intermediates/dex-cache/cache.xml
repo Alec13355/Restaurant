@@ -3,687 +3,651 @@
 
     <item
         is-multidex="true"
-        jar="C:\Users\ethantw\GITHW\POSitive_Eating\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-tagmanager-api\10.0.1\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.2"
-        sha1="b1df8fa3d372a27e4e969ce00b00689ee1eed031">
-        <dex dex="C:\Users\ethantw\GITHW\POSitive_Eating\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-tagmanager-api-10.0.1_ba77b5d1a76e6bd406e01f3d42b9587e7c76cd0e\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\ethantw\GITHW\POSitive_Eating\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-ads-lite\10.0.1\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.2"
-        sha1="b955cb3a1ad6f1b6ff728ce1e0cd592c1717b440">
-        <dex dex="C:\Users\ethantw\GITHW\POSitive_Eating\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-ads-lite-10.0.1_78f1ae7c300469a7573b77ca1e211c4feccf95c5\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\ethantw\GITHW\POSitive_Eating\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-identity\10.0.1\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.2"
-        sha1="a48dc0b148059764d32500be558702d5ff932058">
-        <dex dex="C:\Users\ethantw\GITHW\POSitive_Eating\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-identity-10.0.1_0ed27f5206ad02b9f30059fe867de576aa81a409\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\ethantw\GITHW\POSitive_Eating\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-nearby\10.0.1\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.2"
-        sha1="c6e1f361e9d61aece9dac39b77fcc98a337a144d">
-        <dex dex="C:\Users\ethantw\GITHW\POSitive_Eating\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-nearby-10.0.1_ecd5cbab884d66ad2c0a74799dd1e6c857e77bb2\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\ethantw\GITHW\POSitive_Eating\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-cast-framework\10.0.1\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.2"
-        sha1="df1cb17511aabbb63264a0024949d1e42502a512">
-        <dex dex="C:\Users\ethantw\GITHW\POSitive_Eating\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-cast-framework-10.0.1_99b56589817cf9fa052e6fb7ab15fbef178c1ad4\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\ethantw\GITHW\POSitive_Eating\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-location\10.0.1\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.2"
-        sha1="44a694d4095be84c2888764b1f7256b385c030ad">
-        <dex dex="C:\Users\ethantw\GITHW\POSitive_Eating\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-location-10.0.1_739413ab1cfeeed88aeaa854ad497c3e5ac43ec0\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\ethantw\GITHW\POSitive_Eating\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-wallet\10.0.1\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.2"
-        sha1="2d5d113b0352ab60946fc44c518cf68fd26cbb79">
-        <dex dex="C:\Users\ethantw\GITHW\POSitive_Eating\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-wallet-10.0.1_27a6de48ea2abfe3df4f7ae2485393865161bf9c\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\ethantw\GITHW\POSitive_Eating\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-awareness\10.0.1\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.2"
-        sha1="4385ccc0a88b33d182a836eadb47be55c8eb1107">
-        <dex dex="C:\Users\ethantw\GITHW\POSitive_Eating\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-awareness-10.0.1_57dc19b5ad88e6998364c5ead716852101293f9e\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\ethantw\GITHW\POSitive_Eating\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-fitness\10.0.1\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.2"
-        sha1="7a64bf6dc775198eed9db9468a133adf7dfe6562">
-        <dex dex="C:\Users\ethantw\GITHW\POSitive_Eating\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-fitness-10.0.1_8af5be602f1eb29f8e61c4a200c82d3fc0b9bc43\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\ethantw\.gradle\caches\modules-2\files-2.1\com.squareup.retrofit2\converter-gson\2.1.0\aa557d71ead91cbf26e0c316a0f593d168303309\converter-gson-2.1.0.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.2"
-        sha1="aa557d71ead91cbf26e0c316a0f593d168303309">
-        <dex dex="C:\Users\ethantw\GITHW\POSitive_Eating\app\build\intermediates\transforms\dex\debug\folders\1000\10\converter-gson-2.1.0_f3b01bde2c2cda016abc35596267d393c9e85547\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\ethantw\.gradle\caches\modules-2\files-2.1\com.google.code.gson\gson\2.7\751f548c85fa49f330cecbb1875893f971b33c4e\gson-2.7.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.2"
-        sha1="751f548c85fa49f330cecbb1875893f971b33c4e">
-        <dex dex="C:\Users\ethantw\GITHW\POSitive_Eating\app\build\intermediates\transforms\dex\debug\folders\1000\10\gson-2.7_12774718a9c3ae475ae2fe758b06cfefd041afd9\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\ethantw\GITHW\POSitive_Eating\app\build\intermediates\exploded-aar\com.android.support\support-vector-drawable\24.0.0\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.2"
-        sha1="3bd97cfefd783e9de1dd1c30574a6adb44b4409b">
-        <dex dex="C:\Users\ethantw\GITHW\POSitive_Eating\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-support-vector-drawable-24.0.0_bfea9d943b195c59d0aa4702a86b53c0ead98e2f\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\ethantw\GITHW\POSitive_Eating\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-iid\10.0.1\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.2"
-        sha1="6bb5d347ebc0c6ef3c83a905222a688da5d2f7b4">
-        <dex dex="C:\Users\ethantw\GITHW\POSitive_Eating\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-iid-10.0.1_c5a5ee8c04338972368b15205de9aff4b228e77a\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\ethantw\GITHW\POSitive_Eating\app\build\intermediates\exploded-aar\com.android.support\recyclerview-v7\23.4.0\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.2"
-        sha1="ec75036c3c52e451d0cde50a5aedaf5fd32354a0">
-        <dex dex="C:\Users\ethantw\GITHW\POSitive_Eating\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-recyclerview-v7-23.4.0_07e3bc9f5a36edfa3c5e65785be7216c62a97922\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\ethantw\GITHW\POSitive_Eating\app\build\intermediates\exploded-aar\com.android.support\animated-vector-drawable\24.0.0\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.2"
-        sha1="e70f608219ed6b974644c333249ab2bb7b71de98">
-        <dex dex="C:\Users\ethantw\GITHW\POSitive_Eating\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-animated-vector-drawable-24.0.0_d62d766d036d3d2e0f4ba4ada5fee58f18035adf\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\ethantw\.gradle\caches\modules-2\files-2.1\org.hamcrest\hamcrest-core\1.3\42a25dc3219429f0e5d060061f71acb49bf010a0\hamcrest-core-1.3.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.2"
-        sha1="42a25dc3219429f0e5d060061f71acb49bf010a0">
-        <dex dex="C:\Users\ethantw\GITHW\POSitive_Eating\app\build\intermediates\transforms\dex\debug\folders\1000\10\hamcrest-core-1.3_7cdcf1c467739cf2242fddcd9ac91b3b35fceffa\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\ethantw\GITHW\POSitive_Eating\app\build\intermediates\exploded-aar\com.google.firebase\firebase-database-connection\10.0.1\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.2"
-        sha1="8010ae6ed32828a145b25ec97bc07b7a83c6318f">
-        <dex dex="C:\Users\ethantw\GITHW\POSitive_Eating\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.firebase-firebase-database-connection-10.0.1_cd480722de63f56714b1f704b317fef1f3a1299b\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\ethantw\GITHW\POSitive_Eating\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-places\10.0.1\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.2"
-        sha1="f3e51e9c5233b8897f61e08a6a27bc36283c2724">
-        <dex dex="C:\Users\ethantw\GITHW\POSitive_Eating\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-places-10.0.1_6700e730742a3c352c8d1f11b5e77cfecae24f6e\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\ethantw\GITHW\POSitive_Eating\app\build\intermediates\exploded-aar\com.google.firebase\firebase-config\10.0.1\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.2"
-        sha1="ffc15e965a9e8c28f24455eedd4cac215c45d1fc">
-        <dex dex="C:\Users\ethantw\GITHW\POSitive_Eating\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.firebase-firebase-config-10.0.1_98ea8757349431a26452ff3d092538dd5e488354\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\ethantw\GITHW\POSitive_Eating\app\build\intermediates\exploded-aar\com.android.volley\volley\1.0.0\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.2"
-        sha1="2cd4b982617e544728de0782d718a58ce1b06e3f">
-        <dex dex="C:\Users\ethantw\GITHW\POSitive_Eating\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.volley-volley-1.0.0_b81a92822b171460d1439a03c97bf122b7654d74\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\ethantw\GITHW\POSitive_Eating\app\build\intermediates\exploded-aar\com.google.firebase\firebase-common\10.0.1\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.2"
-        sha1="eb0d830e3eabb9deb9ec44869cf7ac7ea1ad794c">
-        <dex dex="C:\Users\ethantw\GITHW\POSitive_Eating\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.firebase-firebase-common-10.0.1_75aac3534a86b9935143565bcb468aa70cc30c3e\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\ethantw\GITHW\POSitive_Eating\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-clearcut\10.0.1\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.2"
-        sha1="1d193729baf37df3d902a423291423a0df7e3779">
-        <dex dex="C:\Users\ethantw\GITHW\POSitive_Eating\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-clearcut-10.0.1_7ac3bb5c13d687e48f3de9b975befbedb33392c7\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\ethantw\GITHW\POSitive_Eating\app\build\intermediates\exploded-aar\com.android.support\design\23.4.0\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.2"
-        sha1="5326d9a850d491714fef8cbfaa9ea3416f0bf0d2">
-        <dex dex="C:\Users\ethantw\GITHW\POSitive_Eating\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-design-23.4.0_00c07e37a8484e9feab1f7f4cb4cd9c1ec7dc2a2\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\ethantw\GITHW\POSitive_Eating\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-gcm\10.0.1\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.2"
-        sha1="8308ed003522a2ee8958311afcc4cfd0470377cd">
-        <dex dex="C:\Users\ethantw\GITHW\POSitive_Eating\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-gcm-10.0.1_93a4a2980af545f4e88b1bef62d905f7ae032202\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\ethantw\GITHW\POSitive_Eating\app\build\intermediates\exploded-aar\com.google.firebase\firebase-storage-common\10.0.1\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.2"
-        sha1="09cf6aa1390f95157e8295d02be7868f568825fc">
-        <dex dex="C:\Users\ethantw\GITHW\POSitive_Eating\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.firebase-firebase-storage-common-10.0.1_7ef98332160d5a937cf2d3a5bd6ee8063893e111\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\ethantw\GITHW\POSitive_Eating\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-ads\10.0.1\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.2"
-        sha1="d0460bf07cc3657e0be518ca01c174493951c6b8">
-        <dex dex="C:\Users\ethantw\GITHW\POSitive_Eating\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-ads-10.0.1_101f4507a56e503ee83b8a4dd686280dfc1ca3f8\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\ethantw\GITHW\POSitive_Eating\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-gass\10.0.1\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.2"
-        sha1="57c2eceb8548de84509d1ebc293fedec53231f6c">
-        <dex dex="C:\Users\ethantw\GITHW\POSitive_Eating\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-gass-10.0.1_5a16dad11c46e4108b1dddf2576574abcbccb582\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\ethantw\GITHW\POSitive_Eating\app\build\intermediates\exploded-aar\com.google.firebase\firebase-crash\10.0.1\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.2"
-        sha1="de29a39f9260f88151b1ef453140e71c76b6c415">
-        <dex dex="C:\Users\ethantw\GITHW\POSitive_Eating\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.firebase-firebase-crash-10.0.1_2b5a1bb0a0740c33b17569e5e72164f3f074ffa3\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\ethantw\GITHW\POSitive_Eating\app\build\intermediates\exploded-aar\com.android.support\support-fragment\25.1.1\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.2"
-        sha1="e2719c102dca3a7a5b02ce07f769362da6ddb4ab">
-        <dex dex="C:\Users\ethantw\GITHW\POSitive_Eating\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-support-fragment-25.1.1_c6cec9f4a3d0ed7cfa6693ee3b76887878189772\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\ethantw\GITHW\POSitive_Eating\app\build\intermediates\incremental-classes\debug\instant-run-bootstrap.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.2"
-        sha1="124e3bab59bf7952ecfa132fd7550876ff05646a">
-        <dex dex="C:\Users\ethantw\GITHW\POSitive_Eating\app\build\intermediates\transforms\dex\debug\folders\1000\10\instant-run-bootstrap_a8d17a1cfbbed526a1bf74fa3d77d5bcc4e41d1e\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\ethantw\GITHW\POSitive_Eating\app\build\intermediates\exploded-aar\com.google.firebase\firebase-storage\10.0.1\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.2"
-        sha1="dd39827d2067497e60e21da48a7926000b6d4b0c">
-        <dex dex="C:\Users\ethantw\GITHW\POSitive_Eating\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.firebase-firebase-storage-10.0.1_fc7cc006c621e721743a087391e8a69fcb7891d2\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\ethantw\GITHW\POSitive_Eating\app\build\intermediates\exploded-aar\com.android.support\support-media-compat\25.1.1\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.2"
-        sha1="7bde4c34162092e0a77e7f12dc85ed77c484cf5c">
-        <dex dex="C:\Users\ethantw\GITHW\POSitive_Eating\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-support-media-compat-25.1.1_e6555c503da0342c866980aacc6c09e2fe0336fa\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\ethantw\GITHW\POSitive_Eating\app\build\intermediates\exploded-aar\com.akexorcist\googledirectionlibrary\1.0.5\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.2"
-        sha1="d720627a0fdd516f238c3acdfac6043e7717b742">
-        <dex dex="C:\Users\ethantw\GITHW\POSitive_Eating\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.akexorcist-googledirectionlibrary-1.0.5_a86897a6206f5241a190a9da207e2f5e907c1697\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\ethantw\GITHW\POSitive_Eating\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-cast\10.0.1\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.2"
-        sha1="771267c5b0c7a5b348d3205dcfa1f871af7e0177">
-        <dex dex="C:\Users\ethantw\GITHW\POSitive_Eating\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-cast-10.0.1_61eec9a92acdcb39ddbbbcebcdfa78916de8d411\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\ethantw\GITHW\POSitive_Eating\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-instantapps\10.0.1\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.2"
-        sha1="45305e6af414dab5aba6c3225081c2f15c3bdd1e">
-        <dex dex="C:\Users\ethantw\GITHW\POSitive_Eating\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-instantapps-10.0.1_f2c8f627a76e386e8e223aff8a8e3315816a0e9c\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\ethantw\GITHW\POSitive_Eating\app\build\intermediates\exploded-aar\com.android.support\mediarouter-v7\24.0.0\jars\libs\internal_impl-24.0.0.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.2"
-        sha1="b6763651ec29b4c95e7bbe63fc393ffcc8c4c2c5">
-        <dex dex="C:\Users\ethantw\GITHW\POSitive_Eating\app\build\intermediates\transforms\dex\debug\folders\1000\10\internal_impl-24.0.0_2ab0d26b32f94d34afd9fbaaf09b45e73ba103a1\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\ethantw\GITHW\POSitive_Eating\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-appinvite\10.0.1\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.2"
-        sha1="39907d5c8f5902fffef30160ca7447c93b82405c">
-        <dex dex="C:\Users\ethantw\GITHW\POSitive_Eating\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-appinvite-10.0.1_5f673cadfc673bd538b76b02baf326b9e5ec504e\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\ethantw\GITHW\POSitive_Eating\app\build\intermediates\incremental-runtime-classes\debug\instant-run.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.2"
-        sha1="53d6204c97893d3ed5f8a964c52e46b097c03f4d">
-        <dex dex="C:\Users\ethantw\GITHW\POSitive_Eating\app\build\intermediates\transforms\dex\debug\folders\1000\10\instant-run_d89c9772a2d95a21c89ddd62091ef5c6d415f174\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\ethantw\GITHW\POSitive_Eating\app\build\intermediates\exploded-aar\com.android.support\support-compat\25.1.1\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.2"
-        sha1="02741d05d4b697fba5e279e9881aaa1da0ca7c7f">
-        <dex dex="C:\Users\ethantw\GITHW\POSitive_Eating\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-support-compat-25.1.1_5460d0cc5d5a01046e4538999cbedde3761f4c60\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\ethantw\.gradle\caches\modules-2\files-2.1\com.squareup.retrofit2\retrofit\2.1.0\2de7cd8b95b7021b1d597f049bcb422055119f2c\retrofit-2.1.0.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.2"
-        sha1="2de7cd8b95b7021b1d597f049bcb422055119f2c">
-        <dex dex="C:\Users\ethantw\GITHW\POSitive_Eating\app\build\intermediates\transforms\dex\debug\folders\1000\10\retrofit-2.1.0_19103d3093dc1b488e60342ff2931343fc82a770\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\ethantw\GITHW\POSitive_Eating\app\build\intermediates\exploded-aar\shaneconnect-release\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.2"
-        sha1="7ca8b773c6330623a2b7b0be84bebb0db0abe6c4">
-        <dex dex="C:\Users\ethantw\GITHW\POSitive_Eating\app\build\intermediates\transforms\dex\debug\folders\1000\10\intermediates-exploded-aar-shaneconnect-release_f09a82671f845c1a92dfcb779845af35f1002a3b\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\ethantw\GITHW\POSitive_Eating\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-tagmanager\10.0.1\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.2"
-        sha1="971509bbe30bb7b971fc1c49d7b23d0d818830ac">
-        <dex dex="C:\Users\ethantw\GITHW\POSitive_Eating\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-tagmanager-10.0.1_bbdfcf41577c16676945f587c1ed0bd4b9e09b72\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\ethantw\GITHW\POSitive_Eating\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-drive\10.0.1\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.2"
-        sha1="028f8255cb977b29cdffbfcf05caa0459686120c">
-        <dex dex="C:\Users\ethantw\GITHW\POSitive_Eating\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-drive-10.0.1_ffc57051a1cc3c1a4ebdc97a54d9bb973b83fc66\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\ethantw\.gradle\caches\modules-2\files-2.1\com.squareup.okio\okio\1.9.0\f824591a0016efbaeddb8300bee54832a1398cfa\okio-1.9.0.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.2"
-        sha1="f824591a0016efbaeddb8300bee54832a1398cfa">
-        <dex dex="C:\Users\ethantw\GITHW\POSitive_Eating\app\build\intermediates\transforms\dex\debug\folders\1000\10\okio-1.9.0_0b7c932438271b86e3b9ff945c644820c48b9323\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\ethantw\GITHW\POSitive_Eating\app\build\intermediates\exploded-aar\com.google.firebase\firebase-database\10.0.1\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.2"
-        sha1="8f128aeeb7e31271b28a7adb9dac1f3a6ed9f5e7">
-        <dex dex="C:\Users\ethantw\GITHW\POSitive_Eating\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.firebase-firebase-database-10.0.1_af0623d0a9ed09cad81a3f6703c2c7bbac8e8bcf\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\ethantw\GITHW\POSitive_Eating\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-games\10.0.1\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.2"
-        sha1="1e11c68fec92a17c84dd8d1dd80e74c4e67b12e2">
-        <dex dex="C:\Users\ethantw\GITHW\POSitive_Eating\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-games-10.0.1_7fd2f29cd4d98af5d6f54dd174912ad134b8a724\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\ethantw\GITHW\POSitive_Eating\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-auth-base\10.0.1\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.2"
-        sha1="e96c6974cf924e7ee3b230e6847d5731423388c9">
-        <dex dex="C:\Users\ethantw\GITHW\POSitive_Eating\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-auth-base-10.0.1_5316b45ec6736ec27b36dfd2d1be0133813b4a20\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\ethantw\GITHW\POSitive_Eating\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-analytics-impl\10.0.1\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.2"
-        sha1="e871881b36b32e6bfd271a830c6eeb54ff0fc185">
-        <dex dex="C:\Users\ethantw\GITHW\POSitive_Eating\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-analytics-impl-10.0.1_d46a3ac1f7a8e6bd65117c80911fe1cd2cd90ead\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\ethantw\GITHW\POSitive_Eating\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-panorama\10.0.1\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.2"
-        sha1="92c871a22463a247e8a77a9f3fd231c278788c4a">
-        <dex dex="C:\Users\ethantw\GITHW\POSitive_Eating\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-panorama-10.0.1_495a5fa72fe16579584a22d85ff121a8961166d8\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\ethantw\GITHW\POSitive_Eating\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-auth\10.0.1\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.2"
-        sha1="e2185aff89caeb337b1ffc36d5e525d8318e7cfe">
-        <dex dex="C:\Users\ethantw\GITHW\POSitive_Eating\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-auth-10.0.1_f8b05c3c01c7f002d9351ff45c721eacd329d9fe\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\ethantw\GITHW\POSitive_Eating\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-vision\10.0.1\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.2"
-        sha1="ba6aa5e69ef31dee57208125323cee958fc67565">
-        <dex dex="C:\Users\ethantw\GITHW\POSitive_Eating\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-vision-10.0.1_d64e0ea889e7901070c2cc0788255f3a127da384\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\ethantw\GITHW\POSitive_Eating\app\build\intermediates\exploded-aar\com.android.support\support-v4\25.1.1\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.2"
-        sha1="d7c42c80f6509b9ea4db28ca7859ffae08ec5741">
-        <dex dex="C:\Users\ethantw\GITHW\POSitive_Eating\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-support-v4-25.1.1_02e22fb2eca0b116aa204226e7c40562195c5d58\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\ethantw\GITHW\POSitive_Eating\app\build\intermediates\exploded-aar\com.google.firebase\firebase-auth\10.0.1\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.2"
-        sha1="9cca2818594cc5348806d6662133491e7ea0fa8d">
-        <dex dex="C:\Users\ethantw\GITHW\POSitive_Eating\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.firebase-firebase-auth-10.0.1_ce3e9f510d48e966b500cc4f476cccfc79c18829\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\ethantw\GITHW\POSitive_Eating\app\build\intermediates\exploded-aar\com.google.firebase\firebase-appindexing\10.0.1\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.2"
-        sha1="ae80d328a8548b4610ead6c624bab8c6a6984f5b">
-        <dex dex="C:\Users\ethantw\GITHW\POSitive_Eating\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.firebase-firebase-appindexing-10.0.1_9f3862d4b01e909a09894fa2d64767167593a589\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\ethantw\GITHW\POSitive_Eating\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-tagmanager-v4-impl\10.0.1\jars\classes.jar"
+        jar="/Users/Alec/Desktop/Proj try 2/POSitive_Eating/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-tagmanager-v4-impl/10.0.1/jars/classes.jar"
         jumboMode="true"
         optimize="true"
         revision="25.0.2"
         sha1="f23ad0f8e58713ff4b55f61c0bbde3830378347c">
-        <dex dex="C:\Users\ethantw\GITHW\POSitive_Eating\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-tagmanager-v4-impl-10.0.1_00c3ac286917944d6c98255488c854c72a40ea45\classes.dex" />
+        <dex dex="/Users/Alec/Desktop/Proj try 2/POSitive_Eating/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.android.gms-play-services-tagmanager-v4-impl-10.0.1_d29db20f694dbea8c3e23c7356481381166dcec2/classes.dex" />
     </item>
     <item
         is-multidex="true"
-        jar="C:\Users\ethantw\GITHW\POSitive_Eating\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-safetynet\10.0.1\jars\classes.jar"
+        jar="/Users/Alec/Desktop/Proj try 2/POSitive_Eating/app/build/intermediates/exploded-aar/com.android.support/support-v4/24.0.0/jars/classes.jar"
         jumboMode="true"
         optimize="true"
         revision="25.0.2"
-        sha1="f6cf557be4dbd0282ea2388633e5378634423226">
-        <dex dex="C:\Users\ethantw\GITHW\POSitive_Eating\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-safetynet-10.0.1_a704ec612959be6612f8c054c6faccebe571a7ee\classes.dex" />
+        sha1="2f7e6e2dad1bccaf68a8820820adc6c0d5b96d37">
+        <dex dex="/Users/Alec/Desktop/Proj try 2/POSitive_Eating/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-support-v4-24.0.0_3066910afc66053255fa3fc11ceea08918bf07a8/classes.dex" />
     </item>
     <item
         is-multidex="true"
-        jar="C:\Users\ethantw\GITHW\POSitive_Eating\app\build\intermediates\exploded-aar\com.android.support\mediarouter-v7\24.0.0\jars\classes.jar"
+        jar="/Users/Alec/Desktop/Proj try 2/POSitive_Eating/app/build/intermediates/exploded-aar/com.android.support/support-vector-drawable/24.0.0/jars/classes.jar"
         jumboMode="true"
         optimize="true"
         revision="25.0.2"
-        sha1="b327fbe2fad414bc38cf0ce8f7efe1a38f572837">
-        <dex dex="C:\Users\ethantw\GITHW\POSitive_Eating\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-mediarouter-v7-24.0.0_b25d9f55aac177f379dd561ea9c305847df3aed9\classes.dex" />
+        sha1="3bd97cfefd783e9de1dd1c30574a6adb44b4409b">
+        <dex dex="/Users/Alec/Desktop/Proj try 2/POSitive_Eating/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-support-vector-drawable-24.0.0_554a12049b2496dacb4839bee798d5c29b17242a/classes.dex" />
     </item>
     <item
         is-multidex="true"
-        jar="C:\Users\ethantw\GITHW\POSitive_Eating\app\build\intermediates\exploded-aar\com.android.support\support-core-utils\25.1.1\jars\classes.jar"
+        jar="/Users/Alec/Desktop/Proj try 2/POSitive_Eating/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-analytics-impl/10.0.1/jars/classes.jar"
         jumboMode="true"
         optimize="true"
         revision="25.0.2"
-        sha1="0fb891e8f0cfba0513043a7bb357513d229ca2cd">
-        <dex dex="C:\Users\ethantw\GITHW\POSitive_Eating\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-support-core-utils-25.1.1_720a98e6154be58e683e2e717f2c9d8a07077c73\classes.dex" />
+        sha1="e871881b36b32e6bfd271a830c6eeb54ff0fc185">
+        <dex dex="/Users/Alec/Desktop/Proj try 2/POSitive_Eating/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.android.gms-play-services-analytics-impl-10.0.1_6782cc11a1514c5196c0cff7e344c16e9df51b26/classes.dex" />
     </item>
     <item
         is-multidex="true"
-        jar="C:\Users\ethantw\GITHW\POSitive_Eating\app\build\intermediates\exploded-aar\com.google.firebase\firebase-messaging\10.0.1\jars\classes.jar"
+        jar="/Users/Alec/Desktop/Proj try 2/POSitive_Eating/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-awareness/10.0.1/jars/classes.jar"
         jumboMode="true"
         optimize="true"
         revision="25.0.2"
-        sha1="4b17463c814bdc562fb0392fa3494063623a0904">
-        <dex dex="C:\Users\ethantw\GITHW\POSitive_Eating\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.firebase-firebase-messaging-10.0.1_25b57c2bc081fddc146bb8458f6de1f847a55187\classes.dex" />
+        sha1="4385ccc0a88b33d182a836eadb47be55c8eb1107">
+        <dex dex="/Users/Alec/Desktop/Proj try 2/POSitive_Eating/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.android.gms-play-services-awareness-10.0.1_ffce99fedfe3f1117743d0a2216384778251e1ef/classes.dex" />
     </item>
     <item
         is-multidex="true"
-        jar="C:\Users\ethantw\GITHW\POSitive_Eating\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-maps\10.0.1\jars\classes.jar"
+        jar="/Users/Alec/Desktop/Proj try 2/POSitive_Eating/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-cast/10.0.1/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="771267c5b0c7a5b348d3205dcfa1f871af7e0177">
+        <dex dex="/Users/Alec/Desktop/Proj try 2/POSitive_Eating/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.android.gms-play-services-cast-10.0.1_bb5419dc87a9a2230ce4fbd1ac59a359d8919b48/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/Alec/Desktop/Proj try 2/POSitive_Eating/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-gcm/10.0.1/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="8308ed003522a2ee8958311afcc4cfd0470377cd">
+        <dex dex="/Users/Alec/Desktop/Proj try 2/POSitive_Eating/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.android.gms-play-services-gcm-10.0.1_fac5ab17186fe39fe76ffe5eec78e8a379d9d0a6/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/Alec/Desktop/Proj try 2/POSitive_Eating/app/build/intermediates/exploded-aar/com.google.firebase/firebase-storage-common/10.0.1/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="09cf6aa1390f95157e8295d02be7868f568825fc">
+        <dex dex="/Users/Alec/Desktop/Proj try 2/POSitive_Eating/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.firebase-firebase-storage-common-10.0.1_b98c652e314c7d7419bb9a45c6df8a21807e3c45/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/Alec/Desktop/Proj try 2/POSitive_Eating/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-maps/10.0.1/jars/classes.jar"
         jumboMode="true"
         optimize="true"
         revision="25.0.2"
         sha1="27777b3cad3c20b1acab19f6e37fe3e03371bf6e">
-        <dex dex="C:\Users\ethantw\GITHW\POSitive_Eating\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-maps-10.0.1_9fd59a4d750fd2bb54fc0cb38e4f4a6db0f05be1\classes.dex" />
+        <dex dex="/Users/Alec/Desktop/Proj try 2/POSitive_Eating/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.android.gms-play-services-maps-10.0.1_604c4982cabfc0dea93d51d704cbc18bd3c9e5f6/classes.dex" />
     </item>
     <item
         is-multidex="true"
-        jar="C:\Users\ethantw\.gradle\caches\modules-2\files-2.1\com.squareup.okhttp3\logging-interceptor\3.4.1\381fc1096ba65040d8e80ea43b2e1d9bad02345e\logging-interceptor-3.4.1.jar"
+        jar="/Users/Alec/Desktop/Proj try 2/POSitive_Eating/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-identity/10.0.1/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="a48dc0b148059764d32500be558702d5ff932058">
+        <dex dex="/Users/Alec/Desktop/Proj try 2/POSitive_Eating/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.android.gms-play-services-identity-10.0.1_c7146875e38ef8b0649642856927962f183145a3/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/Alec/Desktop/Proj try 2/POSitive_Eating/app/build/intermediates/exploded-aar/com.android.volley/volley/1.0.0/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="2cd4b982617e544728de0782d718a58ce1b06e3f">
+        <dex dex="/Users/Alec/Desktop/Proj try 2/POSitive_Eating/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.volley-volley-1.0.0_d39e9b1610826f15d25909cdff60814cf04ea779/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/Alec/Desktop/Proj try 2/POSitive_Eating/app/build/intermediates/exploded-aar/com.google.firebase/firebase-crash/10.0.1/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="de29a39f9260f88151b1ef453140e71c76b6c415">
+        <dex dex="/Users/Alec/Desktop/Proj try 2/POSitive_Eating/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.firebase-firebase-crash-10.0.1_9e76fa26f6d6bcf8d1f4f48d92ade0914fe8f217/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/Alec/.gradle/caches/modules-2/files-2.1/com.squareup.okhttp3/logging-interceptor/3.4.1/381fc1096ba65040d8e80ea43b2e1d9bad02345e/logging-interceptor-3.4.1.jar"
         jumboMode="true"
         optimize="true"
         revision="25.0.2"
         sha1="381fc1096ba65040d8e80ea43b2e1d9bad02345e">
-        <dex dex="C:\Users\ethantw\GITHW\POSitive_Eating\app\build\intermediates\transforms\dex\debug\folders\1000\10\logging-interceptor-3.4.1_e1fa0d4f916d70ef4353abad3d13d7c1172fa7fe\classes.dex" />
+        <dex dex="/Users/Alec/Desktop/Proj try 2/POSitive_Eating/app/build/intermediates/transforms/dex/debug/folders/1000/10/logging-interceptor-3.4.1_708577f56a0d66b802abec0e624003f463e1bec7/classes.dex" />
     </item>
     <item
         is-multidex="true"
-        jar="C:\Users\ethantw\.gradle\caches\modules-2\files-2.1\junit\junit\4.12\2973d150c0dc1fefe998f834810d68f278ea58ec\junit-4.12.jar"
+        jar="/Users/Alec/Desktop/Proj try 2/POSitive_Eating/app/build/intermediates/exploded-aar/com.android.support/mediarouter-v7/24.0.0/jars/classes.jar"
         jumboMode="true"
         optimize="true"
         revision="25.0.2"
-        sha1="2973d150c0dc1fefe998f834810d68f278ea58ec">
-        <dex dex="C:\Users\ethantw\GITHW\POSitive_Eating\app\build\intermediates\transforms\dex\debug\folders\1000\10\junit-4.12_08547af132bc7606ec51c77699870f54810de6ef\classes.dex" />
+        sha1="b327fbe2fad414bc38cf0ce8f7efe1a38f572837">
+        <dex dex="/Users/Alec/Desktop/Proj try 2/POSitive_Eating/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-mediarouter-v7-24.0.0_fb829954a898e750267ee4943f6a8ced8651b43c/classes.dex" />
     </item>
     <item
         is-multidex="true"
-        jar="C:\Users\ethantw\GITHW\POSitive_Eating\app\build\intermediates\exploded-aar\com.google.firebase\firebase-iid\10.0.1\jars\classes.jar"
+        jar="/Users/Alec/Desktop/Proj try 2/POSitive_Eating/app/build/intermediates/incremental-classes/debug/instant-run-bootstrap.jar"
         jumboMode="true"
         optimize="true"
         revision="25.0.2"
-        sha1="486371f97baad8e607f332f20fee1d3dd00a731a">
-        <dex dex="C:\Users\ethantw\GITHW\POSitive_Eating\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.firebase-firebase-iid-10.0.1_ba0cfd39ccdec835edb6f2d76d9c8d1d9a92f842\classes.dex" />
+        sha1="c131ced940c587823f1f84fe9e6638923c84e52f">
+        <dex dex="/Users/Alec/Desktop/Proj try 2/POSitive_Eating/app/build/intermediates/transforms/dex/debug/folders/1000/10/instant-run-bootstrap_dc6edeedde2aae57b58d0e49fe560bfdf58ba7d7/classes.dex" />
     </item>
     <item
         is-multidex="true"
-        jar="C:\Users\ethantw\GITHW\POSitive_Eating\app\build\intermediates\exploded-aar\com.google.firebase\firebase-analytics-impl\10.0.1\jars\classes.jar"
+        jar="/Users/Alec/.gradle/caches/modules-2/files-2.1/com.squareup.retrofit2/converter-gson/2.1.0/aa557d71ead91cbf26e0c316a0f593d168303309/converter-gson-2.1.0.jar"
         jumboMode="true"
         optimize="true"
         revision="25.0.2"
-        sha1="6116e0e7069de7fc259aac8e08b84f32c2038231">
-        <dex dex="C:\Users\ethantw\GITHW\POSitive_Eating\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.firebase-firebase-analytics-impl-10.0.1_43d9cfa3d148da6cb553357f9c687a33edc51519\classes.dex" />
+        sha1="aa557d71ead91cbf26e0c316a0f593d168303309">
+        <dex dex="/Users/Alec/Desktop/Proj try 2/POSitive_Eating/app/build/intermediates/transforms/dex/debug/folders/1000/10/converter-gson-2.1.0_c7474ebec42b5a81e4e4444bf3f5c84833c9af17/classes.dex" />
     </item>
     <item
         is-multidex="true"
-        jar="C:\Users\ethantw\GITHW\POSitive_Eating\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-analytics\10.0.1\jars\classes.jar"
+        jar="/Users/Alec/Desktop/Proj try 2/POSitive_Eating/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-clearcut/10.0.1/jars/classes.jar"
         jumboMode="true"
         optimize="true"
         revision="25.0.2"
-        sha1="4c829ff0ccfecb28a999ee46d9e75948dfc777a4">
-        <dex dex="C:\Users\ethantw\GITHW\POSitive_Eating\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-analytics-10.0.1_1be02795581ad79a6e880f607c28063370f62a87\classes.dex" />
+        sha1="1d193729baf37df3d902a423291423a0df7e3779">
+        <dex dex="/Users/Alec/Desktop/Proj try 2/POSitive_Eating/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.android.gms-play-services-clearcut-10.0.1_bafa031d1c057219bb39168837bae450017191e1/classes.dex" />
     </item>
     <item
         is-multidex="true"
-        jar="C:\Users\ethantw\GITHW\POSitive_Eating\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-base\10.0.1\jars\classes.jar"
+        jar="/Users/Alec/Desktop/Proj try 2/POSitive_Eating/app/build/intermediates/exploded-aar/com.google.firebase/firebase-appindexing/10.0.1/jars/classes.jar"
         jumboMode="true"
         optimize="true"
         revision="25.0.2"
-        sha1="25438f55fc6d906a0e72f30b21487541430ede43">
-        <dex dex="C:\Users\ethantw\GITHW\POSitive_Eating\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-base-10.0.1_9190befa8982228a08ee11ded3ea100567e910e9\classes.dex" />
+        sha1="ae80d328a8548b4610ead6c624bab8c6a6984f5b">
+        <dex dex="/Users/Alec/Desktop/Proj try 2/POSitive_Eating/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.firebase-firebase-appindexing-10.0.1_5915af20226becbf8ac8f07be0857893272b5135/classes.dex" />
     </item>
     <item
         is-multidex="true"
-        jar="C:\Users\ethantw\GITHW\POSitive_Eating\app\build\intermediates\exploded-aar\com.google.firebase\firebase-analytics\10.0.1\jars\classes.jar"
+        jar="/Users/Alec/Desktop/Proj try 2/POSitive_Eating/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-wallet/10.0.1/jars/classes.jar"
         jumboMode="true"
         optimize="true"
         revision="25.0.2"
-        sha1="433f4d6aa5f21f19552afe0e6c5eff0fedba73ad">
-        <dex dex="C:\Users\ethantw\GITHW\POSitive_Eating\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.firebase-firebase-analytics-10.0.1_8072a016fbb4f166f97694fb7daa2153c5dadade\classes.dex" />
+        sha1="2d5d113b0352ab60946fc44c518cf68fd26cbb79">
+        <dex dex="/Users/Alec/Desktop/Proj try 2/POSitive_Eating/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.android.gms-play-services-wallet-10.0.1_3eed3ca9bbc4601f92f4bd0b7d350d78f4c07b63/classes.dex" />
     </item>
     <item
         is-multidex="true"
-        jar="C:\Users\ethantw\GITHW\POSitive_Eating\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-wearable\10.0.1\jars\classes.jar"
+        jar="/Users/Alec/Desktop/Proj try 2/POSitive_Eating/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-ads/10.0.1/jars/classes.jar"
         jumboMode="true"
         optimize="true"
         revision="25.0.2"
-        sha1="408a599ac77cd17fe8e8919326bec617b3d005bd">
-        <dex dex="C:\Users\ethantw\GITHW\POSitive_Eating\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-wearable-10.0.1_25639baf177e7066168f09c7dbd5c04f472d39c4\classes.dex" />
+        sha1="d0460bf07cc3657e0be518ca01c174493951c6b8">
+        <dex dex="/Users/Alec/Desktop/Proj try 2/POSitive_Eating/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.android.gms-play-services-ads-10.0.1_6997784ed85b7e2c26217493d0828501e118b55f/classes.dex" />
     </item>
     <item
         is-multidex="true"
-        jar="C:\Users\ethantw\GITHW\POSitive_Eating\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-plus\10.0.1\jars\classes.jar"
+        jar="/Users/Alec/Desktop/Proj try 2/POSitive_Eating/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-drive/10.0.1/jars/classes.jar"
         jumboMode="true"
         optimize="true"
         revision="25.0.2"
-        sha1="c14f0c89f28cf782e42581ab0aba5f63af39b3d2">
-        <dex dex="C:\Users\ethantw\GITHW\POSitive_Eating\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-plus-10.0.1_3d3e215c1032af4e5286159790fc000894e5d1a8\classes.dex" />
+        sha1="028f8255cb977b29cdffbfcf05caa0459686120c">
+        <dex dex="/Users/Alec/Desktop/Proj try 2/POSitive_Eating/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.android.gms-play-services-drive-10.0.1_75baf82793ebfcdb963e64a5766f58cf12a04143/classes.dex" />
     </item>
     <item
         is-multidex="true"
-        jar="C:\Users\ethantw\GITHW\POSitive_Eating\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-tasks\10.0.1\jars\classes.jar"
+        jar="/Users/Alec/Desktop/Proj try 2/POSitive_Eating/app/build/intermediates/exploded-aar/com.google.firebase/firebase-database-connection/10.0.1/jars/classes.jar"
         jumboMode="true"
         optimize="true"
         revision="25.0.2"
-        sha1="6addaba208e21c6da776d0ca75b6b23a6ccd5499">
-        <dex dex="C:\Users\ethantw\GITHW\POSitive_Eating\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-tasks-10.0.1_5eefbcc69dc1c0f164157b9839d9c7e33faf666a\classes.dex" />
+        sha1="8010ae6ed32828a145b25ec97bc07b7a83c6318f">
+        <dex dex="/Users/Alec/Desktop/Proj try 2/POSitive_Eating/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.firebase-firebase-database-connection-10.0.1_ec06ce85c189769b7a0f67fede8d55cce857c848/classes.dex" />
     </item>
     <item
         is-multidex="true"
-        jar="C:\Users\ethantw\GITHW\POSitive_Eating\app\build\intermediates\exploded-aar\com.android.support\appcompat-v7\24.0.0\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.2"
-        sha1="0874286cc2fd88d54fdf130e9d5372730da6de97">
-        <dex dex="C:\Users\ethantw\GITHW\POSitive_Eating\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-appcompat-v7-24.0.0_1501880e59e2e5d877de58895b0db1015997533e\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\ethantw\.gradle\caches\modules-2\files-2.1\com.squareup.okhttp3\okhttp\3.4.1\c7c4f9e35c2fd5900da24f9872e3971801f08ce0\okhttp-3.4.1.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.2"
-        sha1="c7c4f9e35c2fd5900da24f9872e3971801f08ce0">
-        <dex dex="C:\Users\ethantw\GITHW\POSitive_Eating\app\build\intermediates\transforms\dex\debug\folders\1000\10\okhttp-3.4.1_ca59eda0334490ed696988e7d7b3b3ab9e4a6b6e\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\ethantw\AppData\Local\Android\sdk\extras\android\m2repository\com\android\support\support-annotations\25.1.1\support-annotations-25.1.1.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.2"
-        sha1="b59b6ee8d6ecc03e672d253800430343493a6ed8">
-        <dex dex="C:\Users\ethantw\GITHW\POSitive_Eating\app\build\intermediates\transforms\dex\debug\folders\1000\10\support-annotations-25.1.1_c7fceb3d556c5db4d3267b5775905ef2fe418191\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\ethantw\GITHW\POSitive_Eating\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-basement\10.0.1\jars\classes.jar"
+        jar="/Users/Alec/Desktop/Proj try 2/POSitive_Eating/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-basement/10.0.1/jars/classes.jar"
         jumboMode="true"
         optimize="true"
         revision="25.0.2"
         sha1="756f6297eef79784f5e356dcd4f39865028b2bd0">
-        <dex dex="C:\Users\ethantw\GITHW\POSitive_Eating\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-basement-10.0.1_fe4239fb51b8eaa848769d6a4d325c98fc6b8b2b\classes.dex" />
+        <dex dex="/Users/Alec/Desktop/Proj try 2/POSitive_Eating/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.android.gms-play-services-basement-10.0.1_a8323cd678c2d3d252be4e6785d313fbf8672fb1/classes.dex" />
     </item>
     <item
         is-multidex="true"
-        jar="C:\Users\ethantw\GITHW\POSitive_Eating\app\build\intermediates\exploded-aar\com.android.support\palette-v7\24.0.0\jars\classes.jar"
+        jar="/Users/Alec/Desktop/Proj try 2/POSitive_Eating/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-base/10.0.1/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="25438f55fc6d906a0e72f30b21487541430ede43">
+        <dex dex="/Users/Alec/Desktop/Proj try 2/POSitive_Eating/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.android.gms-play-services-base-10.0.1_05f4e26c60ff598b5b222c8196f1dbc8af9430e8/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/Alec/Desktop/Proj try 2/POSitive_Eating/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-panorama/10.0.1/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="92c871a22463a247e8a77a9f3fd231c278788c4a">
+        <dex dex="/Users/Alec/Desktop/Proj try 2/POSitive_Eating/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.android.gms-play-services-panorama-10.0.1_b03f47b928261027f6aa4ef66b824ba5fe0bb14f/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/Alec/Desktop/Proj try 2/POSitive_Eating/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-appinvite/10.0.1/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="39907d5c8f5902fffef30160ca7447c93b82405c">
+        <dex dex="/Users/Alec/Desktop/Proj try 2/POSitive_Eating/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.android.gms-play-services-appinvite-10.0.1_597e00cd4428983fffb0d03029d4405af03beafe/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/Alec/Desktop/Proj try 2/POSitive_Eating/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/24.0.0/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="0874286cc2fd88d54fdf130e9d5372730da6de97">
+        <dex dex="/Users/Alec/Desktop/Proj try 2/POSitive_Eating/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-appcompat-v7-24.0.0_f3e22e21bbb13f491448305c48b262f3e20dc0da/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/Alec/Desktop/Proj try 2/POSitive_Eating/app/build/intermediates/exploded-aar/com.android.support/mediarouter-v7/24.0.0/jars/libs/internal_impl-24.0.0.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="b6763651ec29b4c95e7bbe63fc393ffcc8c4c2c5">
+        <dex dex="/Users/Alec/Desktop/Proj try 2/POSitive_Eating/app/build/intermediates/transforms/dex/debug/folders/1000/10/internal_impl-24.0.0_91188712501fe4ebb982b11881c51d64ef6d77c8/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/Alec/Desktop/Proj try 2/POSitive_Eating/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-gass/10.0.1/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="57c2eceb8548de84509d1ebc293fedec53231f6c">
+        <dex dex="/Users/Alec/Desktop/Proj try 2/POSitive_Eating/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.android.gms-play-services-gass-10.0.1_516ab5c49d445b905e7252b25cddc213f23d506e/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/Alec/Desktop/Proj try 2/POSitive_Eating/app/build/intermediates/exploded-aar/com.google.firebase/firebase-messaging/10.0.1/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="4b17463c814bdc562fb0392fa3494063623a0904">
+        <dex dex="/Users/Alec/Desktop/Proj try 2/POSitive_Eating/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.firebase-firebase-messaging-10.0.1_b5bd7dd03814d27d9ae70019b80a4439e7356f87/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/Alec/Desktop/Proj try 2/POSitive_Eating/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-games/10.0.1/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="1e11c68fec92a17c84dd8d1dd80e74c4e67b12e2">
+        <dex dex="/Users/Alec/Desktop/Proj try 2/POSitive_Eating/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.android.gms-play-services-games-10.0.1_98fc474b46d3bbe868ac36225fee289f4872e4e9/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/Alec/Desktop/Proj try 2/POSitive_Eating/app/build/intermediates/exploded-aar/com.google.firebase/firebase-storage/10.0.1/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="dd39827d2067497e60e21da48a7926000b6d4b0c">
+        <dex dex="/Users/Alec/Desktop/Proj try 2/POSitive_Eating/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.firebase-firebase-storage-10.0.1_6a4e74539ef65c741ad0d5ed823e428ee4558403/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/Alec/Library/Android/sdk/extras/android/m2repository/com/android/support/support-annotations/24.0.0/support-annotations-24.0.0.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="2943c74db6d4346ab8c6531adac91fa05c137c40">
+        <dex dex="/Users/Alec/Desktop/Proj try 2/POSitive_Eating/app/build/intermediates/transforms/dex/debug/folders/1000/10/support-annotations-24.0.0_9b6d2105ca3d0d0359642da3c4b29d290a154e1a/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/Alec/Desktop/Proj try 2/POSitive_Eating/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-safetynet/10.0.1/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="f6cf557be4dbd0282ea2388633e5378634423226">
+        <dex dex="/Users/Alec/Desktop/Proj try 2/POSitive_Eating/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.android.gms-play-services-safetynet-10.0.1_22266999f0907842924b895dc5ff0122ae2de67d/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/Alec/.gradle/caches/modules-2/files-2.1/com.squareup.okhttp3/okhttp/3.4.1/c7c4f9e35c2fd5900da24f9872e3971801f08ce0/okhttp-3.4.1.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="c7c4f9e35c2fd5900da24f9872e3971801f08ce0">
+        <dex dex="/Users/Alec/Desktop/Proj try 2/POSitive_Eating/app/build/intermediates/transforms/dex/debug/folders/1000/10/okhttp-3.4.1_6b719cb2c6fd87a31dd1946fe3cb1b5a993b5584/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/Alec/Desktop/Proj try 2/POSitive_Eating/app/build/intermediates/exploded-aar/com.android.support/animated-vector-drawable/24.0.0/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="e70f608219ed6b974644c333249ab2bb7b71de98">
+        <dex dex="/Users/Alec/Desktop/Proj try 2/POSitive_Eating/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-animated-vector-drawable-24.0.0_7ea61d3427b914844f10f8d004237903f813df19/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/Alec/.gradle/caches/modules-2/files-2.1/com.squareup.retrofit2/retrofit/2.1.0/2de7cd8b95b7021b1d597f049bcb422055119f2c/retrofit-2.1.0.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="2de7cd8b95b7021b1d597f049bcb422055119f2c">
+        <dex dex="/Users/Alec/Desktop/Proj try 2/POSitive_Eating/app/build/intermediates/transforms/dex/debug/folders/1000/10/retrofit-2.1.0_acb150a3670ae031cdc3267937fb601e1533f40e/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/Alec/Desktop/Proj try 2/POSitive_Eating/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-auth/10.0.1/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="e2185aff89caeb337b1ffc36d5e525d8318e7cfe">
+        <dex dex="/Users/Alec/Desktop/Proj try 2/POSitive_Eating/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.android.gms-play-services-auth-10.0.1_51c186f9449c807bfc4f26942c528db0f074a80e/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/Alec/Desktop/Proj try 2/POSitive_Eating/app/build/intermediates/exploded-aar/com.google.firebase/firebase-common/10.0.1/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="eb0d830e3eabb9deb9ec44869cf7ac7ea1ad794c">
+        <dex dex="/Users/Alec/Desktop/Proj try 2/POSitive_Eating/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.firebase-firebase-common-10.0.1_f0b87605d628acc8e82633c7c043056ef5896007/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/Alec/Desktop/Proj try 2/POSitive_Eating/app/build/intermediates/exploded-aar/com.android.support/recyclerview-v7/23.4.0/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="ec75036c3c52e451d0cde50a5aedaf5fd32354a0">
+        <dex dex="/Users/Alec/Desktop/Proj try 2/POSitive_Eating/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-recyclerview-v7-23.4.0_5d44668617ce85b41682a0c3732bfeafd07c3709/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/Alec/.gradle/caches/modules-2/files-2.1/com.squareup.okio/okio/1.9.0/f824591a0016efbaeddb8300bee54832a1398cfa/okio-1.9.0.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="f824591a0016efbaeddb8300bee54832a1398cfa">
+        <dex dex="/Users/Alec/Desktop/Proj try 2/POSitive_Eating/app/build/intermediates/transforms/dex/debug/folders/1000/10/okio-1.9.0_ad009bbb248e701d5018022e6b05f2aacda77b5b/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/Alec/Desktop/Proj try 2/POSitive_Eating/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-cast-framework/10.0.1/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="df1cb17511aabbb63264a0024949d1e42502a512">
+        <dex dex="/Users/Alec/Desktop/Proj try 2/POSitive_Eating/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.android.gms-play-services-cast-framework-10.0.1_792c3958adda789f918ba8a174619c33ec6970b1/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/Alec/Desktop/Proj try 2/POSitive_Eating/app/build/intermediates/exploded-aar/com.google.firebase/firebase-analytics-impl/10.0.1/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="6116e0e7069de7fc259aac8e08b84f32c2038231">
+        <dex dex="/Users/Alec/Desktop/Proj try 2/POSitive_Eating/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.firebase-firebase-analytics-impl-10.0.1_266256f09e34d058d78be213b0dbaa2e5435b594/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/Alec/Desktop/Proj try 2/POSitive_Eating/app/build/intermediates/exploded-aar/com.google.firebase/firebase-config/10.0.1/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="ffc15e965a9e8c28f24455eedd4cac215c45d1fc">
+        <dex dex="/Users/Alec/Desktop/Proj try 2/POSitive_Eating/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.firebase-firebase-config-10.0.1_9abc440e5ad5ee745ec37aa2b0a340455205d6c2/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/Alec/Desktop/Proj try 2/POSitive_Eating/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-places/10.0.1/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="f3e51e9c5233b8897f61e08a6a27bc36283c2724">
+        <dex dex="/Users/Alec/Desktop/Proj try 2/POSitive_Eating/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.android.gms-play-services-places-10.0.1_47f7ad5367c491e9f8c0c56438f95c1cc57a9a0c/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/Alec/Desktop/Proj try 2/POSitive_Eating/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-vision/10.0.1/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="ba6aa5e69ef31dee57208125323cee958fc67565">
+        <dex dex="/Users/Alec/Desktop/Proj try 2/POSitive_Eating/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.android.gms-play-services-vision-10.0.1_d18e72828ff774d5d4550f70d0833fcac2a04c88/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/Alec/Desktop/Proj try 2/POSitive_Eating/app/build/intermediates/exploded-aar/com.android.support/design/23.4.0/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="5326d9a850d491714fef8cbfaa9ea3416f0bf0d2">
+        <dex dex="/Users/Alec/Desktop/Proj try 2/POSitive_Eating/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-design-23.4.0_368fb88ba4126e8c0ea3bfde21fa3abaa66340c8/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/Alec/Desktop/Proj try 2/POSitive_Eating/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-tasks/10.0.1/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="6addaba208e21c6da776d0ca75b6b23a6ccd5499">
+        <dex dex="/Users/Alec/Desktop/Proj try 2/POSitive_Eating/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.android.gms-play-services-tasks-10.0.1_cde8b38b91fe67a432156aa6d8396182df662988/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/Alec/Desktop/Proj try 2/POSitive_Eating/app/build/intermediates/exploded-aar/com.google.firebase/firebase-database/10.0.1/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="8f128aeeb7e31271b28a7adb9dac1f3a6ed9f5e7">
+        <dex dex="/Users/Alec/Desktop/Proj try 2/POSitive_Eating/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.firebase-firebase-database-10.0.1_fd24d9843385e10308f8ddec168b9e8e20b3e360/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/Alec/Desktop/Proj try 2/POSitive_Eating/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-nearby/10.0.1/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="c6e1f361e9d61aece9dac39b77fcc98a337a144d">
+        <dex dex="/Users/Alec/Desktop/Proj try 2/POSitive_Eating/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.android.gms-play-services-nearby-10.0.1_fe780eb38d5d788af732cd7f7c91b92ab1fbf680/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/Alec/Desktop/Proj try 2/POSitive_Eating/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-tagmanager/10.0.1/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="971509bbe30bb7b971fc1c49d7b23d0d818830ac">
+        <dex dex="/Users/Alec/Desktop/Proj try 2/POSitive_Eating/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.android.gms-play-services-tagmanager-10.0.1_7bcb48f4762444912a9fbbb762dc3cd8941d9fc7/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/Alec/Desktop/Proj try 2/POSitive_Eating/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-wearable/10.0.1/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="408a599ac77cd17fe8e8919326bec617b3d005bd">
+        <dex dex="/Users/Alec/Desktop/Proj try 2/POSitive_Eating/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.android.gms-play-services-wearable-10.0.1_a480e20046cce47b0d5e1d64e310107c082fd4af/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/Alec/Desktop/Proj try 2/POSitive_Eating/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-iid/10.0.1/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="6bb5d347ebc0c6ef3c83a905222a688da5d2f7b4">
+        <dex dex="/Users/Alec/Desktop/Proj try 2/POSitive_Eating/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.android.gms-play-services-iid-10.0.1_fca93c38a9ae41a4637a257c23ce38d2a5fc1dae/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/Alec/Desktop/Proj try 2/POSitive_Eating/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-tagmanager-api/10.0.1/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="b1df8fa3d372a27e4e969ce00b00689ee1eed031">
+        <dex dex="/Users/Alec/Desktop/Proj try 2/POSitive_Eating/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.android.gms-play-services-tagmanager-api-10.0.1_6c61bd57dda3de8bf664c6043ce4826f4ccb8075/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/Alec/Desktop/Proj try 2/POSitive_Eating/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-instantapps/10.0.1/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="45305e6af414dab5aba6c3225081c2f15c3bdd1e">
+        <dex dex="/Users/Alec/Desktop/Proj try 2/POSitive_Eating/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.android.gms-play-services-instantapps-10.0.1_f2f46a7164e0524c9dbc350b76d01dca5d077e84/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/Alec/Desktop/Proj try 2/POSitive_Eating/app/build/intermediates/exploded-aar/com.akexorcist/googledirectionlibrary/1.0.5/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="d720627a0fdd516f238c3acdfac6043e7717b742">
+        <dex dex="/Users/Alec/Desktop/Proj try 2/POSitive_Eating/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.akexorcist-googledirectionlibrary-1.0.5_fbb30c3a21062f237ff8dfde63e6bd60ab62d1e8/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/Alec/.gradle/caches/modules-2/files-2.1/org.hamcrest/hamcrest-core/1.3/42a25dc3219429f0e5d060061f71acb49bf010a0/hamcrest-core-1.3.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="42a25dc3219429f0e5d060061f71acb49bf010a0">
+        <dex dex="/Users/Alec/Desktop/Proj try 2/POSitive_Eating/app/build/intermediates/transforms/dex/debug/folders/1000/10/hamcrest-core-1.3_29021eebc5995f8d8130982e9653ace13b0de570/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/Alec/Desktop/Proj try 2/POSitive_Eating/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-fitness/10.0.1/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="7a64bf6dc775198eed9db9468a133adf7dfe6562">
+        <dex dex="/Users/Alec/Desktop/Proj try 2/POSitive_Eating/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.android.gms-play-services-fitness-10.0.1_4e9dddccd60e5b9a79ba3a919b3cb910ea50a75c/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/Alec/Desktop/Proj try 2/POSitive_Eating/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-auth-base/10.0.1/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="e96c6974cf924e7ee3b230e6847d5731423388c9">
+        <dex dex="/Users/Alec/Desktop/Proj try 2/POSitive_Eating/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.android.gms-play-services-auth-base-10.0.1_2fcc56de4dfd64e037c31f4d9cd16080f5131b60/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/Alec/Desktop/Proj try 2/POSitive_Eating/app/build/intermediates/exploded-aar/com.google.firebase/firebase-auth/10.0.1/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="9cca2818594cc5348806d6662133491e7ea0fa8d">
+        <dex dex="/Users/Alec/Desktop/Proj try 2/POSitive_Eating/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.firebase-firebase-auth-10.0.1_655d798ec41e3b006a3c6da87ef56656f2173c8d/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/Alec/Desktop/Proj try 2/POSitive_Eating/app/build/intermediates/incremental-runtime-classes/debug/instant-run.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="a7d8337192f1be5a3220b523a2674fa07cf22e4d">
+        <dex dex="/Users/Alec/Desktop/Proj try 2/POSitive_Eating/app/build/intermediates/transforms/dex/debug/folders/1000/10/instant-run_cf0c124ed7aa5a78d8a79bbb042163689143f54d/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/Alec/Desktop/Proj try 2/POSitive_Eating/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-analytics/10.0.1/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="4c829ff0ccfecb28a999ee46d9e75948dfc777a4">
+        <dex dex="/Users/Alec/Desktop/Proj try 2/POSitive_Eating/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.android.gms-play-services-analytics-10.0.1_153d0bd02ced0814e707aa8df1c7a60b46e10f5d/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/Alec/Desktop/Proj try 2/POSitive_Eating/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-plus/10.0.1/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="c14f0c89f28cf782e42581ab0aba5f63af39b3d2">
+        <dex dex="/Users/Alec/Desktop/Proj try 2/POSitive_Eating/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.android.gms-play-services-plus-10.0.1_69f208090640887acace59bd3c53f4bf6c463a21/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/Alec/Desktop/Proj try 2/POSitive_Eating/app/build/intermediates/exploded-aar/com.google.firebase/firebase-iid/10.0.1/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="486371f97baad8e607f332f20fee1d3dd00a731a">
+        <dex dex="/Users/Alec/Desktop/Proj try 2/POSitive_Eating/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.firebase-firebase-iid-10.0.1_6900e7779a1bc7e7853c28241f6fa66b373ed367/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/Alec/Desktop/Proj try 2/POSitive_Eating/app/build/intermediates/exploded-aar/com.google.firebase/firebase-analytics/10.0.1/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="433f4d6aa5f21f19552afe0e6c5eff0fedba73ad">
+        <dex dex="/Users/Alec/Desktop/Proj try 2/POSitive_Eating/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.firebase-firebase-analytics-10.0.1_8c69029e557ab664336bacbceb57543124bd3983/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/Alec/Desktop/Proj try 2/POSitive_Eating/app/build/intermediates/exploded-aar/shaneconnect-release/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="7ca8b773c6330623a2b7b0be84bebb0db0abe6c4">
+        <dex dex="/Users/Alec/Desktop/Proj try 2/POSitive_Eating/app/build/intermediates/transforms/dex/debug/folders/1000/10/intermediates-exploded-aar-shaneconnect-release_f64cea5934d5f7c925fcf29d407eb20844aa7274/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/Alec/Desktop/Proj try 2/POSitive_Eating/app/build/intermediates/exploded-aar/com.android.support/support-v4/24.0.0/jars/libs/internal_impl-24.0.0.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="fcaf463e10e69c1923ccf1edeba3b4196d239e00">
+        <dex dex="/Users/Alec/Desktop/Proj try 2/POSitive_Eating/app/build/intermediates/transforms/dex/debug/folders/1000/10/internal_impl-24.0.0_0c6f883d868d8c8023be629ce8cbd3485ec7a99c/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/Alec/.gradle/caches/modules-2/files-2.1/junit/junit/4.12/2973d150c0dc1fefe998f834810d68f278ea58ec/junit-4.12.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="2973d150c0dc1fefe998f834810d68f278ea58ec">
+        <dex dex="/Users/Alec/Desktop/Proj try 2/POSitive_Eating/app/build/intermediates/transforms/dex/debug/folders/1000/10/junit-4.12_312408858e914c4b710ab4fabb0895ef49d70a58/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/Alec/.gradle/caches/modules-2/files-2.1/com.google.code.gson/gson/2.7/751f548c85fa49f330cecbb1875893f971b33c4e/gson-2.7.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="751f548c85fa49f330cecbb1875893f971b33c4e">
+        <dex dex="/Users/Alec/Desktop/Proj try 2/POSitive_Eating/app/build/intermediates/transforms/dex/debug/folders/1000/10/gson-2.7_5feed6b785506a020447535c3c1aa2d6fd10ee2e/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/Alec/Desktop/Proj try 2/POSitive_Eating/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-location/10.0.1/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="44a694d4095be84c2888764b1f7256b385c030ad">
+        <dex dex="/Users/Alec/Desktop/Proj try 2/POSitive_Eating/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.android.gms-play-services-location-10.0.1_ba798667beba619081eb517f3476326100d41f5d/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/Alec/Desktop/Proj try 2/POSitive_Eating/app/build/intermediates/exploded-aar/com.android.support/palette-v7/24.0.0/jars/classes.jar"
         jumboMode="true"
         optimize="true"
         revision="25.0.2"
         sha1="734e80dffea7bd76c18ae256822a124c30d85850">
-        <dex dex="C:\Users\ethantw\GITHW\POSitive_Eating\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-palette-v7-24.0.0_5ce4dfdad3893cab8c1241849350aaf4a9f0c997\classes.dex" />
+        <dex dex="/Users/Alec/Desktop/Proj try 2/POSitive_Eating/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-palette-v7-24.0.0_5d7a88b488503a7cba056445272125c25f115589/classes.dex" />
     </item>
     <item
         is-multidex="true"
-        jar="C:\Users\ethantw\GITHW\POSitive_Eating\app\build\intermediates\exploded-aar\com.android.support\support-core-ui\25.1.1\jars\classes.jar"
+        jar="/Users/Alec/Desktop/Proj try 2/POSitive_Eating/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-ads-lite/10.0.1/jars/classes.jar"
         jumboMode="true"
         optimize="true"
         revision="25.0.2"
-        sha1="3e04ac8ca644ea7baddf6fdcf72e15c79e9df94a">
-        <dex dex="C:\Users\ethantw\GITHW\POSitive_Eating\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-support-core-ui-25.1.1_b48ed6743737989b9bbf4bc705b819e26fb20aa8\classes.dex" />
+        sha1="b955cb3a1ad6f1b6ff728ce1e0cd592c1717b440">
+        <dex dex="/Users/Alec/Desktop/Proj try 2/POSitive_Eating/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.android.gms-play-services-ads-lite-10.0.1_5d71efa981d2d2ecec5e8f5bc05837bc24ce75a5/classes.dex" />
     </item>
 
 </items>

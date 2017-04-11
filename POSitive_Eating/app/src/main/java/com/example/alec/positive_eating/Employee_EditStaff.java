@@ -41,16 +41,16 @@ public class Employee_EditStaff extends ActionBarActivity {
                     }
                 }
         );
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_menu);
-
-        expandableListView = (ExpandableListView) findViewById(R.id.simple_expandable_listview);
+//        super.onCreate(savedInstanceState);
+//        setContentView(R.layout.activity_menu);
+//
+//        expandableListView = (ExpandableListView) findViewById(R.id.simple_expandable_listview);
 
         // Setting group indicator null for custom indicator
-        expandableListView.setGroupIndicator(null);
+       // expandableListView.setGroupIndicator(null);
 
-        setItems();
-        setListener();
+//        setItems();
+//        setListener();
     }
     // Setting headers and childs to expandable listview
 

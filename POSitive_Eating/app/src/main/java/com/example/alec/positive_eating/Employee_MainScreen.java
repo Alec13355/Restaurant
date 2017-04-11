@@ -61,7 +61,7 @@ Button Seating,Menu,Status,schedule,Edit_users,Payroll,addTableMap,viewTableMap;
                     {
 
 
-                        Intent myIntent = new Intent(Employee_MainScreen.this, Employee_OrderStatus.class); /** Class name here */
+                        Intent myIntent = new Intent(Employee_MainScreen.this, CookOrderList.class); /** Class name here */
                         Employee_MainScreen.this.startActivity(myIntent);
                     }
                 }
