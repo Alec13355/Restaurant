@@ -1,10 +1,6 @@
 [
     {
-        "merged": "/Users/Alec/Desktop/untitled folder/POSitive_Eating/app/build/intermediates/res/merged/debug/mipmap-xxxhdpi/ic_launcher.png",
-        "source": "/Users/Alec/Desktop/untitled folder/POSitive_Eating/app/src/main/res/mipmap-xxxhdpi/ic_launcher.png"
-    },
-    {
-        "merged": "/Users/Alec/Desktop/Proj try 2/YT_4/POSitive_Eating/app/build/intermediates/res/merged/debug/mipmap-xxxhdpi/ic_launcher.png",
-        "source": "/Users/Alec/Desktop/Proj try 2/YT_4/POSitive_Eating/app/src/main/res/mipmap-xxxhdpi/ic_launcher.png"
+        "merged": "C:\\Users\\ethantw\\GITHW\\POSitive_Eating\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xxxhdpi\\ic_launcher.png",
+        "source": "C:\\Users\\ethantw\\GITHW\\POSitive_Eating\\app\\src\\main\\res\\mipmap-xxxhdpi\\ic_launcher.png"
     }
 ]

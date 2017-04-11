@@ -814,7 +814,7 @@
     <string name="first_name22">First Name:</string>
     <string name="firstname">firstName</string>
     <string name="food">Food</string>
-    <string name="google_maps_key" templateMergeStrategy="preserve" translatable="false">AIzaSyBWr9kT1JbMg3JEa23YSbM3v7AnDf1ONss</string>
+    <string name="google_maps_key" templateMergeStrategy="preserve" translatable="false">AIzaSyC9KxRvcZhsLFBf7ggjZN4zO1lOJCUoMy4</string>
     <string name="last_name">Last Name</string>
     <string name="last_name22">Last Name:</string>
     <string name="lastname">lastName</string>

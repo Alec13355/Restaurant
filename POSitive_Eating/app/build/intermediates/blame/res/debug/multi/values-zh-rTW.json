@@ -1,391 +1,6 @@
 [
     {
-        "outputFile": "/Users/Alec/Desktop/untitled folder/POSitive_Eating/app/build/intermediates/incremental/mergeDebugResources/merged.dir/values-zh-rTW/values-zh-rTW.xml",
-        "map": [
-            {
-                "to": {
-                    "startLine": 2,
-                    "startColumn": 4,
-                    "startOffset": 55,
-                    "endColumn": 94,
-                    "endOffset": 145
-                },
-                "from": {
-                    "file": "/Users/Alec/Desktop/untitled folder/POSitive_Eating/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.4.0/res/values-zh-rTW/values-zh-rTW.xml",
-                    "position": {
-                        "startLine": 2,
-                        "startColumn": 4,
-                        "startOffset": 55,
-                        "endColumn": 94,
-                        "endOffset": 145
-                    }
-                }
-            },
-            {
-                "to": {
-                    "startLine": 3,
-                    "startColumn": 4,
-                    "startOffset": 150,
-                    "endColumn": 106,
-                    "endOffset": 252
-                },
-                "from": {
-                    "file": "/Users/Alec/Desktop/untitled folder/POSitive_Eating/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.4.0/res/values-zh-rTW/values-zh-rTW.xml",
-                    "position": {
-                        "startLine": 3,
-                        "startColumn": 4,
-                        "startOffset": 150,
-                        "endColumn": 106,
-                        "endOffset": 252
-                    }
-                }
-            },
-            {
-                "to": {
-                    "startLine": 4,
-                    "startColumn": 4,
-                    "startOffset": 257,
-                    "endColumn": 122,
-                    "endOffset": 375
-                },
-                "from": {
-                    "file": "/Users/Alec/Desktop/untitled folder/POSitive_Eating/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.4.0/res/values-zh-rTW/values-zh-rTW.xml",
-                    "position": {
-                        "startLine": 4,
-                        "startColumn": 4,
-                        "startOffset": 257,
-                        "endColumn": 122,
-                        "endOffset": 375
-                    }
-                }
-            },
-            {
-                "to": {
-                    "startLine": 5,
-                    "startColumn": 4,
-                    "startOffset": 380,
-                    "endColumn": 92,
-                    "endOffset": 468
-                },
-                "from": {
-                    "file": "/Users/Alec/Desktop/untitled folder/POSitive_Eating/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.4.0/res/values-zh-rTW/values-zh-rTW.xml",
-                    "position": {
-                        "startLine": 5,
-                        "startColumn": 4,
-                        "startOffset": 380,
-                        "endColumn": 92,
-                        "endOffset": 468
-                    }
-                }
-            },
-            {
-                "to": {
-                    "startLine": 6,
-                    "startColumn": 4,
-                    "startOffset": 473,
-                    "endColumn": 99,
-                    "endOffset": 568
-                },
-                "from": {
-                    "file": "/Users/Alec/Desktop/untitled folder/POSitive_Eating/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.4.0/res/values-zh-rTW/values-zh-rTW.xml",
-                    "position": {
-                        "startLine": 6,
-                        "startColumn": 4,
-                        "startOffset": 473,
-                        "endColumn": 99,
-                        "endOffset": 568
-                    }
-                }
-            },
-            {
-                "to": {
-                    "startLine": 7,
-                    "startColumn": 4,
-                    "startOffset": 573,
-                    "endColumn": 81,
-                    "endOffset": 650
-                },
-                "from": {
-                    "file": "/Users/Alec/Desktop/untitled folder/POSitive_Eating/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.4.0/res/values-zh-rTW/values-zh-rTW.xml",
-                    "position": {
-                        "startLine": 7,
-                        "startColumn": 4,
-                        "startOffset": 573,
-                        "endColumn": 81,
-                        "endOffset": 650
-                    }
-                }
-            },
-            {
-                "to": {
-                    "startLine": 8,
-                    "startColumn": 4,
-                    "startOffset": 655,
-                    "endColumn": 96,
-                    "endOffset": 747
-                },
-                "from": {
-                    "file": "/Users/Alec/Desktop/untitled folder/POSitive_Eating/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.4.0/res/values-zh-rTW/values-zh-rTW.xml",
-                    "position": {
-                        "startLine": 8,
-                        "startColumn": 4,
-                        "startOffset": 655,
-                        "endColumn": 96,
-                        "endOffset": 747
-                    }
-                }
-            },
-            {
-                "to": {
-                    "startLine": 9,
-                    "startColumn": 4,
-                    "startOffset": 752,
-                    "endColumn": 107,
-                    "endOffset": 855
-                },
-                "from": {
-                    "file": "/Users/Alec/Desktop/untitled folder/POSitive_Eating/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.4.0/res/values-zh-rTW/values-zh-rTW.xml",
-                    "position": {
-                        "startLine": 9,
-                        "startColumn": 4,
-                        "startOffset": 752,
-                        "endColumn": 107,
-                        "endOffset": 855
-                    }
-                }
-            },
-            {
-                "to": {
-                    "startLine": 10,
-                    "startColumn": 4,
-                    "startOffset": 860,
-                    "endColumn": 75,
-                    "endOffset": 931
-                },
-                "from": {
-                    "file": "/Users/Alec/Desktop/untitled folder/POSitive_Eating/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.4.0/res/values-zh-rTW/values-zh-rTW.xml",
-                    "position": {
-                        "startLine": 10,
-                        "startColumn": 4,
-                        "startOffset": 860,
-                        "endColumn": 75,
-                        "endOffset": 931
-                    }
-                }
-            },
-            {
-                "to": {
-                    "startLine": 11,
-                    "startColumn": 4,
-                    "startOffset": 936,
-                    "endColumn": 75,
-                    "endOffset": 1007
-                },
-                "from": {
-                    "file": "/Users/Alec/Desktop/untitled folder/POSitive_Eating/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.4.0/res/values-zh-rTW/values-zh-rTW.xml",
-                    "position": {
-                        "startLine": 11,
-                        "startColumn": 4,
-                        "startOffset": 936,
-                        "endColumn": 75,
-                        "endOffset": 1007
-                    }
-                }
-            },
-            {
-                "to": {
-                    "startLine": 12,
-                    "startColumn": 4,
-                    "startOffset": 1012,
-                    "endColumn": 77,
-                    "endOffset": 1085
-                },
-                "from": {
-                    "file": "/Users/Alec/Desktop/untitled folder/POSitive_Eating/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.4.0/res/values-zh-rTW/values-zh-rTW.xml",
-                    "position": {
-                        "startLine": 12,
-                        "startColumn": 4,
-                        "startOffset": 1012,
-                        "endColumn": 77,
-                        "endOffset": 1085
-                    }
-                }
-            },
-            {
-                "to": {
-                    "startLine": 13,
-                    "startColumn": 4,
-                    "startOffset": 1090,
-                    "endColumn": 95,
-                    "endOffset": 1181
-                },
-                "from": {
-                    "file": "/Users/Alec/Desktop/untitled folder/POSitive_Eating/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.4.0/res/values-zh-rTW/values-zh-rTW.xml",
-                    "position": {
-                        "startLine": 13,
-                        "startColumn": 4,
-                        "startOffset": 1090,
-                        "endColumn": 95,
-                        "endOffset": 1181
-                    }
-                }
-            },
-            {
-                "to": {
-                    "startLine": 14,
-                    "startColumn": 4,
-                    "startOffset": 1186,
-                    "endColumn": 95,
-                    "endOffset": 1277
-                },
-                "from": {
-                    "file": "/Users/Alec/Desktop/untitled folder/POSitive_Eating/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.4.0/res/values-zh-rTW/values-zh-rTW.xml",
-                    "position": {
-                        "startLine": 14,
-                        "startColumn": 4,
-                        "startOffset": 1186,
-                        "endColumn": 95,
-                        "endOffset": 1277
-                    }
-                }
-            },
-            {
-                "to": {
-                    "startLine": 15,
-                    "startColumn": 4,
-                    "startOffset": 1282,
-                    "endColumn": 94,
-                    "endOffset": 1372
-                },
-                "from": {
-                    "file": "/Users/Alec/Desktop/untitled folder/POSitive_Eating/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.4.0/res/values-zh-rTW/values-zh-rTW.xml",
-                    "position": {
-                        "startLine": 15,
-                        "startColumn": 4,
-                        "startOffset": 1282,
-                        "endColumn": 94,
-                        "endOffset": 1372
-                    }
-                }
-            },
-            {
-                "to": {
-                    "startLine": 16,
-                    "startColumn": 4,
-                    "startOffset": 1377,
-                    "endColumn": 96,
-                    "endOffset": 1469
-                },
-                "from": {
-                    "file": "/Users/Alec/Desktop/untitled folder/POSitive_Eating/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.4.0/res/values-zh-rTW/values-zh-rTW.xml",
-                    "position": {
-                        "startLine": 16,
-                        "startColumn": 4,
-                        "startOffset": 1377,
-                        "endColumn": 96,
-                        "endOffset": 1469
-                    }
-                }
-            },
-            {
-                "to": {
-                    "startLine": 17,
-                    "startColumn": 4,
-                    "startOffset": 1474,
-                    "endColumn": 94,
-                    "endOffset": 1564
-                },
-                "from": {
-                    "file": "/Users/Alec/Desktop/untitled folder/POSitive_Eating/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.4.0/res/values-zh-rTW/values-zh-rTW.xml",
-                    "position": {
-                        "startLine": 17,
-                        "startColumn": 4,
-                        "startOffset": 1474,
-                        "endColumn": 94,
-                        "endOffset": 1564
-                    }
-                }
-            },
-            {
-                "to": {
-                    "startLine": 18,
-                    "startColumn": 4,
-                    "startOffset": 1569,
-                    "endColumn": 99,
-                    "endOffset": 1664
-                },
-                "from": {
-                    "file": "/Users/Alec/Desktop/untitled folder/POSitive_Eating/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.4.0/res/values-zh-rTW/values-zh-rTW.xml",
-                    "position": {
-                        "startLine": 18,
-                        "startColumn": 4,
-                        "startOffset": 1569,
-                        "endColumn": 99,
-                        "endOffset": 1664
-                    }
-                }
-            },
-            {
-                "to": {
-                    "startLine": 19,
-                    "startColumn": 4,
-                    "startOffset": 1669,
-                    "endColumn": 112,
-                    "endOffset": 1777
-                },
-                "from": {
-                    "file": "/Users/Alec/Desktop/untitled folder/POSitive_Eating/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.4.0/res/values-zh-rTW/values-zh-rTW.xml",
-                    "position": {
-                        "startLine": 19,
-                        "startColumn": 4,
-                        "startOffset": 1669,
-                        "endColumn": 112,
-                        "endOffset": 1777
-                    }
-                }
-            },
-            {
-                "to": {
-                    "startLine": 20,
-                    "startColumn": 4,
-                    "startOffset": 1782,
-                    "endColumn": 93,
-                    "endOffset": 1871
-                },
-                "from": {
-                    "file": "/Users/Alec/Desktop/untitled folder/POSitive_Eating/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.4.0/res/values-zh-rTW/values-zh-rTW.xml",
-                    "position": {
-                        "startLine": 20,
-                        "startColumn": 4,
-                        "startOffset": 1782,
-                        "endColumn": 93,
-                        "endOffset": 1871
-                    }
-                }
-            },
-            {
-                "to": {
-                    "startLine": 21,
-                    "startColumn": 4,
-                    "startOffset": 1876,
-                    "endColumn": 100,
-                    "endOffset": 1972
-                },
-                "from": {
-                    "file": "/Users/Alec/Desktop/untitled folder/POSitive_Eating/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.4.0/res/values-zh-rTW/values-zh-rTW.xml",
-                    "position": {
-                        "startLine": 21,
-                        "startColumn": 4,
-                        "startOffset": 1876,
-                        "endColumn": 100,
-                        "endOffset": 1972
-                    }
-                }
-            }
-        ]
-    },
-    {
-        "outputFile": "/Users/Alec/Desktop/Proj try 2/YT_4/POSitive_Eating/app/build/intermediates/incremental/mergeDebugResources/merged.dir/values-zh-rTW/values-zh-rTW.xml",
+        "outputFile": "C:\\Users\\ethantw\\GITHW\\POSitive_Eating\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-zh-rTW\\values-zh-rTW.xml",
         "map": [
             {
                 "to": {
@@ -396,7 +11,7 @@
                     "endOffset": 195
                 },
                 "from": {
-                    "file": "/Users/Alec/Desktop/Proj try 2/YT_4/POSitive_Eating/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/24.0.0/res/values-zh-rTW/values-zh-rTW.xml",
+                    "file": "C:\\Users\\ethantw\\GITHW\\POSitive_Eating\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\24.0.0\\res\\values-zh-rTW\\values-zh-rTW.xml",
                     "position": {
                         "startLine": 2,
                         "startColumn": 4,
@@ -415,7 +30,7 @@
                     "endOffset": 302
                 },
                 "from": {
-                    "file": "/Users/Alec/Desktop/Proj try 2/YT_4/POSitive_Eating/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/24.0.0/res/values-zh-rTW/values-zh-rTW.xml",
+                    "file": "C:\\Users\\ethantw\\GITHW\\POSitive_Eating\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\24.0.0\\res\\values-zh-rTW\\values-zh-rTW.xml",
                     "position": {
                         "startLine": 3,
                         "startColumn": 4,
@@ -434,7 +49,7 @@
                     "endOffset": 425
                 },
                 "from": {
-                    "file": "/Users/Alec/Desktop/Proj try 2/YT_4/POSitive_Eating/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/24.0.0/res/values-zh-rTW/values-zh-rTW.xml",
+                    "file": "C:\\Users\\ethantw\\GITHW\\POSitive_Eating\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\24.0.0\\res\\values-zh-rTW\\values-zh-rTW.xml",
                     "position": {
                         "startLine": 4,
                         "startColumn": 4,
@@ -453,7 +68,7 @@
                     "endOffset": 518
                 },
                 "from": {
-                    "file": "/Users/Alec/Desktop/Proj try 2/YT_4/POSitive_Eating/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/24.0.0/res/values-zh-rTW/values-zh-rTW.xml",
+                    "file": "C:\\Users\\ethantw\\GITHW\\POSitive_Eating\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\24.0.0\\res\\values-zh-rTW\\values-zh-rTW.xml",
                     "position": {
                         "startLine": 5,
                         "startColumn": 4,
@@ -472,7 +87,7 @@
                     "endOffset": 618
                 },
                 "from": {
-                    "file": "/Users/Alec/Desktop/Proj try 2/YT_4/POSitive_Eating/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/24.0.0/res/values-zh-rTW/values-zh-rTW.xml",
+                    "file": "C:\\Users\\ethantw\\GITHW\\POSitive_Eating\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\24.0.0\\res\\values-zh-rTW\\values-zh-rTW.xml",
                     "position": {
                         "startLine": 6,
                         "startColumn": 4,
@@ -491,7 +106,7 @@
                     "endOffset": 700
                 },
                 "from": {
-                    "file": "/Users/Alec/Desktop/Proj try 2/YT_4/POSitive_Eating/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/24.0.0/res/values-zh-rTW/values-zh-rTW.xml",
+                    "file": "C:\\Users\\ethantw\\GITHW\\POSitive_Eating\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\24.0.0\\res\\values-zh-rTW\\values-zh-rTW.xml",
                     "position": {
                         "startLine": 7,
                         "startColumn": 4,
@@ -510,7 +125,7 @@
                     "endOffset": 797
                 },
                 "from": {
-                    "file": "/Users/Alec/Desktop/Proj try 2/YT_4/POSitive_Eating/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/24.0.0/res/values-zh-rTW/values-zh-rTW.xml",
+                    "file": "C:\\Users\\ethantw\\GITHW\\POSitive_Eating\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\24.0.0\\res\\values-zh-rTW\\values-zh-rTW.xml",
                     "position": {
                         "startLine": 8,
                         "startColumn": 4,
@@ -529,7 +144,7 @@
                     "endOffset": 905
                 },
                 "from": {
-                    "file": "/Users/Alec/Desktop/Proj try 2/YT_4/POSitive_Eating/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/24.0.0/res/values-zh-rTW/values-zh-rTW.xml",
+                    "file": "C:\\Users\\ethantw\\GITHW\\POSitive_Eating\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\24.0.0\\res\\values-zh-rTW\\values-zh-rTW.xml",
                     "position": {
                         "startLine": 9,
                         "startColumn": 4,
@@ -548,7 +163,7 @@
                     "endOffset": 981
                 },
                 "from": {
-                    "file": "/Users/Alec/Desktop/Proj try 2/YT_4/POSitive_Eating/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/24.0.0/res/values-zh-rTW/values-zh-rTW.xml",
+                    "file": "C:\\Users\\ethantw\\GITHW\\POSitive_Eating\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\24.0.0\\res\\values-zh-rTW\\values-zh-rTW.xml",
                     "position": {
                         "startLine": 10,
                         "startColumn": 4,
@@ -567,7 +182,7 @@
                     "endOffset": 1057
                 },
                 "from": {
-                    "file": "/Users/Alec/Desktop/Proj try 2/YT_4/POSitive_Eating/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/24.0.0/res/values-zh-rTW/values-zh-rTW.xml",
+                    "file": "C:\\Users\\ethantw\\GITHW\\POSitive_Eating\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\24.0.0\\res\\values-zh-rTW\\values-zh-rTW.xml",
                     "position": {
                         "startLine": 11,
                         "startColumn": 4,
@@ -586,7 +201,7 @@
                     "endOffset": 1135
                 },
                 "from": {
-                    "file": "/Users/Alec/Desktop/Proj try 2/YT_4/POSitive_Eating/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/24.0.0/res/values-zh-rTW/values-zh-rTW.xml",
+                    "file": "C:\\Users\\ethantw\\GITHW\\POSitive_Eating\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\24.0.0\\res\\values-zh-rTW\\values-zh-rTW.xml",
                     "position": {
                         "startLine": 12,
                         "startColumn": 4,
@@ -605,7 +220,7 @@
                     "endOffset": 1231
                 },
                 "from": {
-                    "file": "/Users/Alec/Desktop/Proj try 2/YT_4/POSitive_Eating/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/24.0.0/res/values-zh-rTW/values-zh-rTW.xml",
+                    "file": "C:\\Users\\ethantw\\GITHW\\POSitive_Eating\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\24.0.0\\res\\values-zh-rTW\\values-zh-rTW.xml",
                     "position": {
                         "startLine": 13,
                         "startColumn": 4,
@@ -624,7 +239,7 @@
                     "endOffset": 1327
                 },
                 "from": {
-                    "file": "/Users/Alec/Desktop/Proj try 2/YT_4/POSitive_Eating/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/24.0.0/res/values-zh-rTW/values-zh-rTW.xml",
+                    "file": "C:\\Users\\ethantw\\GITHW\\POSitive_Eating\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\24.0.0\\res\\values-zh-rTW\\values-zh-rTW.xml",
                     "position": {
                         "startLine": 14,
                         "startColumn": 4,
@@ -643,7 +258,7 @@
                     "endOffset": 1422
                 },
                 "from": {
-                    "file": "/Users/Alec/Desktop/Proj try 2/YT_4/POSitive_Eating/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/24.0.0/res/values-zh-rTW/values-zh-rTW.xml",
+                    "file": "C:\\Users\\ethantw\\GITHW\\POSitive_Eating\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\24.0.0\\res\\values-zh-rTW\\values-zh-rTW.xml",
                     "position": {
                         "startLine": 15,
                         "startColumn": 4,
@@ -662,7 +277,7 @@
                     "endOffset": 1519
                 },
                 "from": {
-                    "file": "/Users/Alec/Desktop/Proj try 2/YT_4/POSitive_Eating/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/24.0.0/res/values-zh-rTW/values-zh-rTW.xml",
+                    "file": "C:\\Users\\ethantw\\GITHW\\POSitive_Eating\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\24.0.0\\res\\values-zh-rTW\\values-zh-rTW.xml",
                     "position": {
                         "startLine": 16,
                         "startColumn": 4,
@@ -681,7 +296,7 @@
                     "endOffset": 1614
                 },
                 "from": {
-                    "file": "/Users/Alec/Desktop/Proj try 2/YT_4/POSitive_Eating/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/24.0.0/res/values-zh-rTW/values-zh-rTW.xml",
+                    "file": "C:\\Users\\ethantw\\GITHW\\POSitive_Eating\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\24.0.0\\res\\values-zh-rTW\\values-zh-rTW.xml",
                     "position": {
                         "startLine": 17,
                         "startColumn": 4,
@@ -700,7 +315,7 @@
                     "endOffset": 1714
                 },
                 "from": {
-                    "file": "/Users/Alec/Desktop/Proj try 2/YT_4/POSitive_Eating/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/24.0.0/res/values-zh-rTW/values-zh-rTW.xml",
+                    "file": "C:\\Users\\ethantw\\GITHW\\POSitive_Eating\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\24.0.0\\res\\values-zh-rTW\\values-zh-rTW.xml",
                     "position": {
                         "startLine": 18,
                         "startColumn": 4,
@@ -719,7 +334,7 @@
                     "endOffset": 1827
                 },
                 "from": {
-                    "file": "/Users/Alec/Desktop/Proj try 2/YT_4/POSitive_Eating/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/24.0.0/res/values-zh-rTW/values-zh-rTW.xml",
+                    "file": "C:\\Users\\ethantw\\GITHW\\POSitive_Eating\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\24.0.0\\res\\values-zh-rTW\\values-zh-rTW.xml",
                     "position": {
                         "startLine": 19,
                         "startColumn": 4,
@@ -738,7 +353,7 @@
                     "endOffset": 1921
                 },
                 "from": {
-                    "file": "/Users/Alec/Desktop/Proj try 2/YT_4/POSitive_Eating/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/24.0.0/res/values-zh-rTW/values-zh-rTW.xml",
+                    "file": "C:\\Users\\ethantw\\GITHW\\POSitive_Eating\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\24.0.0\\res\\values-zh-rTW\\values-zh-rTW.xml",
                     "position": {
                         "startLine": 20,
                         "startColumn": 4,
@@ -757,7 +372,7 @@
                     "endOffset": 1989
                 },
                 "from": {
-                    "file": "/Users/Alec/Desktop/Proj try 2/YT_4/POSitive_Eating/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-ads/10.0.1/res/values-zh-rTW/values.xml",
+                    "file": "C:\\Users\\ethantw\\GITHW\\POSitive_Eating\\app\\build\\intermediates\\exploded-aar\\com.google.android.gms\\play-services-ads\\10.0.1\\res\\values-zh-rTW\\values.xml",
                     "position": {
                         "startLine": 4,
                         "startColumn": 0,
@@ -776,7 +391,7 @@
                     "endOffset": 2064
                 },
                 "from": {
-                    "file": "/Users/Alec/Desktop/Proj try 2/YT_4/POSitive_Eating/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-cast-framework/10.0.1/res/values-zh-rTW/values.xml",
+                    "file": "C:\\Users\\ethantw\\GITHW\\POSitive_Eating\\app\\build\\intermediates\\exploded-aar\\com.google.android.gms\\play-services-cast-framework\\10.0.1\\res\\values-zh-rTW\\values.xml",
                     "position": {
                         "startLine": 4,
                         "startColumn": 0,
@@ -795,7 +410,7 @@
                     "endOffset": 2153
                 },
                 "from": {
-                    "file": "/Users/Alec/Desktop/Proj try 2/YT_4/POSitive_Eating/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-cast-framework/10.0.1/res/values-zh-rTW/values.xml",
+                    "file": "C:\\Users\\ethantw\\GITHW\\POSitive_Eating\\app\\build\\intermediates\\exploded-aar\\com.google.android.gms\\play-services-cast-framework\\10.0.1\\res\\values-zh-rTW\\values.xml",
                     "position": {
                         "startLine": 5,
                         "startColumn": 0,
@@ -814,7 +429,7 @@
                     "endOffset": 2240
                 },
                 "from": {
-                    "file": "/Users/Alec/Desktop/Proj try 2/YT_4/POSitive_Eating/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-cast-framework/10.0.1/res/values-zh-rTW/values.xml",
+                    "file": "C:\\Users\\ethantw\\GITHW\\POSitive_Eating\\app\\build\\intermediates\\exploded-aar\\com.google.android.gms\\play-services-cast-framework\\10.0.1\\res\\values-zh-rTW\\values.xml",
                     "position": {
                         "startLine": 6,
                         "startColumn": 0,
@@ -833,7 +448,7 @@
                     "endOffset": 2343
                 },
                 "from": {
-                    "file": "/Users/Alec/Desktop/Proj try 2/YT_4/POSitive_Eating/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-cast-framework/10.0.1/res/values-zh-rTW/values.xml",
+                    "file": "C:\\Users\\ethantw\\GITHW\\POSitive_Eating\\app\\build\\intermediates\\exploded-aar\\com.google.android.gms\\play-services-cast-framework\\10.0.1\\res\\values-zh-rTW\\values.xml",
                     "position": {
                         "startLine": 7,
                         "startColumn": 0,
@@ -852,7 +467,7 @@
                     "endOffset": 2422
                 },
                 "from": {
-                    "file": "/Users/Alec/Desktop/Proj try 2/YT_4/POSitive_Eating/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-cast-framework/10.0.1/res/values-zh-rTW/values.xml",
+                    "file": "C:\\Users\\ethantw\\GITHW\\POSitive_Eating\\app\\build\\intermediates\\exploded-aar\\com.google.android.gms\\play-services-cast-framework\\10.0.1\\res\\values-zh-rTW\\values.xml",
                     "position": {
                         "startLine": 8,
                         "startColumn": 0,
@@ -871,7 +486,7 @@
                     "endOffset": 2545
                 },
                 "from": {
-                    "file": "/Users/Alec/Desktop/Proj try 2/YT_4/POSitive_Eating/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-cast-framework/10.0.1/res/values-zh-rTW/values.xml",
+                    "file": "C:\\Users\\ethantw\\GITHW\\POSitive_Eating\\app\\build\\intermediates\\exploded-aar\\com.google.android.gms\\play-services-cast-framework\\10.0.1\\res\\values-zh-rTW\\values.xml",
                     "position": {
                         "startLine": 9,
                         "startColumn": 0,
@@ -890,7 +505,7 @@
                     "endOffset": 2650
                 },
                 "from": {
-                    "file": "/Users/Alec/Desktop/Proj try 2/YT_4/POSitive_Eating/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-cast-framework/10.0.1/res/values-zh-rTW/values.xml",
+                    "file": "C:\\Users\\ethantw\\GITHW\\POSitive_Eating\\app\\build\\intermediates\\exploded-aar\\com.google.android.gms\\play-services-cast-framework\\10.0.1\\res\\values-zh-rTW\\values.xml",
                     "position": {
                         "startLine": 10,
                         "startColumn": 0,
@@ -909,7 +524,7 @@
                     "endOffset": 2755
                 },
                 "from": {
-                    "file": "/Users/Alec/Desktop/Proj try 2/YT_4/POSitive_Eating/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-cast-framework/10.0.1/res/values-zh-rTW/values.xml",
+                    "file": "C:\\Users\\ethantw\\GITHW\\POSitive_Eating\\app\\build\\intermediates\\exploded-aar\\com.google.android.gms\\play-services-cast-framework\\10.0.1\\res\\values-zh-rTW\\values.xml",
                     "position": {
                         "startLine": 11,
                         "startColumn": 0,
@@ -928,7 +543,7 @@
                     "endOffset": 2865
                 },
                 "from": {
-                    "file": "/Users/Alec/Desktop/Proj try 2/YT_4/POSitive_Eating/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-cast-framework/10.0.1/res/values-zh-rTW/values.xml",
+                    "file": "C:\\Users\\ethantw\\GITHW\\POSitive_Eating\\app\\build\\intermediates\\exploded-aar\\com.google.android.gms\\play-services-cast-framework\\10.0.1\\res\\values-zh-rTW\\values.xml",
                     "position": {
                         "startLine": 12,
                         "startColumn": 0,
@@ -947,7 +562,7 @@
                     "endOffset": 2961
                 },
                 "from": {
-                    "file": "/Users/Alec/Desktop/Proj try 2/YT_4/POSitive_Eating/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-cast-framework/10.0.1/res/values-zh-rTW/values.xml",
+                    "file": "C:\\Users\\ethantw\\GITHW\\POSitive_Eating\\app\\build\\intermediates\\exploded-aar\\com.google.android.gms\\play-services-cast-framework\\10.0.1\\res\\values-zh-rTW\\values.xml",
                     "position": {
                         "startLine": 13,
                         "startColumn": 0,
@@ -966,7 +581,7 @@
                     "endOffset": 3061
                 },
                 "from": {
-                    "file": "/Users/Alec/Desktop/Proj try 2/YT_4/POSitive_Eating/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-cast-framework/10.0.1/res/values-zh-rTW/values.xml",
+                    "file": "C:\\Users\\ethantw\\GITHW\\POSitive_Eating\\app\\build\\intermediates\\exploded-aar\\com.google.android.gms\\play-services-cast-framework\\10.0.1\\res\\values-zh-rTW\\values.xml",
                     "position": {
                         "startLine": 14,
                         "startColumn": 0,
@@ -985,7 +600,7 @@
                     "endOffset": 3135
                 },
                 "from": {
-                    "file": "/Users/Alec/Desktop/Proj try 2/YT_4/POSitive_Eating/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-cast-framework/10.0.1/res/values-zh-rTW/values.xml",
+                    "file": "C:\\Users\\ethantw\\GITHW\\POSitive_Eating\\app\\build\\intermediates\\exploded-aar\\com.google.android.gms\\play-services-cast-framework\\10.0.1\\res\\values-zh-rTW\\values.xml",
                     "position": {
                         "startLine": 15,
                         "startColumn": 0,
@@ -1004,7 +619,7 @@
                     "endOffset": 3217
                 },
                 "from": {
-                    "file": "/Users/Alec/Desktop/Proj try 2/YT_4/POSitive_Eating/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-cast-framework/10.0.1/res/values-zh-rTW/values.xml",
+                    "file": "C:\\Users\\ethantw\\GITHW\\POSitive_Eating\\app\\build\\intermediates\\exploded-aar\\com.google.android.gms\\play-services-cast-framework\\10.0.1\\res\\values-zh-rTW\\values.xml",
                     "position": {
                         "startLine": 16,
                         "startColumn": 0,
@@ -1023,7 +638,7 @@
                     "endOffset": 3299
                 },
                 "from": {
-                    "file": "/Users/Alec/Desktop/Proj try 2/YT_4/POSitive_Eating/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-cast-framework/10.0.1/res/values-zh-rTW/values.xml",
+                    "file": "C:\\Users\\ethantw\\GITHW\\POSitive_Eating\\app\\build\\intermediates\\exploded-aar\\com.google.android.gms\\play-services-cast-framework\\10.0.1\\res\\values-zh-rTW\\values.xml",
                     "position": {
                         "startLine": 17,
                         "startColumn": 0,
@@ -1042,7 +657,7 @@
                     "endOffset": 3407
                 },
                 "from": {
-                    "file": "/Users/Alec/Desktop/Proj try 2/YT_4/POSitive_Eating/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-cast-framework/10.0.1/res/values-zh-rTW/values.xml",
+                    "file": "C:\\Users\\ethantw\\GITHW\\POSitive_Eating\\app\\build\\intermediates\\exploded-aar\\com.google.android.gms\\play-services-cast-framework\\10.0.1\\res\\values-zh-rTW\\values.xml",
                     "position": {
                         "startLine": 18,
                         "startColumn": 0,
@@ -1061,7 +676,7 @@
                     "endOffset": 3478
                 },
                 "from": {
-                    "file": "/Users/Alec/Desktop/Proj try 2/YT_4/POSitive_Eating/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-cast-framework/10.0.1/res/values-zh-rTW/values.xml",
+                    "file": "C:\\Users\\ethantw\\GITHW\\POSitive_Eating\\app\\build\\intermediates\\exploded-aar\\com.google.android.gms\\play-services-cast-framework\\10.0.1\\res\\values-zh-rTW\\values.xml",
                     "position": {
                         "startLine": 19,
                         "startColumn": 0,
@@ -1080,7 +695,7 @@
                     "endOffset": 3608
                 },
                 "from": {
-                    "file": "/Users/Alec/Desktop/Proj try 2/YT_4/POSitive_Eating/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-cast/10.0.1/res/values-zh-rTW/values.xml",
+                    "file": "C:\\Users\\ethantw\\GITHW\\POSitive_Eating\\app\\build\\intermediates\\exploded-aar\\com.google.android.gms\\play-services-cast\\10.0.1\\res\\values-zh-rTW\\values.xml",
                     "position": {
                         "startLine": 4,
                         "startColumn": 0,
@@ -1099,7 +714,7 @@
                     "endOffset": 3740
                 },
                 "from": {
-                    "file": "/Users/Alec/Desktop/Proj try 2/YT_4/POSitive_Eating/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-cast/10.0.1/res/values-zh-rTW/values.xml",
+                    "file": "C:\\Users\\ethantw\\GITHW\\POSitive_Eating\\app\\build\\intermediates\\exploded-aar\\com.google.android.gms\\play-services-cast\\10.0.1\\res\\values-zh-rTW\\values.xml",
                     "position": {
                         "startLine": 5,
                         "startColumn": 0,
@@ -1118,7 +733,7 @@
                     "endOffset": 3832
                 },
                 "from": {
-                    "file": "/Users/Alec/Desktop/Proj try 2/YT_4/POSitive_Eating/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-cast/10.0.1/res/values-zh-rTW/values.xml",
+                    "file": "C:\\Users\\ethantw\\GITHW\\POSitive_Eating\\app\\build\\intermediates\\exploded-aar\\com.google.android.gms\\play-services-cast\\10.0.1\\res\\values-zh-rTW\\values.xml",
                     "position": {
                         "startLine": 6,
                         "startColumn": 0,
@@ -1137,7 +752,7 @@
                     "endOffset": 3904
                 },
                 "from": {
-                    "file": "/Users/Alec/Desktop/Proj try 2/YT_4/POSitive_Eating/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-cast-framework/10.0.1/res/values-zh-rTW/values.xml",
+                    "file": "C:\\Users\\ethantw\\GITHW\\POSitive_Eating\\app\\build\\intermediates\\exploded-aar\\com.google.android.gms\\play-services-cast-framework\\10.0.1\\res\\values-zh-rTW\\values.xml",
                     "position": {
                         "startLine": 20,
                         "startColumn": 0,
@@ -1156,7 +771,7 @@
                     "endOffset": 3975
                 },
                 "from": {
-                    "file": "/Users/Alec/Desktop/Proj try 2/YT_4/POSitive_Eating/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-cast-framework/10.0.1/res/values-zh-rTW/values.xml",
+                    "file": "C:\\Users\\ethantw\\GITHW\\POSitive_Eating\\app\\build\\intermediates\\exploded-aar\\com.google.android.gms\\play-services-cast-framework\\10.0.1\\res\\values-zh-rTW\\values.xml",
                     "position": {
                         "startLine": 21,
                         "startColumn": 0,
@@ -1175,7 +790,7 @@
                     "endOffset": 4048
                 },
                 "from": {
-                    "file": "/Users/Alec/Desktop/Proj try 2/YT_4/POSitive_Eating/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-cast-framework/10.0.1/res/values-zh-rTW/values.xml",
+                    "file": "C:\\Users\\ethantw\\GITHW\\POSitive_Eating\\app\\build\\intermediates\\exploded-aar\\com.google.android.gms\\play-services-cast-framework\\10.0.1\\res\\values-zh-rTW\\values.xml",
                     "position": {
                         "startLine": 22,
                         "startColumn": 0,
@@ -1194,7 +809,7 @@
                     "endOffset": 4129
                 },
                 "from": {
-                    "file": "/Users/Alec/Desktop/Proj try 2/YT_4/POSitive_Eating/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-cast-framework/10.0.1/res/values-zh-rTW/values.xml",
+                    "file": "C:\\Users\\ethantw\\GITHW\\POSitive_Eating\\app\\build\\intermediates\\exploded-aar\\com.google.android.gms\\play-services-cast-framework\\10.0.1\\res\\values-zh-rTW\\values.xml",
                     "position": {
                         "startLine": 23,
                         "startColumn": 0,
@@ -1213,7 +828,7 @@
                     "endOffset": 4210
                 },
                 "from": {
-                    "file": "/Users/Alec/Desktop/Proj try 2/YT_4/POSitive_Eating/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-cast-framework/10.0.1/res/values-zh-rTW/values.xml",
+                    "file": "C:\\Users\\ethantw\\GITHW\\POSitive_Eating\\app\\build\\intermediates\\exploded-aar\\com.google.android.gms\\play-services-cast-framework\\10.0.1\\res\\values-zh-rTW\\values.xml",
                     "position": {
                         "startLine": 24,
                         "startColumn": 0,
@@ -1232,7 +847,7 @@
                     "endOffset": 4291
                 },
                 "from": {
-                    "file": "/Users/Alec/Desktop/Proj try 2/YT_4/POSitive_Eating/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-cast-framework/10.0.1/res/values-zh-rTW/values.xml",
+                    "file": "C:\\Users\\ethantw\\GITHW\\POSitive_Eating\\app\\build\\intermediates\\exploded-aar\\com.google.android.gms\\play-services-cast-framework\\10.0.1\\res\\values-zh-rTW\\values.xml",
                     "position": {
                         "startLine": 25,
                         "startColumn": 0,
@@ -1251,7 +866,7 @@
                     "endOffset": 4372
                 },
                 "from": {
-                    "file": "/Users/Alec/Desktop/Proj try 2/YT_4/POSitive_Eating/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-cast-framework/10.0.1/res/values-zh-rTW/values.xml",
+                    "file": "C:\\Users\\ethantw\\GITHW\\POSitive_Eating\\app\\build\\intermediates\\exploded-aar\\com.google.android.gms\\play-services-cast-framework\\10.0.1\\res\\values-zh-rTW\\values.xml",
                     "position": {
                         "startLine": 26,
                         "startColumn": 0,
@@ -1270,7 +885,7 @@
                     "endOffset": 4453
                 },
                 "from": {
-                    "file": "/Users/Alec/Desktop/Proj try 2/YT_4/POSitive_Eating/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-cast-framework/10.0.1/res/values-zh-rTW/values.xml",
+                    "file": "C:\\Users\\ethantw\\GITHW\\POSitive_Eating\\app\\build\\intermediates\\exploded-aar\\com.google.android.gms\\play-services-cast-framework\\10.0.1\\res\\values-zh-rTW\\values.xml",
                     "position": {
                         "startLine": 27,
                         "startColumn": 0,
@@ -1289,7 +904,7 @@
                     "endOffset": 4524
                 },
                 "from": {
-                    "file": "/Users/Alec/Desktop/Proj try 2/YT_4/POSitive_Eating/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-cast-framework/10.0.1/res/values-zh-rTW/values.xml",
+                    "file": "C:\\Users\\ethantw\\GITHW\\POSitive_Eating\\app\\build\\intermediates\\exploded-aar\\com.google.android.gms\\play-services-cast-framework\\10.0.1\\res\\values-zh-rTW\\values.xml",
                     "position": {
                         "startLine": 28,
                         "startColumn": 0,
@@ -1308,7 +923,7 @@
                     "endOffset": 4611
                 },
                 "from": {
-                    "file": "/Users/Alec/Desktop/Proj try 2/YT_4/POSitive_Eating/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-cast-framework/10.0.1/res/values-zh-rTW/values.xml",
+                    "file": "C:\\Users\\ethantw\\GITHW\\POSitive_Eating\\app\\build\\intermediates\\exploded-aar\\com.google.android.gms\\play-services-cast-framework\\10.0.1\\res\\values-zh-rTW\\values.xml",
                     "position": {
                         "startLine": 29,
                         "startColumn": 0,
@@ -1327,7 +942,7 @@
                     "endOffset": 4705
                 },
                 "from": {
-                    "file": "/Users/Alec/Desktop/Proj try 2/YT_4/POSitive_Eating/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-cast-framework/10.0.1/res/values-zh-rTW/values.xml",
+                    "file": "C:\\Users\\ethantw\\GITHW\\POSitive_Eating\\app\\build\\intermediates\\exploded-aar\\com.google.android.gms\\play-services-cast-framework\\10.0.1\\res\\values-zh-rTW\\values.xml",
                     "position": {
                         "startLine": 30,
                         "startColumn": 0,
@@ -1346,7 +961,7 @@
                     "endOffset": 4800
                 },
                 "from": {
-                    "file": "/Users/Alec/Desktop/Proj try 2/YT_4/POSitive_Eating/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-cast-framework/10.0.1/res/values-zh-rTW/values.xml",
+                    "file": "C:\\Users\\ethantw\\GITHW\\POSitive_Eating\\app\\build\\intermediates\\exploded-aar\\com.google.android.gms\\play-services-cast-framework\\10.0.1\\res\\values-zh-rTW\\values.xml",
                     "position": {
                         "startLine": 31,
                         "startColumn": 0,
@@ -1365,7 +980,7 @@
                     "endOffset": 4909
                 },
                 "from": {
-                    "file": "/Users/Alec/Desktop/Proj try 2/YT_4/POSitive_Eating/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-cast-framework/10.0.1/res/values-zh-rTW/values.xml",
+                    "file": "C:\\Users\\ethantw\\GITHW\\POSitive_Eating\\app\\build\\intermediates\\exploded-aar\\com.google.android.gms\\play-services-cast-framework\\10.0.1\\res\\values-zh-rTW\\values.xml",
                     "position": {
                         "startLine": 32,
                         "startColumn": 0,
@@ -1384,7 +999,7 @@
                     "endOffset": 5051
                 },
                 "from": {
-                    "file": "/Users/Alec/Desktop/Proj try 2/YT_4/POSitive_Eating/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-cast-framework/10.0.1/res/values-zh-rTW/values.xml",
+                    "file": "C:\\Users\\ethantw\\GITHW\\POSitive_Eating\\app\\build\\intermediates\\exploded-aar\\com.google.android.gms\\play-services-cast-framework\\10.0.1\\res\\values-zh-rTW\\values.xml",
                     "position": {
                         "startLine": 33,
                         "startColumn": 0,
@@ -1403,7 +1018,7 @@
                     "endOffset": 5162
                 },
                 "from": {
-                    "file": "/Users/Alec/Desktop/Proj try 2/YT_4/POSitive_Eating/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-cast-framework/10.0.1/res/values-zh-rTW/values.xml",
+                    "file": "C:\\Users\\ethantw\\GITHW\\POSitive_Eating\\app\\build\\intermediates\\exploded-aar\\com.google.android.gms\\play-services-cast-framework\\10.0.1\\res\\values-zh-rTW\\values.xml",
                     "position": {
                         "startLine": 34,
                         "startColumn": 0,
@@ -1422,7 +1037,7 @@
                     "endOffset": 5273
                 },
                 "from": {
-                    "file": "/Users/Alec/Desktop/Proj try 2/YT_4/POSitive_Eating/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-cast-framework/10.0.1/res/values-zh-rTW/values.xml",
+                    "file": "C:\\Users\\ethantw\\GITHW\\POSitive_Eating\\app\\build\\intermediates\\exploded-aar\\com.google.android.gms\\play-services-cast-framework\\10.0.1\\res\\values-zh-rTW\\values.xml",
                     "position": {
                         "startLine": 35,
                         "startColumn": 0,
@@ -1441,7 +1056,7 @@
                     "endOffset": 5365
                 },
                 "from": {
-                    "file": "/Users/Alec/Desktop/Proj try 2/YT_4/POSitive_Eating/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-cast-framework/10.0.1/res/values-zh-rTW/values.xml",
+                    "file": "C:\\Users\\ethantw\\GITHW\\POSitive_Eating\\app\\build\\intermediates\\exploded-aar\\com.google.android.gms\\play-services-cast-framework\\10.0.1\\res\\values-zh-rTW\\values.xml",
                     "position": {
                         "startLine": 36,
                         "startColumn": 0,
@@ -1460,7 +1075,7 @@
                     "endOffset": 5456
                 },
                 "from": {
-                    "file": "/Users/Alec/Desktop/Proj try 2/YT_4/POSitive_Eating/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-cast-framework/10.0.1/res/values-zh-rTW/values.xml",
+                    "file": "C:\\Users\\ethantw\\GITHW\\POSitive_Eating\\app\\build\\intermediates\\exploded-aar\\com.google.android.gms\\play-services-cast-framework\\10.0.1\\res\\values-zh-rTW\\values.xml",
                     "position": {
                         "startLine": 37,
                         "startColumn": 0,
@@ -1479,7 +1094,7 @@
                     "endOffset": 5554
                 },
                 "from": {
-                    "file": "/Users/Alec/Desktop/Proj try 2/YT_4/POSitive_Eating/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-cast-framework/10.0.1/res/values-zh-rTW/values.xml",
+                    "file": "C:\\Users\\ethantw\\GITHW\\POSitive_Eating\\app\\build\\intermediates\\exploded-aar\\com.google.android.gms\\play-services-cast-framework\\10.0.1\\res\\values-zh-rTW\\values.xml",
                     "position": {
                         "startLine": 38,
                         "startColumn": 0,
@@ -1498,7 +1113,7 @@
                     "endOffset": 5629
                 },
                 "from": {
-                    "file": "/Users/Alec/Desktop/Proj try 2/YT_4/POSitive_Eating/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-cast-framework/10.0.1/res/values-zh-rTW/values.xml",
+                    "file": "C:\\Users\\ethantw\\GITHW\\POSitive_Eating\\app\\build\\intermediates\\exploded-aar\\com.google.android.gms\\play-services-cast-framework\\10.0.1\\res\\values-zh-rTW\\values.xml",
                     "position": {
                         "startLine": 39,
                         "startColumn": 0,
@@ -1517,7 +1132,7 @@
                     "endOffset": 5732
                 },
                 "from": {
-                    "file": "/Users/Alec/Desktop/Proj try 2/YT_4/POSitive_Eating/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-base/10.0.1/res/values-zh-rTW/values.xml",
+                    "file": "C:\\Users\\ethantw\\GITHW\\POSitive_Eating\\app\\build\\intermediates\\exploded-aar\\com.google.android.gms\\play-services-base\\10.0.1\\res\\values-zh-rTW\\values.xml",
                     "position": {
                         "startLine": 4,
                         "startColumn": 0,
@@ -1536,7 +1151,7 @@
                     "endOffset": 5892
                 },
                 "from": {
-                    "file": "/Users/Alec/Desktop/Proj try 2/YT_4/POSitive_Eating/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-base/10.0.1/res/values-zh-rTW/values.xml",
+                    "file": "C:\\Users\\ethantw\\GITHW\\POSitive_Eating\\app\\build\\intermediates\\exploded-aar\\com.google.android.gms\\play-services-base\\10.0.1\\res\\values-zh-rTW\\values.xml",
                     "position": {
                         "startLine": 5,
                         "startColumn": 0,
@@ -1555,7 +1170,7 @@
                     "endOffset": 6009
                 },
                 "from": {
-                    "file": "/Users/Alec/Desktop/Proj try 2/YT_4/POSitive_Eating/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-base/10.0.1/res/values-zh-rTW/values.xml",
+                    "file": "C:\\Users\\ethantw\\GITHW\\POSitive_Eating\\app\\build\\intermediates\\exploded-aar\\com.google.android.gms\\play-services-base\\10.0.1\\res\\values-zh-rTW\\values.xml",
                     "position": {
                         "startLine": 6,
                         "startColumn": 0,
@@ -1574,7 +1189,7 @@
                     "endOffset": 6113
                 },
                 "from": {
-                    "file": "/Users/Alec/Desktop/Proj try 2/YT_4/POSitive_Eating/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-base/10.0.1/res/values-zh-rTW/values.xml",
+                    "file": "C:\\Users\\ethantw\\GITHW\\POSitive_Eating\\app\\build\\intermediates\\exploded-aar\\com.google.android.gms\\play-services-base\\10.0.1\\res\\values-zh-rTW\\values.xml",
                     "position": {
                         "startLine": 7,
                         "startColumn": 0,
@@ -1593,7 +1208,7 @@
                     "endOffset": 6279
                 },
                 "from": {
-                    "file": "/Users/Alec/Desktop/Proj try 2/YT_4/POSitive_Eating/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-base/10.0.1/res/values-zh-rTW/values.xml",
+                    "file": "C:\\Users\\ethantw\\GITHW\\POSitive_Eating\\app\\build\\intermediates\\exploded-aar\\com.google.android.gms\\play-services-base\\10.0.1\\res\\values-zh-rTW\\values.xml",
                     "position": {
                         "startLine": 8,
                         "startColumn": 0,
@@ -1612,7 +1227,7 @@
                     "endOffset": 6397
                 },
                 "from": {
-                    "file": "/Users/Alec/Desktop/Proj try 2/YT_4/POSitive_Eating/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-base/10.0.1/res/values-zh-rTW/values.xml",
+                    "file": "C:\\Users\\ethantw\\GITHW\\POSitive_Eating\\app\\build\\intermediates\\exploded-aar\\com.google.android.gms\\play-services-base\\10.0.1\\res\\values-zh-rTW\\values.xml",
                     "position": {
                         "startLine": 9,
                         "startColumn": 0,
@@ -1631,7 +1246,7 @@
                     "endOffset": 6521
                 },
                 "from": {
-                    "file": "/Users/Alec/Desktop/Proj try 2/YT_4/POSitive_Eating/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-base/10.0.1/res/values-zh-rTW/values.xml",
+                    "file": "C:\\Users\\ethantw\\GITHW\\POSitive_Eating\\app\\build\\intermediates\\exploded-aar\\com.google.android.gms\\play-services-base\\10.0.1\\res\\values-zh-rTW\\values.xml",
                     "position": {
                         "startLine": 10,
                         "startColumn": 0,
@@ -1650,7 +1265,7 @@
                     "endOffset": 6683
                 },
                 "from": {
-                    "file": "/Users/Alec/Desktop/Proj try 2/YT_4/POSitive_Eating/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-basement/10.0.1/res/values-zh-rTW/values.xml",
+                    "file": "C:\\Users\\ethantw\\GITHW\\POSitive_Eating\\app\\build\\intermediates\\exploded-aar\\com.google.android.gms\\play-services-basement\\10.0.1\\res\\values-zh-rTW\\values.xml",
                     "position": {
                         "startLine": 4,
                         "startColumn": 0,
@@ -1669,7 +1284,7 @@
                     "endOffset": 6852
                 },
                 "from": {
-                    "file": "/Users/Alec/Desktop/Proj try 2/YT_4/POSitive_Eating/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-base/10.0.1/res/values-zh-rTW/values.xml",
+                    "file": "C:\\Users\\ethantw\\GITHW\\POSitive_Eating\\app\\build\\intermediates\\exploded-aar\\com.google.android.gms\\play-services-base\\10.0.1\\res\\values-zh-rTW\\values.xml",
                     "position": {
                         "startLine": 11,
                         "startColumn": 0,
@@ -1688,7 +1303,7 @@
                     "endOffset": 6955
                 },
                 "from": {
-                    "file": "/Users/Alec/Desktop/Proj try 2/YT_4/POSitive_Eating/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-base/10.0.1/res/values-zh-rTW/values.xml",
+                    "file": "C:\\Users\\ethantw\\GITHW\\POSitive_Eating\\app\\build\\intermediates\\exploded-aar\\com.google.android.gms\\play-services-base\\10.0.1\\res\\values-zh-rTW\\values.xml",
                     "position": {
                         "startLine": 12,
                         "startColumn": 0,
@@ -1707,7 +1322,7 @@
                     "endOffset": 7115
                 },
                 "from": {
-                    "file": "/Users/Alec/Desktop/Proj try 2/YT_4/POSitive_Eating/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-base/10.0.1/res/values-zh-rTW/values.xml",
+                    "file": "C:\\Users\\ethantw\\GITHW\\POSitive_Eating\\app\\build\\intermediates\\exploded-aar\\com.google.android.gms\\play-services-base\\10.0.1\\res\\values-zh-rTW\\values.xml",
                     "position": {
                         "startLine": 13,
                         "startColumn": 0,
@@ -1726,7 +1341,7 @@
                     "endOffset": 7232
                 },
                 "from": {
-                    "file": "/Users/Alec/Desktop/Proj try 2/YT_4/POSitive_Eating/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-base/10.0.1/res/values-zh-rTW/values.xml",
+                    "file": "C:\\Users\\ethantw\\GITHW\\POSitive_Eating\\app\\build\\intermediates\\exploded-aar\\com.google.android.gms\\play-services-base\\10.0.1\\res\\values-zh-rTW\\values.xml",
                     "position": {
                         "startLine": 14,
                         "startColumn": 0,
@@ -1745,7 +1360,7 @@
                     "endOffset": 7393
                 },
                 "from": {
-                    "file": "/Users/Alec/Desktop/Proj try 2/YT_4/POSitive_Eating/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-base/10.0.1/res/values-zh-rTW/values.xml",
+                    "file": "C:\\Users\\ethantw\\GITHW\\POSitive_Eating\\app\\build\\intermediates\\exploded-aar\\com.google.android.gms\\play-services-base\\10.0.1\\res\\values-zh-rTW\\values.xml",
                     "position": {
                         "startLine": 15,
                         "startColumn": 0,
@@ -1764,7 +1379,7 @@
                     "endOffset": 7531
                 },
                 "from": {
-                    "file": "/Users/Alec/Desktop/Proj try 2/YT_4/POSitive_Eating/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-base/10.0.1/res/values-zh-rTW/values.xml",
+                    "file": "C:\\Users\\ethantw\\GITHW\\POSitive_Eating\\app\\build\\intermediates\\exploded-aar\\com.google.android.gms\\play-services-base\\10.0.1\\res\\values-zh-rTW\\values.xml",
                     "position": {
                         "startLine": 16,
                         "startColumn": 0,
@@ -1783,7 +1398,7 @@
                     "endOffset": 7617
                 },
                 "from": {
-                    "file": "/Users/Alec/Desktop/Proj try 2/YT_4/POSitive_Eating/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-base/10.0.1/res/values-zh-rTW/values.xml",
+                    "file": "C:\\Users\\ethantw\\GITHW\\POSitive_Eating\\app\\build\\intermediates\\exploded-aar\\com.google.android.gms\\play-services-base\\10.0.1\\res\\values-zh-rTW\\values.xml",
                     "position": {
                         "startLine": 17,
                         "startColumn": 0,
@@ -1802,7 +1417,7 @@
                     "endOffset": 7704
                 },
                 "from": {
-                    "file": "/Users/Alec/Desktop/Proj try 2/YT_4/POSitive_Eating/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-base/10.0.1/res/values-zh-rTW/values.xml",
+                    "file": "C:\\Users\\ethantw\\GITHW\\POSitive_Eating\\app\\build\\intermediates\\exploded-aar\\com.google.android.gms\\play-services-base\\10.0.1\\res\\values-zh-rTW\\values.xml",
                     "position": {
                         "startLine": 18,
                         "startColumn": 0,
@@ -1821,7 +1436,7 @@
                     "endOffset": 7807
                 },
                 "from": {
-                    "file": "/Users/Alec/Desktop/Proj try 2/YT_4/POSitive_Eating/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-base/10.0.1/res/values-zh-rTW/values.xml",
+                    "file": "C:\\Users\\ethantw\\GITHW\\POSitive_Eating\\app\\build\\intermediates\\exploded-aar\\com.google.android.gms\\play-services-base\\10.0.1\\res\\values-zh-rTW\\values.xml",
                     "position": {
                         "startLine": 19,
                         "startColumn": 0,
@@ -1840,7 +1455,7 @@
                     "endOffset": 7903
                 },
                 "from": {
-                    "file": "/Users/Alec/Desktop/Proj try 2/YT_4/POSitive_Eating/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-ads/10.0.1/res/values-zh-rTW/values.xml",
+                    "file": "C:\\Users\\ethantw\\GITHW\\POSitive_Eating\\app\\build\\intermediates\\exploded-aar\\com.google.android.gms\\play-services-ads\\10.0.1\\res\\values-zh-rTW\\values.xml",
                     "position": {
                         "startLine": 5,
                         "startColumn": 0,
@@ -1859,7 +1474,7 @@
                     "endOffset": 7990
                 },
                 "from": {
-                    "file": "/Users/Alec/Desktop/Proj try 2/YT_4/POSitive_Eating/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-ads/10.0.1/res/values-zh-rTW/values.xml",
+                    "file": "C:\\Users\\ethantw\\GITHW\\POSitive_Eating\\app\\build\\intermediates\\exploded-aar\\com.google.android.gms\\play-services-ads\\10.0.1\\res\\values-zh-rTW\\values.xml",
                     "position": {
                         "startLine": 6,
                         "startColumn": 0,
@@ -1878,7 +1493,7 @@
                     "endOffset": 8079
                 },
                 "from": {
-                    "file": "/Users/Alec/Desktop/Proj try 2/YT_4/POSitive_Eating/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-ads/10.0.1/res/values-zh-rTW/values.xml",
+                    "file": "C:\\Users\\ethantw\\GITHW\\POSitive_Eating\\app\\build\\intermediates\\exploded-aar\\com.google.android.gms\\play-services-ads\\10.0.1\\res\\values-zh-rTW\\values.xml",
                     "position": {
                         "startLine": 7,
                         "startColumn": 0,
@@ -1897,7 +1512,7 @@
                     "endOffset": 8172
                 },
                 "from": {
-                    "file": "/Users/Alec/Desktop/Proj try 2/YT_4/POSitive_Eating/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-ads/10.0.1/res/values-zh-rTW/values.xml",
+                    "file": "C:\\Users\\ethantw\\GITHW\\POSitive_Eating\\app\\build\\intermediates\\exploded-aar\\com.google.android.gms\\play-services-ads\\10.0.1\\res\\values-zh-rTW\\values.xml",
                     "position": {
                         "startLine": 8,
                         "startColumn": 0,
@@ -1916,7 +1531,7 @@
                     "endOffset": 8254
                 },
                 "from": {
-                    "file": "/Users/Alec/Desktop/Proj try 2/YT_4/POSitive_Eating/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-ads/10.0.1/res/values-zh-rTW/values.xml",
+                    "file": "C:\\Users\\ethantw\\GITHW\\POSitive_Eating\\app\\build\\intermediates\\exploded-aar\\com.google.android.gms\\play-services-ads\\10.0.1\\res\\values-zh-rTW\\values.xml",
                     "position": {
                         "startLine": 9,
                         "startColumn": 0,
@@ -1935,7 +1550,7 @@
                     "endOffset": 8344
                 },
                 "from": {
-                    "file": "/Users/Alec/Desktop/Proj try 2/YT_4/POSitive_Eating/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-ads/10.0.1/res/values-zh-rTW/values.xml",
+                    "file": "C:\\Users\\ethantw\\GITHW\\POSitive_Eating\\app\\build\\intermediates\\exploded-aar\\com.google.android.gms\\play-services-ads\\10.0.1\\res\\values-zh-rTW\\values.xml",
                     "position": {
                         "startLine": 10,
                         "startColumn": 0,
@@ -1954,7 +1569,7 @@
                     "endOffset": 8413
                 },
                 "from": {
-                    "file": "/Users/Alec/Desktop/Proj try 2/YT_4/POSitive_Eating/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-ads/10.0.1/res/values-zh-rTW/values.xml",
+                    "file": "C:\\Users\\ethantw\\GITHW\\POSitive_Eating\\app\\build\\intermediates\\exploded-aar\\com.google.android.gms\\play-services-ads\\10.0.1\\res\\values-zh-rTW\\values.xml",
                     "position": {
                         "startLine": 11,
                         "startColumn": 0,
@@ -1973,7 +1588,7 @@
                     "endOffset": 8506
                 },
                 "from": {
-                    "file": "/Users/Alec/Desktop/Proj try 2/YT_4/POSitive_Eating/app/build/intermediates/exploded-aar/com.android.support/mediarouter-v7/24.0.0/res/values-zh-rTW/values-zh-rTW.xml",
+                    "file": "C:\\Users\\ethantw\\GITHW\\POSitive_Eating\\app\\build\\intermediates\\exploded-aar\\com.android.support\\mediarouter-v7\\24.0.0\\res\\values-zh-rTW\\values-zh-rTW.xml",
                     "position": {
                         "startLine": 2,
                         "startColumn": 4,
@@ -1992,7 +1607,7 @@
                     "endOffset": 8592
                 },
                 "from": {
-                    "file": "/Users/Alec/Desktop/Proj try 2/YT_4/POSitive_Eating/app/build/intermediates/exploded-aar/com.android.support/mediarouter-v7/24.0.0/res/values-zh-rTW/values-zh-rTW.xml",
+                    "file": "C:\\Users\\ethantw\\GITHW\\POSitive_Eating\\app\\build\\intermediates\\exploded-aar\\com.android.support\\mediarouter-v7\\24.0.0\\res\\values-zh-rTW\\values-zh-rTW.xml",
                     "position": {
                         "startLine": 3,
                         "startColumn": 4,
@@ -2011,7 +1626,7 @@
                     "endOffset": 8670
                 },
                 "from": {
-                    "file": "/Users/Alec/Desktop/Proj try 2/YT_4/POSitive_Eating/app/build/intermediates/exploded-aar/com.android.support/mediarouter-v7/24.0.0/res/values-zh-rTW/values-zh-rTW.xml",
+                    "file": "C:\\Users\\ethantw\\GITHW\\POSitive_Eating\\app\\build\\intermediates\\exploded-aar\\com.android.support\\mediarouter-v7\\24.0.0\\res\\values-zh-rTW\\values-zh-rTW.xml",
                     "position": {
                         "startLine": 4,
                         "startColumn": 4,
@@ -2030,7 +1645,7 @@
                     "endOffset": 8757
                 },
                 "from": {
-                    "file": "/Users/Alec/Desktop/Proj try 2/YT_4/POSitive_Eating/app/build/intermediates/exploded-aar/com.android.support/mediarouter-v7/24.0.0/res/values-zh-rTW/values-zh-rTW.xml",
+                    "file": "C:\\Users\\ethantw\\GITHW\\POSitive_Eating\\app\\build\\intermediates\\exploded-aar\\com.android.support\\mediarouter-v7\\24.0.0\\res\\values-zh-rTW\\values-zh-rTW.xml",
                     "position": {
                         "startLine": 5,
                         "startColumn": 4,
@@ -2049,7 +1664,7 @@
                     "endOffset": 8851
                 },
                 "from": {
-                    "file": "/Users/Alec/Desktop/Proj try 2/YT_4/POSitive_Eating/app/build/intermediates/exploded-aar/com.android.support/mediarouter-v7/24.0.0/res/values-zh-rTW/values-zh-rTW.xml",
+                    "file": "C:\\Users\\ethantw\\GITHW\\POSitive_Eating\\app\\build\\intermediates\\exploded-aar\\com.android.support\\mediarouter-v7\\24.0.0\\res\\values-zh-rTW\\values-zh-rTW.xml",
                     "position": {
                         "startLine": 6,
                         "startColumn": 4,
@@ -2068,7 +1683,7 @@
                     "endOffset": 8944
                 },
                 "from": {
-                    "file": "/Users/Alec/Desktop/Proj try 2/YT_4/POSitive_Eating/app/build/intermediates/exploded-aar/com.android.support/mediarouter-v7/24.0.0/res/values-zh-rTW/values-zh-rTW.xml",
+                    "file": "C:\\Users\\ethantw\\GITHW\\POSitive_Eating\\app\\build\\intermediates\\exploded-aar\\com.android.support\\mediarouter-v7\\24.0.0\\res\\values-zh-rTW\\values-zh-rTW.xml",
                     "position": {
                         "startLine": 7,
                         "startColumn": 4,
@@ -2087,7 +1702,7 @@
                     "endOffset": 9034
                 },
                 "from": {
-                    "file": "/Users/Alec/Desktop/Proj try 2/YT_4/POSitive_Eating/app/build/intermediates/exploded-aar/com.android.support/mediarouter-v7/24.0.0/res/values-zh-rTW/values-zh-rTW.xml",
+                    "file": "C:\\Users\\ethantw\\GITHW\\POSitive_Eating\\app\\build\\intermediates\\exploded-aar\\com.android.support\\mediarouter-v7\\24.0.0\\res\\values-zh-rTW\\values-zh-rTW.xml",
                     "position": {
                         "startLine": 8,
                         "startColumn": 4,
@@ -2106,7 +1721,7 @@
                     "endOffset": 9122
                 },
                 "from": {
-                    "file": "/Users/Alec/Desktop/Proj try 2/YT_4/POSitive_Eating/app/build/intermediates/exploded-aar/com.android.support/mediarouter-v7/24.0.0/res/values-zh-rTW/values-zh-rTW.xml",
+                    "file": "C:\\Users\\ethantw\\GITHW\\POSitive_Eating\\app\\build\\intermediates\\exploded-aar\\com.android.support\\mediarouter-v7\\24.0.0\\res\\values-zh-rTW\\values-zh-rTW.xml",
                     "position": {
                         "startLine": 9,
                         "startColumn": 4,
@@ -2125,7 +1740,7 @@
                     "endOffset": 9210
                 },
                 "from": {
-                    "file": "/Users/Alec/Desktop/Proj try 2/YT_4/POSitive_Eating/app/build/intermediates/exploded-aar/com.android.support/mediarouter-v7/24.0.0/res/values-zh-rTW/values-zh-rTW.xml",
+                    "file": "C:\\Users\\ethantw\\GITHW\\POSitive_Eating\\app\\build\\intermediates\\exploded-aar\\com.android.support\\mediarouter-v7\\24.0.0\\res\\values-zh-rTW\\values-zh-rTW.xml",
                     "position": {
                         "startLine": 10,
                         "startColumn": 4,
@@ -2144,7 +1759,7 @@
                     "endOffset": 9308
                 },
                 "from": {
-                    "file": "/Users/Alec/Desktop/Proj try 2/YT_4/POSitive_Eating/app/build/intermediates/exploded-aar/com.android.support/mediarouter-v7/24.0.0/res/values-zh-rTW/values-zh-rTW.xml",
+                    "file": "C:\\Users\\ethantw\\GITHW\\POSitive_Eating\\app\\build\\intermediates\\exploded-aar\\com.android.support\\mediarouter-v7\\24.0.0\\res\\values-zh-rTW\\values-zh-rTW.xml",
                     "position": {
                         "startLine": 11,
                         "startColumn": 4,
@@ -2163,7 +1778,7 @@
                     "endOffset": 9406
                 },
                 "from": {
-                    "file": "/Users/Alec/Desktop/Proj try 2/YT_4/POSitive_Eating/app/build/intermediates/exploded-aar/com.android.support/mediarouter-v7/24.0.0/res/values-zh-rTW/values-zh-rTW.xml",
+                    "file": "C:\\Users\\ethantw\\GITHW\\POSitive_Eating\\app\\build\\intermediates\\exploded-aar\\com.android.support\\mediarouter-v7\\24.0.0\\res\\values-zh-rTW\\values-zh-rTW.xml",
                     "position": {
                         "startLine": 12,
                         "startColumn": 4,
@@ -2182,7 +1797,7 @@
                     "endOffset": 9487
                 },
                 "from": {
-                    "file": "/Users/Alec/Desktop/Proj try 2/YT_4/POSitive_Eating/app/build/intermediates/exploded-aar/com.android.support/mediarouter-v7/24.0.0/res/values-zh-rTW/values-zh-rTW.xml",
+                    "file": "C:\\Users\\ethantw\\GITHW\\POSitive_Eating\\app\\build\\intermediates\\exploded-aar\\com.android.support\\mediarouter-v7\\24.0.0\\res\\values-zh-rTW\\values-zh-rTW.xml",
                     "position": {
                         "startLine": 13,
                         "startColumn": 4,
@@ -2201,7 +1816,7 @@
                     "endOffset": 9566
                 },
                 "from": {
-                    "file": "/Users/Alec/Desktop/Proj try 2/YT_4/POSitive_Eating/app/build/intermediates/exploded-aar/com.android.support/mediarouter-v7/24.0.0/res/values-zh-rTW/values-zh-rTW.xml",
+                    "file": "C:\\Users\\ethantw\\GITHW\\POSitive_Eating\\app\\build\\intermediates\\exploded-aar\\com.android.support\\mediarouter-v7\\24.0.0\\res\\values-zh-rTW\\values-zh-rTW.xml",
                     "position": {
                         "startLine": 14,
                         "startColumn": 4,
@@ -2220,7 +1835,7 @@
                     "endOffset": 9648
                 },
                 "from": {
-                    "file": "/Users/Alec/Desktop/Proj try 2/YT_4/POSitive_Eating/app/build/intermediates/exploded-aar/com.android.support/mediarouter-v7/24.0.0/res/values-zh-rTW/values-zh-rTW.xml",
+                    "file": "C:\\Users\\ethantw\\GITHW\\POSitive_Eating\\app\\build\\intermediates\\exploded-aar\\com.android.support\\mediarouter-v7\\24.0.0\\res\\values-zh-rTW\\values-zh-rTW.xml",
                     "position": {
                         "startLine": 15,
                         "startColumn": 4,
@@ -2239,7 +1854,7 @@
                     "endOffset": 9730
                 },
                 "from": {
-                    "file": "/Users/Alec/Desktop/Proj try 2/YT_4/POSitive_Eating/app/build/intermediates/exploded-aar/com.android.support/mediarouter-v7/24.0.0/res/values-zh-rTW/values-zh-rTW.xml",
+                    "file": "C:\\Users\\ethantw\\GITHW\\POSitive_Eating\\app\\build\\intermediates\\exploded-aar\\com.android.support\\mediarouter-v7\\24.0.0\\res\\values-zh-rTW\\values-zh-rTW.xml",
                     "position": {
                         "startLine": 16,
                         "startColumn": 4,
@@ -2258,7 +1873,7 @@
                     "endOffset": 9819
                 },
                 "from": {
-                    "file": "/Users/Alec/Desktop/Proj try 2/YT_4/POSitive_Eating/app/build/intermediates/exploded-aar/com.android.support/mediarouter-v7/24.0.0/res/values-zh-rTW/values-zh-rTW.xml",
+                    "file": "C:\\Users\\ethantw\\GITHW\\POSitive_Eating\\app\\build\\intermediates\\exploded-aar\\com.android.support\\mediarouter-v7\\24.0.0\\res\\values-zh-rTW\\values-zh-rTW.xml",
                     "position": {
                         "startLine": 17,
                         "startColumn": 4,
@@ -2277,7 +1892,7 @@
                     "endOffset": 9914
                 },
                 "from": {
-                    "file": "/Users/Alec/Desktop/Proj try 2/YT_4/POSitive_Eating/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-places/10.0.1/res/values-zh-rTW/values.xml",
+                    "file": "C:\\Users\\ethantw\\GITHW\\POSitive_Eating\\app\\build\\intermediates\\exploded-aar\\com.google.android.gms\\play-services-places\\10.0.1\\res\\values-zh-rTW\\values.xml",
                     "position": {
                         "startLine": 4,
                         "startColumn": 0,
@@ -2296,7 +1911,7 @@
                     "endOffset": 10006
                 },
                 "from": {
-                    "file": "/Users/Alec/Desktop/Proj try 2/YT_4/POSitive_Eating/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-places/10.0.1/res/values-zh-rTW/values.xml",
+                    "file": "C:\\Users\\ethantw\\GITHW\\POSitive_Eating\\app\\build\\intermediates\\exploded-aar\\com.google.android.gms\\play-services-places\\10.0.1\\res\\values-zh-rTW\\values.xml",
                     "position": {
                         "startLine": 5,
                         "startColumn": 0,
@@ -2315,7 +1930,7 @@
                     "endOffset": 10107
                 },
                 "from": {
-                    "file": "/Users/Alec/Desktop/Proj try 2/YT_4/POSitive_Eating/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/24.0.0/res/values-zh-rTW/values-zh-rTW.xml",
+                    "file": "C:\\Users\\ethantw\\GITHW\\POSitive_Eating\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\24.0.0\\res\\values-zh-rTW\\values-zh-rTW.xml",
                     "position": {
                         "startLine": 21,
                         "startColumn": 4,
@@ -2334,7 +1949,7 @@
                     "endOffset": 10207
                 },
                 "from": {
-                    "file": "/Users/Alec/Desktop/Proj try 2/YT_4/POSitive_Eating/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-ads/10.0.1/res/values-zh-rTW/values.xml",
+                    "file": "C:\\Users\\ethantw\\GITHW\\POSitive_Eating\\app\\build\\intermediates\\exploded-aar\\com.google.android.gms\\play-services-ads\\10.0.1\\res\\values-zh-rTW\\values.xml",
                     "position": {
                         "startLine": 12,
                         "startColumn": 0,
@@ -2353,7 +1968,7 @@
                     "endOffset": 10290
                 },
                 "from": {
-                    "file": "/Users/Alec/Desktop/Proj try 2/YT_4/POSitive_Eating/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-ads/10.0.1/res/values-zh-rTW/values.xml",
+                    "file": "C:\\Users\\ethantw\\GITHW\\POSitive_Eating\\app\\build\\intermediates\\exploded-aar\\com.google.android.gms\\play-services-ads\\10.0.1\\res\\values-zh-rTW\\values.xml",
                     "position": {
                         "startLine": 13,
                         "startColumn": 0,
@@ -2372,7 +1987,7 @@
                     "endOffset": 10391
                 },
                 "from": {
-                    "file": "/Users/Alec/Desktop/Proj try 2/YT_4/POSitive_Eating/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-wallet/10.0.1/res/values-zh-rTW/values.xml",
+                    "file": "C:\\Users\\ethantw\\GITHW\\POSitive_Eating\\app\\build\\intermediates\\exploded-aar\\com.google.android.gms\\play-services-wallet\\10.0.1\\res\\values-zh-rTW\\values.xml",
                     "position": {
                         "startLine": 4,
                         "startColumn": 0,
