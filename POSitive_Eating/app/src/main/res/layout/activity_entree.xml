@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fitsSystemWindows="true"
-    tools:context="com.example.alec.positive_eating.CustomerEntreeList">
+    tools:context="com.example.alec.positive_eating.CustomerEntreeSideList">
 
     <ListView
         android:layout_width="match_parent"

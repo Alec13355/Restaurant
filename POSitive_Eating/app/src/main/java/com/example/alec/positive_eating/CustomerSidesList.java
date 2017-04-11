@@ -53,9 +53,8 @@ public class CustomerSidesList extends AppCompatActivity {
                     setupActivity(sideList.toArray(new String[sideList.size()]));
                 } else {
                     try {
-                        String nameOfFood = response.getString("name");
-                        if(Character.isLowerCase(nameOfFood.charAt(0))) {
-                            sideList.add(nameOfFood);
+                        if(Character.isLowerCase(response.getString("name").charAt(0))) {
+                            sideList.add(response.getString("desc"));
                         }
                         connect.getFoodByIndex(++recursiveInc, this);
                     } catch(Exception e) {

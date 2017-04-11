@@ -96,13 +96,13 @@ public class CustomerOrderMenu extends AppCompatActivity implements View.OnClick
     }
 
     private void addItem() {
-        Intent i = new Intent(this, CustomerEntreeList.class);
+        Intent i = new Intent(this, CustomerEntreeSideList.class);
         i.putExtra("NEW_ORDER", true);
         startActivity(i);
     }
 
     private void confirmOrder(){
-        ShaneConnect vista = getShaneConnect();
+        ShaneConnect connect = getShaneConnect();
         ArrayList<String> tmp = new ArrayList<String>();
         ArrayList<String> options = new ArrayList<String>();
         String desc = "";
@@ -119,30 +119,31 @@ public class CustomerOrderMenu extends AppCompatActivity implements View.OnClick
                 options.add("sides place holder");
             }
         }
-        vista.placeOrder(desc, tmp, options, 10, "To Go", new Response.Listener<JSONObject>() {
+        connect.placeOrder(desc, tmp, options, 10, "To Go", new Response.Listener<JSONObject>() {
             @Override
             public void onResponse(JSONObject response) {
                 Toast.makeText(getApplicationContext(), "The order was successfully placed!",
                         Toast.LENGTH_LONG).show();
-                //TODO
-                //add the finishUp() method, like in Reservations, and make the Toast appear there.
+                finish();
             }
         });
 
         /*
         ArrayList<String> a = new ArrayList<String>();
-        String b = "waffle fries";
-        vista.addFood(b, 10, b, 1, a, new Response.Listener<JSONObject>() {
+        String b = "mozzarella Sticks";
+        String c = "Mozzarella Sticks";
+        connect.addFood(b, 6, c, 1, a, new Response.Listener<JSONObject>() {
             @Override
             public void onResponse(JSONObject response) {
-                Toast.makeText(getApplicationContext(), response.toString(), Toast.LENGTH_LONG).show();
+                Toast.makeText(getApplicationContext(),
+                        response.toString(), Toast.LENGTH_LONG).show();
             }
         });
         */
     }
 
     private void addSide(int position) {
-        Intent i = new Intent(this, CustomerSidesList.class);
+        Intent i = new Intent(this, CustomerEntreeSideList.class);
         i.putExtra("ADD_SIDE", position);
         startActivity(i);
     }

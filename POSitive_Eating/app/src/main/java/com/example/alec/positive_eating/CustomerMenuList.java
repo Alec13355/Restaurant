@@ -10,7 +10,7 @@ import android.widget.TextView;
 
 /**
  * @author Christian Shinkle
- * The CustomerMenuList class is used as a custom implementation for both the CustomerEntreeList
+ * The CustomerMenuList class is used as a custom implementation for both the CustomerEntreeSideList
  * and the CustomerSidesList. By extending ArrayAdapter, this class can be used to create
  * ListView views.
  */

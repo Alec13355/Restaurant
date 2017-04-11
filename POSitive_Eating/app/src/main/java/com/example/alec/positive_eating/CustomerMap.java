@@ -41,7 +41,6 @@ public class CustomerMap extends AppCompatActivity implements OnMapReadyCallback
 
     private GoogleMap googleMap;
     private String serverKey = "AIzaSyC9KxRvcZhsLFBf7ggjZN4zO1lOJCUoMy4";
-    private LatLng camera = new LatLng(42.02, -93.66);
     private LatLng origin;
     private LatLng destination = new LatLng(42.011428, -93.679304);
     private GoogleApiClient client;
@@ -85,7 +84,6 @@ public class CustomerMap extends AppCompatActivity implements OnMapReadyCallback
     @Override
     public void onMapReady(GoogleMap gMap) {
         googleMap = gMap;
-        googleMap.animateCamera(CameraUpdateFactory.newLatLngZoom(camera, 13));
         if (ContextCompat.checkSelfPermission(this,
                 android.Manifest.permission.ACCESS_FINE_LOCATION)
                 == PackageManager.PERMISSION_GRANTED) {
@@ -103,6 +101,7 @@ public class CustomerMap extends AppCompatActivity implements OnMapReadyCallback
             }
         }
         if(origin!=null) {
+            googleMap.animateCamera(CameraUpdateFactory.newLatLngZoom(origin, 13));
             GoogleDirection.withServerKey(serverKey)
                     .from(origin)
                     .to(destination)
@@ -119,15 +118,14 @@ public class CustomerMap extends AppCompatActivity implements OnMapReadyCallback
      */
     @Override
     public void onDirectionSuccess(Direction direction, String rawBody) {
-        // Snackbar.make(btnRequestDirection, "Success with status : " + direction.getStatus(), Snackbar.LENGTH_SHORT).show();
         if (direction.isOK()) {
             googleMap.addMarker(new MarkerOptions().position(origin));
             googleMap.addMarker(new MarkerOptions().position(destination));
 
-            ArrayList<LatLng> directionPositionList = direction.getRouteList().get(0).getLegList().get(0).getDirectionPoint();
-            googleMap.addPolyline(DirectionConverter.createPolyline(this, directionPositionList, 5, Color.RED));
-
-            // btnRequestDirection.setVisibility(View.GONE);
+            ArrayList<LatLng> directionPositionList = direction.getRouteList().get(0).getLegList()
+                    .get(0).getDirectionPoint();
+            googleMap.addPolyline(DirectionConverter.createPolyline(this, directionPositionList, 5,
+                    Color.RED));
         }
     }
 
@@ -138,7 +136,8 @@ public class CustomerMap extends AppCompatActivity implements OnMapReadyCallback
      */
     @Override
     public void onDirectionFailure(Throwable t) {
-        // Snackbar.make(btnRequestDirection, t.getMessage(), Snackbar.LENGTH_SHORT).show();
+        Toast.makeText(getApplicationContext(),
+                "There was an error. The directions couldn't be found", Toast.LENGTH_LONG).show();
     }
 
     @Override
