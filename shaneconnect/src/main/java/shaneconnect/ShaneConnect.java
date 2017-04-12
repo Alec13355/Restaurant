@@ -111,6 +111,32 @@ public class ShaneConnect {
     }
 
     /**
+     * Gets employee information with an id number
+     * @param id
+     * @param s the response method returns a json of the form given when searching for a
+     *          employee by index
+     */
+    public void getEmployeeByID(int id,Response.Listener<JSONObject> s ){
+        RequestQueue queue = Volley.newRequestQueue(maind);
+        JSONObject out = new JSONObject();
+        try{
+            out.put("id",id);
+
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+        JsonObjectRequest lastFMAuthRequest = new JsonObjectRequest(Request.Method.POST, url + "/getEmployeeWithID", out, s, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                System.out.print(error.networkResponse);
+
+            }
+
+        });
+        queue.add(lastFMAuthRequest);
+    }
+
+    /**
      * Get food by index is a way to recursively return all food items.
      * @param index the index number for the food item
      * @param s is a asynchronous callback function that responds with a json object of the form {name:String,food_id:int,quantity:int,price:int,desc:string,options:string}
@@ -202,20 +228,18 @@ public class ShaneConnect {
 
     /**
      * Unstable as of this release
-     * @param user
      * @param index
      * @param s
      */
-    public void getlogs(final String user, final int index, Response.Listener<JSONObject> s){
+    public void getlogs(final int index, Response.Listener<JSONObject> s){
         RequestQueue queue = Volley.newRequestQueue(maind);
         JSONObject out = new JSONObject();
         try{
-            out.put("user",user);
             out.put("index",index);
         }catch(JSONException e){
             e.printStackTrace();
         }
-        JsonObjectRequest lastFMAuthRequest = new JsonObjectRequest(Request.Method.POST, url + "/log", out,s , new Response.ErrorListener() {
+        JsonObjectRequest lastFMAuthRequest = new JsonObjectRequest(Request.Method.POST, url + "/getLog", out,s , new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
                 System.out.print(error.networkResponse);
