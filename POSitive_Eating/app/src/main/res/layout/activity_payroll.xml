@@ -8,6 +8,23 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="com.example.alec.positive_eating.Employee_Payroll">
+    tools:context="com.example.alec.positive_eating.payrole.Employee_Payroll">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="400dp"
+        android:id="@+id/listOStuff"
+        >
+
+    </ScrollView>
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/button2"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:text="pay"
+        />
 
 </RelativeLayout>
