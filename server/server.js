@@ -64,6 +64,12 @@ router.post("/addFood", function(req,res){
   });
 });
 
+router.post("/getEmployeeWithID", function(req,res){
+  data_base.getEmployeeWithID(req.body, function(resp){
+    res.json(resp);
+  });
+});
+
 router.post("/placeOrder", function(req,res){
   data_base.placeOrder(req.body, function(resp){
     res.json(resp);

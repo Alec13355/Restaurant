@@ -182,7 +182,7 @@ method.setTable = function(json_info,callBack){
             throw err;
         }
         if(rows.length>0){
-            var updatesql = "UPDATE TABLES SET X_COORD = " + json_info.xcoord + ", Y_COORD = " + json_info.ycoord + ", NUM_SEATS = " + json_info.number_of_seats + ", STATUS = " + json_info.stat + "', EMPLOYEE_ID = " + json_info.employeeID + " WHERE NAME = '" + json_info.name + "'";
+            var updatesql = "UPDATE TABLES SET X_COORD = " + json_info.xcoord + ", Y_COORD = " + json_info.ycoord + ", NUM_SEATS = " + json_info.number_of_seats + ", STATUS = '" + json_info.stat + "', EMPLOYEE_ID = " + json_info.employeeID + " WHERE NAME = '" + json_info.name + "'";
 
             console.log(updatesql);
             con.query(updatesql, function(err,rows){
@@ -228,7 +228,8 @@ method.getTable = function(json_info,cb){
             x_coord: rows[i].X_COORD,
             y_coord: rows[i].Y_COORD,
             number_seats: rows[i].NUM_SEATS,
-            status: rows[i].STATUS
+            status: rows[i].STATUS,
+            employee_id: rows[i].EMPLOYEE_ID
         }
         return cb(data);
         }
@@ -302,6 +303,36 @@ method.getUserByIndex = function(json_info,callback){
         
     });
 }
+
+method.getEmployeeWithID = function(json_info,callback){
+    var sql = "SELECT * FROM EMPLOYEES WHERE EMPLOYEE_ID = " + json_info.id;
+    console.log(sql);
+    this.connection.query(sql, function(err,rows){
+        if(err){
+            throw err;
+        }
+        if(rows.length>0){
+              var data = {
+                last: rows[i].L_NAME,
+                first: rows[i].F_NAME,
+                emp_id: rows[i].EMPLOYEE_ID,
+                perm_string: rows[i].PERM_STRING,
+                address: rows[i].ADDRESS,
+                cell: rows[i].CELL,
+                phone: rows[i].PHONE,
+                status: rows[i].STATUS,
+                pass: rows[i].PASS,
+                rate: rows[i].PAY_HR,
+                routing: rows[i].ROUTING,
+                social: rows[i].SOCIAL,
+                bank_num: rows[i].BANK_NUM
+            };
+            return callback(data)
+        }
+    });
+}
+
+
 /**
  * Gets Table information with name
  * @param json with table name
@@ -339,14 +370,16 @@ method.getLogEvent = function(json_info,callBack){
     var data;
     var connection  = this.connection;
     pars(json_info.user, function(rp){
-    var sql = "SELECT * FROM EMPLOYEE_LOG WHERE EMPLOYEE_ID = " + rp.id   
+    var sql = "SELECT * FROM EMPLOYEE_LOG";  
     connection.query(sql,function(err,rows){
         if(err){
             throw err;
         }
-        if(rows.length>0){
+        if(rows.length>0 && json_info.index < row.length){
            data = rows[json_info.index];
            return callBack(data);
+        }else{
+            return callBack({none:1});
         }
         
     });
