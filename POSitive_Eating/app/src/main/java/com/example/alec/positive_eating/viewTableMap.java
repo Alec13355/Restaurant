@@ -52,7 +52,6 @@ public class  viewTableMap extends Activity {
             @Override
             public void onClick(View v) {
                 Intent myIntent = new Intent(viewTableMap.this, tableListView.class); /** Class name here */
-
                 viewTableMap.this.startActivity(myIntent);
             }
         });

@@ -10,7 +10,9 @@ import android.view.MotionEvent;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
+import android.widget.Space;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -23,6 +25,8 @@ import android.widget.Button;
 import android.widget.EditText;;
 
 import static android.view.Gravity.*;
+import static android.view.ViewGroup.LayoutParams.FILL_PARENT;
+import static android.view.ViewGroup.LayoutParams.MATCH_PARENT;
 import static com.example.alec.positive_eating.Singleton_ShaneConnect_Factory.getShaneConnect;
 
 /**
@@ -268,6 +272,7 @@ public class Table {
         tempName.setWidth(FILL);
         tempName.setText(String.valueOf(ID));
         tempName.setTextColor(Color.BLACK);
+        tempName.setTextSize(30);
 
         RelativeLayout.LayoutParams textLayoutParams = new RelativeLayout.LayoutParams(150,150);
 //        textLayoutParams.addRule(RelativeLayout.ALIGN_LEFT, temp.getId());
@@ -305,6 +310,7 @@ public class Table {
         tempName.setWidth(temp.getWidth());
         tempName.setText(String.valueOf(ID));
         tempName.setTextColor(Color.BLACK);
+        tempName.setTextSize(30);
 
         RelativeLayout.LayoutParams textLayoutParams = new RelativeLayout.LayoutParams(150,150);
         textLayoutParams.addRule(RelativeLayout.ALIGN_LEFT, temp.getId());
@@ -483,14 +489,31 @@ public class Table {
         }
     }
 
-    public void addListItem(ViewGroup mRootLayout2){
+    public void addListItem(ViewGroup mListLayout){
+        LinearLayout linearLayout = (LinearLayout) mListLayout;
+        LinearLayout thisTable = new LinearLayout(tableContext);
+        thisTable.setLayoutParams(new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT));
+        thisTable.setOrientation(LinearLayout.VERTICAL);
+
+        String tempNameString =  "Table: " + ID;
         TextView tempName = new TextView(tableContext);
-        tempName.setHeight(FILL);
-        tempName.setWidth(FILL);
-        tempName.setText(
-                "Table: " + ID + "\nX: " + getX() + " Y: " + getY() + "\nNumber of seats: " + getSeats() + "\nStatus: " + getStatus()
-        );
+        tempName.setText(tempNameString); //+ "\nX: " + getX() + " Y: " + getY() + "\nNumber of seats: " + getSeats() + "\nStatus: " + getStatus()
         tempName.setTextColor(Color.BLACK);
-        mRootLayout2.addView(tempName);
+        tempName.setTextSize(40);
+
+        String tempDetailString =  "Number of seats: " + getSeats() + "\nStatus: " + getStatus() + "\nEmployee: " + getEmployeeID() + "\n";
+        TextView tempDetails = new TextView(tableContext);
+        tempDetails.setText(tempDetailString);
+        tempDetails.setTextColor(Color.BLACK);
+        tempDetails.setTextSize(20);
+
+        linearLayout.addView(thisTable);
+
+        thisTable.addView(tempName);
+        thisTable.addView(tempDetails);
+//        Space space = new Space(tableContext);
+//        space.setX(MATCH_PARENT);
+//        space.setY(50);
+//        thisTable.addView(space);
     }
 }
