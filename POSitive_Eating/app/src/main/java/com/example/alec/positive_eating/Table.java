@@ -3,6 +3,7 @@ package com.example.alec.positive_eating;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.graphics.Color;
+import android.support.design.widget.TextInputEditText;
 import android.support.v7.app.AlertDialog;
 import android.text.InputType;
 import android.util.Log;
@@ -18,11 +19,16 @@ import android.widget.Toast;
 
 import com.android.volley.Response;
 import shaneconnect.ShaneConnect;
+
+import org.json.JSONException;
 import org.json.JSONObject;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;;
+
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 import static android.view.Gravity.*;
 import static android.view.ViewGroup.LayoutParams.FILL_PARENT;
@@ -409,24 +415,7 @@ public class Table {
 
             TextView input = new TextView(tableContext);
             String stringStatus = "";
-            switch (Status){
-                case 0: {
-                    stringStatus = "Nothing";
-                    break;
-                }
-                case 1: {
-                    stringStatus = "Empty";
-                    break;
-                }
-                case 2: {
-                    stringStatus = "Sat";
-                    break;
-                }
-                case 3: {
-                    stringStatus = "Needs Cleaning";
-                    break;
-                }
-            }
+            stringStatus = statusToText();
             input.setText("\nNumber of Seats: " + Seats + "\nStatus: " + stringStatus);
             builder.setView(input);
 
@@ -508,12 +497,92 @@ public class Table {
         tempDetails.setTextSize(20);
 
         linearLayout.addView(thisTable);
-
+        thisTable.setOnClickListener(new EmployeeClickListener());
         thisTable.addView(tempName);
         thisTable.addView(tempDetails);
 //        Space space = new Space(tableContext);
 //        space.setX(MATCH_PARENT);
 //        space.setY(50);
 //        thisTable.addView(space);
+    }
+
+    private String statusToText(){
+        String stringStatus = "";
+        switch (Status){
+            case 0: {
+                stringStatus = "Nothing";
+                break;
+            }
+            case 1: {
+                stringStatus = "Empty";
+                break;
+            }
+            case 2: {
+                stringStatus = "Sat";
+                break;
+            }
+            case 3: {
+                stringStatus = "Needs Cleaning";
+                break;
+            }
+        }
+        return stringStatus;
+    }
+
+    private final class EmployeeClickListener implements View.OnClickListener {
+
+        @Override
+        public void onClick(View view) {
+            dialogBuilder();
+            saveTable();
+        }
+    }
+
+    private void dialogBuilder(){
+        final EditText input = new TextInputEditText(tableContext);
+        AlertDialog.Builder builder = new AlertDialog.Builder(tableContext);
+        builder.setTitle("Employee: " + employeeID);
+
+        builder.setView(input);
+
+        builder.setPositiveButton("Save", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                Pattern p = Pattern.compile("(\\w+)");
+                Matcher m = p.matcher(input.getText());
+                if(input.equals("") || input.equals(null) || !m.find()){
+                    Toast.makeText(tableContext, "Invalid", Toast.LENGTH_SHORT);
+                    dialogBuilder();
+                }else{
+                    getEmployee(input.getText().toString());
+                }
+            }
+        });
+        builder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                dialog.cancel();
+            }
+        });
+        builder.show();
+    }
+
+    private boolean getEmployee(String name){
+        shaneconnect.ShaneConnect vista = getShaneConnect();
+        boolean bool = false;
+        vista.getAccountData(name, new Response.Listener<JSONObject>() {
+
+            @Override
+            public void onResponse(JSONObject response) {
+                Toast.makeText(tableContext, response.toString(), Toast.LENGTH_LONG).show();
+                try {
+                    response.getString("first");
+                   // bool = true;
+                }catch(JSONException e){
+
+                }
+            }
+        });
+        return bool;
     }
 }

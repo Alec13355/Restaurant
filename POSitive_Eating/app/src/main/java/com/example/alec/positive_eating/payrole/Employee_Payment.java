@@ -1,12 +1,12 @@
 package com.example.alec.positive_eating.payrole;
 
-import shaneconnect.ShaneConnectEmployee;
+//import shaneconnect.ShaneConnectEmployee;
 
 /**
  * Created by shane on 4/11/17.
  */
 
-public class Employee_Payment extends ShaneConnectEmployee {
+public class Employee_Payment { //extends ShaneConnectEmployee
 
     private int amountDue;
 
@@ -17,7 +17,7 @@ public class Employee_Payment extends ShaneConnectEmployee {
     private int payRate;
 
     public Employee_Payment(String first,String last,int id, int payRate) {
-        super(first,last,id);
+       // super(first,last,id);
         this.payRate = payRate;
         this.amountDue =0;
     }

@@ -18,7 +18,7 @@ public class ConcreteListViewBuilder extends Builder {
     @Override
     public void buildPart(Employee_Payment s) {
         TextView text = new TextView(this.con);
-        text.setText("Employee " + s.getUserName() + ":" + s.getAmountDue());
+      //  text.setText("Employee " + s.getUserName() + ":" + s.getAmountDue());
         display.addView(text);
     }
 }
