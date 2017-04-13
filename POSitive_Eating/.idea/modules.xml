@@ -5,6 +5,7 @@
       <module fileurl="file://$PROJECT_DIR$/POSitive_Eating.iml" filepath="$PROJECT_DIR$/POSitive_Eating.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
       <module fileurl="file://$PROJECT_DIR$/shaneconnect-release-gen/shaneconnect-release-gen.iml" filepath="$PROJECT_DIR$/shaneconnect-release-gen/shaneconnect-release-gen.iml" />
+      <module fileurl="file://$PROJECT_DIR$/shaneconnect-release-gen/shaneconnect-release-gen.iml" filepath="$PROJECT_DIR$/shaneconnect-release-gen/shaneconnect-release-gen.iml" />
       <module fileurl="file://$PROJECT_DIR$/volley/volley.iml" filepath="$PROJECT_DIR$/volley/volley.iml" />
     </modules>
   </component>
