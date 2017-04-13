@@ -1,6 +1,7 @@
 package com.example.alec.positive_eating.payrole;
 
 import android.content.Context;
+import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.ScrollView;
 
@@ -12,11 +13,11 @@ import java.util.List;
 
 public abstract class Builder {
 
-   protected ScrollView display;
+   protected LinearLayout display;
 
     protected Context con;
 
-    public Builder(ScrollView d, Context con){
+    public Builder(LinearLayout d, Context con){
         display = d;
         this.con = con;
     }

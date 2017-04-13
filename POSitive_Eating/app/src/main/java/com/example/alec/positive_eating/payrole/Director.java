@@ -12,8 +12,12 @@ import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Objects;
 
+import shaneconnect.Command;
+import shaneconnect.ConcreteCommand;
+import shaneconnect.DeleteDecorator;
+import shaneconnect.DeleteLogs;
 import shaneconnect.ShaneConnect;
-//import shaneconnect.ShaneConnectEmployee;
+import shaneconnect.ShaneConnectEmployee;
 
 /**
  * Created by shane on 4/11/17.
@@ -44,22 +48,6 @@ public class Director {
 
     public void directDisplay(){
         getLogs();
-        synchronized (sync){
-            while(!doneLoading){
-                try {
-                    sync.wait();
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
-                }
-            }
-
-            for(int x=0;x<employees.size();x++){
-                builder.buildPart(employees.get(x));
-
-            }
-
-        }
-
 
     }
 
@@ -76,12 +64,11 @@ public class Director {
                     if(!response.has("none")){
                         int employeeid = response.getInt("EMPLOYEE_ID");
                         int time = response.getInt("TIME");
-                        searchEmployee(employeeid,time);
-                        getLogs(index + 1);
+                        searchEmployee(employeeid,time,index + 1);
+
                     }else{
-                        synchronized (sync){
-                            doneLoading = true;
-                            sync.notify();
+                        for(int x=0;x<employees.size();x++){
+                            builder.buildPart(employees.get(x));
 
                         }
                     }
@@ -92,7 +79,7 @@ public class Director {
         });
     }
 
-    private void searchEmployee(final int id,final int time){
+    private void searchEmployee(final int id, final int time, final int index){
 
         connection.getEmployeeByID(id, new Response.Listener<JSONObject>() {
             @Override
@@ -107,7 +94,7 @@ public class Director {
                         employees.add(employee);
                     }
                     hash.get(employee.getUserName()).addTime(time);
-
+                    getLogs(index + 1);
 
                 } catch (JSONException e) {
                     e.printStackTrace();
@@ -117,5 +104,18 @@ public class Director {
         });
     }
 
+    public void deleteEmployeeLogs(){
+        builder.clear();
+        Command command = new ConcreteCommand();
+        for(int x=0;x<employees.size();x++){
+            DeleteLogs com = new DeleteLogs(connection,employees.get(x),command);
+            command = com;
+        }
+        command.exectute(new Response.Listener<JSONObject>(){
+
+            @Override
+            public void onResponse(JSONObject response) {}
+        });
+    }
 
 }

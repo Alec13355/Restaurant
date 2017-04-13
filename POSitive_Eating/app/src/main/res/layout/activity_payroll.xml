@@ -10,13 +10,13 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="com.example.alec.positive_eating.payrole.Employee_Payroll">
 
-    <ScrollView
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="400dp"
         android:id="@+id/listOStuff"
-        >
+        android:orientation="horizontal">
 
-    </ScrollView>
+    </LinearLayout>
 
     <Button
         android:layout_width="match_parent"

@@ -5,9 +5,9 @@ package com.example.alec.positive_eating.payrole;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.widget.ListView;
-import android.widget.ScrollView;
-
+import android.view.View;
+import android.widget.Button;
+import android.widget.LinearLayout;
 import com.example.alec.positive_eating.R;
 
 import static com.example.alec.positive_eating.Singleton_ShaneConnect_Factory.getShaneConnect;
@@ -22,10 +22,23 @@ public class Employee_Payroll extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_payroll);
-        ScrollView list = (ScrollView) findViewById(R.id.listOStuff);
+
+        /*Displays who is owed money */
+        LinearLayout list = (LinearLayout) findViewById(R.id.listOStuff);
         ConcreteListViewBuilder builder  = new ConcreteListViewBuilder(list,this);
-        Director dir = new Director(getShaneConnect(),builder);
+        final Director dir = new Director(getShaneConnect(),builder);
         dir.directDisplay();
+
+        /*Payment button*/
+        Button b = (Button) findViewById(R.id.button2);
+        b.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                dir.deleteEmployeeLogs();
+
+            }
+        });
+
 
     }
 }
