@@ -55,10 +55,11 @@
         <!-- The Customer App -->
         <activity android:name=".CustomerMap" />
         <activity android:name=".CustomerLoginActivity" />
-        <activity android:name=".CustomerEntreeList" />
+        <activity android:name=".CustomerEntreeSideList" />
         <activity android:name=".CustomerMainMenu" />
         <activity android:name=".CustomerSidesList" />
         <activity android:name=".CustomerOrderMenu" />
+
         <activity android:name=".CustomerSignUp" />
         <activity android:name=".CustomerReservations" />
     </application>
