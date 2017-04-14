@@ -6,6 +6,7 @@ import android.os.Binder;
 import android.os.IBinder;
 
 import static com.example.alec.positive_eating.Singleton_ShaneConnect_Factory.getShaneConnect;
+import static com.example.alec.positive_eating.Singleton_TableCache_Factory.getTableCache;
 
 /**
  * @author Shane
@@ -18,6 +19,7 @@ public class ShaneConnectService extends Service {
     @Override
     public void onCreate() {
         getShaneConnect("http://proj-309-yt-4.cs.iastate.edu:", this);
+        getTableCache(getShaneConnect());
     }
 
     @Override

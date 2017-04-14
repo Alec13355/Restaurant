@@ -1,4 +1,4 @@
-package com.example.alec.positive_eating;
+package com.example.alec.positive_eating.Reservations;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -10,10 +10,7 @@ import android.widget.Button;
 import android.widget.Spinner;
 import android.widget.Toast;
 
-import shaneconnect.ShaneConnect;
-import shaneconnect.TableCache;
-
-import static com.example.alec.positive_eating.Singleton_ShaneConnect_Factory.getShaneConnect;
+import com.example.alec.positive_eating.R;
 
 /**
  * The CustomerReservations is used to reserve table for a party of any size the customer chooses.
@@ -72,9 +69,6 @@ public class CustomerReservations extends AppCompatActivity {
     }
 
     private void placeReservation() {
-        ShaneConnect connect = getShaneConnect();
-        TableCache tc = new TableCache(connect);
-        tc.updateQue();
-        //TableReservation tr = new TableReservation("jim@bob.com", 8, ,-1)
+        new ReservationAdapater(reservationSize, this).findTable();
     }
 }

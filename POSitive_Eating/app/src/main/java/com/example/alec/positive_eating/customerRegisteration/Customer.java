@@ -12,10 +12,13 @@ public class Customer {
 
     private String password;
 
+    private int id;
+
     public Customer(String username, String email, String password){
         this.userName = username;
         this.email = email;
         this.password = password;
+        id = 2;
     }
 
     public Customer(){
@@ -34,6 +37,10 @@ public class Customer {
         this.password = password;
     }
 
+    public void setID(int id) {
+        this.id = id;
+    }
+
     public String getUserName(){
         return this.userName;
     }
@@ -46,6 +53,8 @@ public class Customer {
         return this.password;
     }
 
-
+    public int getID() {
+        return this.id;
+    }
 
 }

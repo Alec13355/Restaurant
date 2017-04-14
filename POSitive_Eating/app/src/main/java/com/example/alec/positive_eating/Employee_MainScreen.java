@@ -8,6 +8,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 
+import com.example.alec.positive_eating.payrole.Employee_Payroll;
+
 /**
  * This class is the main landing page and will change views depending on what button is pressed.
  */

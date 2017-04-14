@@ -25,7 +25,7 @@
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-</activity>
+        </activity>
         <!-- The networking service, ShaneConnect -->
         <service
             android:name=".ShaneConnectService"
@@ -40,7 +40,7 @@
         <activity android:name=".Employee_Seating" />
         <activity android:name=".Employee_Schedule" />
         <activity android:name=".Employee_EditStaff" />
-        <activity android:name=".Employee_Payroll" />
+        <activity android:name=".Reservations.CustomerReservations" />
         <activity android:name=".Employee_add_employee" />
         <activity android:name=".Employee_Clocking_in" />
         <activity android:name=".CookOrderList" />
@@ -62,7 +62,6 @@
         <activity android:name=".CustomerOrderMenu" />
 
         <activity android:name=".CustomerSignUp" />
-        <activity android:name=".CustomerReservations" />
     </application>
 
 </manifest>
