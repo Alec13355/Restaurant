@@ -17,17 +17,23 @@ public class CustomerConcreteBuilder implements CustomerBuilder {
 
     @Override
     public void addUser(EditText user) {
-        customer.setUserName(user.toString());
+        customer.setUserName(user.getText().toString());
     }
 
     @Override
-    public void addEmail(EditText email) {
-        customer.setEmail(email.toString());
+    public boolean addEmail(EditText email) {
+        String input = email.getText().toString();
+        if(input.contains("@")){
+            customer.setEmail(input);
+            return true;
+        }
+        return false;
+
     }
 
     @Override
     public void addPassword(EditText password) {
-        customer.setPassword(password.toString());
+        customer.setPassword(password.getText().toString());
     }
 
     @Override

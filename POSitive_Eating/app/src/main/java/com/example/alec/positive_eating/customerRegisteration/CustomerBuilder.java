@@ -11,7 +11,7 @@ public interface CustomerBuilder {
 
     public void addUser(EditText user);
 
-    public void addEmail(EditText email);
+    public boolean addEmail(EditText email);
 
     public void addPassword(EditText password);
 

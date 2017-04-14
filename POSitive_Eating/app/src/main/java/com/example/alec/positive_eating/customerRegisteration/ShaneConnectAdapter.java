@@ -27,18 +27,30 @@ public class ShaneConnectAdapter {
         this.cont = con;
     }
 
-    public void register(Customer cust){
-        this.connect.addCustomer(cust.getUserName(),cust.getEmail(),cust.getPassword(), new Response.Listener<JSONObject>(){
-
+    public void register(final Customer cust){
+        final ShaneConnect s = this.connect;
+        this.connect.getCustomer(cust.getUserName(), new Response.Listener<JSONObject>() {
             @Override
             public void onResponse(JSONObject response) {
+                if(response.has("none")){
+                    s.addCustomer(cust.getUserName(),cust.getEmail(),cust.getPassword(), new Response.Listener<JSONObject>(){
 
-                if(response.has("success")){
-                    Toast.makeText(cont,"success",50);
+                        @Override
+                        public void onResponse(JSONObject response) {
+
+                            if(response.has("success")){
+                                Toast.makeText(cont,"success",Toast.LENGTH_LONG).show();
+                            }
+
+                        }
+                    });
+                }else{
+                    Toast.makeText(cont,"Username already exists",Toast.LENGTH_LONG).show();
                 }
-
             }
         });
+
+
 
     }
 
