@@ -7,6 +7,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.PriorityQueue;
 
 /**
@@ -18,7 +19,7 @@ import java.util.PriorityQueue;
  */
 public class TableCache {
 
-    private ArrayList<PriorityQueue<TableReservation>> list;
+    private HashMap<Integer,PriorityQueue<TableReservation>> list;
 
     private ShaneConnect connect;
 
@@ -27,7 +28,7 @@ public class TableCache {
      * @param connect A ShaneConnect obj
      */
     public TableCache(ShaneConnect connect){
-        list = new ArrayList<PriorityQueue<TableReservation>>();
+        list = new HashMap<Integer,PriorityQueue<TableReservation>>();
         this.connect=connect;
     }
 
@@ -40,14 +41,16 @@ public class TableCache {
             @Override
             public void onResponse(JSONObject response) {
                 try {
-                    if(list.get(response.getInt("number_seats")) == null){
-                        list.add(response.getInt("number_seats"),new PriorityQueue<TableReservation>());
+                    int in = response.getInt("number_seats");
+                    if(list.get(in) == null){
+                        list.put(response.getInt("number_seats"),new PriorityQueue<TableReservation>());
                     }
                     list.get(response.getInt("number_seats")).add(res);
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }
                 connect.placeReservation(res.getDesc(),res.get_table_ID(),res.getStatus(),res.getCustomerID(),new Response.Listener<JSONObject>(){
+
                     @Override
                     public void onResponse(JSONObject response) {
                         System.out.println("Updated the server");
@@ -76,6 +79,10 @@ public class TableCache {
                             public void onResponse(JSONObject tableinfo) {
                                 try {
                                     PriorityQueue<TableReservation> temp = list.get(tableinfo.getInt("number_seats"));
+                                    if(temp == null){
+                                        list.put(tableinfo.getInt("number_seats"), new PriorityQueue<TableReservation>());
+                                        temp = list.get(tableinfo.getInt("number_seats"));
+                                    }
                                     TableReservation res = new TableReservation(reservationInfo.getString("DESCRIPTION"),reservationInfo.getInt("ID"), reservationInfo.getInt("TABLE_ID"), reservationInfo.getInt("STATUS"),reservationInfo.getInt("CUSTOMER_ID") );
                                     if(temp.contains(res)){
                                         temp.remove(res);
