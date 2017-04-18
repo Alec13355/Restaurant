@@ -44,6 +44,7 @@
         <activity android:name=".Employee_add_employee" />
         <activity android:name=".Employee_Clocking_in" />
         <activity android:name=".CookOrderList" />
+        <activity android:name=".payrole.Employee_Payroll" />
 
         <!-- The Table functionality -->
         <activity
