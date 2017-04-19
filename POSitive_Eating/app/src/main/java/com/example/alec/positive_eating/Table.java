@@ -59,6 +59,9 @@ public class Table {
     private TextView tempName;
     private int Seats;
     private List<employee> employeeList;
+    private TextView tempDetails;
+    private Map<Integer, String> employeeNameMap;
+    private int whichListener;
 
     /**
      * Default constructor builds a table with all given information. Also saves this table to the server.
@@ -71,7 +74,7 @@ public class Table {
      * @param customerID
      */
     //TODO
-    Table(String ID, int xPOS, int yPOS, int Status, int employeeID, String customerID, int Seats, Context context, ViewGroup mRootLayout) {
+    Table(String ID, int xPOS, int yPOS, int Status, int employeeID, String customerID, int Seats, List<employee> employeeList, Context context, ViewGroup mRootLayout) {
         this.ID = ID;
         if(xPOS > 0) { this.xPos = xPOS; }
         else{ this.xPos = 10; }
@@ -83,27 +86,32 @@ public class Table {
         this.mRootLayout = mRootLayout;
         this.Seats = Seats;
         this.Status = Status;
-        employeeList = new ArrayList<>();
-       // saveTable();
+        this.employeeList = new ArrayList<>();
+        this.tempDetails = new TextView(tableContext);
+        this.employeeList = employeeList;
+
+        employeeNameMap = new HashMap<>();
+        for(int i = 0; i < employeeList.size(); i++){
+            String temp = employeeList.get(i).getFirst()+ " " + employeeList.get(i).getLast() + ", " + employeeList.get(i).getID();
+            employeeNameMap.put(employeeList.get(i).getID(), temp);
+        }
+        whichListener = 0;
+
+        shaneconnect.ShaneConnect vista = getShaneConnect();
+
     }
 
     /**
      * Constructor for originally adding a table without a status, employee, or customer
      *
      * @param ID
-     * @param xPOS
-     * @param yPOS
+     * @param Seats
+     * @param employeeList
+     * @param context
+     * @param mRootLayout
      */
-    Table(String ID, int xPOS, int yPOS, Context context, ViewGroup mRootLayout) {
-        this(ID, xPOS, yPOS, 0, -1, "", 0, context, mRootLayout);
-    }
-
-    Table(String ID, Context context, ViewGroup mRootLayout){
-        this(ID, 100, 100, 0, -1, "", 0, context, mRootLayout);
-    }
-
-    Table(String ID, int Seats, Context context, ViewGroup mRootLayout){
-        this(ID, 100, 100, 0, -1, "", Seats, context, mRootLayout);
+    Table(String ID, int Seats, List<employee> employeeList, Context context, ViewGroup mRootLayout){
+        this(ID, 100, 100, 0, -1, "", Seats, employeeList, context, mRootLayout);
     }
 
     /**
@@ -294,12 +302,9 @@ public class Table {
         tempName.setLayoutParams(textLayoutParams);
         tempFrame.addView(tempName);
 
-        //System.out.println(String.valueOf(allTables.size())); //debug statement
-
-        Log.d("touch", "about to initialize listener");
         mRootLayout.addView(tempFrame);
         colorTable();
-        tempFrame.setOnClickListener(new MyClickListener());
+        addListener(whichListener);
         saveTable();
     }
 
@@ -332,47 +337,9 @@ public class Table {
         tempName.setLayoutParams(textLayoutParams);
         tempFrame.addView(tempName);
 
-        //System.out.println(String.valueOf(allTables.size())); //debug statement
-
-        Log.d("touch", "about to initialize listener");
-        tempFrame.setOnTouchListener(new MyTouchListener());
         mRootLayout.addView(tempFrame);
         colorTable();
-        saveTable();
-    }
-
-    protected void drawHostTable(){ //View parentView
-        RelativeLayout tempFrame = new RelativeLayout(tableContext);
-        tempFrame.setX((float) xPos);
-        tempFrame.setY((float) yPos);
-        tempFrame.setGravity(CENTER);
-
-        ImageView temp = new ImageView(tableContext);
-        temp.setImageResource(R.drawable.squaretable);
-        RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(150, 150);
-        temp.setLayoutParams(layoutParams);
-        //temp.setId(allTables.size()); //the id for the button we be it's index in the array + 1, this way there is no table 0 when it comes to labeling.
-        tempFrame.addView(temp);
-
-        //This is adding a label above the imageView so you know which table it is
-        tempName = new TextView(tableContext);
-        tempName.setText(String.valueOf(ID));
-        tempName.setTextColor(Color.BLACK);
-
-        RelativeLayout.LayoutParams textLayoutParams = new RelativeLayout.LayoutParams(150,150);
-        textLayoutParams.addRule(RelativeLayout.ALIGN_LEFT, temp.getId());
-        textLayoutParams.addRule(RelativeLayout.ALIGN_TOP, temp.getId());
-        //textLayoutParams.addRule(RelativeLayout.CENTER_VERTICAL);
-        tempName.setLayoutParams(textLayoutParams);
-        tempName.setTextSize(200);
-        tempFrame.addView(tempName);
-
-        //System.out.println(String.valueOf(allTables.size())); //debug statement
-
-        Log.d("touch", "about to initialize listener");
-        tempFrame.setOnClickListener(new MyClickListener());
-        mRootLayout.addView(tempFrame);
-        colorTable();
+        addListener(whichListener);
         saveTable();
     }
 
@@ -421,7 +388,7 @@ public class Table {
             TextView input = new TextView(tableContext);
             String stringStatus = "";
             stringStatus = statusToText();
-            input.setText("\nNumber of Seats: " + Seats + "\nStatus: " + stringStatus);
+            input.setText("\n Employee: " + employeeNameMap.get(employeeID) + "\nNumber of Seats: " + Seats + "\nStatus: " + stringStatus);
             input.setGravity(CENTER);
 
             builder.setView(input);
@@ -488,17 +455,19 @@ public class Table {
     public void addListItem(ViewGroup mListLayout){
         LinearLayout linearLayout = (LinearLayout) mListLayout;
         LinearLayout thisTable = new LinearLayout(tableContext);
+        thisTable.setGravity(CENTER_HORIZONTAL);
         thisTable.setLayoutParams(new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT));
         thisTable.setOrientation(LinearLayout.VERTICAL);
 
         String tempNameString =  "Table: " + ID;
         TextView tempName = new TextView(tableContext);
+        tempName.setGravity(CENTER_HORIZONTAL);
         tempName.setText(tempNameString); //+ "\nX: " + getX() + " Y: " + getY() + "\nNumber of seats: " + getSeats() + "\nStatus: " + getStatus()
         tempName.setTextColor(Color.BLACK);
         tempName.setTextSize(40);
 
-        String tempDetailString =  "Number of seats: " + getSeats() + "\nStatus: " + getStatus() + "\nEmployee: " + getEmployeeID() + "\n";
-        TextView tempDetails = new TextView(tableContext);
+        String tempDetailString =  "Number of seats: " + getSeats() + "\nStatus: " + getStatus() + "\nEmployee: " + employeeNameMap.get(employeeID) + "\n";
+        tempDetails = new TextView(tableContext);
         tempDetails.setText(tempDetailString);
         tempDetails.setTextColor(Color.BLACK);
         tempDetails.setTextSize(20);
@@ -507,8 +476,6 @@ public class Table {
         thisTable.setOnClickListener(new EmployeeClickListener());
         thisTable.addView(tempName);
         thisTable.addView(tempDetails);
-        shaneconnect.ShaneConnect vista = getShaneConnect();
-        getEmployeeList(0, vista);
     }
 
     private String statusToText(){
@@ -556,7 +523,7 @@ public class Table {
         employeeSpinner.setAdapter(adapter);
         //final EditText input = new TextInputEditText(tableContext);
         AlertDialog.Builder builder = new AlertDialog.Builder(tableContext);
-        builder.setTitle("Employee: " + employeeID);
+        builder.setTitle("Employee: " + employeeNameMap.get(employeeID));
 
         builder.setView(employeeSpinner);
 
@@ -567,6 +534,8 @@ public class Table {
                 setEmployeeID(employeeMap.get(oneUse));
                 Toast.makeText(tableContext, String.valueOf(employeeMap.get(oneUse)), Toast.LENGTH_SHORT).show();
                 saveTable();
+                String tempDetailString =  "Number of seats: " + getSeats() + "\nStatus: " + getStatus() + "\nEmployee: " + (employeeID) + "\n";
+                tempDetails.setText(tempDetailString);
             }
         });
         builder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
@@ -578,21 +547,29 @@ public class Table {
         builder.show();
     }
 
-    private void getEmployeeList(final int index, final shaneconnect.ShaneConnect s) {
-        s.getEmployees(index, new Response.Listener<JSONObject>() {
-            @Override
-            public void onResponse(JSONObject response) {
-                try {
-                    employee temp = new employee(response.getString("first"), response.getString("last"), response.getInt("emp_id"));
-                    employeeList.add(temp);
-                    getEmployeeList(index + 1, s);
-                } catch (JSONException e) {
-                    return;
-                }
+    protected void addListener(int selection){
+        switch(selection){
+            case 0 : {
+                break;
             }
-
-        });
+            case 1 : {
+                tempFrame.setClickable(false);
+                tempFrame.setOnTouchListener(new MyTouchListener());
+                break;
+            }
+            case 2 : {
+                tempFrame.setOnTouchListener(null);
+                tempFrame.setClickable(true);
+                tempFrame.setOnClickListener(new MyClickListener());
+                break;
+            }
+            case 3 : {
+                tempFrame.setOnTouchListener(null);
+                tempFrame.setClickable(true);
+                tempFrame.setOnClickListener(new EmployeeClickListener());
+                break;
+            }
+        }
     }
-
     
 }
