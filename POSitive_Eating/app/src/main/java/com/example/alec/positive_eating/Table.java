@@ -181,7 +181,6 @@ public class Table {
      *
      * @param customerID
      */
-    //TODO
     protected void setCustomerID(String customerID) {
         this.customerID = customerID;
         this.saveTable();

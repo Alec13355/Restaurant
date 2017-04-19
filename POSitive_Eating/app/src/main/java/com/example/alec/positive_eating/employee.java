@@ -17,7 +17,7 @@ public class employee {
     String first;
     String last;
     int ID;
-    private String availability;
+    private String address;
     private String phoneNumber;
     private int rate;
     private String pass;
@@ -34,11 +34,11 @@ public class employee {
         this.ID = ID;
     }
 
-    employee(String first, String last, int ID, String availability, String phone, int rate, String pass){
+    employee(String first, String last, int ID, String addreass, String phone, int rate, String pass){
         this.first = first;
         this.last = last;
         this.ID = ID;
-        this.availability = availability;
+        this.address = address;
         this.phoneNumber = phone;
         this.rate = rate;
         this.pass = pass;
@@ -81,11 +81,11 @@ public class employee {
     Availability
      */
     public void setAvailability(String availability){
-        this.availability = availability;
+        this.address = availability;
     }
 
     public String getAvailability(){
-        return availability;
+        return address;
     }
 
     /*
