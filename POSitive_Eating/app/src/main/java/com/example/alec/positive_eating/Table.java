@@ -417,6 +417,8 @@ public class Table {
             String stringStatus = "";
             stringStatus = statusToText();
             input.setText("\nNumber of Seats: " + Seats + "\nStatus: " + stringStatus);
+            input.setGravity(CENTER);
+
             builder.setView(input);
 
             builder.setPositiveButton("Switch Status", new DialogInterface.OnClickListener() {
@@ -571,18 +573,19 @@ public class Table {
         shaneconnect.ShaneConnect vista = getShaneConnect();
         boolean bool = false;
         vista.getAccountData(name, new Response.Listener<JSONObject>() {
-
             @Override
             public void onResponse(JSONObject response) {
-                Toast.makeText(tableContext, response.toString(), Toast.LENGTH_LONG).show();
+                //Toast.makeText(tableContext, response.toString(), Toast.LENGTH_LONG).show();
                 try {
                     response.getString("first");
-                   // bool = true;
+                    //bool = true;
                 }catch(JSONException e){
-
+                    return;
                 }
             }
         });
         return bool;
     }
+
+    
 }
