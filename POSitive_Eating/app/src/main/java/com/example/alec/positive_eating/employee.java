@@ -1,5 +1,13 @@
 package com.example.alec.positive_eating;
 
+import android.content.Context;
+import android.graphics.Color;
+import android.view.ViewGroup;
+import android.widget.LinearLayout;
+import android.widget.TextView;
+
+import static android.view.Gravity.CENTER_HORIZONTAL;
+
 /**
  * Created by ethantw on 4/18/2017.
  */
@@ -12,6 +20,9 @@ public class employee {
     private String phoneNumber;
     private int rate;
     private String pass;
+
+    //List items
+    private TextView tempDetails;
 
     employee(String first, String last, int ID){
         this.first = first;
@@ -103,5 +114,38 @@ public class employee {
 
     public String getPassword(){
         return pass;
+    }
+
+
+    public void addListItem(ViewGroup mListLayout, Context context){
+        this.tempDetails = new TextView(context);
+
+        LinearLayout linearLayout = (LinearLayout) mListLayout;
+        LinearLayout thisTable = new LinearLayout(context);
+        thisTable.setGravity(CENTER_HORIZONTAL);
+        thisTable.setLayoutParams(new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT));
+        thisTable.setOrientation(LinearLayout.VERTICAL);
+
+        //Add Employee Name
+        String tempNameString = getFirst() + " " + getLast();
+        TextView tempName = new TextView(context);
+        tempName.setGravity(CENTER_HORIZONTAL);
+        tempName.setText(tempNameString);
+        tempName.setTextColor(Color.BLACK);
+        tempName.setTextSize(40);
+
+        String tempDetailString =  "ID: " + getID() + "\nAvailability: " + getAvailability() + "\nPhone Number: " + getPhone() + "\nPassword: " + getPassword();
+        tempDetails = new TextView(context);
+        tempDetails.setText(tempDetailString);
+        tempDetails.setTextColor(Color.BLACK);
+        tempDetails.setTextSize(20);
+
+        linearLayout.addView(thisTable);
+
+        //This is where you would set a click listener (example would be to delete employees)
+        //thisTable.setOnClickListener(new Table.EmployeeClickListener());
+
+        thisTable.addView(tempName);
+        thisTable.addView(tempDetails);
     }
 }
