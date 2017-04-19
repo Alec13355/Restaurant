@@ -320,20 +320,14 @@ public class Table {
 //            return true;
 //        }
         float mX, mY;
-
         @Override
         public boolean onTouch(View view, MotionEvent event) {
-
             switch (event.getAction()) {
-
                 case MotionEvent.ACTION_DOWN:
-
                     mX = view.getX() - event.getRawX();
                     mY = view.getY() - event.getRawY();
                     break;
-
                 case MotionEvent.ACTION_MOVE:
-
                     view.animate().x(event.getRawX() + mX).y(event.getRawY() + mY).setDuration(0).start();
                     break;
                 default:
@@ -493,10 +487,9 @@ public class Table {
             employeeMap.put(temp, employeeList.get(i).getID());
             spinnerList.add(temp);
         }
-        ArrayAdapter<String> adapter = new ArrayAdapter<String>(tableContext, android.R.layout.simple_spinner_dropdown_item, spinnerList);
+        ArrayAdapter<String> adapter = new ArrayAdapter<>(tableContext, android.R.layout.simple_spinner_dropdown_item, spinnerList);
         final Spinner employeeSpinner = new Spinner(tableContext);
         employeeSpinner.setAdapter(adapter);
-        //final EditText input = new TextInputEditText(tableContext);
         AlertDialog.Builder builder = new AlertDialog.Builder(tableContext);
         builder.setTitle("Employee: " + employeeNameMap.get(employeeID));
 
@@ -529,53 +522,4 @@ public class Table {
             tableContext.startActivity(myIntent);
         }
     }
-
-
-
-
-
-
-
-
-/*
-//TODO delete this code when it's no longer necessary
- */
-
-
-    protected void drawTable(){ //View parentView
-        tempFrame = new FrameLayout(tableContext);
-        tempFrame.setX((float) xPos);
-        tempFrame.setY((float) yPos);
-        tempFrame.setForegroundGravity(CENTER);
-
-        ImageView temp = new ImageView(tableContext);
-        temp.setImageResource(R.drawable.squaretable);
-        RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(150, 150);
-        temp.setLayoutParams(layoutParams);
-        //temp.setId(allTables.size()); //the id for the button we be it's index in the array + 1, this way there is no table 0 when it comes to labeling.
-        tempFrame.addView(temp);
-
-        //This is adding a label above the imageView so you know which table it is
-        tempName = new TextView(tableContext);
-        tempName.setHeight(FILL);
-        tempName.setWidth(FILL);
-        tempName.setText(String.valueOf(ID));
-        tempName.setTextColor(Color.BLACK);
-        tempName.setTextSize(30);
-
-        RelativeLayout.LayoutParams textLayoutParams = new RelativeLayout.LayoutParams(150,150);
-//        textLayoutParams.addRule(RelativeLayout.ALIGN_LEFT, temp.getId());
-//        textLayoutParams.addRule(RelativeLayout.ALIGN_RIGHT, temp.getId());
-//        textLayoutParams.addRule(RelativeLayout.ALIGN_TOP, temp.getId());
-//        textLayoutParams.addRule(RelativeLayout.ALIGN_BOTTOM, temp.getId());
-        textLayoutParams.addRule(RelativeLayout.CENTER_VERTICAL);
-        tempName.setLayoutParams(textLayoutParams);
-        tempFrame.addView(tempName);
-
-        mRootLayout.addView(tempFrame);
-        colorTable();
-        addListener(whichListener);
-        saveTable();
-    }
-
 }

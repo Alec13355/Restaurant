@@ -26,7 +26,7 @@ Button Seating,Menu,Status,schedule,Edit_users,Payroll,addTableMap,viewTableMap;
         Edit_users=(Button)findViewById(R.id.Edit_Users);
         Payroll=(Button)findViewById(R.id.Payroll);
         addTableMap=(Button)findViewById(R.id.addTableMap);
-        viewTableMap=(Button)findViewById(R.id.viewTableMap);
+ //       viewTableMap=(Button)findViewById(R.id.viewTableMap);
         //Initilizes the buttons.
 
         Edit_users.setOnClickListener(
@@ -111,20 +111,20 @@ Button Seating,Menu,Status,schedule,Edit_users,Payroll,addTableMap,viewTableMap;
                 }
 
         );
-        viewTableMap.setOnClickListener(
-
-                new View.OnClickListener()
-                {
-                    public void onClick(View view)
-                    {
-
-
-                        Intent myIntent = new Intent(Employee_MainScreen.this, viewTableMap.class); /** Class name here */
-                        Employee_MainScreen.this.startActivity(myIntent);
-                    }
-                }
-
-        );
+//        viewTableMap.setOnClickListener(
+//
+//                new View.OnClickListener()
+//                {
+//                    public void onClick(View view)
+//                    {
+//
+//
+//                        Intent myIntent = new Intent(Employee_MainScreen.this, viewTableMap.class); /** Class name here */
+//                        Employee_MainScreen.this.startActivity(myIntent);
+//                    }
+//                }
+//
+//        );
 
 
 
