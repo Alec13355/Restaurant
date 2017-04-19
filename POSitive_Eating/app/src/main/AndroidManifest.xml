@@ -32,8 +32,9 @@
             android:enabled="true"
             android:exported="false" />
         <!-- The Employee App -->
-        <activity android:name=".Employee_LoginWindow"
-            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".Employee_LoginWindow"
+            android:screenOrientation="portrait" />
         <activity android:name=".Employee_MainScreen" />
         <activity android:name=".Employee_OrderStatus" />
         <activity android:name=".Employee_Menu" />
@@ -45,7 +46,6 @@
         <activity android:name=".Employee_Clocking_in" />
         <activity android:name=".CookOrderList" />
         <activity android:name=".payrole.Employee_Payroll" />
-
         <activity android:name=".tableListView" />
 
         <!-- The Table functionality -->
@@ -54,7 +54,6 @@
             android:label="@string/title_activity_order_menu"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".tableMap" />
-        <activity android:name=".viewTableMap" />
         <activity android:name=".Employee_Edit_menu" />
         <!-- The Customer App -->
         <activity android:name=".CustomerMap" />
@@ -63,8 +62,8 @@
         <activity android:name=".CustomerMainMenu" />
         <activity android:name=".CustomerSidesList" />
         <activity android:name=".CustomerOrderMenu" />
-
         <activity android:name=".CustomerSignUp" />
+        <activity android:name=".ViewEmployeeList"></activity>
     </application>
 
 </manifest>

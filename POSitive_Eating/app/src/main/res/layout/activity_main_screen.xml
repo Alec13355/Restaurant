@@ -11,21 +11,11 @@
     tools:context="com.example.alec.positive_eating.Employee_MainScreen">
 
     <Button
-        android:text="@string/seating"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/Seating_Button"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
-
-    <Button
         android:text="@string/ordering_menu"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignBottom="@+id/Seating_Button"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
         android:id="@+id/Ordering_Menu"
         tools:ignore="RelativeOverlap" />
 
@@ -67,21 +57,19 @@
         android:id="@+id/Payroll" />
 
     <Button
-        android:text="Create Floor Plan"
+        android:text="Floor\nPlan"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/Seating_Button"
-        android:layout_alignRight="@+id/Seating_Button"
-        android:layout_alignEnd="@+id/Seating_Button"
+        android:layout_below="@+id/Ordering_Menu"
         android:layout_marginTop="57dp"
         android:id="@+id/addTableMap" />
 
-    <!--<Button-->
-        <!--android:text="view \ntable map"-->
-        <!--android:layout_width="wrap_content"-->
-        <!--android:layout_height="wrap_content"-->
-        <!--android:layout_alignTop="@+id/addTableMap"-->
-        <!--android:layout_alignParentRight="true"-->
-        <!--android:layout_alignParentEnd="true"-->
-        <!--android:id="@+id/viewTableMap" />-->
+    <Button
+        android:text="Employee\nList"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/addTableMap"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:id="@+id/viewEmployeeList" />
 </RelativeLayout>
