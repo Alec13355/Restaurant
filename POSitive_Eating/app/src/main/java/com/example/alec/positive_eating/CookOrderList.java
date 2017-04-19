@@ -65,8 +65,7 @@ public class CookOrderList extends AppCompatActivity {
                                     listDataChild.put(orderNum, order);
                                     ModelM.getOrders(++recursiveInc, this);
                                 } catch(Exception e) {
-                                    Toast.makeText(context,
-                                            "An error occurred in getFoodByID(). " +
+                                    Toast.makeText(context, "An error occurred in getFoodByID(). "+
                                                     "Please press the back button and try again.",
                                             Toast.LENGTH_LONG).show();
                                 }
@@ -85,8 +84,13 @@ public class CookOrderList extends AppCompatActivity {
 
     private ArrayList<String> parseResponse(JSONObject res) {
         ArrayList<String> order = new ArrayList<String>();
-        for(int i =0;res.has("NAME"+i);i++) {
-            // TODO: 4/19/2017
+        try {
+            for (int i = 0; res.has("NAME" + i); i++) {
+
+            }
+        } catch(Exception e) {
+            Toast.makeText(context, "An error occurred in getFoodByID(). " +
+                    "Please press the back button and try again.",Toast.LENGTH_LONG).show();
         }
         return order;
     }
