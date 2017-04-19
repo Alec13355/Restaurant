@@ -121,10 +121,10 @@ public class employee {
         this.tempDetails = new TextView(context);
 
         LinearLayout linearLayout = (LinearLayout) mListLayout;
-        LinearLayout thisTable = new LinearLayout(context);
-        thisTable.setGravity(CENTER_HORIZONTAL);
-        thisTable.setLayoutParams(new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT));
-        thisTable.setOrientation(LinearLayout.VERTICAL);
+        LinearLayout thisEmployee = new LinearLayout(context);
+        thisEmployee.setGravity(CENTER_HORIZONTAL);
+        thisEmployee.setLayoutParams(new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT));
+        thisEmployee.setOrientation(LinearLayout.VERTICAL);
 
         //Add Employee Name
         String tempNameString = getFirst() + " " + getLast();
@@ -140,12 +140,12 @@ public class employee {
         tempDetails.setTextColor(Color.BLACK);
         tempDetails.setTextSize(20);
 
-        linearLayout.addView(thisTable);
+        linearLayout.addView(thisEmployee);
 
         //This is where you would set a click listener (example would be to delete employees)
         //thisTable.setOnClickListener(new Table.EmployeeClickListener());
 
-        thisTable.addView(tempName);
-        thisTable.addView(tempDetails);
+        thisEmployee.addView(tempName);
+        thisEmployee.addView(tempDetails);
     }
 }

@@ -54,7 +54,6 @@
             android:label="@string/title_activity_order_menu"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".tableMap" />
-        <activity android:name=".viewTableMap" />
         <activity android:name=".Employee_Edit_menu" />
         <!-- The Customer App -->
         <activity android:name=".CustomerMap" />

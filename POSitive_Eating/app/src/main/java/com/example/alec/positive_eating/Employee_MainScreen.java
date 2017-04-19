@@ -14,7 +14,7 @@ import com.example.alec.positive_eating.payrole.Employee_Payroll;
  * This class is the main landing page and will change views depending on what button is pressed.
  */
 public class Employee_MainScreen extends AppCompatActivity {
-Button Seating,Menu,Status,schedule,Edit_users,Payroll,addTableMap,viewTableMap;//Delares the button variables
+Button Seating,Menu,Status,schedule,Edit_users,Payroll,addTableMap,viewEmployeeList;//Delares the button variables
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -26,7 +26,7 @@ Button Seating,Menu,Status,schedule,Edit_users,Payroll,addTableMap,viewTableMap;
         Edit_users=(Button)findViewById(R.id.Edit_Users);
         Payroll=(Button)findViewById(R.id.Payroll);
         addTableMap=(Button)findViewById(R.id.addTableMap);
- //       viewTableMap=(Button)findViewById(R.id.viewTableMap);
+        viewEmployeeList=(Button)findViewById(R.id.viewEmployeeList);
         //Initilizes the buttons.
 
         Edit_users.setOnClickListener(
@@ -39,63 +39,52 @@ Button Seating,Menu,Status,schedule,Edit_users,Payroll,addTableMap,viewTableMap;
         }
         );
         Payroll.setOnClickListener(
-        new View.OnClickListener()
-        {
-            public void onClick(View view){
-                Intent myIntent = new Intent(Employee_MainScreen.this, Employee_Payroll.class); /** Class name here */
-                Employee_MainScreen.this.startActivity(myIntent);
+            new View.OnClickListener()
+            {
+                public void onClick(View view){
+                    Intent myIntent = new Intent(Employee_MainScreen.this, Employee_Payroll.class); /** Class name here */
+                    Employee_MainScreen.this.startActivity(myIntent);
+                }
             }
-        }
         );
         schedule.setOnClickListener(
-                new View.OnClickListener()
-                {
-                    public void onClick(View view){
-                        Intent myIntent = new Intent(Employee_MainScreen.this, Employee_Schedule.class); /** Class name here */
-                        Employee_MainScreen.this.startActivity(myIntent);
-                    }
+            new View.OnClickListener()
+            {
+                public void onClick(View view){
+                    Intent myIntent = new Intent(Employee_MainScreen.this, Employee_Schedule.class); /** Class name here */
+                    Employee_MainScreen.this.startActivity(myIntent);
                 }
+            }
         );
         Status.setOnClickListener(
-                new View.OnClickListener()
+            new View.OnClickListener()
+            {
+                public void onClick(View view)
                 {
-                    public void onClick(View view)
-                    {
-
-
-                        Intent myIntent = new Intent(Employee_MainScreen.this, CookOrderList.class); /** Class name here */
-                        Employee_MainScreen.this.startActivity(myIntent);
-                    }
+                    Intent myIntent = new Intent(Employee_MainScreen.this, CookOrderList.class); /** Class name here */
+                    Employee_MainScreen.this.startActivity(myIntent);
                 }
-
-                 );
+            }
+        );
         Menu.setOnClickListener(
-
-                new View.OnClickListener()
+            new View.OnClickListener()
+            {
+                public void onClick(View view)
                 {
-                    public void onClick(View view)
-                    {
-
-
-                        Intent myIntent = new Intent(Employee_MainScreen.this, Employee_Menu.class); /** Class name here */
-                        Employee_MainScreen.this.startActivity(myIntent);
-                    }
+                    Intent myIntent = new Intent(Employee_MainScreen.this, Employee_Menu.class); /** Class name here */
+                    Employee_MainScreen.this.startActivity(myIntent);
                 }
-
+            }
         );
         Seating.setOnClickListener(
-
-                new View.OnClickListener()
+            new View.OnClickListener()
+            {
+                public void onClick(View view)
                 {
-                    public void onClick(View view)
-                    {
-
-
-                        Intent myIntent = new Intent(Employee_MainScreen.this, Employee_Seating.class); /** Class name here */
-                        Employee_MainScreen.this.startActivity(myIntent);
-                    }
+                    Intent myIntent = new Intent(Employee_MainScreen.this, Employee_Seating.class); /** Class name here */
+                    Employee_MainScreen.this.startActivity(myIntent);
                 }
-
+            }
         );
         addTableMap.setOnClickListener(
 
@@ -103,28 +92,24 @@ Button Seating,Menu,Status,schedule,Edit_users,Payroll,addTableMap,viewTableMap;
                 {
                     public void onClick(View view)
                     {
-
-
                         Intent myIntent = new Intent(Employee_MainScreen.this, tableMap.class); /** Class name here */
                         Employee_MainScreen.this.startActivity(myIntent);
                     }
                 }
 
         );
-//        viewTableMap.setOnClickListener(
-//
-//                new View.OnClickListener()
-//                {
-//                    public void onClick(View view)
-//                    {
-//
-//
-//                        Intent myIntent = new Intent(Employee_MainScreen.this, viewTableMap.class); /** Class name here */
-//                        Employee_MainScreen.this.startActivity(myIntent);
-//                    }
-//                }
-//
-//        );
+        viewEmployeeList.setOnClickListener(
+
+                new View.OnClickListener()
+                {
+                    public void onClick(View view)
+                    {
+                        Intent myIntent = new Intent(Employee_MainScreen.this, ViewEmployeeList.class); /** Class name here */
+                        Employee_MainScreen.this.startActivity(myIntent);
+                    }
+                }
+
+        );
 
 
 

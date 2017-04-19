@@ -76,12 +76,12 @@
         android:layout_marginTop="57dp"
         android:id="@+id/addTableMap" />
 
-    <!--<Button-->
-        <!--android:text="view \ntable map"-->
-        <!--android:layout_width="wrap_content"-->
-        <!--android:layout_height="wrap_content"-->
-        <!--android:layout_alignTop="@+id/addTableMap"-->
-        <!--android:layout_alignParentRight="true"-->
-        <!--android:layout_alignParentEnd="true"-->
-        <!--android:id="@+id/viewTableMap" />-->
+    <Button
+        android:text="Employee\nList"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/addTableMap"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:id="@+id/viewEmployeeList" />
 </RelativeLayout>
