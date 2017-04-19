@@ -41,12 +41,16 @@ public class Employee_Menu extends AppCompatActivity implements View.OnClickList
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_order_menu);
         Bundle bundle = getIntent().getExtras();
-        tableName = " ";
-        if(bundle != null){
-            tableName = bundle.getString("tableNum");
-            String temp = ("Table Number " + tableName);
-            Toast.makeText(Employee_Menu.this, temp, Toast.LENGTH_SHORT).show();
-        }
+
+        //This gets the table number from the intent
+            tableName = "TO GO";
+            if(bundle != null){
+                tableName = bundle.getString("tableNum");
+                String temp = ("Table Number " + tableName);
+                Toast.makeText(Employee_Menu.this, temp, Toast.LENGTH_SHORT).show();
+            }
+        //Got the table number
+        
         orderList = new ArrayList<>();
         imageId = new Integer[]{
                 R.drawable.hamburger,
@@ -112,8 +116,8 @@ public class Employee_Menu extends AppCompatActivity implements View.OnClickList
 
     private void confirmOrder(){
         ShaneConnect connect = getShaneConnect();
-        ArrayList<String> tmp = new ArrayList<String>();
-        ArrayList<String> options = new ArrayList<String>();
+        ArrayList<String> tmp = new ArrayList<>();
+        ArrayList<String> options = new ArrayList<>();
         String desc = "";
         for(CustomerOrderItem oi : orderList) {
             //TODO
