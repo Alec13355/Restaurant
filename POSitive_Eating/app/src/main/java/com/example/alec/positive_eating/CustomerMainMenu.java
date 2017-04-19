@@ -76,8 +76,6 @@ public class CustomerMainMenu extends AppCompatActivity implements View.OnClickL
         orderFood.setOnClickListener(this);
         Button reserve = (Button) findViewById(R.id.reservation);
         reserve.setOnClickListener(this);
-        Button cookOrders = (Button) findViewById(R.id.orders);
-        cookOrders.setOnClickListener(this);
     }
 
     private void loadRes() {

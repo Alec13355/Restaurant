@@ -59,7 +59,6 @@ public class CustomerLoginActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_customer_login);
-        setupService();
 
         DUMMY_CREDENTIALS = new String[]{"Christian"};
 
@@ -97,10 +96,6 @@ public class CustomerLoginActivity extends AppCompatActivity {
         mProgressView = findViewById(R.id.login_progress);
         //Toast.makeText(getApplicationContext(), "Test message, just to make sure I'm not dumb.",
         //        Toast.LENGTH_LONG).show();
-    }
-
-    private void setupService() {
-        startService(new Intent(this, ShaneConnectService.class));
     }
 
     private void loadRegister() {
