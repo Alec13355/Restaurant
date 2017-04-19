@@ -50,7 +50,7 @@ public class ViewEmployeeList extends AppCompatActivity {
                 if(!employeeList.isEmpty()){
                     Iterator<employee> tableIterator = employeeList.iterator();
                     while(tableIterator.hasNext()){
-                        tableIterator.next().setPasswordVisibility();
+                        tableIterator.next().changePasswordVisibility();
                     }
                 }
             }

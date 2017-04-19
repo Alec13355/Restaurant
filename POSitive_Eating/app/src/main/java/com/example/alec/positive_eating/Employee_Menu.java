@@ -30,6 +30,7 @@ public class Employee_Menu extends AppCompatActivity implements View.OnClickList
 
     private static ArrayList<CustomerOrderItem> orderList;
     private static Integer[] imageId;
+    private String tableName;
 
     /**
      * Creates the activity. Sets listeners for buttons and ListViews.
@@ -39,8 +40,14 @@ public class Employee_Menu extends AppCompatActivity implements View.OnClickList
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_order_menu);
-
-        orderList = new ArrayList<CustomerOrderItem>();
+        Bundle bundle = getIntent().getExtras();
+        tableName = " ";
+        if(bundle != null){
+            tableName = bundle.getString("tableNum");
+            String temp = ("Table Number " + tableName);
+            Toast.makeText(Employee_Menu.this, temp, Toast.LENGTH_SHORT).show();
+        }
+        orderList = new ArrayList<>();
         imageId = new Integer[]{
                 R.drawable.hamburger,
                 R.drawable.fries
@@ -121,7 +128,7 @@ public class Employee_Menu extends AppCompatActivity implements View.OnClickList
                 options.add("sides place holder");
             }
         }
-        connect.placeOrder(desc, tmp, options, 10, "To Go", new Response.Listener<JSONObject>() {
+        connect.placeOrder(desc, tmp, options, 10, tableName, new Response.Listener<JSONObject>() {
             @Override
             public void onResponse(JSONObject response) {
                 Toast.makeText(getApplicationContext(), "The order was successfully placed!",

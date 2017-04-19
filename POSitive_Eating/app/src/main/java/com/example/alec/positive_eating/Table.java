@@ -40,8 +40,8 @@ public class Table {
     private int yPos;
     private int Status;
     private int employeeID;
-    //TODO
     private String customerID;
+    private int tableNumber;
     private Context tableContext;
     private ViewGroup mRootLayout;
     private FrameLayout tempFrame;
@@ -523,6 +523,7 @@ public class Table {
         @Override
         public void onClick(View view) {
             Intent myIntent = new Intent(tableContext, Employee_Menu.class); /** Class name here */
+            myIntent.putExtra("tableNum", ID);
             tableContext.startActivity(myIntent);
         }
     }

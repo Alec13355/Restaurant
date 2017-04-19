@@ -158,12 +158,9 @@ public class employee {
 
         thisEmployee.addView(tempName);
         thisEmployee.addView(tempDetails);
-//        thisEmployee.addView(passwordView);
-//        passwordView.setVisibility(View.INVISIBLE);
     }
 
-    public void setPasswordVisibility(){
-        String tempDetailString;
+    public void changePasswordVisibility(){
         if(!visible){
             thisEmployee.removeView(passwordView);
             visible = true;
