@@ -27,6 +27,8 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -52,6 +54,7 @@ public class Table {
     private FrameLayout tempFrame;
     private TextView tempName;
     private int Seats;
+    private List<employee> employeeList;
 
     /**
      * Default constructor builds a table with all given information. Also saves this table to the server.
@@ -76,6 +79,7 @@ public class Table {
         this.mRootLayout = mRootLayout;
         this.Seats = Seats;
         this.Status = Status;
+        employeeList = new ArrayList<>();
        // saveTable();
     }
 
@@ -550,14 +554,7 @@ public class Table {
         builder.setPositiveButton("Save", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
-                Pattern p = Pattern.compile("(\\w+)");
-                Matcher m = p.matcher(input.getText());
-                if(input.equals("") || input.equals(null) || !m.find()){
-                    Toast.makeText(tableContext, "Invalid", Toast.LENGTH_SHORT);
-                    dialogBuilder();
-                }else{
-                    getEmployee(input.getText().toString());
-                }
+                //employee list drop down box
             }
         });
         builder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
@@ -569,22 +566,21 @@ public class Table {
         builder.show();
     }
 
-    private boolean getEmployee(String name){
-        shaneconnect.ShaneConnect vista = getShaneConnect();
-        boolean bool = false;
-        vista.getAccountData(name, new Response.Listener<JSONObject>() {
+    private void getEmployeeList(final int index, final shaneconnect.ShaneConnect s) {
+        s.getTables(index, new Response.Listener<JSONObject>() {
             @Override
             public void onResponse(JSONObject response) {
-                //Toast.makeText(tableContext, response.toString(), Toast.LENGTH_LONG).show();
                 try {
-                    response.getString("first");
-                    //bool = true;
-                }catch(JSONException e){
+                    employee temp = new employee(response.getString("first"), response.getString("last"), response.getInt("ID"));
+                    employeeList.add(temp);
+                    getEmployeeList(index + 1, s);
+                } catch (JSONException e) {
                     return;
                 }
             }
+
         });
-        return bool;
+
     }
 
     
