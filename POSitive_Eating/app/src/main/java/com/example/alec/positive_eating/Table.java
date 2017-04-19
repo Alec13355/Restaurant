@@ -9,11 +9,13 @@ import android.text.InputType;
 import android.util.Log;
 import android.view.MotionEvent;
 import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.Space;
+import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -28,7 +30,9 @@ import android.widget.Button;
 import android.widget.EditText;;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -219,7 +223,6 @@ public class Table {
      * @return status
      */
     protected int getStatus() {
-        updateTable();
         return this.Status;
     }
 
@@ -229,7 +232,6 @@ public class Table {
      * @return employeeID
      */
     protected int getEmployeeID() {
-        updateTable();
         return this.employeeID;
     }
 
@@ -240,7 +242,6 @@ public class Table {
      */
     //TODO
     protected String getCustomerID() {
-        updateTable();
         return this.customerID;
     }
 
@@ -506,10 +507,8 @@ public class Table {
         thisTable.setOnClickListener(new EmployeeClickListener());
         thisTable.addView(tempName);
         thisTable.addView(tempDetails);
-//        Space space = new Space(tableContext);
-//        space.setX(MATCH_PARENT);
-//        space.setY(50);
-//        thisTable.addView(space);
+        shaneconnect.ShaneConnect vista = getShaneConnect();
+        getEmployeeList(0, vista);
     }
 
     private String statusToText(){
@@ -535,8 +534,8 @@ public class Table {
         return stringStatus;
     }
 
+    //The following 3 classes are used for the table list view. and selecting a server for a table.
     private final class EmployeeClickListener implements View.OnClickListener {
-
         @Override
         public void onClick(View view) {
             dialogBuilder();
@@ -545,16 +544,29 @@ public class Table {
     }
 
     private void dialogBuilder(){
-        final EditText input = new TextInputEditText(tableContext);
+        List<String> spinnerList = new ArrayList<>();
+        final Map<String, Integer> employeeMap = new HashMap<>(); //this is how I will remember which ID goes with which name when an option is selected
+        for(int i = 0; i < employeeList.size(); i++){
+            String temp = employeeList.get(i).getLast() + ", " + employeeList.get(i).getFirst() + ": " + employeeList.get(i).getID();
+            employeeMap.put(temp, employeeList.get(i).getID());
+            spinnerList.add(temp);
+        }
+        ArrayAdapter<String> adapter = new ArrayAdapter<String>(tableContext, android.R.layout.simple_spinner_dropdown_item, spinnerList);
+        final Spinner employeeSpinner = new Spinner(tableContext);
+        employeeSpinner.setAdapter(adapter);
+        //final EditText input = new TextInputEditText(tableContext);
         AlertDialog.Builder builder = new AlertDialog.Builder(tableContext);
         builder.setTitle("Employee: " + employeeID);
 
-        builder.setView(input);
+        builder.setView(employeeSpinner);
 
         builder.setPositiveButton("Save", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
-                //employee list drop down box
+                String oneUse = (String) employeeSpinner.getSelectedItem();
+                setEmployeeID(employeeMap.get(oneUse));
+                Toast.makeText(tableContext, String.valueOf(employeeMap.get(oneUse)), Toast.LENGTH_SHORT).show();
+                saveTable();
             }
         });
         builder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
@@ -567,11 +579,11 @@ public class Table {
     }
 
     private void getEmployeeList(final int index, final shaneconnect.ShaneConnect s) {
-        s.getTables(index, new Response.Listener<JSONObject>() {
+        s.getEmployees(index, new Response.Listener<JSONObject>() {
             @Override
             public void onResponse(JSONObject response) {
                 try {
-                    employee temp = new employee(response.getString("first"), response.getString("last"), response.getInt("ID"));
+                    employee temp = new employee(response.getString("first"), response.getString("last"), response.getInt("emp_id"));
                     employeeList.add(temp);
                     getEmployeeList(index + 1, s);
                 } catch (JSONException e) {
@@ -580,7 +592,6 @@ public class Table {
             }
 
         });
-
     }
 
     

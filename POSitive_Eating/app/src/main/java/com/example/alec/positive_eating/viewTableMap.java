@@ -10,6 +10,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.RelativeLayout;
+import android.widget.Toast;
 
 import com.android.volley.Response;
 
@@ -76,11 +77,10 @@ public class  viewTableMap extends Activity {
             @Override
             public void onResponse(JSONObject response) {
                 try{
-                    //Toast.makeText(getApplicationContext(), response.toString(), Toast.LENGTH_LONG).show();
-                    //TODO
-                    Table temp = new Table(response.getString("name"), response.getInt("x_coord"), response.getInt("y_coord"), response.getInt("status"), 0, " ", response.getInt("number_seats"), viewTableMap.this, mRootLayout);
+                    Table temp = new Table(response.getString("name"), response.getInt("x_coord"), response.getInt("y_coord"), response.getInt("status"), response.getInt("employee_id"), " ", response.getInt("number_seats"), viewTableMap.this, mRootLayout);
                     allTheTables.add(temp);
                     temp.drawTable();
+                    //Toast.makeText(getApplicationContext(), response.toString(), Toast.LENGTH_SHORT).show();
                     retrieveTables(index+1,s);
                 } catch (JSONException e) {
                     return;
