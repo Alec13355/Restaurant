@@ -19,7 +19,6 @@ Button Seating,Menu,Status,schedule,Edit_users,Payroll,addTableMap,viewEmployeeL
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_screen);
-        Seating=(Button)findViewById(R.id.Seating_Button);
         Menu=(Button)findViewById(R.id.Ordering_Menu);
         Status=(Button)findViewById(R.id.OrderStatButton);
         schedule=(Button)findViewById(R.id.Schedule);
@@ -72,16 +71,6 @@ Button Seating,Menu,Status,schedule,Edit_users,Payroll,addTableMap,viewEmployeeL
                 public void onClick(View view)
                 {
                     Intent myIntent = new Intent(Employee_MainScreen.this, Employee_Menu.class); /** Class name here */
-                    Employee_MainScreen.this.startActivity(myIntent);
-                }
-            }
-        );
-        Seating.setOnClickListener(
-            new View.OnClickListener()
-            {
-                public void onClick(View view)
-                {
-                    Intent myIntent = new Intent(Employee_MainScreen.this, Employee_Seating.class); /** Class name here */
                     Employee_MainScreen.this.startActivity(myIntent);
                 }
             }
