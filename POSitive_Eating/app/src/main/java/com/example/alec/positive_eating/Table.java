@@ -257,9 +257,12 @@ public class Table {
 
     protected void drawManagerTable(){ //View parentView
         tempFrame = new FrameLayout(tableContext);
-        tempFrame.setX(xPos);
-        tempFrame.setY(yPos);
-
+        tempFrame.setX((float) xPos);
+        tempFrame.setY((float) yPos);
+//        RelativeLayout.LayoutParams params = new RelativeLayout.LayoutParams(FrameLayout.LayoutParams.WRAP_CONTENT, FrameLayout.LayoutParams.WRAP_CONTENT); //WRAP_CONTENT param can be FILL_PARENT
+//        params.leftMargin = xPos; //XCOORD
+//        params.topMargin = yPos; //YCOORD
+//        tempFrame.setLayoutParams(params);
         ImageView temp = new ImageView(tableContext);
         temp.setImageResource(R.drawable.squaretable);
         RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(150, 150);
@@ -281,6 +284,7 @@ public class Table {
         textLayoutParams.addRule(RelativeLayout.ALIGN_BOTTOM, temp.getId());
         textLayoutParams.addRule(RelativeLayout.CENTER_VERTICAL);
         tempName.setLayoutParams(textLayoutParams);
+        tempName.setGravity(CENTER);
         tempFrame.addView(tempName);
 
         mRootLayout.addView(tempFrame);
