@@ -38,6 +38,9 @@ public class tableMap extends Activity {
     private int index;
     private int whichListener;
     private List<employee> employeeList;
+    private Button tableAdd;
+    private Button saveData;
+    private Button editMode;
     /**
      * onCreate first updates based on the
      * @param savedInstanceState
@@ -45,7 +48,7 @@ public class tableMap extends Activity {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         employeeList = new ArrayList<>();
-        whichListener = 1;
+        whichListener = 0;
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_table_map);
         mRootLayout = (RelativeLayout) findViewById(R.id.activity_table_map);
@@ -55,7 +58,8 @@ public class tableMap extends Activity {
         getEmployeeList(0, vista);
 
 
-        final Button tableAdd = (Button) findViewById(R.id.addTable);
+        tableAdd = (Button) findViewById(R.id.addTable);
+        tableAdd.setVisibility(View.INVISIBLE);
         tableAdd.setOnClickListener(new View.OnClickListener() {
             int Seats = 4;
             Table temp;
@@ -96,7 +100,8 @@ public class tableMap extends Activity {
             }
         });
 
-        Button saveData = (Button) findViewById(R.id.sendToServer);
+        saveData = (Button) findViewById(R.id.sendToServer);
+        saveData.setVisibility(View.INVISIBLE);
         saveData.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -105,84 +110,17 @@ public class tableMap extends Activity {
                 while(tableIterator.hasNext()){
                     tableIterator.next().saveTable();
                 }
+                Toast.makeText(tableMap.this, "Saved", Toast.LENGTH_SHORT).show();
             }
             }
         });
 
-        final Button editMode = (Button) findViewById(R.id.changeEditMode);
+        editMode = (Button) findViewById(R.id.changeEditMode);
+        editMode.setVisibility(View.INVISIBLE);
         editMode.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                switch(whichListener){
-                    case 1 : {
-                        whichListener = 2;
-                        updateListener(whichListener);
-                        Toast.makeText(tableMap.this, "Status Mode", Toast.LENGTH_SHORT).show();
-                        tableAdd.setText("List View");
-                        tableAdd.setOnClickListener(new View.OnClickListener() {
-                            @Override
-                            public void onClick(View v) {
-                                Intent myIntent = new Intent(tableMap.this, tableListView.class);
-                                tableMap.this.startActivity(myIntent);
-                            }
-                        });
-                        break;
-                    }
-                    case 2 : {
-                        whichListener = 3;
-                        updateListener(whichListener);
-                        Toast.makeText(tableMap.this, "Employee Mode", Toast.LENGTH_SHORT).show();
-                        break;
-                    }
-                    case 3 : {
-                        whichListener = 1;
-                        updateListener(whichListener);
-                        Toast.makeText(tableMap.this, "Drag Mode", Toast.LENGTH_SHORT).show();
-                        tableAdd.setText("Add Table");
-                        tableAdd.setOnClickListener(new View.OnClickListener() {
-                            int Seats = 4;
-                            Table temp;
-                            @Override
-                            public void onClick(View v) {
-                                temp = new Table(String.valueOf(allTheTables.size() + 1), Seats, employeeList, tableMap.this, mRootLayout);
-                                allTheTables.add(temp);
-                                temp.drawManagerTable();
-                                final AlertDialog.Builder builder = new AlertDialog.Builder(tableMap.this);
-                                builder.setTitle("Number of Seats");
-
-                                final EditText input = new EditText(tableMap.this);
-
-                                input.setInputType(InputType.TYPE_CLASS_NUMBER);
-                                builder.setView(input);
-
-
-                                builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
-                                    @Override
-                                    public void onClick(DialogInterface dialog, int which) {
-                                        Pattern p = Pattern.compile("(\\d)");
-                                        Matcher m = p.matcher(input.getText());
-                                        if (m.find()){
-                                            Seats = Integer.parseInt(input.getText().toString());
-                                            temp.setSeats(Seats);
-
-                                        }else{
-                                            builder.show();
-                                        }
-                                    }
-                                });
-                                builder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
-                                    @Override
-                                    public void onClick(DialogInterface dialog, int which) {
-                                        dialog.cancel();
-
-                                    }
-                                });
-                                builder.show();
-                            }
-                        });
-                        break;
-                    }
-                }
+            changeEditMode();
             }
         });
     }
@@ -193,12 +131,17 @@ public class tableMap extends Activity {
             public void onResponse(JSONObject response) {
                 try{
                     //Toast.makeText(getApplicationContext(), response.toString(), Toast.LENGTH_LONG).show();
+                    //if(userPermission == server) then check to see if employeeID matches singleton employeeID, otherwise discard table
                     Table temp = new Table(response.getString("name"), response.getInt("x_coord"), response.getInt("y_coord"), response.getInt("status"), response.getInt("employee_id"), " ", response.getInt("number_seats"), employeeList, tableMap.this, mRootLayout);
                     allTheTables.add(temp);
                     temp.drawManagerTable();
                     temp.addListener(1);
                     retrieveTables(index+1,s);
                 } catch (JSONException e) {
+                    tableAdd.setVisibility(View.VISIBLE);
+                    saveData.setVisibility(View.VISIBLE);
+                    editMode.setVisibility(View.VISIBLE);
+                    changeEditMode();
                     return;
                 }
             }
@@ -230,5 +173,104 @@ public class tableMap extends Activity {
         });
     }
 
+    private void changeEditMode(){
+        switch(whichListener){
+            case 0 : {
+                //if(user.permissions == manager){
+                whichListener = 1;
+                updateListener(whichListener);
+                Toast.makeText(tableMap.this, "Drag Mode", Toast.LENGTH_SHORT).show();
+                tableAdd.setText("Add Table");
+                tableAdd.setOnClickListener(new View.OnClickListener() {
+                    int Seats = 4;
+                    Table temp;
+                    @Override
+                    public void onClick(View v) {
+                        temp = new Table(String.valueOf(allTheTables.size() + 1), Seats, employeeList, tableMap.this, mRootLayout);
+                        allTheTables.add(temp);
+                        temp.drawManagerTable();
+                        final AlertDialog.Builder builder = new AlertDialog.Builder(tableMap.this);
+                        builder.setTitle("Number of Seats");
 
+                        final EditText input = new EditText(tableMap.this);
+
+                        input.setInputType(InputType.TYPE_CLASS_NUMBER);
+                        builder.setView(input);
+
+
+                        builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                Pattern p = Pattern.compile("(\\d)");
+                                Matcher m = p.matcher(input.getText());
+                                if (m.find()){
+                                    Seats = Integer.parseInt(input.getText().toString());
+                                    temp.setSeats(Seats);
+
+                                }else{
+                                    builder.show();
+                                }
+                            }
+                        });
+                        builder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                dialog.cancel();
+
+                            }
+                        });
+                        builder.show();
+                    }
+                });
+                break;
+                //}else{
+                //whichListener = 1;
+                //}
+            }
+            case 1 : {
+                //if(userPermission == manager | hostess | server){
+                whichListener = 2;
+                updateListener(whichListener);
+                Toast.makeText(tableMap.this, "Status Mode", Toast.LENGTH_SHORT).show();
+                tableAdd.setText("List View");
+                tableAdd.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        Intent myIntent = new Intent(tableMap.this, tableListView.class);
+                        tableMap.this.startActivity(myIntent);
+                    }
+                });
+                break;
+                //}else{
+                //whichListener = 2;
+                //}
+            }
+            case 2 : {
+                //if(userPermission == manager){
+                whichListener = 3;
+                updateListener(whichListener);
+                Toast.makeText(tableMap.this, "Employee Mode", Toast.LENGTH_SHORT).show();
+                break;
+                //}else{
+                //whichListener = 3;
+                //}
+            }
+            case 3 : {
+                //if(userPermission == manager or server)
+                whichListener = 4;
+                updateListener(whichListener);
+                Toast.makeText(tableMap.this, "Order Mode", Toast.LENGTH_SHORT).show();
+                break;
+                //}else{
+                //whichListener = 4;
+                //}
+            }
+            case 4 : {
+                whichListener = 0;
+                updateListener(whichListener);
+                Toast.makeText(tableMap.this, "View Mode", Toast.LENGTH_SHORT).show();
+                break;
+            }
+        }
+    }
 }
