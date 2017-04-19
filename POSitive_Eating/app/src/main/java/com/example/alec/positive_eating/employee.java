@@ -20,6 +20,7 @@ public class employee {
     private String phoneNumber;
     private int rate;
     private String pass;
+    private boolean visible;
 
     //List items
     private TextView tempDetails;
@@ -38,6 +39,7 @@ public class employee {
         this.phoneNumber = phone;
         this.rate = rate;
         this.pass = pass;
+        this.visible = true;
     }
     /*
     First Name
@@ -134,7 +136,7 @@ public class employee {
         tempName.setTextColor(Color.BLACK);
         tempName.setTextSize(40);
 
-        String tempDetailString =  "ID: " + getID() + "\nAvailability: " + getAvailability() + "\nPhone Number: " + getPhone() + "\nPassword: " + getPassword();
+        String tempDetailString =  "ID: " + getID() + "\nAvailability: " + getAvailability() + "\nPhone Number: " + getPhone();
         tempDetails = new TextView(context);
         tempDetails.setText(tempDetailString);
         tempDetails.setTextColor(Color.BLACK);
@@ -147,5 +149,17 @@ public class employee {
 
         thisEmployee.addView(tempName);
         thisEmployee.addView(tempDetails);
+    }
+
+    public void setPasswordVisibility(){
+        String tempDetailString;
+        if(!visible){
+            tempDetailString =  "ID: " + getID() + "\nAvailability: " + getAvailability() + "\nPhone Number: " + getPhone();
+            visible = true;
+        }else{
+            tempDetailString =  "ID: " + getID() + "\nAvailability: " + getAvailability() + "\nPhone Number: " + getPhone() + "\nPassword: " + getPassword();
+            visible = false;
+        }
+        tempDetails.setText(tempDetailString);
     }
 }

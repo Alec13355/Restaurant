@@ -7,4 +7,11 @@
     android:layout_height="match_parent"
     tools:context="com.example.alec.positive_eating.ViewEmployeeList">
 
+    <Button
+        android:id="@+id/viewPass"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:text="View Passwords" />
 </RelativeLayout>
