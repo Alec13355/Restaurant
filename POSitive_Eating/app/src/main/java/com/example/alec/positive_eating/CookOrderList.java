@@ -19,7 +19,7 @@ import shaneconnect.ShaneConnect;
 
 import static com.example.alec.positive_eating.Singleton_ShaneConnect_Factory.getShaneConnect;
 public class CookOrderList extends AppCompatActivity {
-    private ExpandableListAdapter listAdapter;
+    private CookListAdapter listAdapter;
     private ExpandableListView expListView;
     private List<String> listDataHeader;
     private HashMap<String, List<String>> listDataChild;
@@ -33,16 +33,6 @@ public class CookOrderList extends AppCompatActivity {
         setContentView(R.layout.activity_cook_order_list);
         context = getApplicationContext();
         prepareListData();
-        Button b = (Button) findViewById(R.id.load);
-        b.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                expListView = (ExpandableListView) findViewById(R.id.lvExp);
-                listAdapter = new ExpandableListAdapter(context, listDataHeader, listDataChild);
-                // setting list adapter
-                expListView.setAdapter(listAdapter);
-            }
-        });
     }
 
     private void prepareListData() {
@@ -54,29 +44,50 @@ public class CookOrderList extends AppCompatActivity {
     private void getAllOrders() {
         ModelM = getShaneConnect();
         recursiveInc = 0;
+        ArrayList<String> itemsInTheOrder = new ArrayList<String>();
         ModelM.getOrders(recursiveInc, new Response.Listener<JSONObject>() {
             @Override
-            public void onResponse(JSONObject response) {
+            public void onResponse (JSONObject response) {
                 if (response.has("none")) {
-                    return;
+                    expListView = (ExpandableListView) findViewById(R.id.lvExp);
+                    listAdapter = new CookListAdapter(context, listDataHeader, listDataChild);
+                    expListView.setAdapter(listAdapter);
                 } else {
                     try {
-                        String desc = response.getString("desc");
-                        String orderNum = "Order #" + response.getInt("order_id");
-                        ArrayList<String> itemsInTheOrder = new ArrayList<String>();
-                        itemsInTheOrder.add(desc);
+                        String compString = response.getString("componentString");
+                        final String orderNum = "Order #" + response.getInt("order_id");
                         listDataHeader.add(orderNum);
-                        listDataChild.put(orderNum, itemsInTheOrder);
-                        recursiveInc++;
-                        ModelM.getOrders(recursiveInc, this);
+                        ModelM.getFoodByID(compString, new Response.Listener<JSONObject>() {
+                            @Override
+                            public void onResponse(JSONObject response) {
+                                try {
+                                    ArrayList<String> order  = parseResponse(response);
+                                    listDataChild.put(orderNum, order);
+                                    ModelM.getOrders(++recursiveInc, this);
+                                } catch(Exception e) {
+                                    Toast.makeText(context,
+                                            "An error occurred in getFoodByID(). " +
+                                                    "Please press the back button and try again.",
+                                            Toast.LENGTH_LONG).show();
+                                }
+                            }
+                        });
                     } catch (Exception e) {
                         Toast.makeText(context,
-                                "An error occurred. Please press the back button and try again.",
+                                "An error occurred in getOrders(). " +
+                                "Please press the back button and try again.",
                                 Toast.LENGTH_LONG).show();
-                        return;
                     }
                 }
             }
         });
+    }
+
+    private ArrayList<String> parseResponse(JSONObject res) {
+        ArrayList<String> order = new ArrayList<String>();
+        for(int i =0;res.has("NAME"+i);i++) {
+            // TODO: 4/19/2017
+        }
+        return order;
     }
 }
