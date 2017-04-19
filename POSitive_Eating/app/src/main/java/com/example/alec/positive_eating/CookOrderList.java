@@ -1,23 +1,18 @@
 package com.example.alec.positive_eating;
+
 import android.content.Context;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.view.View;
-import android.widget.Button;
 import android.widget.ExpandableListView;
 import android.widget.Toast;
-
 import com.android.volley.Response;
-
 import org.json.JSONObject;
-
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
-
 import shaneconnect.ShaneConnect;
-
 import static com.example.alec.positive_eating.Singleton_ShaneConnect_Factory.getShaneConnect;
+
 public class CookOrderList extends AppCompatActivity {
     private CookListAdapter listAdapter;
     private ExpandableListView expListView;
@@ -32,6 +27,11 @@ public class CookOrderList extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_cook_order_list);
         context = getApplicationContext();
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
         prepareListData();
     }
 
@@ -56,12 +56,12 @@ public class CookOrderList extends AppCompatActivity {
                     try {
                         String compString = response.getString("componentString");
                         final String orderNum = "Order #" + response.getInt("order_id");
-                        listDataHeader.add(orderNum);
                         ModelM.getFoodByID(compString, new Response.Listener<JSONObject>() {
                             @Override
                             public void onResponse(JSONObject response) {
                                 try {
                                     ArrayList<String> order  = parseResponse(response);
+                                    listDataHeader.add(orderNum);
                                     listDataChild.put(orderNum, order);
                                     ModelM.getOrders(++recursiveInc, this);
                                 } catch(Exception e) {

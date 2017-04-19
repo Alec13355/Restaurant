@@ -13,6 +13,7 @@ public class Launch_Screen extends AppCompatActivity implements View.OnClickList
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_launch_screen);
 
+        startService(new Intent(this, ShaneConnectService.class));
         Button customer = (Button) findViewById(R.id.Customer);
         Button employee = (Button) findViewById(R.id.Employee);
         customer.setOnClickListener(this);

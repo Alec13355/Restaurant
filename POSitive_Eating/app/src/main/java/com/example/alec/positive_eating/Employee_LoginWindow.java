@@ -40,7 +40,6 @@ public class Employee_LoginWindow extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login_window);
 
-        startService(new Intent(this, ShaneConnectService.class));
 
         LogInButton = (Button) findViewById(R.id.logInButton);
         password = (EditText) findViewById(R.id.password);
