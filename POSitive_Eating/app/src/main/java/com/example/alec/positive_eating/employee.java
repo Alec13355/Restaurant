@@ -2,6 +2,7 @@ package com.example.alec.positive_eating;
 
 import android.content.Context;
 import android.graphics.Color;
+import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -24,6 +25,8 @@ public class employee {
 
     //List items
     private TextView tempDetails;
+    private TextView passwordView;
+    LinearLayout thisEmployee;
 
     employee(String first, String last, int ID){
         this.first = first;
@@ -123,7 +126,7 @@ public class employee {
         this.tempDetails = new TextView(context);
 
         LinearLayout linearLayout = (LinearLayout) mListLayout;
-        LinearLayout thisEmployee = new LinearLayout(context);
+        thisEmployee = new LinearLayout(context);
         thisEmployee.setGravity(CENTER_HORIZONTAL);
         thisEmployee.setLayoutParams(new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT));
         thisEmployee.setOrientation(LinearLayout.VERTICAL);
@@ -142,6 +145,12 @@ public class employee {
         tempDetails.setTextColor(Color.BLACK);
         tempDetails.setTextSize(20);
 
+        String tempPasswordString =  "Password: " + pass;
+        passwordView = new TextView(context);
+        passwordView.setText(tempPasswordString);
+        passwordView.setTextColor(Color.BLACK);
+        passwordView.setTextSize(20);
+
         linearLayout.addView(thisEmployee);
 
         //This is where you would set a click listener (example would be to delete employees)
@@ -149,17 +158,18 @@ public class employee {
 
         thisEmployee.addView(tempName);
         thisEmployee.addView(tempDetails);
+//        thisEmployee.addView(passwordView);
+//        passwordView.setVisibility(View.INVISIBLE);
     }
 
     public void setPasswordVisibility(){
         String tempDetailString;
         if(!visible){
-            tempDetailString =  "ID: " + getID() + "\nAvailability: " + getAvailability() + "\nPhone Number: " + getPhone();
+            thisEmployee.removeView(passwordView);
             visible = true;
         }else{
-            tempDetailString =  "ID: " + getID() + "\nAvailability: " + getAvailability() + "\nPhone Number: " + getPhone() + "\nPassword: " + getPassword();
+            thisEmployee.addView(passwordView);
             visible = false;
         }
-        tempDetails.setText(tempDetailString);
     }
 }
