@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
+import android.widget.Toast;
 
 import com.android.volley.Response;
 import com.example.alec.positive_eating.payrole.Employee_Payroll;
@@ -19,6 +20,7 @@ import java.util.List;
 
 import static com.example.alec.positive_eating.Singleton_Current_Employee.getInstance;
 import static com.example.alec.positive_eating.Singleton_Employee_List.getListInstance;
+import static com.example.alec.positive_eating.Singleton_ShaneConnect_Factory.getShaneConnect;
 
 /**
  * This class is the main landing page and will change views depending on what button is pressed.
@@ -48,6 +50,9 @@ public class Employee_MainScreen extends AppCompatActivity {
         addTableMap.setVisibility(View.INVISIBLE);
         viewEmployeeList.setVisibility(View.INVISIBLE);
 
+        shaneconnect.ShaneConnect vista = getShaneConnect();
+        getEmployeeList(0, vista);
+        
         eList = new ArrayList<>();
         //Initilizes the buttons.
 
@@ -132,6 +137,7 @@ public class Employee_MainScreen extends AppCompatActivity {
                     employee temp = new employee(response.getString("first"), response.getString("last"), response.getInt("emp_id"), response.getString("address"), response.getString("phone"), response.getInt("rate"), response.getString("pass"), response.getInt("status"));
                     eList.add(temp);
                     getEmployeeList(index + 1, s);
+                    Toast.makeText(getApplicationContext(), response.toString(), Toast.LENGTH_SHORT).show();;
                 } catch (JSONException e) {
                     getListInstance().setEList(eList);
                     Menu.setVisibility(View.VISIBLE);
