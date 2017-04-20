@@ -28,6 +28,7 @@ import java.util.List;
 import java.util.Map;
 
 import static android.view.Gravity.*;
+import static com.example.alec.positive_eating.Singleton_Current_Employee.getEInstance;
 import static com.example.alec.positive_eating.Singleton_Employee_List.getListInstance;
 import static com.example.alec.positive_eating.Singleton_ShaneConnect_Factory.getShaneConnect;
 
@@ -501,9 +502,11 @@ public class Table {
         List<String> spinnerList = new ArrayList<>();
         final Map<String, Integer> employeeMap = new HashMap<>(); //this is how I will remember which ID goes with which name when an option is selected
         for(int i = 0; i < employeeList.size(); i++){
-            String temp = employeeList.get(i).getLast() + ", " + employeeList.get(i).getFirst() + ": " + employeeList.get(i).getID();
-            employeeMap.put(temp, employeeList.get(i).getID());
-            spinnerList.add(temp);
+            if(employeeList.get(i).getPermissions() == 1) {
+                String temp = employeeList.get(i).getLast() + ", " + employeeList.get(i).getFirst() + ": " + employeeList.get(i).getID();
+                employeeMap.put(temp, employeeList.get(i).getID());
+                spinnerList.add(temp);
+            }
         }
         ArrayAdapter<String> adapter = new ArrayAdapter<>(tableContext, android.R.layout.simple_spinner_dropdown_item, spinnerList);
         final Spinner employeeSpinner = new Spinner(tableContext);

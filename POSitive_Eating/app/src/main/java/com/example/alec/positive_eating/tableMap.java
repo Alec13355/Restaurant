@@ -69,8 +69,6 @@ public class tableMap extends Activity {
             temp.drawManagerTable();
         }
 
-        changeEditMode();
-
         tableAdd = (Button) findViewById(R.id.addTable);
         //tableAdd.setVisibility(View.INVISIBLE);
         tableAdd.setOnClickListener(new View.OnClickListener() {
@@ -136,6 +134,8 @@ public class tableMap extends Activity {
             changeEditMode();
             }
         });
+
+        changeEditMode();
     }
 
 //    public void retrieveTables(final int index, final shaneconnect.ShaneConnect s) {
