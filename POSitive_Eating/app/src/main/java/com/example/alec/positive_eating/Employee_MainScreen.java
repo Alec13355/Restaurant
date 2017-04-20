@@ -142,13 +142,8 @@ public class Employee_MainScreen extends AppCompatActivity {
 
                 } catch (JSONException e) {
                     getListInstance().setEList(eList);
-                    Menu.setVisibility(View.VISIBLE);
-                    Status.setVisibility(View.VISIBLE);
-                    schedule.setVisibility(View.VISIBLE);
-                    Edit_users.setVisibility(View.VISIBLE);
-                    Payroll.setVisibility(View.VISIBLE);
-                    addTableMap.setVisibility(View.VISIBLE);
-                    viewEmployeeList.setVisibility(View.VISIBLE);
+                    shaneconnect.ShaneConnect vista = getShaneConnect();
+                    retrieveTables(0, vista);
                     return;
                 }
             }
@@ -174,8 +169,13 @@ public class Employee_MainScreen extends AppCompatActivity {
                     retrieveTables(index+1,s);
                 } catch (JSONException e) {
                     getTableListInstance().setTList(allTheTables);
-                    shaneconnect.ShaneConnect vista = getShaneConnect();
-                    getEmployeeList(0, vista);
+                    Menu.setVisibility(View.VISIBLE);
+                    Status.setVisibility(View.VISIBLE);
+                    schedule.setVisibility(View.VISIBLE);
+                    Edit_users.setVisibility(View.VISIBLE);
+                    Payroll.setVisibility(View.VISIBLE);
+                    addTableMap.setVisibility(View.VISIBLE);
+                    viewEmployeeList.setVisibility(View.VISIBLE);
                     return;
                 }
             }
