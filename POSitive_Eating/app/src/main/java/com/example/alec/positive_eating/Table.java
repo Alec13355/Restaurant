@@ -302,14 +302,11 @@ public class Table {
         mRootLayout.addView(tempFrame);
         colorTable();
         if(getEInstance().getEmployee().getPermissions() == 1){
-            if(getEInstance().getEmployee().getID() == getEmployeeID()){
-                addListener(whichListener);
-            }else{
+            if(getEInstance().getEmployee().getID() != getEmployeeID()) {
                 temp.setVisibility(View.INVISIBLE);
             }
-        }else{
-            addListener(whichListener);
         }
+        addListener(whichListener);
 
     }
 
@@ -466,26 +463,56 @@ public class Table {
             builder.setPositiveButton("Switch Status", new DialogInterface.OnClickListener() {
                 @Override
                 public void onClick(DialogInterface dialog, int which) {
-                    switch (Status) {
-                        case 0: {
-                            tempName.setTextColor(Color.GREEN);
-                            setStatus(1);
-                            break;
+                    if(getEInstance().getEmployee().getPermissions() == 1){
+                        if(getEInstance().getEmployee().getID() == getEmployeeID()) {
+                            switch (Status) {
+                                case 0: {
+                                    tempName.setTextColor(Color.GREEN);
+                                    setStatus(1);
+                                    break;
+                                }
+                                case 1: {
+                                    tempName.setTextColor(Color.RED);
+                                    setStatus(2);
+                                    break;
+                                }
+                                case 2: {
+                                    tempName.setTextColor(Color.YELLOW);
+                                    setStatus(3);
+                                    break;
+                                }
+                                case 3: {
+                                    tempName.setTextColor(Color.BLACK);
+                                    setStatus(0);
+                                    break;
+                                }
+                            }
+                        }else{
+                            dialog.cancel();
+                            Toast.makeText(tableContext, "No Permission", Toast.LENGTH_SHORT).show();
                         }
-                        case 1: {
-                            tempName.setTextColor(Color.RED);
-                            setStatus(2);
-                            break;
-                        }
-                        case 2: {
-                            tempName.setTextColor(Color.YELLOW);
-                            setStatus(3);
-                            break;
-                        }
-                        case 3: {
-                            tempName.setTextColor(Color.BLACK);
-                            setStatus(0);
-                            break;
+                    }else{
+                        switch (Status) {
+                            case 0: {
+                                tempName.setTextColor(Color.GREEN);
+                                setStatus(1);
+                                break;
+                            }
+                            case 1: {
+                                tempName.setTextColor(Color.RED);
+                                setStatus(2);
+                                break;
+                            }
+                            case 2: {
+                                tempName.setTextColor(Color.YELLOW);
+                                setStatus(3);
+                                break;
+                            }
+                            case 3: {
+                                tempName.setTextColor(Color.BLACK);
+                                setStatus(0);
+                                break;
+                            }
                         }
                     }
                 }
@@ -530,12 +557,20 @@ public class Table {
         builder.setPositiveButton("Save", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
-                String oneUse = (String) employeeSpinner.getSelectedItem();
-                setEmployeeID(employeeMap.get(oneUse));
-                Toast.makeText(tableContext, String.valueOf(employeeMap.get(oneUse)), Toast.LENGTH_SHORT).show();
-                saveTable();
-                String tempDetailString =  "Number of seats: " + getSeats() + "\nStatus: " + getStatus() + "\nEmployee: " + employeeNameMap.get(employeeID) + "\n";
-                tempDetails.setText(tempDetailString);
+                if(getEInstance().getEmployee().getPermissions() == 1){
+                    if(getEInstance().getEmployee().getID() != getEmployeeID()) {
+                        dialog.cancel();
+                        Toast.makeText(tableContext, "No Permission", Toast.LENGTH_SHORT).show();
+                        return;
+                    }
+                }else {
+                    String oneUse = (String) employeeSpinner.getSelectedItem();
+                    setEmployeeID(employeeMap.get(oneUse));
+                    Toast.makeText(tableContext, String.valueOf(employeeMap.get(oneUse)), Toast.LENGTH_SHORT).show();
+                    saveTable();
+                    String tempDetailString = "Number of seats: " + getSeats() + "\nStatus: " + getStatus() + "\nEmployee: " + employeeNameMap.get(employeeID) + "\n";
+                    tempDetails.setText(tempDetailString);
+                }
             }
         });
         builder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
@@ -550,9 +585,15 @@ public class Table {
     private final class OrderClickListener implements View.OnClickListener {
         @Override
         public void onClick(View view) {
-            Intent myIntent = new Intent(tableContext, Employee_Menu.class); /** Class name here */
-            myIntent.putExtra("tableNum", ID);
-            tableContext.startActivity(myIntent);
+            if(getEInstance().getEmployee().getPermissions() == 1){
+                if(getEInstance().getEmployee().getID() != getEmployeeID()) {
+                    Toast.makeText(tableContext, "No Permission", Toast.LENGTH_SHORT).show();
+                }
+            }else {
+                Intent myIntent = new Intent(tableContext, Employee_Menu.class); /** Class name here */
+                myIntent.putExtra("tableNum", ID);
+                tableContext.startActivity(myIntent);
+            }
         }
     }
 }
