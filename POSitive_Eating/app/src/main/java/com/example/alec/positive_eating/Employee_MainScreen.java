@@ -21,6 +21,7 @@ import java.util.List;
 import static com.example.alec.positive_eating.Singleton_Current_Employee.getInstance;
 import static com.example.alec.positive_eating.Singleton_Employee_List.getListInstance;
 import static com.example.alec.positive_eating.Singleton_ShaneConnect_Factory.getShaneConnect;
+import static com.example.alec.positive_eating.Singleton_Table_List.getTableListInstance;
 
 /**
  * This class is the main landing page and will change views depending on what button is pressed.
@@ -29,6 +30,7 @@ public class Employee_MainScreen extends AppCompatActivity {
     Button Seating,Menu,Status,schedule,Edit_users,Payroll,addTableMap,viewEmployeeList;//Delares the button variables
 
     List<employee>  eList;
+    private List<Table> allTheTables;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -51,7 +53,7 @@ public class Employee_MainScreen extends AppCompatActivity {
         viewEmployeeList.setVisibility(View.INVISIBLE);
 
         shaneconnect.ShaneConnect vista = getShaneConnect();
-        getEmployeeList(0, vista);
+        retrieveTables(0, vista);
 
         eList = new ArrayList<>();
         //Initilizes the buttons.
@@ -137,7 +139,7 @@ public class Employee_MainScreen extends AppCompatActivity {
                     employee temp = new employee(response.getString("first"), response.getString("last"), response.getInt("emp_id"), response.getString("address"), response.getString("phone"), response.getInt("rate"), response.getString("pass"), response.getInt("status"));
                     eList.add(temp);
                     getEmployeeList(index + 1, s);
-                    
+
                 } catch (JSONException e) {
                     getListInstance().setEList(eList);
                     Menu.setVisibility(View.VISIBLE);
@@ -147,6 +149,33 @@ public class Employee_MainScreen extends AppCompatActivity {
                     Payroll.setVisibility(View.VISIBLE);
                     addTableMap.setVisibility(View.VISIBLE);
                     viewEmployeeList.setVisibility(View.VISIBLE);
+                    return;
+                }
+            }
+
+        });
+    }
+
+    public void retrieveTables(final int index, final shaneconnect.ShaneConnect s) {
+        s.getTables(index, new Response.Listener<JSONObject>() {
+            @Override
+            public void onResponse(JSONObject response) {
+                try{
+                    //Toast.makeText(getApplicationContext(), response.toString(), Toast.LENGTH_LONG).show();
+                    //if(userPermission == server) then check to see if employeeID matches singleton employeeID, otherwise discard table
+                    Table temp = new Table(response.getString("name"), response.getInt("x_coord"), response.getInt("y_coord"), response.getInt("status"), response.getInt("employee_id"), " ", response.getInt("number_seats"), eList, Employee_MainScreen.this, null);
+                    if(getInstance().getEmployee().getPermissions() == 1){
+                        if(getInstance().getEmployee().getID() == temp.getEmployeeID()){
+                            allTheTables.add(temp);
+                        }
+                    }else{
+                        allTheTables.add(temp);
+                    }
+                    retrieveTables(index+1,s);
+                } catch (JSONException e) {
+                    getTableListInstance().setTList(allTheTables);
+                    shaneconnect.ShaneConnect vista = getShaneConnect();
+                    getEmployeeList(0, vista);
                     return;
                 }
             }

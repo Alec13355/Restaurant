@@ -19,11 +19,11 @@ public class Singleton_Table_List {
         return currentInstance;
     }
 
-    public static List<Table> getEList() {
+    public static List<Table> getTList() {
         return tList;
     }
 
-    public void setEList(List<Table> tList){
+    public void setTList(List<Table> tList){
         this.tList = tList;
     }
 }

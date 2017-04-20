@@ -193,6 +193,11 @@ public class Table {
         saveTable(); //save the new information to the server
     }
 
+    protected void setRootLayout(ViewGroup mRootLayout) {
+        this.mRootLayout = mRootLayout;
+        saveTable(); //save the new information to the server
+    }
+
     /**
      * Gets the ID of this table after making sure the table is updated with the server.
      *
