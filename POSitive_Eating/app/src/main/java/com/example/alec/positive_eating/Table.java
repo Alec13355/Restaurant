@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.graphics.Color;
 import android.support.v7.app.AlertDialog;
 import android.view.MotionEvent;
+import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.FrameLayout;
@@ -18,17 +19,15 @@ import android.widget.Toast;
 
 import com.android.volley.Response;
 
-import org.json.JSONException;
 import org.json.JSONObject;
-import android.view.View;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import static android.view.Gravity.*;
-import static com.example.alec.positive_eating.Singleton_Current_Employee.getEInstance;
+import static android.view.Gravity.CENTER;
+import static android.view.Gravity.CENTER_HORIZONTAL;
 import static com.example.alec.positive_eating.Singleton_Employee_List.getListInstance;
 import static com.example.alec.positive_eating.Singleton_ShaneConnect_Factory.getShaneConnect;
 
@@ -69,9 +68,9 @@ public class Table {
     Table(String ID, int xPOS, int yPOS, int Status, int employeeID, String customerID, int Seats, List<employee> employeeList, Context context, ViewGroup mRootLayout) {
         this.ID = ID;
         if(xPOS > 0) { this.xPos = xPOS; }
-        else{ this.xPos = 10; }
+        else{ this.xPos = 0; }
         if(yPOS > 0) { this.yPos = yPOS; }
-        else{ this.yPos = 10; }
+        else{ this.yPos = 0; }
         this.employeeID = employeeID;
         this.customerID = customerID;
         this.tableContext = context;
@@ -114,12 +113,14 @@ public class Table {
      * Saves a table to the database
      */
     protected void saveTable() {
-        Float tempX = tempFrame.getX();
-        Float tempY = tempFrame.getY();
+        int tempX = (int)tempFrame.getX();
+        int tempY = (int)tempFrame.getY();
         xPos = (int) tempFrame.getX();
         yPos = (int) tempFrame.getY();
+        xPos=xPos-50;
+        yPos=yPos-50;
         shaneconnect.ShaneConnect vista = getShaneConnect();
-        vista.setTable(ID, (int) xPos, yPos, Seats, Status, employeeID, new Response.Listener<JSONObject>() {
+        vista.setTable(ID, xPos, yPos, Seats, Status, employeeID, new Response.Listener<JSONObject>() {
             @Override
             public void onResponse(JSONObject response) {
                 System.out.println(response.toString());
@@ -267,8 +268,8 @@ public class Table {
 
     protected void drawManagerTable(){ //View parentView
         tempFrame = new FrameLayout(tableContext);
-        tempFrame.setX((float) xPos);
-        tempFrame.setY((float) yPos);
+        tempFrame.setX(xPos);
+        tempFrame.setY(yPos);
 //        RelativeLayout.LayoutParams params = new RelativeLayout.LayoutParams(FrameLayout.LayoutParams.WRAP_CONTENT, FrameLayout.LayoutParams.WRAP_CONTENT); //WRAP_CONTENT param can be FILL_PARENT
 //        params.leftMargin = xPos; //XCOORD
 //        params.topMargin = yPos; //YCOORD
@@ -338,13 +339,13 @@ public class Table {
         /*
         http://stackoverflow.com/questions/9398057/android-move-a-view-on-touch-move-action-move
          */
-        float mX, mY;
+        int mX, mY;
         @Override
         public boolean onTouch(View view, MotionEvent event) {
             switch (event.getAction()) {
                 case MotionEvent.ACTION_DOWN:
-                    mX = view.getX() - event.getRawX();
-                    mY = view.getY() - event.getRawY();
+                    mX = (int)view.getX() - (int)event.getRawX();
+                    mY = (int)view.getY() - (int)event.getRawY();
                     break;
                 case MotionEvent.ACTION_MOVE:
                     view.animate().x(event.getRawX() + mX).y(event.getRawY() + mY).setDuration(0).start();
