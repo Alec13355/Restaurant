@@ -55,8 +55,8 @@ public class Employee_MainScreen extends AppCompatActivity {
             new View.OnClickListener()
              {
                 public void onClick(View view){
-                  Intent myIntent = new Intent(Employee_MainScreen.this, Employee_EditStaff.class); /** Class name here */
-                   Employee_MainScreen.this.startActivity(myIntent);
+                    Intent myIntent = new Intent(Employee_MainScreen.this, Employee_EditStaff.class); /** Class name here */
+                    Employee_MainScreen.this.startActivity(myIntent);
                 }
         }
         );
@@ -99,28 +99,24 @@ public class Employee_MainScreen extends AppCompatActivity {
             }
         );
         addTableMap.setOnClickListener(
-
-                new View.OnClickListener()
+            new View.OnClickListener()
+            {
+                public void onClick(View view)
                 {
-                    public void onClick(View view)
-                    {
-                        Intent myIntent = new Intent(Employee_MainScreen.this, tableMap.class); /** Class name here */
-                        Employee_MainScreen.this.startActivity(myIntent);
-                    }
+                    Intent myIntent = new Intent(Employee_MainScreen.this, tableMap.class); /** Class name here */
+                    Employee_MainScreen.this.startActivity(myIntent);
                 }
-
+            }
         );
         viewEmployeeList.setOnClickListener(
-
-                new View.OnClickListener()
+            new View.OnClickListener()
+            {
+                public void onClick(View view)
                 {
-                    public void onClick(View view)
-                    {
-                        Intent myIntent = new Intent(Employee_MainScreen.this, ViewEmployeeList.class); /** Class name here */
-                        Employee_MainScreen.this.startActivity(myIntent);
-                    }
+                    Intent myIntent = new Intent(Employee_MainScreen.this, ViewEmployeeList.class); /** Class name here */
+                    Employee_MainScreen.this.startActivity(myIntent);
                 }
-
+            }
         );
 
 
@@ -133,7 +129,6 @@ public class Employee_MainScreen extends AppCompatActivity {
             public void onResponse(JSONObject response) {
                 try {
                     //employee(String first, String last, int ID, String availability, String phone, int rate, String pass){
-
                     employee temp = new employee(response.getString("first"), response.getString("last"), response.getInt("emp_id"), response.getString("address"), response.getString("phone"), response.getInt("rate"), response.getString("pass"), response.getInt("status"));
                     eList.add(temp);
                     getEmployeeList(index + 1, s);
