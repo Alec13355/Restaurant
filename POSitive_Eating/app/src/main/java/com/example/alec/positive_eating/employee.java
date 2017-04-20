@@ -410,6 +410,12 @@ public class employee {
                 break;
             }
         }
+        saveEmployee();
+        return;
+    }
+
+    //TODO save employee updates to database
+    private void saveEmployee() {
         return;
     }
 }
