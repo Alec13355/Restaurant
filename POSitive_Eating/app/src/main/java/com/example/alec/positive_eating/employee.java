@@ -32,7 +32,7 @@ public class employee {
     String first;
     String last;
     int ID;
-    private String address;
+    private String schedule;
     private String phoneNumber;
     private int rate;
     private String pass;
@@ -53,11 +53,11 @@ public class employee {
         this.ID = ID;
     }
 
-    employee(String first, String last, int ID, String address, String phone, int rate, String pass, int permissions){
+    employee(String first, String last, int ID, String schedule, String phone, int rate, String pass, int permissions){
         this.first = first;
         this.last = last;
         this.ID = ID;
-        this.address = address;
+        this.schedule = schedule;
         this.phoneNumber = phone;
         this.rate = rate;
         this.pass = pass;
@@ -100,12 +100,12 @@ public class employee {
     /*
     Availability
      */
-    public void setAvailability(String availability){
-        this.address = availability;
+    public void setSchedule(String schedule){
+        this.schedule = schedule;
     }
 
-    public String getAvailability(){
-        return address;
+    public String getSchedule(){
+        return schedule;
     }
 
     /*
@@ -185,7 +185,7 @@ public class employee {
         if(getEInstance().getEmployee().getPermissions() == 0) {
             tempDetailString += "ID: " + getID() + "\nPermission Level: " + getPermissions() + "\n";
         }
-        tempDetailString +=  "Availability: " + getAvailability() + "\nPhone Number: " + getPhone();
+        tempDetailString +=  "Schedule: " + getSchedule() + "\nPhone Number: " + getPhone();
         tempDetails = new TextView(context);
         tempDetails.setText(tempDetailString);
         tempDetails.setTextColor(Color.BLACK);
@@ -226,7 +226,7 @@ public class employee {
             String tempPasswordString =  "Password: " + pass;
             passwordView.setText(tempPasswordString);
         }
-        tempDetailString +=  "Availability: " + getAvailability() + "\nPhone Number: " + getPhone();
+        tempDetailString +=  "Schedule: " + getSchedule() + "\nPhone Number: " + getPhone();
         tempDetails.setText(tempDetailString);
     }
 
@@ -241,7 +241,7 @@ public class employee {
         List<String> spinnerList = new ArrayList<>();
 
         spinnerList.add("Permission Level");
-        spinnerList.add("Availability");
+        spinnerList.add("Schedule");
         spinnerList.add("Phone Number");
         spinnerList.add("Password");
 
@@ -310,7 +310,7 @@ public class employee {
                 builder.show();
                 break;
             }
-            case ("Availability") : {
+            case ("Schedule") : {
                 AlertDialog.Builder builder = new AlertDialog.Builder(context);
                 builder.setTitle("Edit " + option);
 
@@ -325,7 +325,7 @@ public class employee {
                         Pattern p = Pattern.compile("(\\w+)");
                         Matcher m = p.matcher(input.getText().toString());
                         if (m.find()){
-                            address = input.getText().toString();
+                            schedule = input.getText().toString();
                             updateText();
                             saveEmployee();
                         }else{
