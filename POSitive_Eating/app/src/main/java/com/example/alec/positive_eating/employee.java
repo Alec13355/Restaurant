@@ -221,6 +221,8 @@ public class employee {
         String tempDetailString = "";
         if(getEInstance().getEmployee().getPermissions() == 0) {
             tempDetailString += "ID: " + getID() + "\nPermission Level: " + getPermissions() + "\n";
+            String tempPasswordString =  "Password: " + pass;
+            passwordView.setText(tempPasswordString);
         }
         tempDetailString +=  "Availability: " + getAvailability() + "\nPhone Number: " + getPhone();
         tempDetails.setText(tempDetailString);
@@ -268,7 +270,7 @@ public class employee {
     private void changeSettings(String option){
         switch (option) {
             case ("Permission Level") : {
-                final AlertDialog.Builder builder = new AlertDialog.Builder(context);
+                AlertDialog.Builder builder = new AlertDialog.Builder(context);
                 builder.setTitle(option);
 
                 final EditText input = new EditText(context);
@@ -280,14 +282,18 @@ public class employee {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
                         Pattern p = Pattern.compile("(\\d)");
-                        Matcher m = p.matcher(input.getText());
+                        Matcher m = p.matcher(input.getText().toString());
                         if (m.find()){
-                            if(Integer.parseInt(input.getText().toString()) >= 0 && Integer.parseInt(input.getText().toString()) <= 4){
+                            if(input.getText().toString().equals("0") || input.getText().toString().equals("1") || input.getText().toString().equals("2") || input.getText().toString().equals("3") || input.getText().toString().equals("4")){
                                 permissions = Integer.parseInt(input.getText().toString());
                                 updateText();
+                            }else{
+                                Toast.makeText(context, "Invalid Input", Toast.LENGTH_SHORT);
+                                changeSettings("Permission Level");
                             }
                         }else{
-                            builder.show();
+                            Toast.makeText(context, "Invalid Input", Toast.LENGTH_SHORT);
+                            changeSettings("Permission Level");
                         }
                     }
                 });
@@ -295,33 +301,68 @@ public class employee {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
                         dialog.cancel();
-
                     }
                 });
                 builder.show();
+                break;
             }
             case ("Address") : {
+                AlertDialog.Builder builder = new AlertDialog.Builder(context);
+                builder.setTitle(option);
+
+                final EditText input = new EditText(context);
+
+                input.setInputType(InputType.TYPE_CLASS_TEXT);
+                builder.setView(input);
+
+                builder.setPositiveButton("SAVE", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        Pattern p = Pattern.compile("(\\w+)");
+                        Matcher m = p.matcher(input.getText().toString());
+                        if (m.find()){
+                            address = input.getText().toString();
+                            updateText();
+                        }else{
+                            Toast.makeText(context, "Invalid Input", Toast.LENGTH_SHORT);
+                            changeSettings("Phone Number");
+                        }
+                    }
+                });
+                builder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        dialog.cancel();
+                    }
+                });
+                builder.show();
                 break;
             }
             case ("Phone Number") : {
-                final AlertDialog.Builder builder = new AlertDialog.Builder(context);
+                AlertDialog.Builder builder = new AlertDialog.Builder(context);
                 builder.setTitle(option);
 
                 final EditText input = new EditText(context);
 
-                input.setInputType(InputType.TYPE_CLASS_NUMBER);
+                input.setInputType(InputType.TYPE_CLASS_PHONE);
                 builder.setView(input);
 
                 builder.setPositiveButton("SAVE", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
-                        Pattern p = Pattern.compile("(\\d)");
-                        Matcher m = p.matcher(input.getText());
+                        Pattern p = Pattern.compile("(\\d+)");
+                        Matcher m = p.matcher(input.getText().toString());
                         if (m.find()){
-                            phoneNumber = input.getText().toString();
-                            updateText();
+                            if(input.getText().toString().length() == 10 || input.getText().toString().length() == 11) {
+                                phoneNumber = input.getText().toString();
+                                updateText();
+                            }else{
+                                Toast.makeText(context, "Invalid Input", Toast.LENGTH_SHORT);
+                                changeSettings("Phone Number");
+                            }
                         }else{
-                            builder.show();
+                            Toast.makeText(context, "Invalid Input", Toast.LENGTH_SHORT);
+                            changeSettings("Phone Number");
                         }
                     }
                 });
@@ -329,12 +370,41 @@ public class employee {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
                         dialog.cancel();
-
                     }
                 });
                 builder.show();
+                break;
             }
             case ("Password") : {
+                AlertDialog.Builder builder = new AlertDialog.Builder(context);
+                builder.setTitle(option);
+
+                final EditText input = new EditText(context);
+
+                input.setInputType(InputType.TYPE_CLASS_TEXT);
+                builder.setView(input);
+
+                builder.setPositiveButton("SAVE", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        Pattern p = Pattern.compile("(\\w+)");
+                        Matcher m = p.matcher(input.getText().toString());
+                        if (m.find()){
+                            pass = input.getText().toString();
+                            updateText();
+                        }else{
+                            Toast.makeText(context, "Invalid Input", Toast.LENGTH_SHORT);
+                            changeSettings("Phone Number");
+                        }
+                    }
+                });
+                builder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        dialog.cancel();
+                    }
+                });
+                builder.show();
                 break;
             }
         }
