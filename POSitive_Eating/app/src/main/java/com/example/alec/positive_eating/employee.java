@@ -289,6 +289,7 @@ public class employee {
                             if(input.getText().toString().equals("0") || input.getText().toString().equals("1") || input.getText().toString().equals("2") || input.getText().toString().equals("3") || input.getText().toString().equals("4")){
                                 permissions = Integer.parseInt(input.getText().toString());
                                 updateText();
+                                saveEmployee();
                             }else{
                                 Toast.makeText(context, "Invalid Input", Toast.LENGTH_SHORT);
                                 changeSettings("Permission Level");
@@ -325,6 +326,7 @@ public class employee {
                         if (m.find()){
                             address = input.getText().toString();
                             updateText();
+                            saveEmployee();
                         }else{
                             Toast.makeText(context, "Invalid Input", Toast.LENGTH_SHORT);
                             changeSettings("Phone Number");
@@ -358,6 +360,7 @@ public class employee {
                             if(input.getText().toString().length() == 10 || input.getText().toString().length() == 11) {
                                 phoneNumber = input.getText().toString();
                                 updateText();
+                                saveEmployee();
                             }else{
                                 Toast.makeText(context, "Invalid Input", Toast.LENGTH_SHORT);
                                 changeSettings("Phone Number");
@@ -394,6 +397,7 @@ public class employee {
                         if (m.find()){
                             pass = input.getText().toString();
                             updateText();
+                            saveEmployee();
                         }else{
                             Toast.makeText(context, "Invalid Input", Toast.LENGTH_SHORT);
                             changeSettings("Phone Number");
@@ -410,7 +414,6 @@ public class employee {
                 break;
             }
         }
-        saveEmployee();
         return;
     }
 
