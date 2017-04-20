@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.widget.Toast;
 
 import com.android.volley.Response;
+import com.example.alec.positive_eating.CustomerMainMenu;
 import com.example.alec.positive_eating.Employee_MainScreen;
 import com.example.alec.positive_eating.customerRegisteration.Customer;
 
@@ -55,7 +56,7 @@ public class ShaneConnectCustomerLoginAdapter {
 
                             if (customer.getPassword().equals(correctpass)) {
                                 Toast.makeText(cont,"success",Toast.LENGTH_LONG).show();
-                                Intent myIntent = new Intent(cont, Employee_MainScreen.class); /** Class name here */
+                                Intent myIntent = new Intent(cont, CustomerMainMenu.class); /** Class name here */
                                 cont.startActivity(myIntent);
 
                             }else{
