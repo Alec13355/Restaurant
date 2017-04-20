@@ -268,7 +268,13 @@ public class tableMap extends Activity {
 
     private void updateListener(int Listener){
         for(int i = 0; i < allTheTables.size(); i++){
-            allTheTables.get(i).addListener(Listener);
+            if(getEInstance().getEmployee().getPermissions() == 1){
+                if(getEInstance().getEmployee().getID() == allTheTables.get(i).getEmployeeID()){
+                    allTheTables.get(i).addListener(Listener);
+                }
+            }else{
+                allTheTables.get(i).addListener(Listener);
+            }
         }
     }
 }

@@ -28,6 +28,7 @@ import java.util.Map;
 
 import static android.view.Gravity.CENTER;
 import static android.view.Gravity.CENTER_HORIZONTAL;
+import static com.example.alec.positive_eating.Singleton_Current_Employee.getEInstance;
 import static com.example.alec.positive_eating.Singleton_Employee_List.getListInstance;
 import static com.example.alec.positive_eating.Singleton_ShaneConnect_Factory.getShaneConnect;
 
@@ -300,7 +301,16 @@ public class Table {
 
         mRootLayout.addView(tempFrame);
         colorTable();
-        addListener(whichListener);
+        if(getEInstance().getEmployee().getPermissions() == 1){
+            if(getEInstance().getEmployee().getID() == getEmployeeID()){
+                addListener(whichListener);
+            }else{
+                temp.setVisibility(View.INVISIBLE);
+            }
+        }else{
+            addListener(whichListener);
+        }
+
     }
 
     private final class MyTouchListener implements View.OnTouchListener {

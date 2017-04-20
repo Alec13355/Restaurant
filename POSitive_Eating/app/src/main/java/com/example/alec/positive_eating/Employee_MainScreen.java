@@ -168,13 +168,14 @@ public class Employee_MainScreen extends AppCompatActivity {
                     //Toast.makeText(getApplicationContext(), response.toString(), Toast.LENGTH_LONG).show();
                     //if(userPermission == server) then check to see if employeeID matches singleton employeeID, otherwise discard table
                     Table temp = new Table(response.getString("name"), response.getInt("x_coord"), response.getInt("y_coord"), response.getInt("status"), response.getInt("employee_id"), " ", response.getInt("number_seats"), eList, Employee_MainScreen.this, null);
-                    if(getEInstance().getEmployee().getPermissions() == 1){
-                        if(getEInstance().getEmployee().getID() == temp.getEmployeeID()){
-                            allTheTables.add(temp);
-                        }
-                    }else{
-                        allTheTables.add(temp);
-                    }
+//                    if(getEInstance().getEmployee().getPermissions() == 1){
+//                        if(getEInstance().getEmployee().getID() == temp.getEmployeeID()){
+//                            allTheTables.add(temp);
+//                        }
+//                    }else{
+//                        allTheTables.add(temp);
+//                    }
+                    allTheTables.add(temp);
                     retrieveTables(index+1,s);
                 } catch (JSONException e) {
                     getTableListInstance().setTList(allTheTables);
