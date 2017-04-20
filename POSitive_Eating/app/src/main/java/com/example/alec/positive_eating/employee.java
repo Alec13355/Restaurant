@@ -241,7 +241,7 @@ public class employee {
         List<String> spinnerList = new ArrayList<>();
 
         spinnerList.add("Permission Level");
-        spinnerList.add("Address");
+        spinnerList.add("Availability");
         spinnerList.add("Phone Number");
         spinnerList.add("Password");
 
@@ -249,7 +249,8 @@ public class employee {
         optionsSpinner = new Spinner(context);
         optionsSpinner.setAdapter(adapter);
         AlertDialog.Builder builder = new AlertDialog.Builder(context);
-        builder.setTitle("Select Item To Edit");
+        String tempNameString = "Edit User: " + getFirst() + " " + getLast();
+        builder.setTitle(tempNameString);
 
         builder.setView(optionsSpinner);
 
@@ -309,7 +310,7 @@ public class employee {
                 builder.show();
                 break;
             }
-            case ("Address") : {
+            case ("Availability") : {
                 AlertDialog.Builder builder = new AlertDialog.Builder(context);
                 builder.setTitle(option);
 
