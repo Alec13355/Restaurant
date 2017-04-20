@@ -154,9 +154,9 @@ public class employee {
 
         String tempDetailString = "";
         if(getEInstance().getEmployee().getPermissions() == 0) {
-            tempDetailString += "ID: " + getID() + "\n";
+            tempDetailString += "ID: " + getID() + "\nPermission Level: " + getPermissions() + "\n";
         }
-        tempDetailString +=  "Availability: " + getAvailability() + "\nPhone Number: " + getPhone() + "\nPermission Level: " + getPermissions();
+        tempDetailString +=  "Availability: " + getAvailability() + "\nPhone Number: " + getPhone();
         tempDetails = new TextView(context);
         tempDetails.setText(tempDetailString);
         tempDetails.setTextColor(Color.BLACK);
