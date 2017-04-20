@@ -5,6 +5,7 @@ package com.example.alec.positive_eating;
 import android.app.Activity;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v7.app.AlertDialog;
 import android.text.InputType;
@@ -12,8 +13,10 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.Switch;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.android.volley.Response;
@@ -38,12 +41,12 @@ import static com.example.alec.positive_eating.Singleton_Table_List.getTableList
 public class tableMap extends Activity {
     private List<Table> allTheTables = new ArrayList<>();
     private ViewGroup mRootLayout;
-    private int index;
     private int whichListener;
     private List<employee> employeeList;
     private Button tableAdd;
     private Button saveData;
     private Button editMode;
+    private TextView currentMode;
     /**
      * onCreate first updates based on the
      * @param savedInstanceState
@@ -51,13 +54,19 @@ public class tableMap extends Activity {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         employeeList = new ArrayList<>();
+        currentMode = new TextView(tableMap.this);
+        currentMode.setLayoutParams(new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.MATCH_PARENT));
+        currentMode.setX(10);
+        currentMode.setY(10);
+        currentMode.setTextSize(20);
+        currentMode.setTextColor(Color.BLACK);
+
         whichListener = 0;
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_table_map);
         mRootLayout = (RelativeLayout) findViewById(R.id.activity_table_map);
+        mRootLayout.addView(currentMode);
 
-        index = 0;
-        //getEmployeeList(0, vista);
         this.employeeList = getListInstance().getEList();
         this.allTheTables = getTableListInstance().getTList();
 
@@ -149,8 +158,9 @@ public class tableMap extends Activity {
                 if(getEInstance().getEmployee().getPermissions() == 0) {
                     whichListener = 1;
                     updateListener(whichListener);
-                    Toast.makeText(tableMap.this, "Drag Mode", Toast.LENGTH_SHORT).show();
-                    tableAdd.setText("Add Table");
+                    currentMode.setText(String.valueOf("Drag Mode"));
+                    //Toast.makeText(tableMap.this, "Drag Mode", Toast.LENGTH_SHORT).show();
+                    tableAdd.setText(String.valueOf("Add Table"));
                     tableAdd.setOnClickListener(new View.OnClickListener() {
                         int Seats = 4;
                         Table temp;
@@ -203,8 +213,9 @@ public class tableMap extends Activity {
                 if(getEInstance().getEmployee().getPermissions() <= 3) {
                     whichListener = 2;
                     updateListener(whichListener);
-                    Toast.makeText(tableMap.this, "Status Mode", Toast.LENGTH_SHORT).show();
-                    tableAdd.setText("List View");
+                    currentMode.setText(String.valueOf("Status Mode"));
+                    //Toast.makeText(tableMap.this, "Status Mode", Toast.LENGTH_SHORT).show();
+                    tableAdd.setText(String.valueOf("List View"));
                     tableAdd.setOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View v) {
@@ -222,7 +233,8 @@ public class tableMap extends Activity {
                 if(getEInstance().getEmployee().getPermissions() == 0) {
                     whichListener = 3;
                     updateListener(whichListener);
-                    Toast.makeText(tableMap.this, "Employee Mode", Toast.LENGTH_SHORT).show();
+                    currentMode.setText(String.valueOf("Employee Mode"));
+                    //Toast.makeText(tableMap.this, "Employee Mode", Toast.LENGTH_SHORT).show();
                     break;
                 }else{
                     whichListener = 3;
@@ -233,7 +245,8 @@ public class tableMap extends Activity {
                 if(getEInstance().getEmployee().getPermissions() <= 1) {
                     whichListener = 4;
                     updateListener(whichListener);
-                    Toast.makeText(tableMap.this, "Order Mode", Toast.LENGTH_SHORT).show();
+                    currentMode.setText(String.valueOf("Order Mode"));
+                    //Toast.makeText(tableMap.this, "Order Mode", Toast.LENGTH_SHORT).show();
                     break;
                 }else{
                     whichListener = 4;
@@ -246,7 +259,8 @@ public class tableMap extends Activity {
                 //everyone can see this
                 whichListener = 0;
                 updateListener(whichListener);
-                Toast.makeText(tableMap.this, "View Mode", Toast.LENGTH_SHORT).show();
+                currentMode.setText(String.valueOf("View Mode"));
+                //Toast.makeText(tableMap.this, "View Mode", Toast.LENGTH_SHORT).show();
                 break;
             }
         }

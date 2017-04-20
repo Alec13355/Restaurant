@@ -33,7 +33,12 @@ public class Employee_LoginWindow extends AppCompatActivity {
     boolean cook;
     int counter;
 
-
+    @Override
+    public void onBackPressed() {
+        Intent myIntent = new Intent(Employee_LoginWindow.this, Launch_Screen.class);
+        this.finishActivity(0);
+        Employee_LoginWindow.this.startActivity(myIntent);
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

@@ -8,6 +8,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
 
 import com.example.alec.positive_eating.CustomerLogin.*;
 
@@ -37,5 +38,32 @@ public class Launch_Screen extends AppCompatActivity implements View.OnClickList
             default:
                 break;
         }
+    }
+
+    @Override
+    public void onBackPressed() {
+        TextView text = new TextView(Launch_Screen.this);
+        text.setText(String.valueOf("PRESS OK TO EXIT"));
+
+        AlertDialog.Builder builder = new AlertDialog.Builder(Launch_Screen.this);
+        builder.setTitle(String.valueOf("OK"));
+
+        builder.setView(text);
+
+        builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                moveTaskToBack(true);
+                android.os.Process.killProcess(android.os.Process.myPid());
+                System.exit(1);
+            }
+        });
+        builder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                dialog.cancel();
+            }
+        });
+        builder.show();
     }
 }

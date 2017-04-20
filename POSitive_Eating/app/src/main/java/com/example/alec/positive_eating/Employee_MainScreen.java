@@ -133,6 +133,13 @@ public class Employee_MainScreen extends AppCompatActivity {
 
     }
 
+    @Override
+    public void onBackPressed() {
+        Intent myIntent = new Intent(Employee_MainScreen.this, Employee_LoginWindow.class);
+        this.finishActivity(0);
+        Employee_MainScreen.this.startActivity(myIntent);
+    }
+
     private void getEmployeeList(final int index, final shaneconnect.ShaneConnect s) {
         s.getEmployees(index, new Response.Listener<JSONObject>() {
             @Override
