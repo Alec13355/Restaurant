@@ -1,5 +1,6 @@
 package com.example.alec.positive_eating.CustomerLogin;
 
+import android.content.Context;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -49,6 +50,7 @@ public class CustomerLoginActivity extends AppCompatActivity {
 
         Button b = (Button)findViewById(R.id.email_sign_in_button);
 
+        final Context cont = this;
         b.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -60,40 +62,11 @@ public class CustomerLoginActivity extends AppCompatActivity {
                 State state = new State();
                 state.setState(false);
                 Object lock = new Object();
-                ShaneConnectCustomerLoginAdapter adapter = new ShaneConnectCustomerLoginAdapter(getShaneConnect(),lock,state);
-                adapter.checkCredentials(builder.getCustomer());
-                synchronized (state){
-                    while(!state.getState()){
-                        try {
-                            state.wait();
-                        } catch (InterruptedException e) {
-                            e.printStackTrace();
-                        }
-                    }
-                    Intent myIntent = new Intent(CustomerLoginActivity.this, Employee_MainScreen.class); /** Class name here */
-                    CustomerLoginActivity.this.startActivity(myIntent);
-                }
-
+                ShaneConnectCustomerLoginAdapter adapter = new ShaneConnectCustomerLoginAdapter(getShaneConnect(),lock,state,cont);
+                adapter.credentials(builder.getCustomer());
 
             }
         });
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     }
 
 
