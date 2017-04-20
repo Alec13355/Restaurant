@@ -24,7 +24,8 @@ import static com.example.alec.positive_eating.Singleton_ShaneConnect_Factory.ge
  * The user simply taps on the item they want and it adds to their order list and returns to it.
  */
 public class CustomerEntreeSideList extends AppCompatActivity {
-    private ArrayList<String> menuList;
+    private ArrayList<String> menuDescList;
+    private ArrayList<String> menuNameList;
     private int recursiveInc;
     private ShaneConnect connect;
     private int foodTypeID;
@@ -45,7 +46,8 @@ public class CustomerEntreeSideList extends AppCompatActivity {
         };
         */
         checkIntentExtras();
-        menuList = new ArrayList<String>();
+        menuDescList = new ArrayList<String>();
+        menuNameList = new ArrayList<String>();
         recursiveInc = 0;
         connect = getShaneConnect();
         connect.getFoodByIndex(recursiveInc, new Response.Listener<JSONObject>() {
@@ -53,10 +55,13 @@ public class CustomerEntreeSideList extends AppCompatActivity {
             public void onResponse(JSONObject response) {
                 try {
                     if(response.has("none")) {
-                        setupActivity(menuList.toArray(new String[menuList.size()]));
+                        setupActivity(menuDescList.toArray(new String[menuDescList.size()]),
+                                menuNameList.toArray(new String[menuNameList.size()]));
                     } else {
-                        if(checkFoodType(response.getString("name")))
-                            menuList.add(response.getString("desc"));
+                        if(checkFoodType(response.getString("name"))) {
+                            menuDescList.add(response.getString("desc"));
+                            menuNameList.add(response.getString("name"));
+                        }
                         connect.getFoodByIndex(++recursiveInc, this);
                     }
                 } catch(Exception e) {
@@ -87,17 +92,18 @@ public class CustomerEntreeSideList extends AppCompatActivity {
             Toast.makeText(getApplicationContext(),
                     "There wasn't a correct intent. Returning to previous activity...",
                     Toast.LENGTH_LONG).show();
+            finish();
         }
     }
 
-    private void setupActivity(final String[] arr) {
+    private void setupActivity(final String[] desc, final String[] name) {
         Integer[] imageId = new Integer[1];
         if(foodTypeID==0) {
             imageId[0] = R.drawable.hamburger;
         } else if(foodTypeID==1) {
             imageId[0] = R.drawable.fries;
         }
-        CustomerMenuList adapter = new CustomerMenuList(this, arr, imageId);
+        CustomerMenuList adapter = new CustomerMenuList(this, desc, imageId);
         ListView listViewMenu = (ListView) findViewById(R.id.entree_list);
         /*
         if(foodTypeID==0)
@@ -109,10 +115,13 @@ public class CustomerEntreeSideList extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 if(foodTypeID==0) {
-                    getOrderList().add(new CustomerOrderItem(arr[position], null));
+                    getOrderList().add(new CustomerOrderItem
+                            (desc[position], null, name[position], null));
                 } else if(foodTypeID==1) {
-                    getOrderList().get(getIntent().
-                            getIntExtra("ADD_SIDE", -1)).setSide(arr[position]);
+                    getOrderList().get(getIntent().getIntExtra("ADD_SIDE", -1)).
+                            setSideDesc(desc[position]);
+                    getOrderList().get(getIntent().getIntExtra("ADD_SIDE", -1)).
+                            setSideName(name[position]);
                 }
                 finish();
             }

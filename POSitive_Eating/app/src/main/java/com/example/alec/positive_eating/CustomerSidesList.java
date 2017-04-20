@@ -76,7 +76,7 @@ public class CustomerSidesList extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int sidePosition, long id) {
                 int orderPosition = getIntent().getIntExtra("ADD_SIDE", -1);
-                getOrderList().get(orderPosition).setSide(arr[sidePosition]);
+                getOrderList().get(orderPosition).setSideDesc(arr[sidePosition]);
                 finish();
             }
         });

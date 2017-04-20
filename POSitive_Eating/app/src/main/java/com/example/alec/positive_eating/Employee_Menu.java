@@ -8,30 +8,22 @@ import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.ListView;
 import android.widget.Toast;
-
 import com.android.volley.Response;
-
 import org.json.JSONObject;
-
 import java.util.ArrayList;
-
 import shaneconnect.ShaneConnect;
-
+import static com.example.alec.positive_eating.Singleton_CustomerObject_Factory.getCustomer;
 import static com.example.alec.positive_eating.Singleton_ShaneConnect_Factory.getShaneConnect;
 /**
- * @author  http://www.androhub.com/android-expandablelistview/
- * Implementing my own data into it.
  * @author Christian Shinkle
- * The CustomerOrderMenu class is used to create orders and sumbit them to the server. It includes
+ * The EmployeeMenu class is used to create orders and sumbit them to the server. It includes
  * a ViewList for a scrollable list of the customer's order, as well as two buttons, one for adding
  * a new entree to the order and one for confirm the order to be sent to the server.
  */
 public class Employee_Menu extends AppCompatActivity implements View.OnClickListener {
 
     private static ArrayList<CustomerOrderItem> orderList;
-    private static Integer[] imageId;
     private String tableName;
-
     /**
      * Creates the activity. Sets listeners for buttons and ListViews.
      * @param savedInstanceState
@@ -41,7 +33,6 @@ public class Employee_Menu extends AppCompatActivity implements View.OnClickList
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_order_menu);
         Bundle bundle = getIntent().getExtras();
-
         //This gets the table number from the intent
             tableName = "TO GO";
             if(bundle != null){
@@ -49,13 +40,8 @@ public class Employee_Menu extends AppCompatActivity implements View.OnClickList
                 String temp = ("Table Number " + tableName);
                 Toast.makeText(Employee_Menu.this, temp, Toast.LENGTH_SHORT).show();
             }
-        //Got the table number
         
         orderList = new ArrayList<>();
-        imageId = new Integer[]{
-                R.drawable.hamburger,
-                R.drawable.fries
-        };
         Button confirmOrderBut = (Button) findViewById(R.id.confirm_order);
         Button addItemBut = (Button) findViewById(R.id.add_item);
         confirmOrderBut.setOnClickListener(this);
@@ -80,7 +66,7 @@ public class Employee_Menu extends AppCompatActivity implements View.OnClickList
         for(int i =0;i<tmp.length;i++) {
             tmp[i] = orderList.get(i).toString();
         }
-        CustomerOrderList adapter = new CustomerOrderList(this, tmp, imageId);
+        CustomerOrderList adapter = new CustomerOrderList(this, tmp, null);
         ListView orderListView = (ListView) findViewById(R.id.order_list);
         orderListView.setAdapter(adapter);
     }
@@ -116,23 +102,18 @@ public class Employee_Menu extends AppCompatActivity implements View.OnClickList
 
     private void confirmOrder(){
         ShaneConnect connect = getShaneConnect();
-        ArrayList<String> tmp = new ArrayList<>();
-        ArrayList<String> options = new ArrayList<>();
-        String desc = "";
+        ArrayList<String> compStringList = new ArrayList<String>();
+        ArrayList<String> options = new ArrayList<String>();
+        String desc = "Online Order for "+getCustomer().getUserName();
         for(CustomerOrderItem oi : orderList) {
-            //TODO
-            //desc needs to be some sort of unique identifier
-            //that way, the removeOrder() in SC will work.
-            tmp.add(oi.getEntree());
+            compStringList.add(oi.getEntreeName());
             options.add("entree place holder");
-            desc+=oi.toString();
-            desc+='\n';
-            if(oi.getSide()!= null) {
-                tmp.add(oi.getSide());
+            if(oi.getSideName() != null) {
+                compStringList.add(oi.getSideName());
                 options.add("sides place holder");
             }
         }
-        connect.placeOrder(desc, tmp, options, 10, tableName, new Response.Listener<JSONObject>() {
+        connect.placeOrder(desc, compStringList, options, 10, "To Go", new Response.Listener<JSONObject>() {
             @Override
             public void onResponse(JSONObject response) {
                 Toast.makeText(getApplicationContext(), "The order was successfully placed!",
@@ -140,19 +121,6 @@ public class Employee_Menu extends AppCompatActivity implements View.OnClickList
                 finish();
             }
         });
-
-        /*
-        ArrayList<String> a = new ArrayList<String>();
-        String b = "mozzarella Sticks";
-        String c = "Mozzarella Sticks";
-        connect.addFood(b, 6, c, 1, a, new Response.Listener<JSONObject>() {
-            @Override
-            public void onResponse(JSONObject response) {
-                Toast.makeText(getApplicationContext(),
-                        response.toString(), Toast.LENGTH_LONG).show();
-            }
-        });
-        */
     }
 
     private void addSide(int position) {

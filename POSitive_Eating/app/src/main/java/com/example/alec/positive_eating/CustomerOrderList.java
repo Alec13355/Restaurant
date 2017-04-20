@@ -52,11 +52,12 @@ public class CustomerOrderList extends ArrayAdapter<String> {
         ImageView imageViewSide = (ImageView) rowView.findViewById(R.id.imgSide);
         txtTitle.setText(order[position]);
 
-        imageViewEntree.setImageResource(imageId[0]);
-        if(getOrderList().get(position).getSide()!=null) {
-            imageViewSide.setImageResource(imageId[1]);
+        if(imageId != null) {
+            imageViewEntree.setImageResource(imageId[0]);
+            if (getOrderList().get(position).getSideDesc() != null) {
+                imageViewSide.setImageResource(imageId[1]);
+            }
         }
-
         return rowView;
     }
 }

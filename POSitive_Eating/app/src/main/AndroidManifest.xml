@@ -49,10 +49,6 @@
         <activity android:name=".tableListView" />
 
         <!-- The Table functionality -->
-        <activity
-            android:name=".order_menu"
-            android:label="@string/title_activity_order_menu"
-            android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".tableMap" />
         <activity android:name=".Employee_Edit_menu" />
         <!-- The Customer App -->
@@ -62,7 +58,6 @@
         <activity android:name=".CustomerMainMenu" />
         <activity android:name=".CustomerSidesList" />
         <activity android:name=".CustomerOrderMenu" />
-        <activity android:name=".CustomerSignUp" />
         <activity android:name=".ViewEmployeeList"></activity>
     </application>
 
