@@ -1,8 +1,11 @@
 package com.example.alec.positive_eating;
 
 import android.content.Context;
+import android.content.DialogInterface;
 import android.os.Bundle;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
+import android.view.View;
 import android.widget.ExpandableListView;
 import android.widget.Toast;
 import com.android.volley.Response;
@@ -18,6 +21,7 @@ public class CookOrderList extends AppCompatActivity {
     private ExpandableListView expListView;
     private List<String> listDataHeader;
     private HashMap<String, List<String>> listDataChild;
+    private ArrayList<JSONObject> orders;
     private ShaneConnect ModelM;
     private int recursiveInc;
     private Context context;
@@ -41,42 +45,83 @@ public class CookOrderList extends AppCompatActivity {
         getAllOrders();
     }
 
+    private void setup() {
+        expListView = (ExpandableListView) findViewById(R.id.lvExp);
+        listAdapter = new CookListAdapter(context, listDataHeader, listDataChild);
+        expListView.setAdapter(listAdapter);
+        expListView.setOnChildClickListener(new ExpandableListView.OnChildClickListener() {
+            @Override
+            public boolean onChildClick(ExpandableListView listview, View view, int groupPos,
+                                        int childPos, long id) {
+                // TODO: 4/19/2017
+                return false;
+            }
+                /*
+                AlertDialog.Builder builder= new AlertDialog.Builder(context);
+                builder.setTitle("Finish Order");
+                builder.setMessage("Are you sure this order is complete?")
+                builder.setPositiveButton(android.R.string.yes,
+                        new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int which) {
+                        // continue with delete
+                    }
+                });
+                builder.setNegativeButton(android.R.string.no, new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int which) {
+                        // do nothing
+                    }
+                });
+                builder.setIcon(android.R.drawable.ic_dialog_alert);
+                builder.show();
+
+            }
+            */
+        });
+    }
+
+    private void processOrders(final int i) {
+        try {
+            String compString = orders.get(i).getString("componentString");
+            final String orderNum = "Order #" + orders.get(i).getInt("order_id");
+            ModelM.getFoodByID(compString, new Response.Listener<JSONObject>() {
+                @Override
+                public void onResponse(JSONObject response) {
+                    try {
+                        ArrayList<String> order = parseResponse(response);
+                        listDataHeader.add(orderNum);
+                        listDataChild.put(orderNum, order);
+                        if(i==orders.size()-1) {
+                            setup();
+                        } else {
+                            processOrders(i+1);
+                        }
+                    } catch (Exception e) {
+                        Toast.makeText(context, "An error occurred in getFoodByID(). " +
+                                        "Please press the back button and try again.",
+                                Toast.LENGTH_LONG).show();
+                    }
+                }
+            });
+        } catch (Exception e) {
+            Toast.makeText(context, "An error occurred in getFoodByID(). " +
+                            "Please press the back button and try again.",
+                    Toast.LENGTH_LONG).show();
+        }
+    }
+
     private void getAllOrders() {
         ModelM = getShaneConnect();
         recursiveInc = 0;
         ArrayList<String> itemsInTheOrder = new ArrayList<String>();
+        orders = new ArrayList<JSONObject>();
         ModelM.getOrders(recursiveInc, new Response.Listener<JSONObject>() {
             @Override
             public void onResponse (JSONObject response) {
                 if (response.has("none")) {
-                    expListView = (ExpandableListView) findViewById(R.id.lvExp);
-                    listAdapter = new CookListAdapter(context, listDataHeader, listDataChild);
-                    expListView.setAdapter(listAdapter);
+                    processOrders(0);
                 } else {
-                    try {
-                        String compString = response.getString("componentString");
-                        final String orderNum = "Order #" + response.getInt("order_id");
-                        ModelM.getFoodByID(compString, new Response.Listener<JSONObject>() {
-                            @Override
-                            public void onResponse(JSONObject response) {
-                                try {
-                                    ArrayList<String> order  = parseResponse(response);
-                                    listDataHeader.add(orderNum);
-                                    listDataChild.put(orderNum, order);
-                                    ModelM.getOrders(++recursiveInc, this);
-                                } catch(Exception e) {
-                                    Toast.makeText(context, "An error occurred in getFoodByID(). "+
-                                                    "Please press the back button and try again.",
-                                            Toast.LENGTH_LONG).show();
-                                }
-                            }
-                        });
-                    } catch (Exception e) {
-                        Toast.makeText(context,
-                                "An error occurred in getOrders(). " +
-                                "Please press the back button and try again.",
-                                Toast.LENGTH_LONG).show();
-                    }
+                    orders.add(response);
+                    ModelM.getOrders(++recursiveInc, this);
                 }
             }
         });
@@ -86,11 +131,10 @@ public class CookOrderList extends AppCompatActivity {
         ArrayList<String> order = new ArrayList<String>();
         try {
             for (int i = 0; res.has("NAME" + i); i++) {
-
+                // TODO: 4/19/2017
             }
         } catch(Exception e) {
-            Toast.makeText(context, "An error occurred in getFoodByID(). " +
-                    "Please press the back button and try again.",Toast.LENGTH_LONG).show();
+            Toast.makeText(context, "An error occurred in getFoodByID()", Toast.LENGTH_LONG).show();
         }
         return order;
     }

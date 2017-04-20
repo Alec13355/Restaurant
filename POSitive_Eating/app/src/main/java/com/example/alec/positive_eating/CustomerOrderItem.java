@@ -8,43 +8,61 @@ package com.example.alec.positive_eating;
  */
 public class CustomerOrderItem {
 
-    private String entree, side;
+    private String entreeDesc, sideDesc, entreeName, sideName;
     /**
      * Initializes instance variables entree and side.
-     * @param theEntree
-     * @param theSide
+     * @param theEntreeDesc
+     * @param theSideDesc
+     * @param theEntreeName
+     * @param theSideName
      */
-    public CustomerOrderItem(String theEntree, String theSide) {
-        entree = theEntree;
-        side = theSide;
+    public CustomerOrderItem(String theEntreeDesc, String theSideDesc, String theEntreeName,
+                             String theSideName) {
+        entreeDesc = theEntreeDesc;
+        sideDesc = theSideDesc;
+        entreeName = theEntreeName;
+        sideName = theSideName;
     }
     /**
      * Returns entree.
      * @return
      */
-    public String getEntree() {
-        return entree;
+    public String getEntreeDesc() {
+        return entreeDesc;
     }
     /**
      * Returns side.
      * @return
      */
-    public String getSide() {
-        return side;
+    public String getSideDesc() {
+        return sideDesc;
     }
-    /**
-     * Sets entree.
-     * @param set
-     */
-    public void setEntree(String set) {
-        entree = new String(set);
+
+    public String getEntreeName() {
+        return entreeName;
+    }
+
+    public String getSideName() {
+        return sideName;
+    }
+
+    public void setEntreeDesc(String set) {
+        entreeDesc = new String(set);
+    }
+
+    public void setEntreeName(String set) {
+        entreeName = new String(set);
     }
     /**
      * Sets side.
      * @param set
      */
-    public void setSide(String set) {
-        side = new String(set);
+    public void setSideDesc(String set) {
+        sideDesc = new String(set);
+    }
+
+    public void setSideName(String set) {
+        sideName = new String(set);
     }
     /**
      * Checks to see if entree or side are null.
@@ -55,16 +73,16 @@ public class CustomerOrderItem {
     @Override
     public String toString() {
         String tmp = "Entree: ";
-        if(entree == null){
+        if(entreeDesc == null){
             tmp+="(None)";
         } else {
-            tmp+=entree;
+            tmp+=entreeDesc;
         }
         tmp+="\nSide: ";
-        if(side==null) {
+        if(sideDesc==null) {
             tmp+="(None)";
         } else {
-            tmp+=side;
+            tmp+=sideDesc;
         }
         return tmp;
     }

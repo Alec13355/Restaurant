@@ -8,16 +8,13 @@ import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.ListView;
 import android.widget.Toast;
-
 import com.android.volley.Response;
-
 import org.json.JSONObject;
-
 import java.util.ArrayList;
-
 import shaneconnect.ShaneConnect;
-
+import static com.example.alec.positive_eating.Singleton_CustomerObject_Factory.getCustomer;
 import static com.example.alec.positive_eating.Singleton_ShaneConnect_Factory.getShaneConnect;
+import com.example.alec.positive_eating.customerRegisteration.Customer;
 /**
  * @author Christian Shinkle
  * The CustomerOrderMenu class is used to create orders and sumbit them to the server. It includes
@@ -103,23 +100,18 @@ public class CustomerOrderMenu extends AppCompatActivity implements View.OnClick
 
     private void confirmOrder(){
         ShaneConnect connect = getShaneConnect();
-        ArrayList<String> tmp = new ArrayList<String>();
+        ArrayList<String> compStringList = new ArrayList<String>();
         ArrayList<String> options = new ArrayList<String>();
-        String desc = "";
+        String desc = "Online Order for "+getCustomer().getUserName();
         for(CustomerOrderItem oi : orderList) {
-            //TODO
-            //desc needs to be some sort of unique identifier
-            //that way, the removeOrder() in SC will work.
-            tmp.add(oi.getEntree());
+            compStringList.add(oi.getEntreeName());
             options.add("entree place holder");
-            desc+=oi.toString();
-            desc+='\n';
-            if(oi.getSide()!= null) {
-                tmp.add(oi.getSide());
+            if(oi.getSideName() != null) {
+                compStringList.add(oi.getSideName());
                 options.add("sides place holder");
             }
         }
-        connect.placeOrder(desc, tmp, options, 10, "To Go", new Response.Listener<JSONObject>() {
+        connect.placeOrder(desc, compStringList, options, 10, "To Go", new Response.Listener<JSONObject>() {
             @Override
             public void onResponse(JSONObject response) {
                 Toast.makeText(getApplicationContext(), "The order was successfully placed!",
