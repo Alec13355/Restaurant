@@ -12,6 +12,9 @@ import android.widget.TextView;
 
 import com.example.alec.positive_eating.CustomerLogin.*;
 
+import static android.view.Gravity.CENTER;
+import static android.view.Gravity.CENTER_HORIZONTAL;
+
 public class Launch_Screen extends AppCompatActivity implements View.OnClickListener {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,6 +47,7 @@ public class Launch_Screen extends AppCompatActivity implements View.OnClickList
     public void onBackPressed() {
         TextView text = new TextView(Launch_Screen.this);
         text.setText(String.valueOf("PRESS OK TO EXIT"));
+        text.setGravity(CENTER);
 
         AlertDialog.Builder builder = new AlertDialog.Builder(Launch_Screen.this);
         builder.setTitle(String.valueOf("OK"));

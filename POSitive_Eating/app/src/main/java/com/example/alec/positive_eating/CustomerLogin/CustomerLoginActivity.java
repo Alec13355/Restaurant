@@ -11,6 +11,7 @@ import android.widget.EditText;
 
 import com.example.alec.positive_eating.Employee_LoginWindow;
 import com.example.alec.positive_eating.Employee_MainScreen;
+import com.example.alec.positive_eating.Launch_Screen;
 import com.example.alec.positive_eating.R;
 import com.example.alec.positive_eating.Reservations.CustomerReservations;
 
@@ -109,7 +110,12 @@ public class CustomerLoginActivity extends AppCompatActivity {
 
 
 
-
+    @Override
+    public void onBackPressed() {
+        Intent myIntent = new Intent(CustomerLoginActivity.this, Launch_Screen.class);
+        this.finishActivity(0);
+        CustomerLoginActivity.this.startActivity(myIntent);
+    }
 
 
 
