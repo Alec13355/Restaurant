@@ -46,15 +46,15 @@ public class Launch_Screen extends AppCompatActivity implements View.OnClickList
     @Override
     public void onBackPressed() {
         TextView text = new TextView(Launch_Screen.this);
-        text.setText(String.valueOf("PRESS OK TO EXIT"));
+        text.setText(String.valueOf("PRESS EXIT TO EXIT"));
         text.setGravity(CENTER);
 
         AlertDialog.Builder builder = new AlertDialog.Builder(Launch_Screen.this);
-        builder.setTitle(String.valueOf("OK"));
+        builder.setTitle(String.valueOf("WARNING"));
 
         builder.setView(text);
 
-        builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+        builder.setPositiveButton(String.valueOf("EXIT"), new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
                 moveTaskToBack(true);
