@@ -322,6 +322,11 @@ public class Table {
 //            //mRootLayout.invalidate();
 //            return true;
 //        }
+
+
+        /*
+        http://stackoverflow.com/questions/9398057/android-move-a-view-on-touch-move-action-move
+         */
         float mX, mY;
         @Override
         public boolean onTouch(View view, MotionEvent event) {

@@ -22,11 +22,12 @@ public class employee {
     private int rate;
     private String pass;
     private boolean visible;
+    private int permissions;
 
     //List items
     private TextView tempDetails;
     private TextView passwordView;
-    LinearLayout thisEmployee;
+    private LinearLayout thisEmployee;
 
     employee(String first, String last, int ID){
         this.first = first;
@@ -34,7 +35,7 @@ public class employee {
         this.ID = ID;
     }
 
-    employee(String first, String last, int ID, String addreass, String phone, int rate, String pass){
+    employee(String first, String last, int ID, String addreass, String phone, int rate, String pass, int permissions){
         this.first = first;
         this.last = last;
         this.ID = ID;
@@ -43,6 +44,7 @@ public class employee {
         this.rate = rate;
         this.pass = pass;
         this.visible = true;
+        this.permissions = permissions;
     }
     /*
     First Name
@@ -121,6 +123,16 @@ public class employee {
         return pass;
     }
 
+    /*
+    Password
+    */
+    public void setPermissions(int permissions){
+        this.permissions = permissions;
+    }
+
+    public int getPermissions(){
+        return permissions;
+    }
 
     public void addListItem(ViewGroup mListLayout, Context context){
         this.tempDetails = new TextView(context);
@@ -139,7 +151,7 @@ public class employee {
         tempName.setTextColor(Color.BLACK);
         tempName.setTextSize(40);
 
-        String tempDetailString =  "ID: " + getID() + "\nAvailability: " + getAvailability() + "\nPhone Number: " + getPhone();
+        String tempDetailString =  "ID: " + getID() + "\nAvailability: " + getAvailability() + "\nPhone Number: " + getPhone() + "\nPermission Level: " + getPermissions();
         tempDetails = new TextView(context);
         tempDetails.setText(tempDetailString);
         tempDetails.setTextColor(Color.BLACK);

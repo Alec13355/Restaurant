@@ -20,6 +20,7 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
+import static com.example.alec.positive_eating.Singleton_Current_Employee.getInstance;
 import static com.example.alec.positive_eating.Singleton_ShaneConnect_Factory.getShaneConnect;
 
 public class ViewEmployeeList extends AppCompatActivity {
@@ -33,6 +34,9 @@ public class ViewEmployeeList extends AppCompatActivity {
         setContentView(R.layout.activity_view_employee_list);
         mRootLayout = (RelativeLayout) findViewById(R.id.activity_view_employee_list);
         employeeList = new ArrayList<>();
+
+        Toast.makeText(ViewEmployeeList.this, getInstance().getEmployee().getFirst(), Toast.LENGTH_SHORT).show();
+        Toast.makeText(ViewEmployeeList.this, "Done", Toast.LENGTH_SHORT).show();
 
         ScrollView scroll = new ScrollView(this);
 
@@ -66,12 +70,12 @@ public class ViewEmployeeList extends AppCompatActivity {
             public void onResponse(JSONObject response) {
                 try {
                     //employee(String first, String last, int ID, String availability, String phone, int rate, String pass){
-                    employee temp = new employee(response.getString("first"), response.getString("last"), response.getInt("emp_id"), response.getString("address"), response.getString("phone"), response.getInt("rate"), response.getString("pass"));
+                    employee temp = new employee(response.getString("first"), response.getString("last"), response.getInt("emp_id"), response.getString("address"), response.getString("phone"), response.getInt("rate"), response.getString("pass"), response.getInt("status"));
                     employeeList.add(temp);
                     temp.addListItem(listView, ViewEmployeeList.this);
                     getEmployeeList(index + 1, s);
                 } catch (JSONException e) {
-                    viewPasswords.setVisibility(View.VISIBLE);
+                    if(getInstance().getEmployee().getPermissions() < 2) viewPasswords.setVisibility(View.VISIBLE);
                     return;
                 }
             }
