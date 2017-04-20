@@ -195,7 +195,10 @@ public class Table {
 
     protected void setRootLayout(ViewGroup mRootLayout) {
         this.mRootLayout = mRootLayout;
-        saveTable(); //save the new information to the server
+    }
+
+    protected void setContext(Context context) {
+        this.tableContext = context;
     }
 
     /**
