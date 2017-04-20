@@ -75,7 +75,7 @@ public class ViewEmployeeList extends AppCompatActivity {
                     temp.addListItem(listView, ViewEmployeeList.this);
                     getEmployeeList(index + 1, s);
                 } catch (JSONException e) {
-                    if(getInstance().getEmployee().getPermissions() < 2) viewPasswords.setVisibility(View.VISIBLE);
+                    if(getInstance().getEmployee().getPermissions() == 0) viewPasswords.setVisibility(View.VISIBLE);
                     return;
                 }
             }

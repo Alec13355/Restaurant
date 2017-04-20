@@ -27,6 +27,7 @@ import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+import static com.example.alec.positive_eating.Singleton_Current_Employee.getInstance;
 import static com.example.alec.positive_eating.Singleton_ShaneConnect_Factory.getShaneConnect;
 
 /**
@@ -133,9 +134,17 @@ public class tableMap extends Activity {
                     //Toast.makeText(getApplicationContext(), response.toString(), Toast.LENGTH_LONG).show();
                     //if(userPermission == server) then check to see if employeeID matches singleton employeeID, otherwise discard table
                     Table temp = new Table(response.getString("name"), response.getInt("x_coord"), response.getInt("y_coord"), response.getInt("status"), response.getInt("employee_id"), " ", response.getInt("number_seats"), employeeList, tableMap.this, mRootLayout);
-                    allTheTables.add(temp);
-                    temp.drawManagerTable();
-                    temp.addListener(1);
+                    if(getInstance().getEmployee().getPermissions() == 1){
+                        if(getInstance().getEmployee().getID() == temp.getEmployeeID()){
+                            allTheTables.add(temp);
+                            temp.drawManagerTable();
+                            temp.addListener(1);
+                        }
+                    }else{
+                        allTheTables.add(temp);
+                        temp.drawManagerTable();
+                        temp.addListener(1);
+                    }
                     retrieveTables(index+1,s);
                 } catch (JSONException e) {
                     tableAdd.setVisibility(View.VISIBLE);
@@ -160,7 +169,7 @@ public class tableMap extends Activity {
             @Override
             public void onResponse(JSONObject response) {
                 try {
-                    employee temp = new employee(response.getString("first"), response.getString("last"), response.getInt("emp_id"));
+                    employee temp = new employee(response.getString("first"), response.getString("last"), response.getInt("emp_id"), response.getString("address"), response.getString("phone"), response.getInt("rate"), response.getString("pass"), response.getInt("status"));
                     employeeList.add(temp);
                     String temp2 = temp.getLast() + ", " + temp.getFirst();
                     getEmployeeList(index + 1, s);
@@ -177,95 +186,104 @@ public class tableMap extends Activity {
         switch(whichListener){
             case 0 : {
                 //if(user.permissions == manager){
-                whichListener = 1;
-                updateListener(whichListener);
-                Toast.makeText(tableMap.this, "Drag Mode", Toast.LENGTH_SHORT).show();
-                tableAdd.setText("Add Table");
-                tableAdd.setOnClickListener(new View.OnClickListener() {
-                    int Seats = 4;
-                    Table temp;
-                    @Override
-                    public void onClick(View v) {
-                        temp = new Table(String.valueOf(allTheTables.size() + 1), Seats, employeeList, tableMap.this, mRootLayout);
-                        allTheTables.add(temp);
-                        temp.drawManagerTable();
-                        final AlertDialog.Builder builder = new AlertDialog.Builder(tableMap.this);
-                        builder.setTitle("Number of Seats");
+                if(getInstance().getEmployee().getPermissions() == 0) {
+                    whichListener = 1;
+                    updateListener(whichListener);
+                    Toast.makeText(tableMap.this, "Drag Mode", Toast.LENGTH_SHORT).show();
+                    tableAdd.setText("Add Table");
+                    tableAdd.setOnClickListener(new View.OnClickListener() {
+                        int Seats = 4;
+                        Table temp;
 
-                        final EditText input = new EditText(tableMap.this);
+                        @Override
+                        public void onClick(View v) {
+                            temp = new Table(String.valueOf(allTheTables.size() + 1), Seats, employeeList, tableMap.this, mRootLayout);
+                            allTheTables.add(temp);
+                            temp.drawManagerTable();
+                            final AlertDialog.Builder builder = new AlertDialog.Builder(tableMap.this);
+                            builder.setTitle("Number of Seats");
 
-                        input.setInputType(InputType.TYPE_CLASS_NUMBER);
-                        builder.setView(input);
+                            final EditText input = new EditText(tableMap.this);
+
+                            input.setInputType(InputType.TYPE_CLASS_NUMBER);
+                            builder.setView(input);
 
 
-                        builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
-                            @Override
-                            public void onClick(DialogInterface dialog, int which) {
-                                Pattern p = Pattern.compile("(\\d)");
-                                Matcher m = p.matcher(input.getText());
-                                if (m.find()){
-                                    Seats = Integer.parseInt(input.getText().toString());
-                                    temp.setSeats(Seats);
+                            builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                                @Override
+                                public void onClick(DialogInterface dialog, int which) {
+                                    Pattern p = Pattern.compile("(\\d)");
+                                    Matcher m = p.matcher(input.getText());
+                                    if (m.find()) {
+                                        Seats = Integer.parseInt(input.getText().toString());
+                                        temp.setSeats(Seats);
 
-                                }else{
-                                    builder.show();
+                                    } else {
+                                        builder.show();
+                                    }
                                 }
-                            }
-                        });
-                        builder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
-                            @Override
-                            public void onClick(DialogInterface dialog, int which) {
-                                dialog.cancel();
+                            });
+                            builder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+                                @Override
+                                public void onClick(DialogInterface dialog, int which) {
+                                    dialog.cancel();
 
-                            }
-                        });
-                        builder.show();
-                    }
-                });
-                break;
-                //}else{
-                //whichListener = 1;
-                //}
+                                }
+                            });
+                            builder.show();
+                        }
+                    });
+                    break;
+                }else{
+                    whichListener = 1;
+                }
             }
             case 1 : {
-                //if(userPermission == manager | hostess | server){
-                whichListener = 2;
-                updateListener(whichListener);
-                Toast.makeText(tableMap.this, "Status Mode", Toast.LENGTH_SHORT).show();
-                tableAdd.setText("List View");
-                tableAdd.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        Intent myIntent = new Intent(tableMap.this, tableListView.class);
-                        tableMap.this.startActivity(myIntent);
-                    }
-                });
-                break;
-                //}else{
-                //whichListener = 2;
-                //}
+//                if(userPermission == manager | hostess | server) {
+                if(getInstance().getEmployee().getPermissions() <= 3) {
+                    whichListener = 2;
+                    updateListener(whichListener);
+                    Toast.makeText(tableMap.this, "Status Mode", Toast.LENGTH_SHORT).show();
+                    tableAdd.setText("List View");
+                    tableAdd.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            Intent myIntent = new Intent(tableMap.this, tableListView.class);
+                            tableMap.this.startActivity(myIntent);
+                        }
+                    });
+                    break;
+                }else{
+                    whichListener = 2;
+                }
             }
             case 2 : {
                 //if(userPermission == manager){
-                whichListener = 3;
-                updateListener(whichListener);
-                Toast.makeText(tableMap.this, "Employee Mode", Toast.LENGTH_SHORT).show();
-                break;
-                //}else{
-                //whichListener = 3;
-                //}
+                if(getInstance().getEmployee().getPermissions() == 0) {
+                    whichListener = 3;
+                    updateListener(whichListener);
+                    Toast.makeText(tableMap.this, "Employee Mode", Toast.LENGTH_SHORT).show();
+                    break;
+                }else{
+                    whichListener = 3;
+                }
             }
             case 3 : {
                 //if(userPermission == manager or server)
-                whichListener = 4;
-                updateListener(whichListener);
-                Toast.makeText(tableMap.this, "Order Mode", Toast.LENGTH_SHORT).show();
-                break;
+                if(getInstance().getEmployee().getPermissions() <= 1) {
+                    whichListener = 4;
+                    updateListener(whichListener);
+                    Toast.makeText(tableMap.this, "Order Mode", Toast.LENGTH_SHORT).show();
+                    break;
+                }else{
+                    whichListener = 4;
+                }
                 //}else{
                 //whichListener = 4;
                 //}
             }
             case 4 : {
+                //everyone can see this
                 whichListener = 0;
                 updateListener(whichListener);
                 Toast.makeText(tableMap.this, "View Mode", Toast.LENGTH_SHORT).show();

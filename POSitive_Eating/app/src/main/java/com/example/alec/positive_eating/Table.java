@@ -116,7 +116,7 @@ public class Table {
         xPos = (int) tempFrame.getX();
         yPos = (int) tempFrame.getY();
         shaneconnect.ShaneConnect vista = getShaneConnect();
-        vista.setTable(ID, (int) tempFrame.getX(), (int) tempFrame.getY(), Seats, Status, employeeID, new Response.Listener<JSONObject>() {
+        vista.setTable(ID, (int) xPos, yPos, Seats, Status, employeeID, new Response.Listener<JSONObject>() {
             @Override
             public void onResponse(JSONObject response) {
                 System.out.println(response.toString());

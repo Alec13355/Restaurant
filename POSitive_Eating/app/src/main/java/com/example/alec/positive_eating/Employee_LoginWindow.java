@@ -103,10 +103,14 @@ public class Employee_LoginWindow extends AppCompatActivity {
         });
     }
     public void correct(String a,String b,String c){
+
         if(c.equals("1")){
         if(a.equals(b)){
             usermanager=true;
         }}
+        if(c.equals("0")){
+            usermanager = true;
+        }
         else if(c.equals("2")){
             if(a.equals(b)){
                 userwaitstaff=true;
