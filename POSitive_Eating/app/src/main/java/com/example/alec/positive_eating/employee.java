@@ -174,7 +174,7 @@ public class employee {
         thisEmployee.setOrientation(LinearLayout.VERTICAL);
 
         //Add Employee Name
-        String tempNameString = getFirst() + " " + getLast();
+        String tempNameString = "Employee: " + getFirst() + " " + getLast();
         TextView tempName = new TextView(context);
         tempName.setGravity(CENTER_HORIZONTAL);
         tempName.setText(tempNameString);
