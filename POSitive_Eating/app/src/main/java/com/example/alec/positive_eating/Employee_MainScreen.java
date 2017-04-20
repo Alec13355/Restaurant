@@ -8,13 +8,26 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 
+import com.android.volley.Response;
 import com.example.alec.positive_eating.payrole.Employee_Payroll;
+
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import static com.example.alec.positive_eating.Singleton_Current_Employee.getInstance;
+import static com.example.alec.positive_eating.Singleton_Employee_List.getListInstance;
 
 /**
  * This class is the main landing page and will change views depending on what button is pressed.
  */
 public class Employee_MainScreen extends AppCompatActivity {
-Button Seating,Menu,Status,schedule,Edit_users,Payroll,addTableMap,viewEmployeeList;//Delares the button variables
+    Button Seating,Menu,Status,schedule,Edit_users,Payroll,addTableMap,viewEmployeeList;//Delares the button variables
+
+    List<employee>  eList;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -26,6 +39,16 @@ Button Seating,Menu,Status,schedule,Edit_users,Payroll,addTableMap,viewEmployeeL
         Payroll=(Button)findViewById(R.id.Payroll);
         addTableMap=(Button)findViewById(R.id.addTableMap);
         viewEmployeeList=(Button)findViewById(R.id.viewEmployeeList);
+
+        Menu.setVisibility(View.INVISIBLE);
+        Status.setVisibility(View.INVISIBLE);
+        schedule.setVisibility(View.INVISIBLE);
+        Edit_users.setVisibility(View.INVISIBLE);
+        Payroll.setVisibility(View.INVISIBLE);
+        addTableMap.setVisibility(View.INVISIBLE);
+        viewEmployeeList.setVisibility(View.INVISIBLE);
+
+        eList = new ArrayList<>();
         //Initilizes the buttons.
 
         Edit_users.setOnClickListener(
@@ -102,5 +125,24 @@ Button Seating,Menu,Status,schedule,Edit_users,Payroll,addTableMap,viewEmployeeL
 
 
 
+    }
+
+    private void getEmployeeList(final int index, final shaneconnect.ShaneConnect s) {
+        s.getEmployees(index, new Response.Listener<JSONObject>() {
+            @Override
+            public void onResponse(JSONObject response) {
+                try {
+                    //employee(String first, String last, int ID, String availability, String phone, int rate, String pass){
+
+                    employee temp = new employee(response.getString("first"), response.getString("last"), response.getInt("emp_id"), response.getString("address"), response.getString("phone"), response.getInt("rate"), response.getString("pass"), response.getInt("status"));
+                    eList.add(temp);
+                    getEmployeeList(index + 1, s);
+                } catch (JSONException e) {
+                    getListInstance().setEList(eList);
+                    return;
+                }
+            }
+
+        });
     }
 }

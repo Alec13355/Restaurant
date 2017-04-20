@@ -28,6 +28,7 @@ import java.util.List;
 import java.util.Map;
 
 import static android.view.Gravity.*;
+import static com.example.alec.positive_eating.Singleton_Employee_List.getListInstance;
 import static com.example.alec.positive_eating.Singleton_ShaneConnect_Factory.getShaneConnect;
 
 /**
@@ -78,7 +79,8 @@ public class Table {
         this.Status = Status;
         this.employeeList = new ArrayList<>();
         this.tempDetails = new TextView(tableContext);
-        this.employeeList = employeeList;
+        //this.employeeList = employeeList;
+        this.employeeList = getListInstance().getEList();
 
         employeeNameMap = new HashMap<>();
         for(int i = 0; i < employeeList.size(); i++){
