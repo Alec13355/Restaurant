@@ -1,5 +1,6 @@
 package com.example.alec.positive_eating;
 
+import android.content.Intent;
 import android.graphics.Color;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
@@ -21,7 +22,9 @@ import java.util.Iterator;
 import java.util.List;
 
 import static android.view.Gravity.FILL;
+import static com.example.alec.positive_eating.Singleton_Employee_List.getListInstance;
 import static com.example.alec.positive_eating.Singleton_ShaneConnect_Factory.getShaneConnect;
+import static com.example.alec.positive_eating.Singleton_Table_List.getTableListInstance;
 
 public class tableListView extends AppCompatActivity {
     private int index;
@@ -46,43 +49,60 @@ public class tableListView extends AppCompatActivity {
 
         shaneconnect.ShaneConnect vista = getShaneConnect();
         index = 0;
-        getEmployeeList(0, vista);
+        allTheTables = getTableListInstance().getTList();
+        employeeList = getListInstance().getEList();
+
+        Iterator<Table> tableIterator = allTheTables.iterator();
+        while(tableIterator.hasNext()){
+            Table temp = tableIterator.next();
+            temp.setContext(tableListView.this);
+            temp.setRootLayout(listView);
+            temp.addListItem(listView);
+        }
+
     }
 
-    public void retrieveTables(final int index, final shaneconnect.ShaneConnect s) {
-        s.getTables(index, new Response.Listener<JSONObject>() {
-            @Override
-            public void onResponse(JSONObject response) {
-                try{
-                    //Toast.makeText(getApplicationContext(), response.toString(), Toast.LENGTH_LONG).show();
-                    //// TODO
-                    Table temp = new Table(response.getString("name"), response.getInt("x_coord"), response.getInt("y_coord"), response.getInt("status"), response.getInt("employee_id"), " ", response.getInt("number_seats"), employeeList, tableListView.this, listView);
-                    allTheTables.add(temp);
-                    temp.addListItem(listView);
-                    retrieveTables(index+1,s);
-                } catch (JSONException e) {
-                    return;
-                }
-            }
-
-        });
+    @Override
+    public void onBackPressed() {
+        Intent myIntent = new Intent(tableListView.this, tableMap.class);
+        this.finishActivity(0);
+        tableListView.this.startActivity(myIntent);
     }
 
-    private void getEmployeeList(final int index, final shaneconnect.ShaneConnect s) {
-        s.getEmployees(index, new Response.Listener<JSONObject>() {
-            @Override
-            public void onResponse(JSONObject response) {
-                try {
-                    employee temp = new employee(response.getString("first"), response.getString("last"), response.getInt("emp_id"));
-                    employeeList.add(temp);
-                    String temp2 = temp.getLast() + ", " + temp.getFirst();
-                    getEmployeeList(index + 1, s);
-                } catch (JSONException e) {
-                    retrieveTables(0, s);
-                    return;
-                }
-            }
-
-        });
-    }
+//    public void retrieveTables(final int index, final shaneconnect.ShaneConnect s) {
+//        s.getTables(index, new Response.Listener<JSONObject>() {
+//            @Override
+//            public void onResponse(JSONObject response) {
+//                try{
+//                    //Toast.makeText(getApplicationContext(), response.toString(), Toast.LENGTH_LONG).show();
+//                    //// TODO
+//                    Table temp = new Table(response.getString("name"), response.getInt("x_coord"), response.getInt("y_coord"), response.getInt("status"), response.getInt("employee_id"), " ", response.getInt("number_seats"), employeeList, tableListView.this, listView);
+//                    allTheTables.add(temp);
+//                    temp.addListItem(listView);
+//                    retrieveTables(index+1,s);
+//                } catch (JSONException e) {
+//                    return;
+//                }
+//            }
+//
+//        });
+//    }
+//
+//    private void getEmployeeList(final int index, final shaneconnect.ShaneConnect s) {
+//        s.getEmployees(index, new Response.Listener<JSONObject>() {
+//            @Override
+//            public void onResponse(JSONObject response) {
+//                try {
+//                    employee temp = new employee(response.getString("first"), response.getString("last"), response.getInt("emp_id"));
+//                    employeeList.add(temp);
+//                    String temp2 = temp.getLast() + ", " + temp.getFirst();
+//                    getEmployeeList(index + 1, s);
+//                } catch (JSONException e) {
+//                    retrieveTables(0, s);
+//                    return;
+//                }
+//            }
+//
+//        });
+//    }
 }

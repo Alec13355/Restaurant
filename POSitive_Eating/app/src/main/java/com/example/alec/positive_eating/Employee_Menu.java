@@ -55,6 +55,16 @@ public class Employee_Menu extends AppCompatActivity implements View.OnClickList
         });
     }
 
+
+//    @Override
+//    public void onBackPressed() {
+//        Class temp = this.getParent().getClass();
+//        Intent myIntent = new Intent(Employee_Menu.this, temp);
+//        this.finishActivity(0);
+//        Employee_Menu.this.startActivity(myIntent);
+//    }
+
+
     /**
      * Every time activity is resumed, creates new adapter for ListView and updates list of items
      * ordered.

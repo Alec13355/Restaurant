@@ -382,7 +382,7 @@ public class Table {
         LinearLayout linearLayout = (LinearLayout) mListLayout;
         LinearLayout thisTable = new LinearLayout(tableContext);
         thisTable.setGravity(CENTER_HORIZONTAL);
-        thisTable.setLayoutParams(new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT));
+        thisTable.setLayoutParams(new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.MATCH_PARENT));
         thisTable.setOrientation(LinearLayout.VERTICAL);
 
         String tempNameString =  "Table: " + ID;

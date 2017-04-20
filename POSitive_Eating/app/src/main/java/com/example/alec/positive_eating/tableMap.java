@@ -70,7 +70,6 @@ public class tableMap extends Activity {
         }
 
         tableAdd = (Button) findViewById(R.id.addTable);
-        //tableAdd.setVisibility(View.INVISIBLE);
         tableAdd.setOnClickListener(new View.OnClickListener() {
             int Seats = 4;
             Table temp;
@@ -112,7 +111,6 @@ public class tableMap extends Activity {
         });
 
         saveData = (Button) findViewById(R.id.sendToServer);
-        //saveData.setVisibility(View.INVISIBLE);
         saveData.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -127,7 +125,6 @@ public class tableMap extends Activity {
         });
 
         editMode = (Button) findViewById(R.id.changeEditMode);
-        //editMode.setVisibility(View.INVISIBLE);
         editMode.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -138,55 +135,12 @@ public class tableMap extends Activity {
         changeEditMode();
     }
 
-//    public void retrieveTables(final int index, final shaneconnect.ShaneConnect s) {
-//        s.getTables(index, new Response.Listener<JSONObject>() {
-//            @Override
-//            public void onResponse(JSONObject response) {
-//                try{
-//                    //Toast.makeText(getApplicationContext(), response.toString(), Toast.LENGTH_LONG).show();
-//                    //if(userPermission == server) then check to see if employeeID matches singleton employeeID, otherwise discard table
-//                    Table temp = new Table(response.getString("name"), response.getInt("x_coord"), response.getInt("y_coord"), response.getInt("status"), response.getInt("employee_id"), " ", response.getInt("number_seats"), employeeList, tableMap.this, mRootLayout);
-//                    if(getEInstance().getEmployee().getPermissions() == 1){
-//                        if(getEInstance().getEmployee().getID() == temp.getEmployeeID()){
-//                            allTheTables.add(temp);
-//                            temp.drawManagerTable();
-//                            temp.addListener(1);
-//                        }
-//                    }else{
-//                        allTheTables.add(temp);
-//                        temp.drawManagerTable();
-//                        temp.addListener(1);
-//                    }
-//                    retrieveTables(index+1,s);
-//                } catch (JSONException e) {
-//                    tableAdd.setVisibility(View.VISIBLE);
-//                    saveData.setVisibility(View.VISIBLE);
-//                    editMode.setVisibility(View.VISIBLE);
-//                    changeEditMode();
-//                    return;
-//                }
-//            }
-//
-//        });
-//    }
-
-//
-//    private void getEmployeeList(final int index, final shaneconnect.ShaneConnect s) {
-//        s.getEmployees(index, new Response.Listener<JSONObject>() {
-//            @Override
-//            public void onResponse(JSONObject response) {
-//                try {
-//                    employee temp = new employee(response.getString("first"), response.getString("last"), response.getInt("emp_id"), response.getString("address"), response.getString("phone"), response.getInt("rate"), response.getString("pass"), response.getInt("status"));
-//                    employeeList.add(temp);
-//                    String temp2 = temp.getLast() + ", " + temp.getFirst();
-//                    getEmployeeList(index + 1, s);
-//                } catch (JSONException e) {
-//                    return;
-//                }
-//            }
-//
-//        });
-//    }
+    @Override
+    public void onBackPressed() {
+        Intent myIntent = new Intent(tableMap.this, Employee_MainScreen.class);
+        this.finishActivity(0);
+        tableMap.this.startActivity(myIntent);
+    }
 
     private void changeEditMode(){
         switch(whichListener){

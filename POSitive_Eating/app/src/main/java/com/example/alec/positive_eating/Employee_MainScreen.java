@@ -35,6 +35,7 @@ public class Employee_MainScreen extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        Toast.makeText(Employee_MainScreen.this, "LOADING", Toast.LENGTH_SHORT).show();
         setContentView(R.layout.activity_main_screen);
         Menu=(Button)findViewById(R.id.Ordering_Menu);
         Status=(Button)findViewById(R.id.OrderStatButton);
