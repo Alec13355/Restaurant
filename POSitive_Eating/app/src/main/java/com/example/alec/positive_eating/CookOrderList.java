@@ -8,6 +8,7 @@ import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.ExpandableListView;
+import android.widget.TextView;
 import android.widget.Toast;
 import com.android.volley.Response;
 
@@ -17,16 +18,17 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import shaneconnect.ShaneConnect;
+
+import static android.view.Gravity.CENTER;
 import static com.example.alec.positive_eating.Singleton_ShaneConnect_Factory.getShaneConnect;
 
 public class CookOrderList extends AppCompatActivity {
-    private CookListAdapter listAdapter;
-    private ExpandableListView expListView;
     private List<String> listDataHeader;
     private HashMap<String, List<String>> listDataChild;
     private ArrayList<JSONObject> orders;
     private ShaneConnect ModelM;
     private int recursiveInc;
+    private int bufferOrderToDelete;
     private Context context;
 
     @Override
@@ -34,6 +36,7 @@ public class CookOrderList extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_cook_order_list);
         context = getApplicationContext();
+        bufferOrderToDelete = -1;
     }
 
     @Override
@@ -49,36 +52,54 @@ public class CookOrderList extends AppCompatActivity {
     }
 
     private void setup() {
-        expListView = (ExpandableListView) findViewById(R.id.lvExp);
-        listAdapter = new CookListAdapter(context, listDataHeader, listDataChild);
+        ExpandableListView expListView = (ExpandableListView) findViewById(R.id.lvExp);
+        CookListAdapter listAdapter = new CookListAdapter(context, listDataHeader, listDataChild);
         expListView.setAdapter(listAdapter);
+
+        TextView text = new TextView(this);
+        text.setText(String.valueOf("Are you sure this order is complete?"));
+        text.setGravity(CENTER);
+
+        final AlertDialog.Builder builder= new AlertDialog.Builder(this);
+        builder.setTitle("Finished With Order?");
+        builder.setView(text);
+
+        builder.setPositiveButton("Yes (Delete order)", new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialog, int which) {
+            beginRemoveOrder();
+            }
+        });
+        builder.setNegativeButton("No (Go back)", new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialog, int which) {
+            dialog.cancel();
+            }
+        });
+        builder.setIcon(android.R.drawable.ic_dialog_alert);
         expListView.setOnChildClickListener(new ExpandableListView.OnChildClickListener() {
             @Override
             public boolean onChildClick(ExpandableListView listview, View view, int groupPos,
                                         int childPos, long id) {
-                // TODO: 4/19/2017
+                bufferOrderToDelete = groupPos;
+                builder.show();
                 return false;
             }
-                /*
-                AlertDialog.Builder builder= new AlertDialog.Builder(context);
-                builder.setTitle("Finish Order");
-                builder.setMessage("Are you sure this order is complete?")
-                builder.setPositiveButton(android.R.string.yes,
-                        new DialogInterface.OnClickListener() {
-                    public void onClick(DialogInterface dialog, int which) {
-                        // continue with delete
-                    }
-                });
-                builder.setNegativeButton(android.R.string.no, new DialogInterface.OnClickListener() {
-                    public void onClick(DialogInterface dialog, int which) {
-                        // do nothing
-                    }
-                });
-                builder.setIcon(android.R.drawable.ic_dialog_alert);
-                builder.show();
+        });
+    }
 
+    private void beginRemoveOrder() {
+        String descriptions = null;
+        try {
+            descriptions = orders.get(bufferOrderToDelete).getString("desc");
+        } catch (Exception e){
+            Toast.makeText(context, "A very weird error occurred in beginRemoveOrder...",
+                    Toast.LENGTH_LONG).show();
+        }
+        if(bufferOrderToDelete<0 || descriptions==null)return;
+        ModelM.removeOrder(descriptions, new Response.Listener<JSONObject>() {
+            @Override
+            public void onResponse(JSONObject response) {
+                // TODO: 4/20/2017
             }
-            */
         });
     }
 
@@ -136,13 +157,16 @@ public class CookOrderList extends AppCompatActivity {
                 String name = "";
                 name+=res.getString("DESCR" + i)+"\n";
                 name+="Quantity:" + res.getInt("QUANTITY" + i)+"\n";
-                name+="Price:" + res.getInt("PRICE" + i)+"\n";
+                name+="Price:$" + res.getInt("PRICE" + i)+"\n";
                 if(res.has("OPTIONS"+i)) {
                     JSONObject jsonOptions = res.getJSONObject("OPTIONS" + i);
                     name += "Options:";
-                    for (int j = 0; jsonOptions.has("OPTION" + j); j++) {
-                        name += "\n\t" + jsonOptions.getString("OPTION" + j);
+                    int j;
+                    for (j = 0; jsonOptions.has("OPTION" + j); j++) {
+                        name += "\n\t"+ jsonOptions.getString("OPTION" + j);
                     }
+                    if(j==0)
+                        name+="\n (None)";
                 }
                 order.add(name);
             } catch (Exception e) {
