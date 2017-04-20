@@ -3,12 +3,15 @@ package com.example.alec.positive_eating;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.os.Bundle;
+import android.support.annotation.Nullable;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.ExpandableListView;
 import android.widget.Toast;
 import com.android.volley.Response;
+
+import org.json.JSONException;
 import org.json.JSONObject;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -87,23 +90,23 @@ public class CookOrderList extends AppCompatActivity {
                 @Override
                 public void onResponse(JSONObject response) {
                     try {
-                        ArrayList<String> order = parseResponse(response);
+                        ArrayList<String> orderInfo = parseResponse(response);
                         listDataHeader.add(orderNum);
-                        listDataChild.put(orderNum, order);
-                        if(i==orders.size()-1) {
+                        listDataChild.put(orderNum, orderInfo);
+                        if (i == orders.size() - 1) {
                             setup();
                         } else {
-                            processOrders(i+1);
+                            processOrders(i + 1);
                         }
                     } catch (Exception e) {
-                        Toast.makeText(context, "An error occurred in getFoodByID(). " +
+                        Toast.makeText(context, "An error occurred in getFoodByID" +
                                         "Please press the back button and try again.",
                                 Toast.LENGTH_LONG).show();
                     }
                 }
             });
         } catch (Exception e) {
-            Toast.makeText(context, "An error occurred in getFoodByID(). " +
+            Toast.makeText(context, "An error occurred in getOrders." +
                             "Please press the back button and try again.",
                     Toast.LENGTH_LONG).show();
         }
@@ -112,7 +115,6 @@ public class CookOrderList extends AppCompatActivity {
     private void getAllOrders() {
         ModelM = getShaneConnect();
         recursiveInc = 0;
-        ArrayList<String> itemsInTheOrder = new ArrayList<String>();
         orders = new ArrayList<JSONObject>();
         ModelM.getOrders(recursiveInc, new Response.Listener<JSONObject>() {
             @Override
@@ -127,14 +129,25 @@ public class CookOrderList extends AppCompatActivity {
         });
     }
 
-    private ArrayList<String> parseResponse(JSONObject res) {
+    private ArrayList<String> parseResponse(JSONObject res) throws JSONException {
         ArrayList<String> order = new ArrayList<String>();
-        try {
-            for (int i = 0; res.has("NAME" + i); i++) {
-                // TODO: 4/19/2017
+        for(int i =0;res.has("NAME"+i);i++) {
+            try {
+                String name = "";
+                name+=res.getString("DESCR" + i)+"\n";
+                name+="Quantity:" + res.getInt("QUANTITY" + i)+"\n";
+                name+="Price:" + res.getInt("PRICE" + i)+"\n";
+                if(res.has("OPTIONS"+i)) {
+                    JSONObject jsonOptions = res.getJSONObject("OPTIONS" + i);
+                    name += "Options:";
+                    for (int j = 0; jsonOptions.has("OPTION" + j); j++) {
+                        name += "\n\t" + jsonOptions.getString("OPTION" + j);
+                    }
+                }
+                order.add(name);
+            } catch (Exception e) {
+                throw e;
             }
-        } catch(Exception e) {
-            Toast.makeText(context, "An error occurred in getFoodByID()", Toast.LENGTH_LONG).show();
         }
         return order;
     }
