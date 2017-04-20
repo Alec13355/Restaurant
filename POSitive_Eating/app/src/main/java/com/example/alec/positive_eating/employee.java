@@ -204,7 +204,9 @@ public class employee {
 
         thisEmployee.addView(tempName);
         thisEmployee.addView(tempDetails);
-        thisEmployee.setOnClickListener(new OptionsClickListener());
+        if(getEInstance().getEmployee().getPermissions() == 0) {
+            thisEmployee.setOnClickListener(new OptionsClickListener());
+        }
     }
 
     public void changePasswordVisibility(){
