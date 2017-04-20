@@ -36,7 +36,7 @@ public class employee {
         this.ID = ID;
     }
 
-    employee(String first, String last, int ID, String addreass, String phone, int rate, String pass, int permissions){
+    employee(String first, String last, int ID, String address, String phone, int rate, String pass, int permissions){
         this.first = first;
         this.last = last;
         this.ID = ID;
