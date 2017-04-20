@@ -53,6 +53,7 @@ public class Employee_MainScreen extends AppCompatActivity {
         viewEmployeeList.setVisibility(View.INVISIBLE);
 
         eList = new ArrayList<>();
+        allTheTables = new ArrayList<>();
 
         shaneconnect.ShaneConnect vista = getShaneConnect();
         getEmployeeList(0, vista);
