@@ -35,6 +35,7 @@ public class Employee_MainScreen extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        Toast.makeText(Employee_MainScreen.this, "LOADING", Toast.LENGTH_SHORT).show();
         setContentView(R.layout.activity_main_screen);
         Menu=(Button)findViewById(R.id.Ordering_Menu);
         Status=(Button)findViewById(R.id.OrderStatButton);
@@ -132,6 +133,13 @@ public class Employee_MainScreen extends AppCompatActivity {
 
     }
 
+    @Override
+    public void onBackPressed() {
+        Intent myIntent = new Intent(Employee_MainScreen.this, Employee_LoginWindow.class);
+        this.finishActivity(0);
+        Employee_MainScreen.this.startActivity(myIntent);
+    }
+
     private void getEmployeeList(final int index, final shaneconnect.ShaneConnect s) {
         s.getEmployees(index, new Response.Listener<JSONObject>() {
             @Override
@@ -160,13 +168,14 @@ public class Employee_MainScreen extends AppCompatActivity {
                     //Toast.makeText(getApplicationContext(), response.toString(), Toast.LENGTH_LONG).show();
                     //if(userPermission == server) then check to see if employeeID matches singleton employeeID, otherwise discard table
                     Table temp = new Table(response.getString("name"), response.getInt("x_coord"), response.getInt("y_coord"), response.getInt("status"), response.getInt("employee_id"), " ", response.getInt("number_seats"), eList, Employee_MainScreen.this, null);
-                    if(getEInstance().getEmployee().getPermissions() == 1){
-                        if(getEInstance().getEmployee().getID() == temp.getEmployeeID()){
-                            allTheTables.add(temp);
-                        }
-                    }else{
-                        allTheTables.add(temp);
-                    }
+//                    if(getEInstance().getEmployee().getPermissions() == 1){
+//                        if(getEInstance().getEmployee().getID() == temp.getEmployeeID()){
+//                            allTheTables.add(temp);
+//                        }
+//                    }else{
+//                        allTheTables.add(temp);
+//                    }
+                    allTheTables.add(temp);
                     retrieveTables(index+1,s);
                 } catch (JSONException e) {
                     getTableListInstance().setTList(allTheTables);

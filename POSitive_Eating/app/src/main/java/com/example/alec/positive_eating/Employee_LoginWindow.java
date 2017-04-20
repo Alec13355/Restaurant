@@ -33,7 +33,12 @@ public class Employee_LoginWindow extends AppCompatActivity {
     boolean cook;
     int counter;
 
-
+    @Override
+    public void onBackPressed() {
+        Intent myIntent = new Intent(Employee_LoginWindow.this, Launch_Screen.class);
+        this.finishActivity(0);
+        Employee_LoginWindow.this.startActivity(myIntent);
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -76,7 +81,7 @@ public class Employee_LoginWindow extends AppCompatActivity {
             @Override
             public void onResponse(JSONObject response) {
 
-                Toast.makeText(getApplicationContext(), response.toString(), Toast.LENGTH_LONG).show();
+                //Toast.makeText(getApplicationContext(), response.toString(), Toast.LENGTH_LONG).show();
                 try {
                     employee e = new employee(response.getString("first"), response.getString("last"), response.getInt("emp_id"), response.getString("address"), response.getString("phone"), response.getInt("rate"), response.getString("pass"), response.getInt("status"));
                     Singleton_Current_Employee.getEInstance().setEmployee(e);

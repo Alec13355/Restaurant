@@ -12,6 +12,7 @@ import android.widget.EditText;
 
 import com.example.alec.positive_eating.Employee_LoginWindow;
 import com.example.alec.positive_eating.Employee_MainScreen;
+import com.example.alec.positive_eating.Launch_Screen;
 import com.example.alec.positive_eating.R;
 import com.example.alec.positive_eating.Reservations.CustomerReservations;
 
@@ -79,11 +80,6 @@ public class CustomerLoginActivity extends AppCompatActivity {
 
         mEmailView.setAdapter(adapter);
     }
-
-
-
-
-
 
 
 }

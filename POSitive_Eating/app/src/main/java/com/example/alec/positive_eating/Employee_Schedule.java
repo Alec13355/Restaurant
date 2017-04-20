@@ -68,7 +68,7 @@ public class Employee_Schedule extends AppCompatActivity {
 
         // Adding headers to list
         for(int i =0;i<employeeList.size();i++){
-            header.add(employeeList.get(i).getFirst()+" "+employeeList.get(i).getLast()+" "+employeeList.get(i).getAvailability());
+            header.add(employeeList.get(i).getFirst()+" "+employeeList.get(i).getLast()+" "+employeeList.get(i).getSchedule());
         }
 
         // Adding child data
