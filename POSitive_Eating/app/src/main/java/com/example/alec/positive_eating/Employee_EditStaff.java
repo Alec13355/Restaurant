@@ -34,7 +34,7 @@ public class Employee_EditStaff extends ActionBarActivity {
         dir.directDisplay();
 
 
-        Button add = (Button) findViewById(R.id.Add_Employee);
+        Button add = (Button) findViewById(R.id.add_employee);
         //Initilizes the buttons.
 
         add.setOnClickListener(
