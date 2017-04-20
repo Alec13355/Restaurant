@@ -52,10 +52,11 @@ public class Employee_MainScreen extends AppCompatActivity {
         addTableMap.setVisibility(View.INVISIBLE);
         viewEmployeeList.setVisibility(View.INVISIBLE);
 
+        eList = new ArrayList<>();
+
         shaneconnect.ShaneConnect vista = getShaneConnect();
         getEmployeeList(0, vista);
 
-        eList = new ArrayList<>();
         //Initilizes the buttons.
 
         Edit_users.setOnClickListener(
@@ -142,8 +143,7 @@ public class Employee_MainScreen extends AppCompatActivity {
 
                 } catch (JSONException e) {
                     getListInstance().setEList(eList);
-                    shaneconnect.ShaneConnect vista = getShaneConnect();
-                    retrieveTables(0, vista);
+                    retrieveTables(0, s);
                     return;
                 }
             }
