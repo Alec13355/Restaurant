@@ -53,7 +53,7 @@ public class Employee_MainScreen extends AppCompatActivity {
         viewEmployeeList.setVisibility(View.INVISIBLE);
 
         shaneconnect.ShaneConnect vista = getShaneConnect();
-        retrieveTables(0, vista);
+        getEmployeeList(0, vista);
 
         eList = new ArrayList<>();
         //Initilizes the buttons.
