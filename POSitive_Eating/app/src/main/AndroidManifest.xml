@@ -53,7 +53,7 @@
         <activity android:name=".Employee_Edit_menu" />
         <!-- The Customer App -->
         <activity android:name=".CustomerMap" />
-        <activity android:name=".CustomerLoginActivity" />
+        <activity android:name=".CustomerLogin.CustomerLoginActivity" />
         <activity android:name=".CustomerEntreeSideList" />
         <activity android:name=".CustomerMainMenu" />
         <activity android:name=".CustomerSidesList" />
