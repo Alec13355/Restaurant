@@ -134,6 +134,13 @@ public class Employee_MainScreen extends AppCompatActivity {
                     getEmployeeList(index + 1, s);
                 } catch (JSONException e) {
                     getListInstance().setEList(eList);
+                    Menu.setVisibility(View.VISIBLE);
+                    Status.setVisibility(View.VISIBLE);
+                    schedule.setVisibility(View.VISIBLE);
+                    Edit_users.setVisibility(View.VISIBLE);
+                    Payroll.setVisibility(View.VISIBLE);
+                    addTableMap.setVisibility(View.VISIBLE);
+                    viewEmployeeList.setVisibility(View.VISIBLE);
                     return;
                 }
             }
