@@ -1,11 +1,25 @@
 package com.example.alec.positive_eating;
 
 import android.content.Context;
+import android.content.DialogInterface;
 import android.graphics.Color;
+import android.support.v7.app.AlertDialog;
+import android.text.InputType;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
+import android.widget.EditText;
 import android.widget.LinearLayout;
+import android.widget.Spinner;
 import android.widget.TextView;
+import android.widget.Toast;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 import static android.view.Gravity.CENTER_HORIZONTAL;
 import static com.example.alec.positive_eating.Singleton_Current_Employee.getEInstance;
@@ -29,6 +43,9 @@ public class employee {
     private TextView tempDetails;
     private TextView passwordView;
     private LinearLayout thisEmployee;
+
+    private Context context;
+    private Spinner optionsSpinner;
 
     employee(String first, String last, int ID){
         this.first = first;
@@ -127,6 +144,17 @@ public class employee {
     /*
     Password
     */
+    public void setThisEmployee(LinearLayout thisEmployee){
+        this.thisEmployee = thisEmployee;
+    }
+
+    public LinearLayout getThisEmployee(){
+        return thisEmployee;
+    }
+
+    /*
+    Password
+    */
     public void setPermissions(int permissions){
         this.permissions = permissions;
     }
@@ -137,6 +165,7 @@ public class employee {
 
     public void addListItem(ViewGroup mListLayout, Context context){
         this.tempDetails = new TextView(context);
+        this.context = context;
 
         LinearLayout linearLayout = (LinearLayout) mListLayout;
         thisEmployee = new LinearLayout(context);
@@ -175,6 +204,7 @@ public class employee {
 
         thisEmployee.addView(tempName);
         thisEmployee.addView(tempDetails);
+        thisEmployee.setOnClickListener(new OptionsClickListener());
     }
 
     public void changePasswordVisibility(){
@@ -185,5 +215,128 @@ public class employee {
             thisEmployee.addView(passwordView);
             visible = false;
         }
+    }
+
+    private void updateText(){
+        String tempDetailString = "";
+        if(getEInstance().getEmployee().getPermissions() == 0) {
+            tempDetailString += "ID: " + getID() + "\nPermission Level: " + getPermissions() + "\n";
+        }
+        tempDetailString +=  "Availability: " + getAvailability() + "\nPhone Number: " + getPhone();
+        tempDetails.setText(tempDetailString);
+    }
+
+    private final class OptionsClickListener implements View.OnClickListener {
+        @Override
+        public void onClick(View view) {
+            dialogBuilder();
+        }
+    }
+
+    private void dialogBuilder(){
+        List<String> spinnerList = new ArrayList<>();
+
+        spinnerList.add("Permission Level");
+        spinnerList.add("Address");
+        spinnerList.add("Phone Number");
+        spinnerList.add("Password");
+
+        ArrayAdapter<String> adapter = new ArrayAdapter<>(context, android.R.layout.simple_spinner_dropdown_item, spinnerList);
+        optionsSpinner = new Spinner(context);
+        optionsSpinner.setAdapter(adapter);
+        AlertDialog.Builder builder = new AlertDialog.Builder(context);
+        builder.setTitle("Select Item To Edit");
+
+        builder.setView(optionsSpinner);
+
+        builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                String oneUse = (String) optionsSpinner.getSelectedItem();
+                changeSettings(oneUse);
+            }
+        });
+        builder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                dialog.cancel();
+            }
+        });
+        builder.show();
+    }
+
+    private void changeSettings(String option){
+        switch (option) {
+            case ("Permission Level") : {
+                final AlertDialog.Builder builder = new AlertDialog.Builder(context);
+                builder.setTitle(option);
+
+                final EditText input = new EditText(context);
+
+                input.setInputType(InputType.TYPE_CLASS_NUMBER);
+                builder.setView(input);
+
+                builder.setPositiveButton("SAVE", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        Pattern p = Pattern.compile("(\\d)");
+                        Matcher m = p.matcher(input.getText());
+                        if (m.find()){
+                            if(Integer.parseInt(input.getText().toString()) >= 0 && Integer.parseInt(input.getText().toString()) <= 4){
+                                permissions = Integer.parseInt(input.getText().toString());
+                            }
+                        }else{
+                            builder.show();
+                        }
+                    }
+                });
+                builder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        dialog.cancel();
+
+                    }
+                });
+                builder.show();
+            }
+            case ("Address") : {
+                break;
+            }
+            case ("Phone Number") : {
+                final AlertDialog.Builder builder = new AlertDialog.Builder(context);
+                builder.setTitle(option);
+
+                final EditText input = new EditText(context);
+
+                input.setInputType(InputType.TYPE_CLASS_NUMBER);
+                builder.setView(input);
+
+                builder.setPositiveButton("SAVE", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        Pattern p = Pattern.compile("(\\d)");
+                        Matcher m = p.matcher(input.getText());
+                        if (m.find()){
+                            phoneNumber = input.getText().toString();
+                        }else{
+                            builder.show();
+                        }
+                    }
+                });
+                builder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        dialog.cancel();
+
+                    }
+                });
+                builder.show();
+            }
+            case ("Password") : {
+                break;
+            }
+        }
+        updateText();
+        return;
     }
 }

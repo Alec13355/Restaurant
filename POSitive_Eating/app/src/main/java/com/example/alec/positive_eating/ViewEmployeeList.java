@@ -1,13 +1,17 @@
 package com.example.alec.positive_eating;
 
+import android.content.DialogInterface;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.ScrollView;
+import android.widget.Spinner;
 import android.widget.Toast;
 
 import com.android.volley.Response;
@@ -17,8 +21,10 @@ import org.json.JSONObject;
 
 import java.util.AbstractCollection;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
+import java.util.Map;
 
 import static com.example.alec.positive_eating.Singleton_Current_Employee.getEInstance;
 import static com.example.alec.positive_eating.Singleton_ShaneConnect_Factory.getShaneConnect;
@@ -73,6 +79,7 @@ public class ViewEmployeeList extends AppCompatActivity {
                     employee temp = new employee(response.getString("first"), response.getString("last"), response.getInt("emp_id"), response.getString("address"), response.getString("phone"), response.getInt("rate"), response.getString("pass"), response.getInt("status"));
                     employeeList.add(temp);
                     temp.addListItem(listView, ViewEmployeeList.this);
+
                     getEmployeeList(index + 1, s);
                 } catch (JSONException e) {
                     if(getEInstance().getEmployee().getPermissions() == 0) viewPasswords.setVisibility(View.VISIBLE);
