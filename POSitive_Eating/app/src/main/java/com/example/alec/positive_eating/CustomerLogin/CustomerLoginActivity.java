@@ -71,6 +71,12 @@ public class CustomerLoginActivity extends AppCompatActivity {
     }
 
 
+    @Override
+    public void onBackPressed() {
+        Intent myIntent = new Intent(CustomerLoginActivity.this, Launch_Screen.class);
+        this.finishActivity(0);
+        CustomerLoginActivity.this.startActivity(myIntent);
+    }
 
     private void addEmailsToAutoComplete(List<String> emailAddressCollection) {
         //Create adapter to tell the AutoCompleteTextView what to show in its dropdown list.
