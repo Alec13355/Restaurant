@@ -1,5 +1,6 @@
 package com.example.alec.positive_eating;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -8,14 +9,12 @@ import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.ScrollView;
-import android.widget.Toast;
 
 import com.android.volley.Response;
 
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import java.util.AbstractCollection;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
@@ -35,13 +34,10 @@ public class ViewEmployeeList extends AppCompatActivity {
         mRootLayout = (RelativeLayout) findViewById(R.id.activity_view_employee_list);
         employeeList = new ArrayList<>();
 
-        Toast.makeText(ViewEmployeeList.this, getEInstance().getEmployee().getFirst(), Toast.LENGTH_SHORT).show();
-        Toast.makeText(ViewEmployeeList.this, "Done", Toast.LENGTH_SHORT).show();
-
         ScrollView scroll = new ScrollView(this);
 
         listView = new LinearLayout(this);
-        listView.setLayoutParams(new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT));
+        listView.setLayoutParams(new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.MATCH_PARENT));
         listView.setOrientation(LinearLayout.VERTICAL);
         mRootLayout.addView(scroll);
         scroll.addView(listView);
@@ -64,6 +60,13 @@ public class ViewEmployeeList extends AppCompatActivity {
         getEmployeeList(0, vista);
     }
 
+    @Override
+    public void onBackPressed() {
+        Intent myIntent = new Intent(ViewEmployeeList.this, Employee_MainScreen.class);
+        this.finishActivity(0);
+        ViewEmployeeList.this.startActivity(myIntent);
+    }
+
     private void getEmployeeList(final int index, final shaneconnect.ShaneConnect s) {
         s.getEmployees(index, new Response.Listener<JSONObject>() {
             @Override
@@ -73,6 +76,7 @@ public class ViewEmployeeList extends AppCompatActivity {
                     employee temp = new employee(response.getString("first"), response.getString("last"), response.getInt("emp_id"), response.getString("address"), response.getString("phone"), response.getInt("rate"), response.getString("pass"), response.getInt("status"));
                     employeeList.add(temp);
                     temp.addListItem(listView, ViewEmployeeList.this);
+
                     getEmployeeList(index + 1, s);
                 } catch (JSONException e) {
                     if(getEInstance().getEmployee().getPermissions() == 0) viewPasswords.setVisibility(View.VISIBLE);
