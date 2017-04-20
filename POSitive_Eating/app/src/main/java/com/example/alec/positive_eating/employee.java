@@ -284,6 +284,7 @@ public class employee {
                         if (m.find()){
                             if(Integer.parseInt(input.getText().toString()) >= 0 && Integer.parseInt(input.getText().toString()) <= 4){
                                 permissions = Integer.parseInt(input.getText().toString());
+                                updateText();
                             }
                         }else{
                             builder.show();
@@ -318,6 +319,7 @@ public class employee {
                         Matcher m = p.matcher(input.getText());
                         if (m.find()){
                             phoneNumber = input.getText().toString();
+                            updateText();
                         }else{
                             builder.show();
                         }
@@ -336,7 +338,6 @@ public class employee {
                 break;
             }
         }
-        updateText();
         return;
     }
 }
