@@ -10,6 +10,7 @@ package com.example.alec.positive_eating;
  */
 
 import android.content.Context;
+import android.graphics.Color;
 import android.graphics.Typeface;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -168,7 +169,9 @@ public class ExpandableListAdapter extends BaseExpandableListAdapter {
         // If group is expanded then change the text into bold and change the
         // icon
         if (isExpanded) {
+
             header_text.setTypeface(null, Typeface.BOLD);
+            header_text.setTextColor(Color.BLACK);
 //            header_text.setCompoundDrawablesWithIntrinsicBounds(0, 0,
 //                    R.drawable.ic_up, 0);
         } else {
@@ -176,6 +179,7 @@ public class ExpandableListAdapter extends BaseExpandableListAdapter {
             // and change the icon
 
             header_text.setTypeface(null, Typeface.NORMAL);
+            header_text.setTextColor(Color.BLACK);
 //            header_text.setCompoundDrawablesWithIntrinsicBounds(0, 0,
 //                    R.drawable.ic_down, 0);
         }

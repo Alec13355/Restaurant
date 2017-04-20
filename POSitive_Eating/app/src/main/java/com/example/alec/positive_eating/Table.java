@@ -28,6 +28,8 @@ import java.util.List;
 import java.util.Map;
 
 import static android.view.Gravity.*;
+import static com.example.alec.positive_eating.Singleton_Current_Employee.getEInstance;
+import static com.example.alec.positive_eating.Singleton_Employee_List.getListInstance;
 import static com.example.alec.positive_eating.Singleton_ShaneConnect_Factory.getShaneConnect;
 
 /**
@@ -78,7 +80,8 @@ public class Table {
         this.Status = Status;
         this.employeeList = new ArrayList<>();
         this.tempDetails = new TextView(tableContext);
-        this.employeeList = employeeList;
+        //this.employeeList = employeeList;
+        this.employeeList = getListInstance().getEList();
 
         employeeNameMap = new HashMap<>();
         for(int i = 0; i < employeeList.size(); i++){
@@ -116,7 +119,7 @@ public class Table {
         xPos = (int) tempFrame.getX();
         yPos = (int) tempFrame.getY();
         shaneconnect.ShaneConnect vista = getShaneConnect();
-        vista.setTable(ID, (int) tempFrame.getX(), (int) tempFrame.getY(), Seats, Status, employeeID, new Response.Listener<JSONObject>() {
+        vista.setTable(ID, (int) xPos, yPos, Seats, Status, employeeID, new Response.Listener<JSONObject>() {
             @Override
             public void onResponse(JSONObject response) {
                 System.out.println(response.toString());
@@ -181,7 +184,6 @@ public class Table {
      *
      * @param customerID
      */
-    //TODO
     protected void setCustomerID(String customerID) {
         this.customerID = customerID;
         this.saveTable();
@@ -190,6 +192,14 @@ public class Table {
     protected void setSeats(int Seats) {
         this.Seats = Seats;
         saveTable(); //save the new information to the server
+    }
+
+    protected void setRootLayout(ViewGroup mRootLayout) {
+        this.mRootLayout = mRootLayout;
+    }
+
+    protected void setContext(Context context) {
+        this.tableContext = context;
     }
 
     /**
@@ -323,6 +333,11 @@ public class Table {
 //            //mRootLayout.invalidate();
 //            return true;
 //        }
+
+
+        /*
+        http://stackoverflow.com/questions/9398057/android-move-a-view-on-touch-move-action-move
+         */
         float mX, mY;
         @Override
         public boolean onTouch(View view, MotionEvent event) {
@@ -487,9 +502,11 @@ public class Table {
         List<String> spinnerList = new ArrayList<>();
         final Map<String, Integer> employeeMap = new HashMap<>(); //this is how I will remember which ID goes with which name when an option is selected
         for(int i = 0; i < employeeList.size(); i++){
-            String temp = employeeList.get(i).getLast() + ", " + employeeList.get(i).getFirst() + ": " + employeeList.get(i).getID();
-            employeeMap.put(temp, employeeList.get(i).getID());
-            spinnerList.add(temp);
+            if(employeeList.get(i).getPermissions() == 1) {
+                String temp = employeeList.get(i).getLast() + ", " + employeeList.get(i).getFirst() + ": " + employeeList.get(i).getID();
+                employeeMap.put(temp, employeeList.get(i).getID());
+                spinnerList.add(temp);
+            }
         }
         ArrayAdapter<String> adapter = new ArrayAdapter<>(tableContext, android.R.layout.simple_spinner_dropdown_item, spinnerList);
         final Spinner employeeSpinner = new Spinner(tableContext);

@@ -29,8 +29,10 @@ public class Launch_Screen extends AppCompatActivity implements View.OnClickList
                 startActivity(new Intent(this, CustomerLoginActivity.class)); break;
             case R.id.Employee:
                 //startActivity(new Intent(Launch_Screen.this, Employee_MainScreen.class)); break;
-                startActivity(new Intent(this, Employee_LoginWindow.class)); break;
-            default: break;
+                startActivity(new Intent(this, Employee_LoginWindow.class));
+                break;
+            default:
+                break;
         }
     }
 }

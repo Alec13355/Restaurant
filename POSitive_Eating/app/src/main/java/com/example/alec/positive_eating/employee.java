@@ -8,6 +8,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import static android.view.Gravity.CENTER_HORIZONTAL;
+import static com.example.alec.positive_eating.Singleton_Current_Employee.getEInstance;
 
 /**
  * Created by ethantw on 4/18/2017.
@@ -17,16 +18,17 @@ public class employee {
     String first;
     String last;
     int ID;
-    private String availability;
+    private String address;
     private String phoneNumber;
     private int rate;
     private String pass;
     private boolean visible;
+    private int permissions;
 
     //List items
     private TextView tempDetails;
     private TextView passwordView;
-    LinearLayout thisEmployee;
+    private LinearLayout thisEmployee;
 
     employee(String first, String last, int ID){
         this.first = first;
@@ -34,15 +36,16 @@ public class employee {
         this.ID = ID;
     }
 
-    employee(String first, String last, int ID, String availability, String phone, int rate, String pass){
+    employee(String first, String last, int ID, String address, String phone, int rate, String pass, int permissions){
         this.first = first;
         this.last = last;
         this.ID = ID;
-        this.availability = availability;
+        this.address = address;
         this.phoneNumber = phone;
         this.rate = rate;
         this.pass = pass;
         this.visible = true;
+        this.permissions = permissions;
     }
     /*
     First Name
@@ -81,11 +84,11 @@ public class employee {
     Availability
      */
     public void setAvailability(String availability){
-        this.availability = availability;
+        this.address = availability;
     }
 
     public String getAvailability(){
-        return availability;
+        return address;
     }
 
     /*
@@ -121,6 +124,16 @@ public class employee {
         return pass;
     }
 
+    /*
+    Password
+    */
+    public void setPermissions(int permissions){
+        this.permissions = permissions;
+    }
+
+    public int getPermissions(){
+        return permissions;
+    }
 
     public void addListItem(ViewGroup mListLayout, Context context){
         this.tempDetails = new TextView(context);
@@ -139,7 +152,11 @@ public class employee {
         tempName.setTextColor(Color.BLACK);
         tempName.setTextSize(40);
 
-        String tempDetailString =  "ID: " + getID() + "\nAvailability: " + getAvailability() + "\nPhone Number: " + getPhone();
+        String tempDetailString = "";
+        if(getEInstance().getEmployee().getPermissions() == 0) {
+            tempDetailString += "ID: " + getID() + "\nPermission Level: " + getPermissions() + "\n";
+        }
+        tempDetailString +=  "Availability: " + getAvailability() + "\nPhone Number: " + getPhone();
         tempDetails = new TextView(context);
         tempDetails.setText(tempDetailString);
         tempDetails.setTextColor(Color.BLACK);
