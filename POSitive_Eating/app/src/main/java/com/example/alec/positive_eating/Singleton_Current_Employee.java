@@ -8,7 +8,7 @@ public class Singleton_Current_Employee {
 
     private static employee e = new employee("temp", "temp", -1);
 
-    public static Singleton_Current_Employee getInstance(){
+    public static Singleton_Current_Employee getEInstance(){
         if(currentInstance == null){
             currentInstance = new Singleton_Current_Employee();
         }

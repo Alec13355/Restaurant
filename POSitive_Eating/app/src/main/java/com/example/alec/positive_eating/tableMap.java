@@ -27,7 +27,7 @@ import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-import static com.example.alec.positive_eating.Singleton_Current_Employee.getInstance;
+import static com.example.alec.positive_eating.Singleton_Current_Employee.getEInstance;
 import static com.example.alec.positive_eating.Singleton_ShaneConnect_Factory.getShaneConnect;
 
 /**
@@ -134,8 +134,8 @@ public class tableMap extends Activity {
                     //Toast.makeText(getApplicationContext(), response.toString(), Toast.LENGTH_LONG).show();
                     //if(userPermission == server) then check to see if employeeID matches singleton employeeID, otherwise discard table
                     Table temp = new Table(response.getString("name"), response.getInt("x_coord"), response.getInt("y_coord"), response.getInt("status"), response.getInt("employee_id"), " ", response.getInt("number_seats"), employeeList, tableMap.this, mRootLayout);
-                    if(getInstance().getEmployee().getPermissions() == 1){
-                        if(getInstance().getEmployee().getID() == temp.getEmployeeID()){
+                    if(getEInstance().getEmployee().getPermissions() == 1){
+                        if(getEInstance().getEmployee().getID() == temp.getEmployeeID()){
                             allTheTables.add(temp);
                             temp.drawManagerTable();
                             temp.addListener(1);
@@ -186,7 +186,7 @@ public class tableMap extends Activity {
         switch(whichListener){
             case 0 : {
                 //if(user.permissions == manager){
-                if(getInstance().getEmployee().getPermissions() == 0) {
+                if(getEInstance().getEmployee().getPermissions() == 0) {
                     whichListener = 1;
                     updateListener(whichListener);
                     Toast.makeText(tableMap.this, "Drag Mode", Toast.LENGTH_SHORT).show();
@@ -240,7 +240,7 @@ public class tableMap extends Activity {
             }
             case 1 : {
 //                if(userPermission == manager | hostess | server) {
-                if(getInstance().getEmployee().getPermissions() <= 3) {
+                if(getEInstance().getEmployee().getPermissions() <= 3) {
                     whichListener = 2;
                     updateListener(whichListener);
                     Toast.makeText(tableMap.this, "Status Mode", Toast.LENGTH_SHORT).show();
@@ -259,7 +259,7 @@ public class tableMap extends Activity {
             }
             case 2 : {
                 //if(userPermission == manager){
-                if(getInstance().getEmployee().getPermissions() == 0) {
+                if(getEInstance().getEmployee().getPermissions() == 0) {
                     whichListener = 3;
                     updateListener(whichListener);
                     Toast.makeText(tableMap.this, "Employee Mode", Toast.LENGTH_SHORT).show();
@@ -270,7 +270,7 @@ public class tableMap extends Activity {
             }
             case 3 : {
                 //if(userPermission == manager or server)
-                if(getInstance().getEmployee().getPermissions() <= 1) {
+                if(getEInstance().getEmployee().getPermissions() <= 1) {
                     whichListener = 4;
                     updateListener(whichListener);
                     Toast.makeText(tableMap.this, "Order Mode", Toast.LENGTH_SHORT).show();

@@ -79,7 +79,7 @@ public class Employee_LoginWindow extends AppCompatActivity {
                 Toast.makeText(getApplicationContext(), response.toString(), Toast.LENGTH_LONG).show();
                 try {
                     employee e = new employee(response.getString("first"), response.getString("last"), response.getInt("emp_id"), response.getString("address"), response.getString("phone"), response.getInt("rate"), response.getString("pass"), response.getInt("status"));
-                    Singleton_Current_Employee.getInstance().setEmployee(e);
+                    Singleton_Current_Employee.getEInstance().setEmployee(e);
                     correct(response.get("pass").toString(),b, response.get("status").toString());
                 } catch (JSONException e) {
                     e.printStackTrace();

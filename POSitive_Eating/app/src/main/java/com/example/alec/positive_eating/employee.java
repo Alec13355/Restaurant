@@ -8,7 +8,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import static android.view.Gravity.CENTER_HORIZONTAL;
-import static com.example.alec.positive_eating.Singleton_Current_Employee.getInstance;
+import static com.example.alec.positive_eating.Singleton_Current_Employee.getEInstance;
 
 /**
  * Created by ethantw on 4/18/2017.
@@ -153,7 +153,7 @@ public class employee {
         tempName.setTextSize(40);
 
         String tempDetailString = "";
-        if(getInstance().getEmployee().getPermissions() == 0) {
+        if(getEInstance().getEmployee().getPermissions() == 0) {
             tempDetailString += "ID: " + getID() + "\n";
         }
         tempDetailString +=  "Availability: " + getAvailability() + "\nPhone Number: " + getPhone() + "\nPermission Level: " + getPermissions();

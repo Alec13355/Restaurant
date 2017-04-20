@@ -20,7 +20,7 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
-import static com.example.alec.positive_eating.Singleton_Current_Employee.getInstance;
+import static com.example.alec.positive_eating.Singleton_Current_Employee.getEInstance;
 import static com.example.alec.positive_eating.Singleton_ShaneConnect_Factory.getShaneConnect;
 
 public class ViewEmployeeList extends AppCompatActivity {
@@ -35,7 +35,7 @@ public class ViewEmployeeList extends AppCompatActivity {
         mRootLayout = (RelativeLayout) findViewById(R.id.activity_view_employee_list);
         employeeList = new ArrayList<>();
 
-        Toast.makeText(ViewEmployeeList.this, getInstance().getEmployee().getFirst(), Toast.LENGTH_SHORT).show();
+        Toast.makeText(ViewEmployeeList.this, getEInstance().getEmployee().getFirst(), Toast.LENGTH_SHORT).show();
         Toast.makeText(ViewEmployeeList.this, "Done", Toast.LENGTH_SHORT).show();
 
         ScrollView scroll = new ScrollView(this);
@@ -75,7 +75,7 @@ public class ViewEmployeeList extends AppCompatActivity {
                     temp.addListItem(listView, ViewEmployeeList.this);
                     getEmployeeList(index + 1, s);
                 } catch (JSONException e) {
-                    if(getInstance().getEmployee().getPermissions() == 0) viewPasswords.setVisibility(View.VISIBLE);
+                    if(getEInstance().getEmployee().getPermissions() == 0) viewPasswords.setVisibility(View.VISIBLE);
                     return;
                 }
             }
