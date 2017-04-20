@@ -52,7 +52,7 @@ public class Employee_MainScreen extends AppCompatActivity {
 
         shaneconnect.ShaneConnect vista = getShaneConnect();
         getEmployeeList(0, vista);
-        
+
         eList = new ArrayList<>();
         //Initilizes the buttons.
 
@@ -137,7 +137,7 @@ public class Employee_MainScreen extends AppCompatActivity {
                     employee temp = new employee(response.getString("first"), response.getString("last"), response.getInt("emp_id"), response.getString("address"), response.getString("phone"), response.getInt("rate"), response.getString("pass"), response.getInt("status"));
                     eList.add(temp);
                     getEmployeeList(index + 1, s);
-                    Toast.makeText(getApplicationContext(), response.toString(), Toast.LENGTH_SHORT).show();;
+                    
                 } catch (JSONException e) {
                     getListInstance().setEList(eList);
                     Menu.setVisibility(View.VISIBLE);
