@@ -1,5 +1,6 @@
 package com.example.alec.positive_eating;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -57,6 +58,13 @@ public class ViewEmployeeList extends AppCompatActivity {
 
         shaneconnect.ShaneConnect vista = getShaneConnect();
         getEmployeeList(0, vista);
+    }
+
+    @Override
+    public void onBackPressed() {
+        Intent myIntent = new Intent(ViewEmployeeList.this, Employee_MainScreen.class);
+        this.finishActivity(0);
+        ViewEmployeeList.this.startActivity(myIntent);
     }
 
     private void getEmployeeList(final int index, final shaneconnect.ShaneConnect s) {
