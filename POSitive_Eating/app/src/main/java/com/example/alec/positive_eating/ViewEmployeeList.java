@@ -41,9 +41,6 @@ public class ViewEmployeeList extends AppCompatActivity {
         mRootLayout = (RelativeLayout) findViewById(R.id.activity_view_employee_list);
         employeeList = new ArrayList<>();
 
-        Toast.makeText(ViewEmployeeList.this, getEInstance().getEmployee().getFirst(), Toast.LENGTH_SHORT).show();
-        Toast.makeText(ViewEmployeeList.this, "Done", Toast.LENGTH_SHORT).show();
-
         ScrollView scroll = new ScrollView(this);
 
         listView = new LinearLayout(this);
