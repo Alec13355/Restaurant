@@ -28,7 +28,8 @@ public class Launch_Screen extends AppCompatActivity implements View.OnClickList
     public void onClick(View view) {
         switch(view.getId()) {
             case R.id.Customer:
-                startActivity(new Intent(this, CustomerLoginActivity.class)); break;
+                startActivity(new Intent(this, CustomerLoginActivity.class));
+                break;
             case R.id.Employee:
                 //startActivity(new Intent(Launch_Screen.this, Employee_MainScreen.class)); break;
                 startActivity(new Intent(this, Employee_LoginWindow.class));
