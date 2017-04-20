@@ -274,7 +274,7 @@ public class employee {
         switch (option) {
             case ("Permission Level") : {
                 AlertDialog.Builder builder = new AlertDialog.Builder(context);
-                builder.setTitle(option);
+                builder.setTitle("Edit " + option);
 
                 final EditText input = new EditText(context);
 
@@ -312,7 +312,7 @@ public class employee {
             }
             case ("Availability") : {
                 AlertDialog.Builder builder = new AlertDialog.Builder(context);
-                builder.setTitle(option);
+                builder.setTitle("Edit " + option);
 
                 final EditText input = new EditText(context);
 
@@ -345,7 +345,7 @@ public class employee {
             }
             case ("Phone Number") : {
                 AlertDialog.Builder builder = new AlertDialog.Builder(context);
-                builder.setTitle(option);
+                builder.setTitle("Edit " + option);
 
                 final EditText input = new EditText(context);
 
@@ -383,7 +383,7 @@ public class employee {
             }
             case ("Password") : {
                 AlertDialog.Builder builder = new AlertDialog.Builder(context);
-                builder.setTitle(option);
+                builder.setTitle("Edit " + option);
 
                 final EditText input = new EditText(context);
 
