@@ -5,12 +5,7 @@ package com.example.alec.positive_eating;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.view.View;
 import android.widget.ExpandableListView;
-import android.widget.ExpandableListView.OnChildClickListener;
-import android.widget.ExpandableListView.OnGroupClickListener;
-import android.widget.ExpandableListView.OnGroupExpandListener;
-import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -47,7 +42,7 @@ public class Employee_Schedule extends AppCompatActivity {
 
 
         setItems();
-        setListener();
+
 
     }
 
@@ -75,10 +70,10 @@ public class Employee_Schedule extends AppCompatActivity {
 
 
         // Adding header and childs to hash map
-        hashMap.put(header.get(0), child1);
-        hashMap.put(header.get(1), child2);
-        hashMap.put(header.get(2), child3);
-        hashMap.put(header.get(3), child4);
+        for(int i =0; i<header.size();i++){
+            hashMap.put(header.get(i),child1);
+        }
+
 
         adapter = new ExpandableListAdapter(Employee_Schedule.this, header, hashMap);
 
@@ -87,53 +82,6 @@ public class Employee_Schedule extends AppCompatActivity {
     }
 
     // Setting different listeners to expandablelistview
-    void setListener() {
 
-        // This listener will show toast on group click
-        expandableListView.setOnGroupClickListener(new OnGroupClickListener() {
 
-            @Override
-            public boolean onGroupClick(ExpandableListView listview, View view,
-                                        int group_pos, long id) {
-
-                Toast.makeText(Employee_Schedule.this,
-                        "You clicked : " + adapter.getGroup(group_pos),
-                        Toast.LENGTH_SHORT).show();
-                return false;
-            }
-        });
-
-        // This listener will expand one group at one time
-        // You can remove this listener for expanding all groups
-        expandableListView
-                .setOnGroupExpandListener(new OnGroupExpandListener() {
-
-                    // Default position
-                    int previousGroup = -1;
-
-                    @Override
-                    public void onGroupExpand(int groupPosition) {
-                        if (groupPosition != previousGroup)
-
-                            // Collapse the expanded group
-                            expandableListView.collapseGroup(previousGroup);
-                        previousGroup = groupPosition;
-                    }
-
-                });
-
-        // This listener will show toast on child click
-        expandableListView.setOnChildClickListener(new OnChildClickListener() {
-
-            @Override
-            public boolean onChildClick(ExpandableListView listview, View view,
-                                        int groupPos, int childPos, long id) {
-                Toast.makeText(
-                        Employee_Schedule.this,
-                        "You clicked : " + adapter.getChild(groupPos, childPos),
-                        Toast.LENGTH_SHORT).show();
-                return false;
-            }
-        });
-    }
 }
