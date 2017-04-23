@@ -252,8 +252,9 @@ public class employee {
         spinnerList.add("Schedule");
         spinnerList.add("Phone Number");
         spinnerList.add("Password");
-        spinnerList.add("DELETE EMPLOYEE");
-
+        if(getEInstance().getEmployee().getID() == ID) {
+            spinnerList.add("DELETE EMPLOYEE");
+        }
         ArrayAdapter<String> adapter = new ArrayAdapter<>(context, android.R.layout.simple_spinner_dropdown_item, spinnerList);
         optionsSpinner = new Spinner(context);
         optionsSpinner.setAdapter(adapter);
@@ -434,7 +435,7 @@ public class employee {
 
                 builder.setView(output);
 
-                builder.setPositiveButton("SAVE", new DialogInterface.OnClickListener() {
+                builder.setPositiveButton("DELETE", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
                         deleteUser(""+ID,first,last);
