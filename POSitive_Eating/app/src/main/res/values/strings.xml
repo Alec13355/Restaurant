@@ -73,4 +73,5 @@
         <item>7</item>
         <item>8</item>
     </string-array>
+    <string name="option_instr">Type your options below. Make sure to separate each option by a newline.</string>
 </resources>

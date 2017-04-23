@@ -1,5 +1,6 @@
 package com.example.alec.positive_eating;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -11,6 +12,8 @@ import android.widget.Toast;
 import com.android.volley.Response;
 import org.json.JSONObject;
 import java.util.ArrayList;
+import java.util.Scanner;
+
 import shaneconnect.ShaneConnect;
 import static com.example.alec.positive_eating.Singleton_CustomerObject_Factory.getCustomer;
 import static com.example.alec.positive_eating.Singleton_ShaneConnect_Factory.getShaneConnect;
@@ -53,6 +56,18 @@ public class CustomerOrderMenu extends AppCompatActivity implements View.OnClick
         });
     }
 
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+
+        if (requestCode == 1) {
+            if(resultCode == Activity.RESULT_OK){
+                String result=data.getStringExtra("result");
+            }
+            if (resultCode == Activity.RESULT_CANCELED) {
+                //Write your code if there's no result
+            }
+        }
+    }
     /**
      * Every time activity is resumed, creates new adapter for ListView and updates list of items
      * ordered.
@@ -98,17 +113,33 @@ public class CustomerOrderMenu extends AppCompatActivity implements View.OnClick
         startActivity(i);
     }
 
-    private void confirmOrder(){
+    private void confirmOrder() {
         ShaneConnect connect = getShaneConnect();
         ArrayList<String> compStringList = new ArrayList<String>();
         ArrayList<String> options = new ArrayList<String>();
-        String desc = "Online Order for "+getCustomer().getUserName();
+        String desc = "Online Order for " + getCustomer().getUserName();
         for(CustomerOrderItem oi : orderList) {
             compStringList.add(oi.getEntreeName());
-            options.add("entree place holder");
+            if(oi.getOptionsEntree().equals("")){
+                options.add("(None)");
+            } else {
+                Scanner s = new Scanner(oi.getOptionsEntree());
+                while(s.hasNextLine()) {
+                    options.add(s.nextLine());
+                }
+                s.close();
+            }
             if(oi.getSideName() != null) {
                 compStringList.add(oi.getSideName());
-                options.add("sides place holder");
+                if(oi.getOptionsSide().equals("")){
+                    options.add("(None)");
+                } else {
+                    Scanner s = new Scanner(oi.getOptionsSide());
+                    while(s.hasNextLine()) {
+                        options.add(s.nextLine());
+                    }
+                    s.close();
+                }
             }
         }
         connect.placeOrder(desc, compStringList, options, 10, "To Go", new Response.Listener<JSONObject>() {

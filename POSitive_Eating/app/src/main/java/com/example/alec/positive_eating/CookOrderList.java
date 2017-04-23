@@ -94,11 +94,12 @@ public class CookOrderList extends AppCompatActivity {
             Toast.makeText(context, "A very weird error occurred in beginRemoveOrder...",
                     Toast.LENGTH_LONG).show();
         }
-        if(bufferOrderToDelete<0 || descriptions==null)return;
+        if(bufferOrderToDelete<0 || descriptions==null)
+            return;
         ModelM.removeOrder(descriptions, new Response.Listener<JSONObject>() {
             @Override
             public void onResponse(JSONObject response) {
-                // TODO: 4/20/2017
+                prepareListData();
             }
         });
     }

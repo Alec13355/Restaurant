@@ -58,7 +58,8 @@
         <activity android:name=".CustomerMainMenu" />
         <activity android:name=".CustomerSidesList" />
         <activity android:name=".CustomerOrderMenu" />
-        <activity android:name=".ViewEmployeeList"></activity>
+        <activity android:name=".ViewEmployeeList" />
+        <activity android:name=".OrderOption"></activity>
     </application>
 
 </manifest>

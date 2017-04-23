@@ -8,7 +8,7 @@ package com.example.alec.positive_eating;
  */
 public class CustomerOrderItem {
 
-    private String entreeDesc, sideDesc, entreeName, sideName;
+    private String entreeDesc, sideDesc, entreeName, sideName, optionsEntree, optionsSide;
     /**
      * Initializes instance variables entree and side.
      * @param theEntreeDesc
@@ -17,11 +17,13 @@ public class CustomerOrderItem {
      * @param theSideName
      */
     public CustomerOrderItem(String theEntreeDesc, String theSideDesc, String theEntreeName,
-                             String theSideName) {
+                             String theSideName, String theOptionsEntree, String theOptionsSide) {
         entreeDesc = theEntreeDesc;
         sideDesc = theSideDesc;
         entreeName = theEntreeName;
         sideName = theSideName;
+        optionsEntree = theOptionsEntree;
+        optionsSide = theOptionsSide;
     }
     /**
      * Returns entree.
@@ -46,6 +48,14 @@ public class CustomerOrderItem {
         return sideName;
     }
 
+    public String getOptionsEntree() {
+        return optionsEntree;
+    }
+
+    public String getOptionsSide() {
+        return optionsSide;
+    }
+
     public void setEntreeDesc(String set) {
         entreeDesc = new String(set);
     }
@@ -63,6 +73,14 @@ public class CustomerOrderItem {
 
     public void setSideName(String set) {
         sideName = new String(set);
+    }
+
+    public void setOptionsEntree(String set) {
+        optionsEntree = new String(set);
+    }
+
+    public void setOptionsSide(String set) {
+        optionsSide = new String(set);
     }
     /**
      * Checks to see if entree or side are null.
