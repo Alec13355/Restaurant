@@ -9,6 +9,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import com.android.volley.Response;
 
@@ -27,8 +28,7 @@ public class Employee_LoginWindow extends AppCompatActivity {
     EditText password;
     EditText Firstname;
     EditText Lastname;
-    boolean usermanager;
-    boolean userwaitstaff;
+    boolean userExists;
     boolean cook;
     int counter;
 
@@ -72,8 +72,7 @@ public class Employee_LoginWindow extends AppCompatActivity {
 
     public void checkuser (String a, final String b){
         shaneconnect.ShaneConnect vista = getShaneConnect();
-        usermanager=false;
-        userwaitstaff=false;
+        userExists=false;
         cook=false;
         vista.getAccountData(a,new Response.Listener<JSONObject>() {
 
@@ -84,12 +83,12 @@ public class Employee_LoginWindow extends AppCompatActivity {
                 try {
                     employee e = new employee(response.getString("first"), response.getString("last"), response.getInt("emp_id"), response.getString("address"), response.getString("phone"), response.getInt("rate"), response.getString("pass"), response.getInt("status"));
                     Singleton_Current_Employee.getEInstance().setEmployee(e);
-                    correct(response.get("pass").toString(),b, response.get("status").toString());
+                    correct(response.get("pass").toString(),b);
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }
 
-                    if(usermanager){
+                    if(userExists){
                         Intent myIntent = new Intent(Employee_LoginWindow.this, Employee_MainScreen.class); /** Class name here */
                         Employee_LoginWindow.this.startActivity(myIntent);
                     }
@@ -98,11 +97,12 @@ public class Employee_LoginWindow extends AppCompatActivity {
 
         });
     }
-    public void correct(String a,String b,String c){
-
+    public void correct(String a,String b){
 
         if(a.equals(b)) {
-            usermanager = true;
+            userExists = true;
+        }else{
+            Toast.makeText(Employee_LoginWindow.this, String.valueOf("Invalid Password"), Toast.LENGTH_SHORT);
         }
 
     }
