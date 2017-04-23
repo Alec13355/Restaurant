@@ -14,16 +14,23 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.android.volley.Response;
+
+import org.json.JSONObject;
+
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+
+import shaneconnect.ConcreteCommand;
+import shaneconnect.DeleteEmployee;
+import shaneconnect.ShaneConnect;
 
 import static android.view.Gravity.CENTER;
 import static android.view.Gravity.CENTER_HORIZONTAL;
 import static com.example.alec.positive_eating.Singleton_Current_Employee.getEInstance;
+import static com.example.alec.positive_eating.Singleton_ShaneConnect_Factory.getShaneConnect;
 
 /**
  * Created by ethantw on 4/18/2017.
@@ -245,8 +252,9 @@ public class employee {
         spinnerList.add("Schedule");
         spinnerList.add("Phone Number");
         spinnerList.add("Password");
-        spinnerList.add("DELETE EMPLOYEE");
-
+        if(getEInstance().getEmployee().getID() == ID) {
+            spinnerList.add("DELETE EMPLOYEE");
+        }
         ArrayAdapter<String> adapter = new ArrayAdapter<>(context, android.R.layout.simple_spinner_dropdown_item, spinnerList);
         optionsSpinner = new Spinner(context);
         optionsSpinner.setAdapter(adapter);
@@ -427,11 +435,14 @@ public class employee {
 
                 builder.setView(output);
 
-                builder.setPositiveButton("SAVE", new DialogInterface.OnClickListener() {
+                builder.setPositiveButton("DELETE", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
-                        deleteUser();
+                        deleteUser(""+ID,first,last);
+
                     }
+
+
                 });
                 builder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
                     @Override
@@ -446,8 +457,19 @@ public class employee {
         return;
     }
 
-    private void deleteUser() {
-        return;
+    private void deleteUser(String ID, String First, String Last) {
+
+        ShaneConnect a = getShaneConnect();
+
+        ConcreteCommand b = new ConcreteCommand();
+        new DeleteEmployee(a,First,Last,ID,b).exectute(new Response.Listener<JSONObject>() {
+            @Override
+            public void onResponse(JSONObject response) {
+
+            }
+        });
+
+
     }
 
     //TODO save employee updates to database
