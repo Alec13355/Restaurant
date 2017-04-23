@@ -18,7 +18,6 @@ import org.json.JSONObject;
 import java.util.ArrayList;
 import java.util.List;
 
-import static com.example.alec.positive_eating.Singleton_Current_Employee.getEInstance;
 import static com.example.alec.positive_eating.Singleton_Employee_List.getListInstance;
 import static com.example.alec.positive_eating.Singleton_ShaneConnect_Factory.getShaneConnect;
 import static com.example.alec.positive_eating.Singleton_Table_List.getTableListInstance;
@@ -65,7 +64,7 @@ public class Employee_MainScreen extends AppCompatActivity {
             new View.OnClickListener()
              {
                 public void onClick(View view){
-                    Intent myIntent = new Intent(Employee_MainScreen.this, Employee_EditStaff.class); /** Class name here */
+                    Intent myIntent = new Intent(Employee_MainScreen.this, Employee_add_employee.class); /** Class name here */
                     Employee_MainScreen.this.startActivity(myIntent);
                 }
         }
