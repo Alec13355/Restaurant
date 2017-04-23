@@ -461,8 +461,8 @@ public class employee {
 
         ShaneConnect a = getShaneConnect();
 
-        ConcreteCommand ShittyShiter = new ConcreteCommand();
-        new DeleteEmployee(a,First,Last,ID,ShittyShiter).exectute(new Response.Listener<JSONObject>() {
+        ConcreteCommand b = new ConcreteCommand();
+        new DeleteEmployee(a,First,Last,ID,b).exectute(new Response.Listener<JSONObject>() {
             @Override
             public void onResponse(JSONObject response) {
 
