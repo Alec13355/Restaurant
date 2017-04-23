@@ -28,8 +28,7 @@ public class Employee_LoginWindow extends AppCompatActivity {
     EditText password;
     EditText Firstname;
     EditText Lastname;
-    boolean usermanager;
-    boolean userwaitstaff;
+    boolean userExists;
     boolean cook;
     int counter;
 
@@ -73,8 +72,7 @@ public class Employee_LoginWindow extends AppCompatActivity {
 
     public void checkuser (String a, final String b){
         shaneconnect.ShaneConnect vista = getShaneConnect();
-        usermanager=false;
-        userwaitstaff=false;
+        userExists=false;
         cook=false;
         vista.getAccountData(a,new Response.Listener<JSONObject>() {
 
@@ -85,21 +83,13 @@ public class Employee_LoginWindow extends AppCompatActivity {
                 try {
                     employee e = new employee(response.getString("first"), response.getString("last"), response.getInt("emp_id"), response.getString("address"), response.getString("phone"), response.getInt("rate"), response.getString("pass"), response.getInt("status"));
                     Singleton_Current_Employee.getEInstance().setEmployee(e);
-                    correct(response.get("pass").toString(),b, response.get("status").toString());
+                    correct(response.get("pass").toString(),b);
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }
 
-                    if(usermanager){
+                    if(userExists){
                         Intent myIntent = new Intent(Employee_LoginWindow.this, Employee_MainScreen.class); /** Class name here */
-                        Employee_LoginWindow.this.startActivity(myIntent);
-                    }
-                    if(userwaitstaff){
-                        Intent myIntent = new Intent(Employee_LoginWindow.this, Employee_Menu.class); /** Class name here */
-                        Employee_LoginWindow.this.startActivity(myIntent);
-                    }
-                    if(cook){
-                        Intent myIntent = new Intent(Employee_LoginWindow.this, Employee_OrderStatus.class); /** Class name here */
                         Employee_LoginWindow.this.startActivity(myIntent);
                     }
 
@@ -107,25 +97,14 @@ public class Employee_LoginWindow extends AppCompatActivity {
 
         });
     }
-    public void correct(String a,String b,String c){
+    public void correct(String a,String b){
 
-        if(c.equals("1")){
-        if(a.equals(b)){
-            usermanager=true;
-        }}
-        if(c.equals("0")){
-            usermanager = true;
+        if(a.equals(b)) {
+            userExists = true;
+        }else{
+            Toast.makeText(Employee_LoginWindow.this, String.valueOf("Invalid Password"), Toast.LENGTH_SHORT);
         }
-        else if(c.equals("2")){
-            if(a.equals(b)){
-                userwaitstaff=true;
-            }
-        }
-        else if(c.equals("3")){
-            if(a.equals(b)){
-                cook=true;
-            }
-        }
+
     }
     public void Clockin(String a){
         shaneconnect.ShaneConnect vista = getShaneConnect();

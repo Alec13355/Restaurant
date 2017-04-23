@@ -61,7 +61,7 @@ public class Employee_MainScreen extends AppCompatActivity {
         shaneconnect.ShaneConnect vista = getShaneConnect();
         getEmployeeList(0, vista);
 
-        //Initilizes the buttons.
+        //Initializes the buttons.
         if(getEInstance().getEmployee().getPermissions() == 0) {
             Edit_users.setOnClickListener(
                     new View.OnClickListener() {
