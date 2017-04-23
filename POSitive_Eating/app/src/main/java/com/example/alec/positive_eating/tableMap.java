@@ -15,14 +15,8 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
-import android.widget.Switch;
 import android.widget.TextView;
 import android.widget.Toast;
-
-import com.android.volley.Response;
-
-import org.json.JSONException;
-import org.json.JSONObject;
 
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -32,7 +26,6 @@ import java.util.regex.Pattern;
 
 import static com.example.alec.positive_eating.Singleton_Current_Employee.getEInstance;
 import static com.example.alec.positive_eating.Singleton_Employee_List.getListInstance;
-import static com.example.alec.positive_eating.Singleton_ShaneConnect_Factory.getShaneConnect;
 import static com.example.alec.positive_eating.Singleton_Table_List.getTableListInstance;
 
 /**
