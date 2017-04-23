@@ -148,7 +148,7 @@ public class Employee_MainScreen extends AppCompatActivity {
             public void onResponse(JSONObject response) {
                 try {
                     //employee(String first, String last, int ID, String availability, String phone, int rate, String pass){
-                    employee temp = new employee(response.getString("first"), response.getString("last"), response.getInt("emp_id"), response.getString("address"), response.getString("phone"), response.getInt("rate"), response.getString("pass"), response.getInt("status"));
+                    employee temp = new employee(response.getString("first"), response.getString("last"), response.getInt("emp_id"), response.getString("address"), response.getString("phone"), response.getInt("rate"), response.getString("pass"), response.getInt("status"), response.getString("social"), response.getString("bank_num"), response.getString("routing"));
                     eList.add(temp);
                     getEmployeeList(index + 1, s);
 
