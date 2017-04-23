@@ -418,7 +418,7 @@ public class employee {
             }
             case ("DELETE EMPLOYEE") : {
                 AlertDialog.Builder builder = new AlertDialog.Builder(context);
-                builder.setTitle("WARNING");
+                builder.setTitle("WARNING!");
 
                 TextView output = new TextView(context);
                 String stringStatus = "Are you sure you want to delete user:\n" + first + " " + last;
