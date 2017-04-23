@@ -9,7 +9,6 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.Toast;
 
 import com.android.volley.Response;
 
@@ -94,14 +93,6 @@ public class Employee_LoginWindow extends AppCompatActivity {
                         Intent myIntent = new Intent(Employee_LoginWindow.this, Employee_MainScreen.class); /** Class name here */
                         Employee_LoginWindow.this.startActivity(myIntent);
                     }
-                    if(userwaitstaff){
-                        Intent myIntent = new Intent(Employee_LoginWindow.this, Employee_Menu.class); /** Class name here */
-                        Employee_LoginWindow.this.startActivity(myIntent);
-                    }
-                    if(cook){
-                        Intent myIntent = new Intent(Employee_LoginWindow.this, Employee_OrderStatus.class); /** Class name here */
-                        Employee_LoginWindow.this.startActivity(myIntent);
-                    }
 
             }
 
@@ -109,23 +100,11 @@ public class Employee_LoginWindow extends AppCompatActivity {
     }
     public void correct(String a,String b,String c){
 
-        if(c.equals("1")){
-        if(a.equals(b)){
-            usermanager=true;
-        }}
-        if(c.equals("0")){
+
+        if(a.equals(b)) {
             usermanager = true;
         }
-        else if(c.equals("2")){
-            if(a.equals(b)){
-                userwaitstaff=true;
-            }
-        }
-        else if(c.equals("4")){
-            if(a.equals(b)){
-                cook=true;
-            }
-        }
+
     }
     public void Clockin(String a){
         shaneconnect.ShaneConnect vista = getShaneConnect();
