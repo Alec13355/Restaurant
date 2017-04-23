@@ -42,6 +42,7 @@ public class Employee_MainScreen extends AppCompatActivity {
         schedule=(Button)findViewById(R.id.Schedule);
         if(getEInstance().getEmployee().getPermissions() == 0) {
             Edit_users = (Button) findViewById(R.id.Edit_Users);
+
         }
         Payroll=(Button)findViewById(R.id.Payroll);
         addTableMap=(Button)findViewById(R.id.addTableMap);
@@ -50,7 +51,7 @@ public class Employee_MainScreen extends AppCompatActivity {
         Menu.setVisibility(View.INVISIBLE);
         Status.setVisibility(View.INVISIBLE);
         schedule.setVisibility(View.INVISIBLE);
-        Edit_users.setVisibility(View.INVISIBLE);
+
         Payroll.setVisibility(View.INVISIBLE);
         addTableMap.setVisibility(View.INVISIBLE);
         viewEmployeeList.setVisibility(View.INVISIBLE);
@@ -184,7 +185,7 @@ public class Employee_MainScreen extends AppCompatActivity {
                     Menu.setVisibility(View.VISIBLE);
                     Status.setVisibility(View.VISIBLE);
                     schedule.setVisibility(View.VISIBLE);
-                    Edit_users.setVisibility(View.VISIBLE);
+
                     Payroll.setVisibility(View.VISIBLE);
                     addTableMap.setVisibility(View.VISIBLE);
                     viewEmployeeList.setVisibility(View.VISIBLE);
