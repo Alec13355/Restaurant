@@ -18,6 +18,7 @@ import org.json.JSONObject;
 import java.util.ArrayList;
 import java.util.List;
 
+import static com.example.alec.positive_eating.Singleton_Current_Employee.getEInstance;
 import static com.example.alec.positive_eating.Singleton_Employee_List.getListInstance;
 import static com.example.alec.positive_eating.Singleton_ShaneConnect_Factory.getShaneConnect;
 import static com.example.alec.positive_eating.Singleton_Table_List.getTableListInstance;
@@ -39,7 +40,9 @@ public class Employee_MainScreen extends AppCompatActivity {
         Menu=(Button)findViewById(R.id.Ordering_Menu);
         Status=(Button)findViewById(R.id.OrderStatButton);
         schedule=(Button)findViewById(R.id.Schedule);
-        Edit_users=(Button)findViewById(R.id.Edit_Users);
+        if(getEInstance().getEmployee().getPermissions() == 0) {
+            Edit_users = (Button) findViewById(R.id.Edit_Users);
+        }
         Payroll=(Button)findViewById(R.id.Payroll);
         addTableMap=(Button)findViewById(R.id.addTableMap);
         viewEmployeeList=(Button)findViewById(R.id.viewEmployeeList);
@@ -59,16 +62,16 @@ public class Employee_MainScreen extends AppCompatActivity {
         getEmployeeList(0, vista);
 
         //Initilizes the buttons.
-
-        Edit_users.setOnClickListener(
-            new View.OnClickListener()
-             {
-                public void onClick(View view){
-                    Intent myIntent = new Intent(Employee_MainScreen.this, Employee_add_employee.class); /** Class name here */
-                    Employee_MainScreen.this.startActivity(myIntent);
-                }
+        if(getEInstance().getEmployee().getPermissions() == 0) {
+            Edit_users.setOnClickListener(
+                    new View.OnClickListener() {
+                        public void onClick(View view) {
+                            Intent myIntent = new Intent(Employee_MainScreen.this, Employee_add_employee.class); /** Class name here */
+                            Employee_MainScreen.this.startActivity(myIntent);
+                        }
+                    }
+            );
         }
-        );
         Payroll.setOnClickListener(
             new View.OnClickListener()
             {
