@@ -2,6 +2,7 @@ package com.example.alec.positive_eating;
 
 import android.content.Context;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v7.app.AlertDialog;
@@ -41,15 +42,9 @@ public class CookOrderList extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_cook_order_list);
         View someView = findViewById(R.id.activity_cook_order_list);
-
         someView.setBackgroundColor(Color.BLACK);
         context = getApplicationContext();
         bufferOrderToDelete = -1;
-    }
-
-    @Override
-    public void onResume() {
-        super.onResume();
         prepareListData();
     }
 
@@ -105,10 +100,13 @@ public class CookOrderList extends AppCompatActivity {
         if(bufferOrderToDelete<0 || descriptions==null)
             return;
         ConcreteCommand c = new ConcreteCommand();
-        new DeleteOrders(ModelM, descriptions, c).exectute(new Response.Listener<JSONObject>() {
+        final String desc = descriptions;
+        new DeleteOrders(ModelM, desc, c).exectute(new Response.Listener<JSONObject>() {
             @Override
             public void onResponse(JSONObject response) {
-                prepareListData();
+                Toast.makeText(context, "Successfully deleted "+ desc, Toast.LENGTH_LONG).show();
+                finishActivity(0);
+                startActivity(new Intent(context, CookOrderList.class));
             }
         });
     }
@@ -137,7 +135,7 @@ public class CookOrderList extends AppCompatActivity {
                 }
             });
         } catch (Exception e) {
-            Toast.makeText(context, "An error occurred in getOrders." +
+            Toast.makeText(context, "An error occurred in getOrders. " +
                             "Please press the back button and try again.",
                     Toast.LENGTH_LONG).show();
         }
