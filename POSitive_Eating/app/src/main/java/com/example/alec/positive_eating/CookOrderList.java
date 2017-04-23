@@ -20,6 +20,8 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
+import shaneconnect.ConcreteCommand;
+import shaneconnect.DeleteOrders;
 import shaneconnect.ShaneConnect;
 
 import static android.view.Gravity.CENTER;
@@ -102,7 +104,8 @@ public class CookOrderList extends AppCompatActivity {
         }
         if(bufferOrderToDelete<0 || descriptions==null)
             return;
-        ModelM.removeOrder(descriptions, new Response.Listener<JSONObject>() {
+        ConcreteCommand c = new ConcreteCommand();
+        new DeleteOrders(ModelM, descriptions, c).exectute(new Response.Listener<JSONObject>() {
             @Override
             public void onResponse(JSONObject response) {
                 prepareListData();
