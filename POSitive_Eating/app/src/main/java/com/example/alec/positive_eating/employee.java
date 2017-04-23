@@ -3,6 +3,8 @@ package com.example.alec.positive_eating;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.graphics.Color;
+import android.location.Address;
+//import android.support.v4.content.ModernAsyncTask;
 import android.support.v7.app.AlertDialog;
 import android.text.InputType;
 import android.view.View;
@@ -46,9 +48,9 @@ public class employee {
     private String pass;
     private boolean visible;
     private int permissions;
-    private String bankroute;
-    private String bankacc;
-    private String Social;
+    private String social;
+    private String bankAccount;
+    private String routing;
 
 
     //List items
@@ -65,7 +67,7 @@ public class employee {
         this.ID = ID;
     }
 
-    employee(String first, String last, int ID, String schedule, String phone, int rate, String pass, int permissions){
+    employee(String first, String last, int ID, String schedule, String phone, int rate, String pass, int permissions, String social, String bankAccount, String routing){
         this.first = first;
         this.last = last;
         this.ID = ID;
@@ -75,6 +77,9 @@ public class employee {
         this.pass = pass;
         this.visible = true;
         this.permissions = permissions;
+        this.social = social;
+        this.bankAccount = bankAccount;
+        this.routing = routing;
     }
     /*
     First Name
@@ -479,7 +484,12 @@ public class employee {
 
     //TODO save employee updates to database
     private void saveEmployee() {
-        ShaneConnect a = getShaneConnect();
-        //a.createAccount(last,first,permissions,);
+        ShaneConnect vista = getShaneConnect();
+        vista.createAccount(last,first,"DontKnow", routing, social,bankAccount, permissions, pass, schedule,"Not relevent",phoneNumber,rate,new Response.Listener<JSONObject>() {
+            @Override
+            public void onResponse(JSONObject response) {
+                Toast.makeText(context, response.toString(), Toast.LENGTH_SHORT).show();
+            }
+        });
     }
 }

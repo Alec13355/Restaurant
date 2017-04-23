@@ -170,7 +170,7 @@ public class ExpandableListAdapter extends BaseExpandableListAdapter {
         // icon
         if (isExpanded) {
 
-            header_text.setTypeface(null, Typeface.BOLD);
+            //header_text.setTypeface(null, Typeface.BOLD);
             header_text.setTextColor(Color.BLACK);
 //            header_text.setCompoundDrawablesWithIntrinsicBounds(0, 0,
 //                    R.drawable.ic_up, 0);
