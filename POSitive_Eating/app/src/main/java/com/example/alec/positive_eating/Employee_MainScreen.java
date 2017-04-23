@@ -48,7 +48,7 @@ public class Employee_MainScreen extends AppCompatActivity {
         addTableMap=(Button)findViewById(R.id.addTableMap);
         viewEmployeeList=(Button)findViewById(R.id.viewEmployeeList);
 
-        Menu.setVisibility(View.INVISIBLE);
+
         Status.setVisibility(View.INVISIBLE);
         schedule.setVisibility(View.INVISIBLE);
 
@@ -101,16 +101,7 @@ public class Employee_MainScreen extends AppCompatActivity {
                 }
             }
         );
-        Menu.setOnClickListener(
-            new View.OnClickListener()
-            {
-                public void onClick(View view)
-                {
-                    Intent myIntent = new Intent(Employee_MainScreen.this, Employee_Menu.class); /** Class name here */
-                    Employee_MainScreen.this.startActivity(myIntent);
-                }
-            }
-        );
+
         addTableMap.setOnClickListener(
             new View.OnClickListener()
             {
@@ -182,7 +173,7 @@ public class Employee_MainScreen extends AppCompatActivity {
                     retrieveTables(index+1,s);
                 } catch (JSONException e) {
                     getTableListInstance().setTList(allTheTables);
-                    Menu.setVisibility(View.VISIBLE);
+                    
                     Status.setVisibility(View.VISIBLE);
                     schedule.setVisibility(View.VISIBLE);
 
