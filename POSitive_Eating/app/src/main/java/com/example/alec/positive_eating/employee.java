@@ -421,7 +421,7 @@ public class employee {
                 builder.setTitle("WARNING");
 
                 TextView output = new TextView(context);
-                String stringStatus = "Are you sure you want to delete user: " + first + " " + last;
+                String stringStatus = "Are you sure you want to delete user:\n" + first + " " + last;
                 output.setText(stringStatus);
                 output.setGravity(CENTER);
 
