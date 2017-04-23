@@ -21,6 +21,7 @@ import java.util.Map;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+import static android.view.Gravity.CENTER;
 import static android.view.Gravity.CENTER_HORIZONTAL;
 import static com.example.alec.positive_eating.Singleton_Current_Employee.getEInstance;
 
@@ -244,6 +245,7 @@ public class employee {
         spinnerList.add("Schedule");
         spinnerList.add("Phone Number");
         spinnerList.add("Password");
+        spinnerList.add("DELETE EMPLOYEE");
 
         ArrayAdapter<String> adapter = new ArrayAdapter<>(context, android.R.layout.simple_spinner_dropdown_item, spinnerList);
         optionsSpinner = new Spinner(context);
@@ -414,7 +416,37 @@ public class employee {
                 builder.show();
                 break;
             }
+            case ("DELETE EMPLOYEE") : {
+                AlertDialog.Builder builder = new AlertDialog.Builder(context);
+                builder.setTitle("WARNING");
+
+                TextView output = new TextView(context);
+                String stringStatus = "Are you sure you want to delete user: " + first + " " + last;
+                output.setText(stringStatus);
+                output.setGravity(CENTER);
+
+                builder.setView(output);
+
+                builder.setPositiveButton("SAVE", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        deleteUser();
+                    }
+                });
+                builder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        dialog.cancel();
+                    }
+                });
+                builder.show();
+                break;
+            }
         }
+        return;
+    }
+
+    private void deleteUser() {
         return;
     }
 
