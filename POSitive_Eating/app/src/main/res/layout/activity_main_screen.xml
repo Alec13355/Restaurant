@@ -39,7 +39,7 @@
         tools:ignore="RelativeOverlap" />
 
     <Button
-        android:text="@string/editusers"
+        android:text="Add Employee"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"

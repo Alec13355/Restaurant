@@ -2,21 +2,24 @@ package com.example.alec.positive_eating;
 
 import android.content.Context;
 import android.content.DialogInterface;
+import android.graphics.Color;
 import android.os.Bundle;
-import android.support.annotation.Nullable;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.ExpandableListView;
 import android.widget.TextView;
 import android.widget.Toast;
+
 import com.android.volley.Response;
 
 import org.json.JSONException;
 import org.json.JSONObject;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+
 import shaneconnect.ShaneConnect;
 
 import static android.view.Gravity.CENTER;
@@ -35,6 +38,9 @@ public class CookOrderList extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_cook_order_list);
+        View someView = findViewById(R.id.activity_cook_order_list);
+
+        someView.setBackgroundColor(Color.BLACK);
         context = getApplicationContext();
         bufferOrderToDelete = -1;
     }
