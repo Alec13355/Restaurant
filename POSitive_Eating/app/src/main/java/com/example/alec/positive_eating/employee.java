@@ -14,6 +14,10 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.android.volley.Response;
+
+import org.json.JSONObject;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.regex.Matcher;
@@ -434,6 +438,7 @@ public class employee {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
                         deleteUser(""+ID,first,last);
+
                     }
 
 
@@ -456,7 +461,14 @@ public class employee {
         ShaneConnect a = getShaneConnect();
 
         ConcreteCommand ShittyShiter = new ConcreteCommand();
-        new DeleteEmployee(a,First,Last,ID,ShittyShiter);
+        new DeleteEmployee(a,First,Last,ID,ShittyShiter).exectute(new Response.Listener<JSONObject>() {
+            @Override
+            public void onResponse(JSONObject response) {
+
+            }
+        });
+
+
     }
 
     //TODO save employee updates to database
