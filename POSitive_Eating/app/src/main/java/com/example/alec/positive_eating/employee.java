@@ -431,7 +431,7 @@ public class employee {
 
                 builder.setView(output);
 
-                builder.setPositiveButton("SAVE", new DialogInterface.OnClickListener() {
+                builder.setPositiveButton("DELETE", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
                         deleteUser(""+ID,first,last);
