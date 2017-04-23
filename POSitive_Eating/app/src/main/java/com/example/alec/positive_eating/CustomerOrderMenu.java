@@ -108,9 +108,7 @@ public class CustomerOrderMenu extends AppCompatActivity implements View.OnClick
         String desc = "Online Order for " + getCustomer().getUserName();
         for(CustomerOrderItem oi : orderList) {
             compStringList.add(oi.getEntreeName());
-            if(oi.getOptionsEntree().equals("")){
-                options.add("(None)");
-            } else {
+            if(!oi.getOptionsEntree().equals("")) {
                 Scanner s = new Scanner(oi.getOptionsEntree());
                 while(s.hasNextLine()) {
                     options.add(s.nextLine());
@@ -119,9 +117,7 @@ public class CustomerOrderMenu extends AppCompatActivity implements View.OnClick
             }
             if(oi.getSideName() != null) {
                 compStringList.add(oi.getSideName());
-                if(oi.getOptionsSide().equals("")){
-                    options.add("(None)");
-                } else {
+                if(!oi.getOptionsSide().equals("")){ {
                     Scanner s = new Scanner(oi.getOptionsSide());
                     while(s.hasNextLine()) {
                         options.add(s.nextLine());
@@ -151,6 +147,7 @@ public class CustomerOrderMenu extends AppCompatActivity implements View.OnClick
             }
         });
         */
+        }
     }
 
     private void addSide(int position) {

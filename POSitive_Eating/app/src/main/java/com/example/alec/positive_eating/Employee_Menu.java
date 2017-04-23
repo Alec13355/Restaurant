@@ -116,38 +116,38 @@ public class Employee_Menu extends AppCompatActivity implements View.OnClickList
         ArrayList<String> compStringList = new ArrayList<String>();
         ArrayList<String> options = new ArrayList<String>();
         String desc = "Order for Table " + tableName;
-        for(CustomerOrderItem oi : orderList) {
+        for (CustomerOrderItem oi : orderList) {
             compStringList.add(oi.getEntreeName());
-            if(oi.getOptionsEntree().equals("")) {
-                options.add("(None)");
-            } else {
-                Scanner s = new Scanner(oi.getOptionsEntree());
-                while(s.hasNextLine()) {
-                    options.add(s.nextLine());
-                }
-                s.close();
-            }
-            if(oi.getSideName() != null) {
-                compStringList.add(oi.getSideName());
-                if(oi.getOptionsSide().equals("")){
-                    options.add("(None)");
-                } else {
-                    Scanner s = new Scanner(oi.getOptionsSide());
-                    while(s.hasNextLine()) {
+            if (!oi.getOptionsEntree().equals("")) {
+                {
+                    Scanner s = new Scanner(oi.getOptionsEntree());
+                    while (s.hasNextLine()) {
                         options.add(s.nextLine());
                     }
                     s.close();
                 }
+                if (oi.getSideName() != null) {
+                    compStringList.add(oi.getSideName());
+                    if (!oi.getOptionsSide().equals("")) {
+                        {
+                            Scanner s = new Scanner(oi.getOptionsSide());
+                            while (s.hasNextLine()) {
+                                options.add(s.nextLine());
+                            }
+                            s.close();
+                        }
+                    }
+                }
+                connect.placeOrder(desc, compStringList, options, 10, "To Go", new Response.Listener<JSONObject>() {
+                    @Override
+                    public void onResponse(JSONObject response) {
+                        Toast.makeText(getApplicationContext(), "The order was successfully placed!",
+                                Toast.LENGTH_LONG).show();
+                        finish();
+                    }
+                });
             }
         }
-        connect.placeOrder(desc, compStringList, options, 10, "To Go", new Response.Listener<JSONObject>() {
-            @Override
-            public void onResponse(JSONObject response) {
-                Toast.makeText(getApplicationContext(), "The order was successfully placed!",
-                        Toast.LENGTH_LONG).show();
-                finish();
-            }
-        });
     }
 
     private void addSide(int position) {
