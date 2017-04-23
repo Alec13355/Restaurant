@@ -46,6 +46,10 @@ public class employee {
     private String pass;
     private boolean visible;
     private int permissions;
+    private String bankroute;
+    private String bankacc;
+    private String Social;
+
 
     //List items
     private TextView tempDetails;
@@ -475,6 +479,7 @@ public class employee {
 
     //TODO save employee updates to database
     private void saveEmployee() {
-        return;
+        ShaneConnect a = getShaneConnect();
+        //a.createAccount(last,first,permissions,);
     }
 }
