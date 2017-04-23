@@ -15,15 +15,18 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+
+import shaneconnect.ConcreteCommand;
+import shaneconnect.DeleteEmployee;
+import shaneconnect.ShaneConnect;
 
 import static android.view.Gravity.CENTER;
 import static android.view.Gravity.CENTER_HORIZONTAL;
 import static com.example.alec.positive_eating.Singleton_Current_Employee.getEInstance;
+import static com.example.alec.positive_eating.Singleton_ShaneConnect_Factory.getShaneConnect;
 
 /**
  * Created by ethantw on 4/18/2017.
@@ -430,8 +433,10 @@ public class employee {
                 builder.setPositiveButton("SAVE", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
-                        deleteUser();
+                        deleteUser(""+ID,first,last);
                     }
+
+
                 });
                 builder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
                     @Override
@@ -446,8 +451,12 @@ public class employee {
         return;
     }
 
-    private void deleteUser() {
-        return;
+    private void deleteUser(String ID, String First, String Last) {
+
+        ShaneConnect a = getShaneConnect();
+
+        ConcreteCommand ShittyShiter = new ConcreteCommand();
+        new DeleteEmployee(a,First,Last,ID,ShittyShiter);
     }
 
     //TODO save employee updates to database
