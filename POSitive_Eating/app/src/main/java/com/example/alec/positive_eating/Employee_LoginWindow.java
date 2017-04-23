@@ -121,7 +121,7 @@ public class Employee_LoginWindow extends AppCompatActivity {
                 userwaitstaff=true;
             }
         }
-        else if(c.equals("3")){
+        else if(c.equals("4")){
             if(a.equals(b)){
                 cook=true;
             }
