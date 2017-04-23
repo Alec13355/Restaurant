@@ -165,7 +165,6 @@ public class CookOrderList extends AppCompatActivity {
                 String name = "";
                 name+=res.getString("DESCR" + i)+"\n";
                 name+="Quantity:" + res.getInt("QUANTITY" + i)+"\n";
-                name+="Price:$" + res.getInt("PRICE" + i)+"\n";
                 if(res.has("OPTIONS"+i)) {
                     JSONObject jsonOptions = res.getJSONObject("OPTIONS" + i);
                     name += "Options:";
