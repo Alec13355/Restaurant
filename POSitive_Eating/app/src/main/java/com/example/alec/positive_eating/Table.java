@@ -26,6 +26,10 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import shaneconnect.ConcreteCommand;
+import shaneconnect.DeleteTable;
+import shaneconnect.ShaneConnect;
+
 import static android.view.Gravity.CENTER;
 import static android.view.Gravity.CENTER_HORIZONTAL;
 import static com.example.alec.positive_eating.Singleton_Current_Employee.getEInstance;
@@ -595,5 +599,18 @@ public class Table {
                 tableContext.startActivity(myIntent);
             }
         }
+    }
+    private void DeleteTableBro(String ID, String First, String Last) {
+//TODO Boi
+        ShaneConnect a = getShaneConnect();
+//First needs to be table
+        ConcreteCommand b = new ConcreteCommand();
+        new DeleteTable(a,First,b).exectute(new Response.Listener<JSONObject>() {
+            @Override
+            public void onResponse(JSONObject response) {
+
+            }
+        });
+
     }
 }

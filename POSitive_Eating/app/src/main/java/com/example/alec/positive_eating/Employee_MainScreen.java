@@ -173,7 +173,7 @@ public class Employee_MainScreen extends AppCompatActivity {
                     retrieveTables(index+1,s);
                 } catch (JSONException e) {
                     getTableListInstance().setTList(allTheTables);
-                    
+
                     Status.setVisibility(View.VISIBLE);
                     schedule.setVisibility(View.VISIBLE);
 
