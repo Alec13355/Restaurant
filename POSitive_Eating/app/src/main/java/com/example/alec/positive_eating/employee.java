@@ -21,6 +21,7 @@ import com.android.volley.Response;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -61,6 +62,8 @@ public class employee {
     private Context context;
     private Spinner optionsSpinner;
 
+    private HashMap<Integer, String> permissionLevel;
+
     employee(String first, String last, int ID){
         this.first = first;
         this.last = last;
@@ -80,6 +83,13 @@ public class employee {
         this.social = social;
         this.bankAccount = bankAccount;
         this.routing = routing;
+        permissionLevel = new HashMap<>();
+            permissionLevel.put(0, "Manager");
+            permissionLevel.put(1, "Waitstaff");
+            permissionLevel.put(2, "Host");
+            permissionLevel.put(3, "Busser");
+            permissionLevel.put(4, "Kitchen");
+            permissionLevel.put(5, "Bartender");
     }
     /*
     First Name
@@ -200,7 +210,7 @@ public class employee {
 
         String tempDetailString = "";
         if(getEInstance().getEmployee().getPermissions() == 0) {
-            tempDetailString += "ID: " + getID() + "\nPermission Level: " + getPermissions() + "\n";
+            tempDetailString += "ID: " + getID() + "\nPermission Level: " + getPermissions() + ", " + permissionLevel.get(getPermissions()) + "\n";
         }
         tempDetailString +=  "Schedule: " + getSchedule() + "\nPhone Number: " + getPhone();
         tempDetails = new TextView(context);
@@ -239,7 +249,7 @@ public class employee {
     private void updateText(){
         String tempDetailString = "";
         if(getEInstance().getEmployee().getPermissions() == 0) {
-            tempDetailString += "ID: " + getID() + "\nPermission Level: " + getPermissions() + "\n";
+            tempDetailString += "ID: " + getID() + "\nPermission Level: " + getPermissions() + ", " + permissionLevel.get(getPermissions()) + "\n";
             String tempPasswordString =  "Password: " + pass;
             passwordView.setText(tempPasswordString);
         }
