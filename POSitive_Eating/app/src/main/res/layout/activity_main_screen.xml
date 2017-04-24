@@ -54,7 +54,9 @@
         android:id="@+id/addTableMap"
         android:layout_alignParentTop="true"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        android:layout_alignParentStart="true"
+        android:layout_alignRight="@+id/OrderStatButton"
+        android:layout_alignEnd="@+id/OrderStatButton" />
 
     <Button
         android:text="Employee\nList"
@@ -69,9 +71,11 @@
         android:id="@+id/button6"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignEnd="@+id/Edit_Users"
-        android:layout_alignRight="@+id/Edit_Users"
+        android:layout_marginTop="53dp"
+        android:text="Edit Menu"
         android:layout_below="@+id/OrderStatButton"
-        android:layout_marginTop="56dp"
-        android:text="Edit Menu" />
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignRight="@+id/OrderStatButton"
+        android:layout_alignEnd="@+id/OrderStatButton" />
 </RelativeLayout>
