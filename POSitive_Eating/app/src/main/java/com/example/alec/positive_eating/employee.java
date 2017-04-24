@@ -306,7 +306,7 @@ public class employee {
                         Pattern p = Pattern.compile("(\\d)");
                         Matcher m = p.matcher(input.getText().toString());
                         if (m.find()){
-                            if(input.getText().toString().equals("0") || input.getText().toString().equals("1") || input.getText().toString().equals("2") || input.getText().toString().equals("3") || input.getText().toString().equals("4")){
+                            if(input.getText().toString().equals("0") || input.getText().toString().equals("1") || input.getText().toString().equals("2") || input.getText().toString().equals("3") || input.getText().toString().equals("4") || input.getText().toString().equals("5") ){
                                 permissions = Integer.parseInt(input.getText().toString());
                                 updateText();
                                 saveEmployee();
