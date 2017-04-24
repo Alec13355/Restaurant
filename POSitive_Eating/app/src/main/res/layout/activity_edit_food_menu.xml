@@ -14,7 +14,7 @@
         <LinearLayout
             android:id="@+id/list"
             android:layout_width="match_parent"
-            android:layout_height="473dp"
+            android:layout_height="439dp"
 
             android:orientation="horizontal">
 
