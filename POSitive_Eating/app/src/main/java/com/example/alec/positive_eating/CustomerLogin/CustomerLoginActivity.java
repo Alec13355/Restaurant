@@ -15,6 +15,8 @@ import com.example.alec.positive_eating.Employee_MainScreen;
 import com.example.alec.positive_eating.Launch_Screen;
 import com.example.alec.positive_eating.R;
 import com.example.alec.positive_eating.Reservations.CustomerReservations;
+import com.example.alec.positive_eating.customerRegisteration.CustomerSignUp;
+import com.example.alec.positive_eating.editMenu.EditFoodMenu;
 
 import java.util.List;
 
@@ -68,7 +70,20 @@ public class CustomerLoginActivity extends AppCompatActivity {
 
             }
         });
+
+        Button register = (Button) findViewById(R.id.register);
+        register.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(CustomerLoginActivity.this, CustomerSignUp.class);
+                CustomerLoginActivity.this.startActivity(i);
+
+            }
+        });
+
     }
+
+
 
 
     @Override

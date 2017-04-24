@@ -10,6 +10,7 @@ import android.widget.Button;
 import android.widget.Toast;
 
 import com.android.volley.Response;
+import com.example.alec.positive_eating.editMenu.EditFoodMenu;
 import com.example.alec.positive_eating.payrole.Employee_Payroll;
 
 import org.json.JSONException;
@@ -44,6 +45,7 @@ public class Employee_MainScreen extends AppCompatActivity {
         Payroll=(Button)findViewById(R.id.Payroll);
         addTableMap=(Button)findViewById(R.id.addTableMap);
         viewEmployeeList=(Button)findViewById(R.id.viewEmployeeList);
+
 
         Menu.setVisibility(View.INVISIBLE);
         Status.setVisibility(View.INVISIBLE);
@@ -108,6 +110,15 @@ public class Employee_MainScreen extends AppCompatActivity {
                 }
             }
         );
+        Button editMenu = (Button) findViewById(R.id.button6);
+        editMenu.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent myIntent = new Intent(Employee_MainScreen.this, EditFoodMenu.class); /** Class name here */
+                Employee_MainScreen.this.startActivity(myIntent);
+            }
+        });
+
         addTableMap.setOnClickListener(
             new View.OnClickListener()
             {

@@ -58,7 +58,13 @@
         <activity android:name=".CustomerMainMenu" />
         <activity android:name=".CustomerSidesList" />
         <activity android:name=".CustomerOrderMenu" />
-        <activity android:name=".ViewEmployeeList"></activity>
+        <activity android:name=".ViewEmployeeList" />
+        <activity android:name=".customerRegisteration.CustomerSignUp" />
+        <activity android:name=".editMenu.EditFoodMenu" />
+        <activity
+            android:name=".editMenu.addFood.AddFoodMenu"
+            android:label="@string/title_activity_add_food_menu"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 
 </manifest>
