@@ -135,7 +135,7 @@ public class Employee_Menu extends AppCompatActivity implements View.OnClickList
                         }
                     }
                 }
-                connect.placeOrder(desc, compStringList, options, 10, "To Go", new Response.Listener<JSONObject>() {
+                connect.placeOrder(desc, compStringList, options, 10, "Table "+tableName, new Response.Listener<JSONObject>() {
                     @Override
                     public void onResponse(JSONObject response) {
                         Toast.makeText(getApplicationContext(), "The order was successfully placed!",
