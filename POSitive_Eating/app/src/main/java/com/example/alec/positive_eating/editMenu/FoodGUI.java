@@ -44,6 +44,8 @@ public class FoodGUI extends android.app.Fragment {
 
     private Context context;
 
+    static int count = 0;
+
 
 
     public FoodGUI() {
@@ -93,6 +95,8 @@ public class FoodGUI extends android.app.Fragment {
 
         final Fragment fra= this;
 
+
+        count++;
         this.b = (Button) v.findViewById(R.id.fragButton);
         this.text = (TextView) v.findViewById(R.id.fragText);
 
@@ -145,6 +149,8 @@ public class FoodGUI extends android.app.Fragment {
         super.onDetach();
         mListener = null;
     }
+
+
 
     /**
      * This interface must be implemented by activities that contain this

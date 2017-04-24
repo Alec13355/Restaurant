@@ -5,20 +5,19 @@
     android:id="@+id/background"
     tools:context="com.example.alec.positive_eating.editMenu.FoodGUI">
 
+
     <TextView
-<<<<<<< HEAD
+
         android:layout_width="175dp"
-        android:layout_height="match_parent"
+        android:layout_height="60dp"
         android:id="@+id/fragText"
         />
-=======
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"/>
->>>>>>> 7653ba1859459f8db5a3aac5e592ab27ef6bf4b7
+
+
 
     <Button
         android:layout_width="175dp"
-        android:layout_height="match_parent"
+        android:layout_height="60dp"
         android:layout_alignParentTop="true"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true"
