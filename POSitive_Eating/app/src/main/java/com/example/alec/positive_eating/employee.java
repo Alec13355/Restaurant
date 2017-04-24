@@ -442,7 +442,7 @@ public class employee {
                             saveEmployee();
                         }else{
                             Toast.makeText(context, "Invalid Input", Toast.LENGTH_SHORT);
-                            changeSettings("Permission Level");
+                            changeSettings("Account Number");
                         }
                     }
                 });
@@ -464,12 +464,12 @@ public class employee {
                         Pattern p = Pattern.compile("(\\d)");
                         Matcher m = p.matcher(input.getText().toString());
                         if (m.find()){
-                            bankAccount = input.getText().toString();
+                            routing = input.getText().toString();
                             updateText();
                             saveEmployee();
                         }else{
                             Toast.makeText(context, "Invalid Input", Toast.LENGTH_SHORT);
-                            changeSettings("Permission Level");
+                            changeSettings("Routing Number");
                         }
                     }
                 });
