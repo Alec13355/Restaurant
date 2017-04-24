@@ -51,9 +51,9 @@ public class Employee_LoginWindow extends AppCompatActivity {
         userNumber = (EditText) findViewById(R.id.editText);
         userNumber.setInputType(InputType.TYPE_CLASS_NUMBER);
         Firstname  = (EditText) findViewById(R.id.Firstnamelog);
-        userNumber.setInputType(InputType.TYPE_CLASS_TEXT);
+        Firstname.setInputType(InputType.TYPE_CLASS_TEXT);
         Lastname  = (EditText) findViewById(R.id.lastnamelog);
-        userNumber.setInputType(InputType.TYPE_CLASS_TEXT);
+        Lastname.setInputType(InputType.TYPE_CLASS_TEXT);
         counter=0;
         /**
          * When it's clicked it will compare what is given to fake data.
