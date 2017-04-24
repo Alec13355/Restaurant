@@ -6,6 +6,7 @@ package com.example.alec.positive_eating;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.text.InputType;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -48,8 +49,11 @@ public class Employee_LoginWindow extends AppCompatActivity {
         LogInButton = (Button) findViewById(R.id.logInButton);
         password = (EditText) findViewById(R.id.password);
         userNumber = (EditText) findViewById(R.id.editText);
+        userNumber.setInputType(InputType.TYPE_CLASS_NUMBER);
         Firstname  = (EditText) findViewById(R.id.Firstnamelog);
+        Firstname.setInputType(InputType.TYPE_CLASS_TEXT);
         Lastname  = (EditText) findViewById(R.id.lastnamelog);
+        Lastname.setInputType(InputType.TYPE_CLASS_TEXT);
         counter=0;
         /**
          * When it's clicked it will compare what is given to fake data.

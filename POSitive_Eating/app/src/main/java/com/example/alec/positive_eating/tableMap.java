@@ -249,6 +249,16 @@ public class tableMap extends Activity {
                 //}
             }
             case 4 : {
+                if(getEInstance().getEmployee().getPermissions() == 0) {
+                    whichListener = 5;
+                    updateListener(whichListener);
+                    currentMode.setText(String.valueOf("Delete Mode"));
+                    break;
+                }else{
+                    whichListener = 5;
+                }
+            }
+            case 5 : {
                 //everyone can see this
                 whichListener = 0;
                 updateListener(whichListener);
@@ -256,6 +266,7 @@ public class tableMap extends Activity {
                 //Toast.makeText(tableMap.this, "View Mode", Toast.LENGTH_SHORT).show();
                 break;
             }
+
         }
     }
 
