@@ -27,7 +27,7 @@ import static com.example.alec.positive_eating.Singleton_Table_List.getTableList
  * This class is the main landing page and will change views depending on what button is pressed.
  */
 public class Employee_MainScreen extends AppCompatActivity {
-    Button Status,schedule,Edit_users,Payroll,addTableMap,viewEmployeeList;//Delares the button variables
+    Button Status,schedule,Add_User,Payroll,addTableMap,viewEmployeeList;//Delares the button variables
 
     List<employee>  eList;
     private List<Table> allTheTables;
@@ -40,11 +40,11 @@ public class Employee_MainScreen extends AppCompatActivity {
         Status=(Button)findViewById(R.id.OrderStatButton);
         schedule=(Button)findViewById(R.id.Schedule);
 //        if(getEInstance().getEmployee().getPermissions() == 0) {
-//            Edit_users = (Button) findViewById(R.id.Edit_Users);
-//            Edit_users.setVisibility(View.INVISIBLE);
+//            Add_User = (Button) findViewById(R.id.Edit_Users);
+//            Add_User.setVisibility(View.INVISIBLE);
 //        }
-        Edit_users = (Button) findViewById(R.id.Edit_Users);
-        Edit_users.setVisibility(View.INVISIBLE);
+        Add_User = (Button) findViewById(R.id.Edit_Users);
+        Add_User.setVisibility(View.INVISIBLE);
         Payroll=(Button)findViewById(R.id.Payroll);
         addTableMap=(Button)findViewById(R.id.addTableMap);
         viewEmployeeList=(Button)findViewById(R.id.viewEmployeeList);
@@ -65,7 +65,7 @@ public class Employee_MainScreen extends AppCompatActivity {
 
         //Initializes the buttons.
         if(getEInstance().getEmployee().getPermissions() == 0) {
-            Edit_users.setOnClickListener(
+            Add_User.setOnClickListener(
                     new View.OnClickListener() {
                         public void onClick(View view) {
                             Intent myIntent = new Intent(Employee_MainScreen.this, Employee_add_employee.class); /** Class name here */
@@ -179,7 +179,7 @@ public class Employee_MainScreen extends AppCompatActivity {
                     addTableMap.setVisibility(View.VISIBLE);
                     viewEmployeeList.setVisibility(View.VISIBLE);
                     if(getEInstance().getEmployee().getPermissions() == 0) {
-                        Edit_users.setVisibility(View.VISIBLE);
+                        Add_User.setVisibility(View.VISIBLE);
                         Payroll.setVisibility(View.VISIBLE);
                     }
                     return;
