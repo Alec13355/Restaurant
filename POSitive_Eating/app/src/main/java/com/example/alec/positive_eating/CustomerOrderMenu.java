@@ -11,15 +11,13 @@ import android.widget.ListView;
 import android.widget.Toast;
 import com.android.volley.Response;
 import org.json.JSONObject;
-
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Scanner;
-
 import shaneconnect.ShaneConnect;
 import static com.example.alec.positive_eating.Singleton_CustomerObject_Factory.getCustomer;
+import static com.example.alec.positive_eating.Singleton_OrderList.*;
 import static com.example.alec.positive_eating.Singleton_ShaneConnect_Factory.getShaneConnect;
-import com.example.alec.positive_eating.customerRegisteration.Customer;
 /**
  * @author Christian Shinkle
  * The CustomerOrderMenu class is used to create orders and sumbit them to the server. It includes
@@ -39,8 +37,8 @@ public class CustomerOrderMenu extends AppCompatActivity implements View.OnClick
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_order_menu);
-
-        orderList = new ArrayList<CustomerOrderItem>();
+        initOrderList();
+        orderList = getOrderList();
         imageId = new Integer[]{
             R.drawable.hamburger,
             R.drawable.fries
@@ -74,6 +72,11 @@ public class CustomerOrderMenu extends AppCompatActivity implements View.OnClick
         orderListView.setAdapter(adapter);
     }
 
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+        clearOrderList();
+    }
     /**
      * Determines which method should be called for each respective button.
      * @param v
@@ -89,20 +92,9 @@ public class CustomerOrderMenu extends AppCompatActivity implements View.OnClick
         }
     }
 
-    /**
-     * Returns list of orders.
-     * @return
-     */
-//    public ArrayList<CustomerOrderItem> getOrderList() {
-//        return orderList;
-//    }
-
     private void addItem() {
         Intent i = new Intent(this, CustomerEntreeSideList.class);
         i.putExtra("NEW_ORDER", true);
-        Bundle b = new Bundle();
-        b.putSerializable("orderList", orderList);
-        i.putExtra("bundle", b);
         startActivity(i);
     }
 
@@ -161,9 +153,6 @@ public class CustomerOrderMenu extends AppCompatActivity implements View.OnClick
     private void addSide(int position) {
         Intent i = new Intent(this, CustomerEntreeSideList.class);
         i.putExtra("ADD_SIDE", position);
-        Bundle b = new Bundle();
-        b.putSerializable("orderList", orderList);
-        i.putExtra("bundle", b);
         startActivity(i);
     }
 }

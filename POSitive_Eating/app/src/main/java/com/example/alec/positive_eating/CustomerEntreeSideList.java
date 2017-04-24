@@ -13,6 +13,7 @@ import org.json.JSONObject;
 import java.util.ArrayList;
 import shaneconnect.ShaneConnect;
 import static com.example.alec.positive_eating.Singleton_ShaneConnect_Factory.getShaneConnect;
+import static com.example.alec.positive_eating.Singleton_OrderList.*;
 
 /**
  * @author Christian Shinkle
@@ -38,9 +39,7 @@ public class CustomerEntreeSideList extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_entree);
         context = getApplicationContext();
-        Intent i = getIntent();
-        Bundle b = i.getBundleExtra("bundle");
-        orderList = (ArrayList<CustomerOrderItem>) b.getSerializable("orderList");
+        orderList = getOrderList();
         /*
         final String[] arr = new String[] {
           "Hamburger", "Reuben", "Bacon Hamburger", "CheeseBurger", "Bacon CheeseBurger",

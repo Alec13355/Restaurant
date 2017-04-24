@@ -12,11 +12,10 @@ import com.android.volley.Response;
 import org.json.JSONObject;
 import java.util.ArrayList;
 import java.util.Scanner;
-
 import shaneconnect.ShaneConnect;
-
 import static com.example.alec.positive_eating.Singleton_Current_Employee.getEmployee;
 import static com.example.alec.positive_eating.Singleton_CustomerObject_Factory.getCustomer;
+import static com.example.alec.positive_eating.Singleton_OrderList.*;
 import static com.example.alec.positive_eating.Singleton_ShaneConnect_Factory.getShaneConnect;
 /**
  * @author Christian Shinkle
@@ -43,8 +42,8 @@ public class Employee_Menu extends AppCompatActivity implements View.OnClickList
             String temp = ("Table Number " + tableName);
             Toast.makeText(Employee_Menu.this, temp, Toast.LENGTH_SHORT).show();
         }
-        
-        orderList = new ArrayList<>();
+        initOrderList();
+        orderList = getOrderList();
         Button confirmOrderBut = (Button) findViewById(R.id.confirm_order);
         Button addItemBut = (Button) findViewById(R.id.add_item);
         confirmOrderBut.setOnClickListener(this);
@@ -81,6 +80,12 @@ public class Employee_Menu extends AppCompatActivity implements View.OnClickList
         orderListView.setAdapter(adapter);
     }
 
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+        clearOrderList();
+    }
+
     /**
      * Determines which method should be called for each respective button.
      * @param v
@@ -96,20 +101,9 @@ public class Employee_Menu extends AppCompatActivity implements View.OnClickList
         }
     }
 
-    /**
-     * Returns list of orders.
-     * @return
-     */
-//    public  ArrayList<CustomerOrderItem> getOrderList() {
-//        return orderList;
-//    }
-
     private void addItem() {
         Intent i = new Intent(this, CustomerEntreeSideList.class);
         i.putExtra("NEW_ORDER", true);
-        Bundle b = new Bundle();
-        b.putSerializable("orderList", orderList);
-        i.putExtra("bundle", b);
         startActivity(i);
     }
 
@@ -155,9 +149,6 @@ public class Employee_Menu extends AppCompatActivity implements View.OnClickList
     private void addSide(int position) {
         Intent i = new Intent(this, CustomerEntreeSideList.class);
         i.putExtra("ADD_SIDE", position);
-        Bundle b = new Bundle();
-        b.putSerializable("orderList", orderList);
-        i.putExtra("bundle", b);
         startActivity(i);
     }
 }
