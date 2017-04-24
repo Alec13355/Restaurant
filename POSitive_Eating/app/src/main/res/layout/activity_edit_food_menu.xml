@@ -8,7 +8,7 @@
 
     <android.support.design.widget.AppBarLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="438dp"
         android:theme="@style/AppTheme.AppBarOverlay">
 
         <LinearLayout
@@ -17,7 +17,7 @@
 
 
 
-            android:layout_height="4dp"
+            android:layout_height="60dp"
 
             android:orientation="horizontal">
 
