@@ -642,7 +642,7 @@ public class Table {
         new DeleteTable(a,ID,b).exectute(new Response.Listener<JSONObject>() {
             @Override
             public void onResponse(JSONObject response) {
-                Toast.makeText(tableContext, String.valueOf("Deleted table" + ID), Toast.LENGTH_SHORT).show();
+                Toast.makeText(tableContext, String.valueOf("Deleted table: " + ID), Toast.LENGTH_SHORT).show();
                 tempFrame.setVisibility(View.INVISIBLE);
             }
         });
