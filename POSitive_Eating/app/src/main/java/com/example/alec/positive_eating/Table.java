@@ -539,12 +539,12 @@ public class Table {
     private final class EmployeeClickListener implements View.OnClickListener {
         @Override
         public void onClick(View view) {
-            dialogBuilder();
+            employeeDialogBuilder();
             saveTable();
         }
     }
 
-    private void dialogBuilder(){
+    private void employeeDialogBuilder(){
         List<String> spinnerList = new ArrayList<>();
         final Map<String, Integer> employeeMap = new HashMap<>(); //this is how I will remember which ID goes with which name when an option is selected
         for(int i = 0; i < employeeList.size(); i++){

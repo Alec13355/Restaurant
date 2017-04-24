@@ -210,7 +210,7 @@ public class employee {
 
         String tempDetailString = "";
         if(getEInstance().getEmployee().getPermissions() == 0) {
-            tempDetailString += "ID: " + getID() + "\nPermission Level: " + getPermissions() + ", " + permissionLevel.get(getPermissions()) + "\n";
+            tempDetailString += "ID: " + getID() + "\nPermission Level: " + getPermissions() + ", " + permissionLevel.get(getPermissions()) + "\nSSN: " + social + "\nRouting Number" + routing + "\nAccount Number: " + bankAccount + "\n";
         }
         tempDetailString +=  "Schedule: " + getSchedule() + "\nPhone Number: " + getPhone();
         tempDetails = new TextView(context);
@@ -249,7 +249,7 @@ public class employee {
     private void updateText(){
         String tempDetailString = "";
         if(getEInstance().getEmployee().getPermissions() == 0) {
-            tempDetailString += "ID: " + getID() + "\nPermission Level: " + getPermissions() + ", " + permissionLevel.get(getPermissions()) + "\n";
+            tempDetailString += "ID: " + getID() + "\nPermission Level: " + getPermissions() + ", " + permissionLevel.get(getPermissions()) + "\nSSN: " + social + "\nRouting Number" + routing + "\nAccount Number: " + bankAccount + "\n";
             String tempPasswordString =  "Password: " + pass;
             passwordView.setText(tempPasswordString);
         }
@@ -491,7 +491,7 @@ public class employee {
     //TODO save employee updates to database
     private void saveEmployee() {
         ShaneConnect vista = getShaneConnect();
-        vista.createAccount(last,first,"DontKnow", routing, social,bankAccount, permissions, pass, schedule,"Not relevent",phoneNumber,rate,new Response.Listener<JSONObject>() {
+        vista.createAccount(last,first,"DontKnow", routing, social,bankAccount, permissions, pass, schedule,"Not relevant",phoneNumber,rate,new Response.Listener<JSONObject>() {
             @Override
             public void onResponse(JSONObject response) {
                 Toast.makeText(context, response.toString(), Toast.LENGTH_SHORT).show();
