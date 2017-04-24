@@ -60,8 +60,7 @@ public class Employee_Menu extends AppCompatActivity implements View.OnClickList
 
     @Override
     public void onBackPressed() {
-        Class temp = this.getParent().getClass();
-        Intent myIntent = new Intent(Employee_Menu.this, temp);
+        Intent myIntent = new Intent(Employee_Menu.this, tableMap.class);
         this.finishActivity(0);
         Employee_Menu.this.startActivity(myIntent);
     }

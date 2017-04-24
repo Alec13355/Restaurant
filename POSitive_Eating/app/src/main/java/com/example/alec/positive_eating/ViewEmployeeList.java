@@ -43,6 +43,7 @@ public class ViewEmployeeList extends AppCompatActivity {
         scroll.addView(listView);
 
         viewPasswords = (Button) findViewById(R.id.viewPass);
+        viewPasswords.setText("VIEW\nPASSWORDS");
         viewPasswords.setVisibility(View.INVISIBLE);
         viewPasswords.setOnClickListener(new View.OnClickListener() {
             @Override
