@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.alec.positive_eating.editMenu.addFood.AddFoodMenu">
+
+    <android.support.design.widget.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:theme="@style/AppTheme.AppBarOverlay">
+
+
+
+    </android.support.design.widget.AppBarLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <EditText
+            android:id="@+id/editText6"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_below="@+id/editText5"
+            android:hint="Enter the Description" />
+
+        <EditText
+            android:id="@+id/editText5"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_below="@+id/editText4"
+            android:hint="Enter the Quantity" />
+
+        <EditText
+            android:id="@+id/editText4"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_below="@+id/editText3"
+            android:hint="Enter the Price" />
+
+        <EditText
+            android:id="@+id/editText3"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:hint="Enter The Name of the Food" />
+
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="100dp"
+            android:layout_height="50dp"
+            android:layout_alignTop="@+id/checkBox"
+            android:layout_marginLeft="27dp"
+            android:layout_marginStart="27dp"
+            android:layout_toEndOf="@+id/checkBox"
+            android:layout_toRightOf="@+id/checkBox"
+            android:gravity="center"
+            android:text="Sides" />
+
+        <CheckBox
+            android:id="@+id/checkBox2"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_alignBottom="@+id/textView3"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_alignTop="@+id/textView3"
+            android:layout_marginLeft="29dp"
+            android:layout_marginStart="29dp" />
+
+        <EditText
+            android:id="@+id/editText2"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:hint="Enter the Options separated by comma"
+            android:layout_below="@+id/editText6"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true" />
+
+        <Button
+            android:id="@+id/button5"
+            android:layout_width="120dp"
+            android:layout_height="60dp"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:text="Submit" />
+
+        <TextView
+            android:id="@+id/textView3"
+            android:layout_width="100dp"
+
+            android:layout_height="50dp"
+            android:layout_above="@+id/checkBox"
+            android:layout_alignLeft="@+id/textView2"
+            android:layout_alignStart="@+id/textView2"
+            android:gravity="center"
+            android:text="Main Entree" />
+
+        <CheckBox
+            android:id="@+id/checkBox"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_above="@+id/checkBox3"
+            android:layout_alignLeft="@+id/checkBox2"
+            android:layout_alignStart="@+id/checkBox2" />
+
+        <CheckBox
+            android:id="@+id/checkBox3"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_above="@+id/button5"
+            android:layout_alignLeft="@+id/checkBox"
+            android:layout_alignStart="@+id/checkBox" />
+
+        <TextView
+            android:id="@+id/textView4"
+            android:layout_width="100dp"
+            android:layout_height="50dp"
+            android:layout_alignLeft="@+id/textView2"
+            android:layout_alignStart="@+id/textView2"
+            android:layout_alignTop="@+id/checkBox3"
+            android:gravity="center"
+            android:text="Drinks" />
+
+        <CheckBox
+            android:id="@+id/checkBox4"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_above="@+id/textView3"
+            android:layout_alignLeft="@+id/checkBox2"
+            android:layout_alignStart="@+id/checkBox2" />
+
+        <TextView
+            android:layout_width="100dp"
+            android:layout_height="50dp"
+            android:layout_above="@+id/textView3"
+            android:layout_alignLeft="@+id/textView3"
+            android:layout_alignStart="@+id/textView3"
+            android:gravity="center"
+            android:text="Desert" />
+
+
+    </RelativeLayout>
+
+
+</android.support.design.widget.CoordinatorLayout>

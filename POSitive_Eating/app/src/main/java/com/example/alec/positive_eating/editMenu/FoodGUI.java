@@ -3,14 +3,26 @@ package com.example.alec.positive_eating.editMenu;
 import android.content.Context;
 import android.net.Uri;
 import android.os.Bundle;
-import android.support.v4.app.Fragment;
+import android.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.FrameLayout;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import com.android.volley.Response;
 import com.example.alec.positive_eating.R;
+
+import org.json.JSONObject;
+
+import shaneconnect.ConcreteCommand;
+import shaneconnect.DeleteFood;
+import shaneconnect.ShaneConnect;
+
+
+import static com.example.alec.positive_eating.Singleton_ShaneConnect_Factory.getShaneConnect;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -20,7 +32,7 @@ import com.example.alec.positive_eating.R;
  * Use the {@link FoodGUI#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class FoodGUI extends Fragment {
+public class FoodGUI extends android.app.Fragment {
 
     private OnFragmentInteractionListener mListener;
 
@@ -30,13 +42,17 @@ public class FoodGUI extends Fragment {
 
     private TextView text;
 
+    private Context context;
+
+
+
     public FoodGUI() {
         // Required empty public constructor
     }
 
-    public void setName(String n){
+    public void setProperties(String n, Context cont){
         this.name = n;
-
+        this.context = cont;
     }
 
     /**
@@ -47,18 +63,24 @@ public class FoodGUI extends Fragment {
      * @return A new instance of fragment FoodGUI.
      */
     // TODO: Rename and change types and number of parameters
-    public static FoodGUI newInstance(Food f) {
+    public static FoodGUI newInstance(Food f, Context cont) {
         FoodGUI fragment = new FoodGUI();
         Bundle args = new Bundle();
         fragment.setArguments(args);
-        fragment.setName(f.getName());
+        fragment.setProperties(f.getName(),cont);
         return fragment;
     }
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        text.setText(name);
+
+
+
+    }
+
+    public void setDeleteButton(Button del){
+        this.b=del;
     }
 
 
@@ -66,7 +88,38 @@ public class FoodGUI extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_food_gui, container, false);
+        View v = inflater.inflate(R.layout.fragment_food_gui, container, false);
+
+
+        final Fragment fra= this;
+
+        this.b = (Button) v.findViewById(R.id.fragButton);
+        this.text = (TextView) v.findViewById(R.id.fragText);
+
+
+        b.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                ConcreteCommand command = new ConcreteCommand();
+                DeleteFood del = new DeleteFood(getShaneConnect(),name,command);
+
+
+                del.exectute(new Response.Listener<JSONObject>() {
+                    @Override
+                    public void onResponse(JSONObject response) {
+                        if(response.has("success")){
+                            getActivity().getFragmentManager().beginTransaction().remove(fra).commit();
+
+                        }
+                    }
+                });
+            }
+        });
+
+
+        text.setText(this.name);
+
+        return v;
     }
 
     // TODO: Rename method, update argument and hook method into UI event

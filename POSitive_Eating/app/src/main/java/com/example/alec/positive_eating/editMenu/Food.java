@@ -3,6 +3,8 @@ package com.example.alec.positive_eating.editMenu;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.util.ArrayList;
+
 /**
  * Created by shane on 4/23/17.
  */
@@ -19,7 +21,7 @@ public class Food {
 
     private String desc;
 
-    private String options;
+    private ArrayList<String> options;
 
     public Food(JSONObject json){
         try {
@@ -28,12 +30,43 @@ public class Food {
             this.quantity = json.getInt("quantity");
             this.price = json.getInt("price");
             this.desc = json.getString("desc");
-            this.options = json.getString("options");
+            this.options = convertString(json.getString("options"));
         } catch (JSONException e) {
             e.printStackTrace();
         }
     }
 
+    public Food(){
+
+    }
+
+
+    public void setData(String name,int id,int quan,int price, String desc, String options){
+        this.name=name;
+        this.id = id;
+        this.quantity=quan;
+        this.price=price;
+        this.desc=desc;
+        this.options=convertString(options);
+    }
+
+    public ArrayList<String> convertString(String options){
+        ArrayList<String> list = new ArrayList<String>();
+        String buffer = "";
+        for(int x=0;x<options.length();x++){
+            if(options.charAt(x)==','){
+                list.add(buffer);
+                buffer="";
+            }else{
+                buffer+=options.charAt(x);
+            }
+        }
+        return list;
+    }
+
+    public int getIntPrice(){
+        return this.price;
+    }
 
     public String getName(){
         return this.name;
@@ -55,8 +88,20 @@ public class Food {
         return this.desc;
     }
 
-    public String getOptions(){
+    public ArrayList<String> getOptions(){
         return this.options;
+    }
+
+    public boolean isDrink(){
+        return this.name.charAt(this.name.length()-1) == '_';
+    }
+
+    public boolean isEntree(){
+        return Character.isUpperCase(this.name.charAt(0));
+    }
+
+    public boolean isSide(){
+        return Character.isLowerCase(this.name.charAt(0));
     }
 
 

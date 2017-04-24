@@ -72,4 +72,14 @@
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true"
         android:id="@+id/viewEmployeeList" />
+
+    <Button
+        android:id="@+id/button6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignEnd="@+id/Edit_Users"
+        android:layout_alignRight="@+id/Edit_Users"
+        android:layout_below="@+id/OrderStatButton"
+        android:layout_marginTop="56dp"
+        android:text="Edit Menu" />
 </RelativeLayout>
