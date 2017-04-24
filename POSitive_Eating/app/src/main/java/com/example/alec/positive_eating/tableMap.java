@@ -94,8 +94,10 @@ public class tableMap extends Activity {
                         if (m.find()){
                             Seats = Integer.parseInt(input.getText().toString());
                             temp = new Table(String.valueOf(allTheTables.size() + 1), Seats, employeeList, tableMap.this, mRootLayout);
-                            allTheTables.add(temp);
                             temp.drawManagerTable();
+                            temp.addListener(1);
+
+                            allTheTables.add(temp);
                         }else{
                             builder.show();
                         }

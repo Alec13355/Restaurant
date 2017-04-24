@@ -40,10 +40,12 @@ public class Employee_MainScreen extends AppCompatActivity {
         Menu=(Button)findViewById(R.id.Ordering_Menu);
         Status=(Button)findViewById(R.id.OrderStatButton);
         schedule=(Button)findViewById(R.id.Schedule);
-        if(getEInstance().getEmployee().getPermissions() == 0) {
-            Edit_users = (Button) findViewById(R.id.Edit_Users);
-            Edit_users.setVisibility(View.INVISIBLE);
-        }
+//        if(getEInstance().getEmployee().getPermissions() == 0) {
+//            Edit_users = (Button) findViewById(R.id.Edit_Users);
+//            Edit_users.setVisibility(View.INVISIBLE);
+//        }
+        Edit_users = (Button) findViewById(R.id.Edit_Users);
+        Edit_users.setVisibility(View.INVISIBLE);
         Payroll=(Button)findViewById(R.id.Payroll);
         addTableMap=(Button)findViewById(R.id.addTableMap);
         viewEmployeeList=(Button)findViewById(R.id.viewEmployeeList);
@@ -175,11 +177,11 @@ public class Employee_MainScreen extends AppCompatActivity {
                     getTableListInstance().setTList(allTheTables);
                     Status.setVisibility(View.VISIBLE);
                     schedule.setVisibility(View.VISIBLE);
-                    Payroll.setVisibility(View.VISIBLE);
                     addTableMap.setVisibility(View.VISIBLE);
                     viewEmployeeList.setVisibility(View.VISIBLE);
                     if(getEInstance().getEmployee().getPermissions() == 0) {
                         Edit_users.setVisibility(View.VISIBLE);
+                        Payroll.setVisibility(View.VISIBLE);
                     }
                     return;
                 }
