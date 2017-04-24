@@ -51,10 +51,9 @@ public class Employee_MainScreen extends AppCompatActivity {
         viewEmployeeList=(Button)findViewById(R.id.viewEmployeeList);
 
 
-<<<<<<< HEAD
-        Menu.setVisibility(View.INVISIBLE);
-=======
->>>>>>> 7653ba1859459f8db5a3aac5e592ab27ef6bf4b7
+
+
+
         Status.setVisibility(View.INVISIBLE);
         schedule.setVisibility(View.INVISIBLE);
 
@@ -107,17 +106,8 @@ public class Employee_MainScreen extends AppCompatActivity {
                 }
             }
         );
-<<<<<<< HEAD
-        Menu.setOnClickListener(
-            new View.OnClickListener()
-            {
-                public void onClick(View view)
-                {
-                    Intent myIntent = new Intent(Employee_MainScreen.this, Employee_Menu.class); /** Class name here */
-                    Employee_MainScreen.this.startActivity(myIntent);
-                }
-            }
-        );
+
+
         Button editMenu = (Button) findViewById(R.id.button6);
         editMenu.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -126,8 +116,7 @@ public class Employee_MainScreen extends AppCompatActivity {
                 Employee_MainScreen.this.startActivity(myIntent);
             }
         });
-=======
->>>>>>> 7653ba1859459f8db5a3aac5e592ab27ef6bf4b7
+
 
         addTableMap.setOnClickListener(
             new View.OnClickListener()
