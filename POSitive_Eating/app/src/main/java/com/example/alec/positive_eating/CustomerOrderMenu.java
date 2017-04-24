@@ -63,6 +63,7 @@ public class CustomerOrderMenu extends AppCompatActivity implements View.OnClick
     @Override
     public void onResume() {
         super.onResume();
+        orderList = getOrderList();
         String[] tmp = new String[orderList.size()];
         for(int i =0;i<tmp.length;i++) {
             tmp[i] = orderList.get(i).toString();
