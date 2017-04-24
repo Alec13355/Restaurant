@@ -475,8 +475,7 @@ public class employee {
             }
         });
 
-        tempDetails.setText("DELETED");
-        passwordView.setText("DELETED");
+        thisEmployee.setVisibility(View.INVISIBLE);
     }
 
     //TODO save employee updates to database
