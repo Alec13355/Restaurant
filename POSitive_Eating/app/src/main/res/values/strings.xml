@@ -79,9 +79,7 @@
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="title_activity_add_food_menu">AddFoodMenu</string>
-
-
-    <string name="option_instr">Type your options below. Make sure to separate each option by a newline.</string>
+    <string name="option_instr">Type your options below. Make sure to separate each option by commas.</string>
 
 
 </resources>
