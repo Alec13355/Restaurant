@@ -271,6 +271,8 @@ public class employee {
         spinnerList.add("Schedule");
         spinnerList.add("Phone Number");
         spinnerList.add("Password");
+        spinnerList.add("Account Number");
+        spinnerList.add("Routing Number");
         if(getEInstance().getEmployee().getID() != ID) {
             spinnerList.add("DELETE EMPLOYEE");
         }
@@ -300,11 +302,10 @@ public class employee {
     }
 
     private void changeSettings(String option){
+        AlertDialog.Builder builder = new AlertDialog.Builder(context);
+        builder.setTitle("Edit " + option);
         switch (option) {
             case ("Permission Level") : {
-                AlertDialog.Builder builder = new AlertDialog.Builder(context);
-                builder.setTitle("Edit " + option);
-
                 final EditText input = new EditText(context);
 
                 input.setInputType(InputType.TYPE_CLASS_NUMBER);
@@ -336,13 +337,9 @@ public class employee {
                         dialog.cancel();
                     }
                 });
-                builder.show();
                 break;
             }
             case ("Schedule") : {
-                AlertDialog.Builder builder = new AlertDialog.Builder(context);
-                builder.setTitle("Edit " + option);
-
                 final EditText input = new EditText(context);
 
                 input.setInputType(InputType.TYPE_CLASS_TEXT);
@@ -369,18 +366,12 @@ public class employee {
                         dialog.cancel();
                     }
                 });
-                builder.show();
                 break;
             }
             case ("Phone Number") : {
-                AlertDialog.Builder builder = new AlertDialog.Builder(context);
-                builder.setTitle("Edit " + option);
-
                 final EditText input = new EditText(context);
-
                 input.setInputType(InputType.TYPE_CLASS_PHONE);
                 builder.setView(input);
-
                 builder.setPositiveButton("SAVE", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
@@ -407,18 +398,12 @@ public class employee {
                         dialog.cancel();
                     }
                 });
-                builder.show();
                 break;
             }
             case ("Password") : {
-                AlertDialog.Builder builder = new AlertDialog.Builder(context);
-                builder.setTitle("Edit " + option);
-
                 final EditText input = new EditText(context);
-
                 input.setInputType(InputType.TYPE_CLASS_TEXT);
                 builder.setView(input);
-
                 builder.setPositiveButton("SAVE", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
@@ -440,13 +425,64 @@ public class employee {
                         dialog.cancel();
                     }
                 });
-                builder.show();
+                break;
+            }
+            case ("Account Number") : {
+                final EditText input = new EditText(context);
+                input.setInputType(InputType.TYPE_CLASS_NUMBER);
+                builder.setView(input);
+                builder.setPositiveButton("SAVE", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        Pattern p = Pattern.compile("(\\d)");
+                        Matcher m = p.matcher(input.getText().toString());
+                        if (m.find()){
+                            bankAccount = input.getText().toString();
+                            updateText();
+                            saveEmployee();
+                        }else{
+                            Toast.makeText(context, "Invalid Input", Toast.LENGTH_SHORT);
+                            changeSettings("Permission Level");
+                        }
+                    }
+                });
+                builder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        dialog.cancel();
+                    }
+                });
+                break;
+            }
+            case ("Routing Number") : {
+                final EditText input = new EditText(context);
+                input.setInputType(InputType.TYPE_CLASS_NUMBER);
+                builder.setView(input);
+                builder.setPositiveButton("SAVE", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        Pattern p = Pattern.compile("(\\d)");
+                        Matcher m = p.matcher(input.getText().toString());
+                        if (m.find()){
+                            bankAccount = input.getText().toString();
+                            updateText();
+                            saveEmployee();
+                        }else{
+                            Toast.makeText(context, "Invalid Input", Toast.LENGTH_SHORT);
+                            changeSettings("Permission Level");
+                        }
+                    }
+                });
+                builder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        dialog.cancel();
+                    }
+                });
                 break;
             }
             case ("DELETE EMPLOYEE") : {
-                AlertDialog.Builder builder = new AlertDialog.Builder(context);
                 builder.setTitle("WARNING!");
-
                 TextView output = new TextView(context);
                 String stringStatus = "Are you sure you want to delete user:\n" + first + " " + last;
                 output.setText(stringStatus);
@@ -470,6 +506,7 @@ public class employee {
                 break;
             }
         }
+        builder.show();
         return;
     }
 
