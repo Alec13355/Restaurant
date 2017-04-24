@@ -11,6 +11,8 @@ import android.widget.ListView;
 import android.widget.Toast;
 import com.android.volley.Response;
 import org.json.JSONObject;
+
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -26,7 +28,7 @@ import com.example.alec.positive_eating.customerRegisteration.Customer;
  */
 public class CustomerOrderMenu extends AppCompatActivity implements View.OnClickListener {
 
-    private static ArrayList<CustomerOrderItem> orderList;
+    private ArrayList<CustomerOrderItem> orderList;
     private static Integer[] imageId;
 
     /**
@@ -91,13 +93,16 @@ public class CustomerOrderMenu extends AppCompatActivity implements View.OnClick
      * Returns list of orders.
      * @return
      */
-    public static ArrayList<CustomerOrderItem> getOrderList() {
-        return orderList;
-    }
+//    public ArrayList<CustomerOrderItem> getOrderList() {
+//        return orderList;
+//    }
 
     private void addItem() {
         Intent i = new Intent(this, CustomerEntreeSideList.class);
         i.putExtra("NEW_ORDER", true);
+        Bundle b = new Bundle();
+        b.putSerializable("orderList", orderList);
+        i.putExtra("bundle", b);
         startActivity(i);
     }
 
@@ -156,6 +161,9 @@ public class CustomerOrderMenu extends AppCompatActivity implements View.OnClick
     private void addSide(int position) {
         Intent i = new Intent(this, CustomerEntreeSideList.class);
         i.putExtra("ADD_SIDE", position);
+        Bundle b = new Bundle();
+        b.putSerializable("orderList", orderList);
+        i.putExtra("bundle", b);
         startActivity(i);
     }
 }

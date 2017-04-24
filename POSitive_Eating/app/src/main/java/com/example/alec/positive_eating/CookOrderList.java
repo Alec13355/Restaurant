@@ -194,18 +194,15 @@ public class CookOrderList extends AppCompatActivity {
                 String comp = json.getString("componentString");
                 Scanner scan = new Scanner(comp);
                 scan.useDelimiter("-");
-
                 while(scan.hasNext()) {
                     String token = scan.next();
                     int openPar = token.indexOf("(");
                     int closePar = token.lastIndexOf(")");
                     int foodIndex = Integer.parseInt(token.substring(0,openPar));
                     String foodName = foodList.get(foodIndex).getString("desc")+"\n" +"Options:\n";
-
                     String options = token.substring(openPar+1, closePar);
                     foodName+=options;
                     orderInfo.add(foodName);
-
                 }
                 listDataHeader.add(orderNum);
                 listDataChild.put(orderNum, orderInfo);

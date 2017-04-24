@@ -26,7 +26,7 @@ import static com.example.alec.positive_eating.Singleton_ShaneConnect_Factory.ge
  */
 public class Employee_Menu extends AppCompatActivity implements View.OnClickListener {
 
-    private static ArrayList<CustomerOrderItem> orderList;
+    private ArrayList<CustomerOrderItem> orderList;
     private String tableName;
     /**
      * Creates the activity. Sets listeners for buttons and ListViews.
@@ -100,13 +100,16 @@ public class Employee_Menu extends AppCompatActivity implements View.OnClickList
      * Returns list of orders.
      * @return
      */
-    public static ArrayList<CustomerOrderItem> getOrderList() {
-        return orderList;
-    }
+//    public  ArrayList<CustomerOrderItem> getOrderList() {
+//        return orderList;
+//    }
 
     private void addItem() {
         Intent i = new Intent(this, CustomerEntreeSideList.class);
         i.putExtra("NEW_ORDER", true);
+        Bundle b = new Bundle();
+        b.putSerializable("orderList", orderList);
+        i.putExtra("bundle", b);
         startActivity(i);
     }
 
@@ -152,6 +155,9 @@ public class Employee_Menu extends AppCompatActivity implements View.OnClickList
     private void addSide(int position) {
         Intent i = new Intent(this, CustomerEntreeSideList.class);
         i.putExtra("ADD_SIDE", position);
+        Bundle b = new Bundle();
+        b.putSerializable("orderList", orderList);
+        i.putExtra("bundle", b);
         startActivity(i);
     }
 }
