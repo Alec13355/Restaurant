@@ -210,7 +210,7 @@ public class employee {
 
         String tempDetailString = "";
         if(getEInstance().getEmployee().getPermissions() == 0) {
-            tempDetailString += "ID: " + getID() + "\nPermission Level: " + getPermissions() + ", " + permissionLevel.get(getPermissions()) + "\nSSN: " + social + "\nRouting Number" + routing + "\nAccount Number: " + bankAccount + "\n";
+            tempDetailString += "ID: " + getID() + "\nPermission Level: " + getPermissions() + ", " + permissionLevel.get(getPermissions()) + "\nSSN: " + social + "\nRouting Number: " + routing + "\nAccount Number: " + bankAccount + "\n";
         }
         tempDetailString +=  "Schedule: " + getSchedule() + "\nPhone Number: " + getPhone();
         tempDetails = new TextView(context);
@@ -249,7 +249,7 @@ public class employee {
     private void updateText(){
         String tempDetailString = "";
         if(getEInstance().getEmployee().getPermissions() == 0) {
-            tempDetailString += "ID: " + getID() + "\nPermission Level: " + getPermissions() + ", " + permissionLevel.get(getPermissions()) + "\nSSN: " + social + "\nRouting Number" + routing + "\nAccount Number: " + bankAccount + "\n";
+            tempDetailString += "ID: " + getID() + "\nPermission Level: " + getPermissions() + ", " + permissionLevel.get(getPermissions()) + "\nSSN: " + social + "\nRouting Number: " + routing + "\nAccount Number: " + bankAccount + "\n";
             String tempPasswordString =  "Password: " + pass;
             passwordView.setText(tempPasswordString);
         }
