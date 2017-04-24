@@ -210,7 +210,7 @@ public class employee {
 
         String tempDetailString = "";
         if(getEInstance().getEmployee().getPermissions() == 0) {
-            tempDetailString += "ID: " + getID() + "\nPermission Level: " + getPermissions() + ", " + permissionLevel.get(getPermissions()) + "\nSSN: " + social + "\nRouting Number: " + routing + "\nAccount Number: " + bankAccount + "\n";
+            tempDetailString += "ID: " + getID() + "\nPermission Level: " + getPermissions() + ", " + permissionLevel.get(getPermissions()) + "\nSSN: " + social + "\nAccount Number: " + bankAccount + "\nRouting Number: " + routing + "\n";
         }
         tempDetailString +=  "Schedule: " + getSchedule() + "\nPhone Number: " + getPhone();
         tempDetails = new TextView(context);
@@ -249,7 +249,7 @@ public class employee {
     private void updateText(){
         String tempDetailString = "";
         if(getEInstance().getEmployee().getPermissions() == 0) {
-            tempDetailString += "ID: " + getID() + "\nPermission Level: " + getPermissions() + ", " + permissionLevel.get(getPermissions()) + "\nSSN: " + social + "\nRouting Number: " + routing + "\nAccount Number: " + bankAccount + "\n";
+            tempDetailString += "ID: " + getID() + "\nPermission Level: " + getPermissions() + ", " + permissionLevel.get(getPermissions()) + "\nSSN: " + social + "\nAccount Number: " + bankAccount + "\nRouting Number: " + routing +  "\n";
             String tempPasswordString =  "Password: " + pass;
             passwordView.setText(tempPasswordString);
         }
@@ -271,6 +271,7 @@ public class employee {
         spinnerList.add("Schedule");
         spinnerList.add("Phone Number");
         spinnerList.add("Password");
+        spinnerList.add("SSN");
         spinnerList.add("Account Number");
         spinnerList.add("Routing Number");
         if(getEInstance().getEmployee().getID() != ID) {
@@ -470,6 +471,33 @@ public class employee {
                         }else{
                             Toast.makeText(context, "Invalid Input", Toast.LENGTH_SHORT);
                             changeSettings("Routing Number");
+                        }
+                    }
+                });
+                builder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        dialog.cancel();
+                    }
+                });
+                break;
+            }
+            case ("SSN") : {
+                final EditText input = new EditText(context);
+                input.setInputType(InputType.TYPE_CLASS_NUMBER);
+                builder.setView(input);
+                builder.setPositiveButton("SAVE", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        Pattern p = Pattern.compile("(\\d)");
+                        Matcher m = p.matcher(input.getText().toString());
+                        if (m.find()){
+                            social = input.getText().toString();
+                            updateText();
+                            saveEmployee();
+                        }else{
+                            Toast.makeText(context, "Invalid Input", Toast.LENGTH_SHORT);
+                            changeSettings("SSN");
                         }
                     }
                 });
