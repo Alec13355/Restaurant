@@ -12,8 +12,13 @@
         android:layout_height="60dp"
         android:id="@+id/fragText"
         />
+<<<<<<< HEAD
 
 
+=======
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+>>>>>>> 0b66bae29d5748fcd8105702762022c6d5b35feb
 
     <Button
         android:layout_width="175dp"

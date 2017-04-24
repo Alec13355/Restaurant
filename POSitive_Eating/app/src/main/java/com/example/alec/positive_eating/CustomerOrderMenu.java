@@ -11,13 +11,13 @@ import android.widget.ListView;
 import android.widget.Toast;
 import com.android.volley.Response;
 import org.json.JSONObject;
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Scanner;
-
 import shaneconnect.ShaneConnect;
 import static com.example.alec.positive_eating.Singleton_CustomerObject_Factory.getCustomer;
+import static com.example.alec.positive_eating.Singleton_OrderList.*;
 import static com.example.alec.positive_eating.Singleton_ShaneConnect_Factory.getShaneConnect;
-import com.example.alec.positive_eating.customerRegisteration.Customer;
 /**
  * @author Christian Shinkle
  * The CustomerOrderMenu class is used to create orders and sumbit them to the server. It includes
@@ -26,7 +26,7 @@ import com.example.alec.positive_eating.customerRegisteration.Customer;
  */
 public class CustomerOrderMenu extends AppCompatActivity implements View.OnClickListener {
 
-    private static ArrayList<CustomerOrderItem> orderList;
+    private ArrayList<CustomerOrderItem> orderList;
     private static Integer[] imageId;
 
     /**
@@ -37,8 +37,8 @@ public class CustomerOrderMenu extends AppCompatActivity implements View.OnClick
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_order_menu);
-
-        orderList = new ArrayList<CustomerOrderItem>();
+        initOrderList();
+        orderList = getOrderList();
         imageId = new Integer[]{
             R.drawable.hamburger,
             R.drawable.fries
@@ -63,6 +63,7 @@ public class CustomerOrderMenu extends AppCompatActivity implements View.OnClick
     @Override
     public void onResume() {
         super.onResume();
+        orderList = getOrderList();
         String[] tmp = new String[orderList.size()];
         for(int i =0;i<tmp.length;i++) {
             tmp[i] = orderList.get(i).toString();
@@ -72,6 +73,11 @@ public class CustomerOrderMenu extends AppCompatActivity implements View.OnClick
         orderListView.setAdapter(adapter);
     }
 
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+        clearOrderList();
+    }
     /**
      * Determines which method should be called for each respective button.
      * @param v
@@ -85,14 +91,6 @@ public class CustomerOrderMenu extends AppCompatActivity implements View.OnClick
                 addItem(); break;
             default: break;
         }
-    }
-
-    /**
-     * Returns list of orders.
-     * @return
-     */
-    public static ArrayList<CustomerOrderItem> getOrderList() {
-        return orderList;
     }
 
     private void addItem() {

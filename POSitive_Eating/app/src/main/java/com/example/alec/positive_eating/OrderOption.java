@@ -6,7 +6,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
-import static com.example.alec.positive_eating.CustomerOrderMenu.getOrderList;
+import static com.example.alec.positive_eating.Singleton_OrderList.getOrderList;
 
 public class OrderOption extends AppCompatActivity {
 

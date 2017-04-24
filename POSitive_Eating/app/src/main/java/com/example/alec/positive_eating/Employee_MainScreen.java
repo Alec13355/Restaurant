@@ -53,7 +53,7 @@ public class Employee_MainScreen extends AppCompatActivity {
 
 
 
-        //Menu.setVisibility(View.INVISIBLE);
+
 
         Status.setVisibility(View.INVISIBLE);
         schedule.setVisibility(View.INVISIBLE);

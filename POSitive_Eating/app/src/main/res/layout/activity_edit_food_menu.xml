@@ -14,7 +14,11 @@
         <LinearLayout
             android:id="@+id/list"
             android:layout_width="match_parent"
+<<<<<<< HEAD
             android:layout_height="60dp"
+=======
+            android:layout_height="439dp"
+>>>>>>> 0b66bae29d5748fcd8105702762022c6d5b35feb
 
             android:orientation="horizontal">
 

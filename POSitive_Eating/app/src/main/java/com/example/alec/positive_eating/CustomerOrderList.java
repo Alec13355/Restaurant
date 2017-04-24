@@ -8,7 +8,7 @@ import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import static com.example.alec.positive_eating.CustomerOrderMenu.getOrderList;
+import static com.example.alec.positive_eating.Singleton_OrderList.getOrderList;
 
 
 /**
