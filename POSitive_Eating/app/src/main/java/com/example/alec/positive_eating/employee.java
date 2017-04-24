@@ -278,7 +278,7 @@ public class employee {
         optionsSpinner = new Spinner(context);
         optionsSpinner.setAdapter(adapter);
         AlertDialog.Builder builder = new AlertDialog.Builder(context);
-        String tempNameString = "Edit User: " + getFirst() + " " + getLast();
+        String tempNameString = "Edit Employee: " + getFirst() + " " + getLast();
         builder.setTitle(tempNameString);
 
         builder.setView(optionsSpinner);
