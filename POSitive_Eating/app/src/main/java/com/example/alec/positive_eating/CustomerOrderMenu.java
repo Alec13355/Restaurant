@@ -114,18 +114,21 @@ public class CustomerOrderMenu extends AppCompatActivity implements View.OnClick
                     options.add(s.nextLine());
                 }
                 s.close();
+            } else {
+                options.add("None");
             }
             if(oi.getSideName() != null) {
                 compStringList.add(oi.getSideName());
-                if(!oi.getOptionsSide().equals("")){ {
+                if(!oi.getOptionsSide().equals("")) {
                     Scanner s = new Scanner(oi.getOptionsSide());
                     while(s.hasNextLine()) {
                         options.add(s.nextLine());
                     }
                     s.close();
+                } else {
+                    options.add("(None)");
                 }
             }
-        }
         connect.placeOrder(desc, compStringList, options, 10, "To Go", new Response.Listener<JSONObject>() {
             @Override
             public void onResponse(JSONObject response) {

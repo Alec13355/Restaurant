@@ -20,6 +20,7 @@ import org.json.JSONObject;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Scanner;
 
 import shaneconnect.ConcreteCommand;
 import shaneconnect.DeleteOrders;
@@ -31,7 +32,7 @@ import static com.example.alec.positive_eating.Singleton_ShaneConnect_Factory.ge
 public class CookOrderList extends AppCompatActivity {
     private List<String> listDataHeader;
     private HashMap<String, List<String>> listDataChild;
-    private ArrayList<JSONObject> orders;
+    private ArrayList<JSONObject> orders, foodList;
     private ShaneConnect ModelM;
     private int recursiveInc;
     private int bufferOrderToDelete;
@@ -42,7 +43,7 @@ public class CookOrderList extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_cook_order_list);
         View someView = findViewById(R.id.activity_cook_order_list);
-        someView.setBackgroundColor(Color.BLACK);
+        someView.setBackgroundColor(Color.BLUE);
         context = getApplicationContext();
         bufferOrderToDelete = -1;
         prepareListData();
@@ -51,7 +52,30 @@ public class CookOrderList extends AppCompatActivity {
     private void prepareListData() {
         listDataHeader = new ArrayList<String>();
         listDataChild = new HashMap<String, List<String>>();
-        getAllOrders();
+        Toast.makeText(getApplicationContext(), "Loading. This may take several seconds.",
+                Toast.LENGTH_LONG).show();
+        createFoodList();
+    }
+
+    private void createFoodList() {
+        ModelM = getShaneConnect();
+        foodList = new ArrayList<JSONObject>();
+        foodList.add(null);
+        createFoodList(0);
+    }
+
+    private void createFoodList(final int i) {
+        ModelM.getFoodByIndex(i,new Response.Listener<JSONObject>(){
+            @Override
+            public void onResponse(JSONObject response){
+                if(!response.has("none")) {
+                    foodList.add(response);
+                    createFoodList(i+1);
+                } else {
+                    getAllOrders();
+                }
+            }
+        });
     }
 
     private void setup() {
@@ -149,13 +173,41 @@ public class CookOrderList extends AppCompatActivity {
             @Override
             public void onResponse (JSONObject response) {
                 if (response.has("none")) {
-                    processOrders(0);
+                    processOrders();
                 } else {
                     orders.add(response);
                     ModelM.getOrders(++recursiveInc, this);
                 }
             }
         });
+    }
+
+    private void processOrders() {
+        for(int i=0;i<orders.size();i++) {
+            try {
+                ArrayList<String> orderInfo = new ArrayList<String>();
+                JSONObject json = orders.get(i);
+                final String orderNum = "Order #" + orders.get(i).getInt("order_id");
+                String comp = json.getString("componentString");
+                Scanner scan = new Scanner(comp);
+                scan.useDelimiter("-");
+                while(scan.hasNext()) {
+                    String token = scan.next();
+                    int foodIndex = Character.getNumericValue(token.charAt(0));
+                    String foodName = foodList.get(foodIndex).getString("desc")+"\n" +"Options:\n";
+                    int openPar = token.indexOf("(");
+                    int closePar = token.lastIndexOf(")");
+                    String options = token.substring(openPar+1, closePar);
+                    foodName+=options;
+                    orderInfo.add(foodName);
+                }
+                listDataHeader.add(orderNum);
+                listDataChild.put(orderNum, orderInfo);
+            } catch (JSONException e) {
+                Toast.makeText(getApplicationContext(),e.getMessage(), Toast.LENGTH_LONG).show();
+            }
+        }
+        setup();
     }
 
     private ArrayList<String> parseResponse(JSONObject res) throws JSONException {
@@ -168,12 +220,9 @@ public class CookOrderList extends AppCompatActivity {
                 if(res.has("OPTIONS"+i)) {
                     JSONObject jsonOptions = res.getJSONObject("OPTIONS" + i);
                     name += "Options:";
-                    int j;
-                    for (j = 0; jsonOptions.has("OPTION" + j); j++) {
+                    for (int j = 0; jsonOptions.has("OPTION" + j); j++) {
                         name += "\n\t"+ jsonOptions.getString("OPTION" + j);
                     }
-                    if(j==0)
-                        name+="\n (None)";
                 }
                 order.add(name);
             } catch (Exception e) {
