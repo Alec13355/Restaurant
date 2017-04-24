@@ -29,7 +29,7 @@ import static com.example.alec.positive_eating.Singleton_Table_List.getTableList
  * This class is the main landing page and will change views depending on what button is pressed.
  */
 public class Employee_MainScreen extends AppCompatActivity {
-    Button Status,schedule,Add_User,Payroll,addTableMap,viewEmployeeList;//Delares the button variables
+    Button editMenu, Status,schedule,Add_User,Payroll,addTableMap,viewEmployeeList;//Delares the button variables
 
     List<employee>  eList;
     private List<Table> allTheTables;
@@ -46,21 +46,21 @@ public class Employee_MainScreen extends AppCompatActivity {
 //            Add_User.setVisibility(View.INVISIBLE);
 //        }
         Add_User = (Button) findViewById(R.id.Edit_Users);
-        Add_User.setVisibility(View.INVISIBLE);
         Payroll=(Button)findViewById(R.id.Payroll);
         addTableMap=(Button)findViewById(R.id.addTableMap);
         viewEmployeeList=(Button)findViewById(R.id.viewEmployeeList);
-
+        editMenu = (Button) findViewById(R.id.button6);
 
 
 
 
         Status.setVisibility(View.INVISIBLE);
         schedule.setVisibility(View.INVISIBLE);
-
+        Add_User.setVisibility(View.INVISIBLE);
         Payroll.setVisibility(View.INVISIBLE);
         addTableMap.setVisibility(View.INVISIBLE);
         viewEmployeeList.setVisibility(View.INVISIBLE);
+        editMenu.setVisibility(View.INVISIBLE);
 
         eList = new ArrayList<>();
         allTheTables = new ArrayList<>();
@@ -109,7 +109,6 @@ public class Employee_MainScreen extends AppCompatActivity {
         );
 
 
-        Button editMenu = (Button) findViewById(R.id.button6);
         editMenu.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -197,6 +196,7 @@ public class Employee_MainScreen extends AppCompatActivity {
                     if(getEInstance().getEmployee().getPermissions() == 0) {
                         Add_User.setVisibility(View.VISIBLE);
                         Payroll.setVisibility(View.VISIBLE);
+                        editMenu.setVisibility(View.VISIBLE);
                     }
                     return;
                 }
