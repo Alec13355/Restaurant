@@ -447,11 +447,8 @@ public class employee {
                 builder.setPositiveButton("DELETE", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
-                        deleteUser(""+ID,first,last);
-
+                        deleteUser();
                     }
-
-
                 });
                 builder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
                     @Override
@@ -466,12 +463,12 @@ public class employee {
         return;
     }
 
-    private void deleteUser(String ID, String First, String Last) {
+    private void deleteUser() {
 
         ShaneConnect a = getShaneConnect();
 
         ConcreteCommand b = new ConcreteCommand();
-        new DeleteEmployee(a,First,Last,ID,b).exectute(new Response.Listener<JSONObject>() {
+        new DeleteEmployee(a,first,last,String.valueOf(ID),b).exectute(new Response.Listener<JSONObject>() {
             @Override
             public void onResponse(JSONObject response) {
 

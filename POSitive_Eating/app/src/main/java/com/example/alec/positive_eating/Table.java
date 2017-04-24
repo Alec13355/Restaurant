@@ -447,6 +447,11 @@ public class Table {
                 tempFrame.setOnClickListener(new OrderClickListener());
                 break;
             }
+            case 5 : {
+                tempFrame.setOnTouchListener(null);
+                tempFrame.setClickable(true);
+                tempFrame.setOnClickListener(new DeleteClickListener());
+            }
         }
     }
 
@@ -599,15 +604,46 @@ public class Table {
             }
         }
     }
-    private void DeleteTableBro(String ID, String First, String Last) {
-//TODO Boi
+
+    private final class DeleteClickListener implements View.OnClickListener {
+        @Override
+        public void onClick(View view) {
+            AlertDialog.Builder builder = new AlertDialog.Builder(tableContext);
+            builder.setTitle("WARNING!");
+
+            TextView output = new TextView(tableContext);
+            String stringStatus = "Are you sure you want to delete table:\n" + ID;
+            output.setText(stringStatus);
+            output.setGravity(CENTER);
+
+            builder.setView(output);
+
+            builder.setPositiveButton("DELETE", new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialog, int which) {
+                    deleteTable();
+                }
+            });
+            builder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialog, int which) {
+                    dialog.cancel();
+                }
+            });
+            builder.show();
+        }
+    }
+
+    private void deleteTable() {
+
         ShaneConnect a = getShaneConnect();
-//First needs to be table
+
         ConcreteCommand b = new ConcreteCommand();
-        new DeleteTable(a,First,b).exectute(new Response.Listener<JSONObject>() {
+        new DeleteTable(a,ID,b).exectute(new Response.Listener<JSONObject>() {
             @Override
             public void onResponse(JSONObject response) {
-
+                Toast.makeText(tableContext, String.valueOf("Deleted table" + ID), Toast.LENGTH_SHORT).show();
+                tempFrame.setVisibility(View.INVISIBLE);
             }
         });
 
