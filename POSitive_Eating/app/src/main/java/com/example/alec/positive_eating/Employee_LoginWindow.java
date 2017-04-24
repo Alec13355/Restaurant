@@ -92,10 +92,10 @@ public class Employee_LoginWindow extends AppCompatActivity {
                     e.printStackTrace();
                 }
 
-                    if(userExists){
-                        Intent myIntent = new Intent(Employee_LoginWindow.this, Employee_MainScreen.class); /** Class name here */
-                        Employee_LoginWindow.this.startActivity(myIntent);
-                    }
+                if(userExists){
+                    Intent myIntent = new Intent(Employee_LoginWindow.this, Employee_MainScreen.class); /** Class name here */
+                    Employee_LoginWindow.this.startActivity(myIntent);
+                }
 
             }
 
@@ -106,7 +106,7 @@ public class Employee_LoginWindow extends AppCompatActivity {
         if(a.equals(b)) {
             userExists = true;
         }else{
-            Toast.makeText(Employee_LoginWindow.this, String.valueOf("Invalid Password"), Toast.LENGTH_SHORT);
+            Toast.makeText(Employee_LoginWindow.this, String.valueOf("Invalid Password"), Toast.LENGTH_SHORT).show();
         }
 
     }
