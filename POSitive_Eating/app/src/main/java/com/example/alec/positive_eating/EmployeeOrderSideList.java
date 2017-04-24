@@ -1,7 +1,7 @@
 package com.example.alec.positive_eating;
 
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
@@ -12,8 +12,10 @@ import com.android.volley.Response;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
+
 import shaneconnect.ShaneConnect;
-import static com.example.alec.positive_eating.CustomerOrderMenu.getOrderList;
+
+import static com.example.alec.positive_eating.Singleton_OrderList.getOrderList;
 import static com.example.alec.positive_eating.Singleton_ShaneConnect_Factory.getShaneConnect;
 
 /**
