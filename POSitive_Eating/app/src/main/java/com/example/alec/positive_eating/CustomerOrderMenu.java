@@ -1,5 +1,6 @@
 package com.example.alec.positive_eating;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -11,6 +12,8 @@ import android.widget.Toast;
 import com.android.volley.Response;
 import org.json.JSONObject;
 import java.util.ArrayList;
+import java.util.Scanner;
+
 import shaneconnect.ShaneConnect;
 import static com.example.alec.positive_eating.Singleton_CustomerObject_Factory.getCustomer;
 import static com.example.alec.positive_eating.Singleton_ShaneConnect_Factory.getShaneConnect;
@@ -98,19 +101,34 @@ public class CustomerOrderMenu extends AppCompatActivity implements View.OnClick
         startActivity(i);
     }
 
-    private void confirmOrder(){
+    private void confirmOrder() {
         ShaneConnect connect = getShaneConnect();
         ArrayList<String> compStringList = new ArrayList<String>();
         ArrayList<String> options = new ArrayList<String>();
-        String desc = "Online Order for "+getCustomer().getUserName();
+        String desc = "Online Order for " + getCustomer().getUserName();
         for(CustomerOrderItem oi : orderList) {
             compStringList.add(oi.getEntreeName());
-            options.add("entree place holder");
+            if(!oi.getOptionsEntree().equals("")) {
+                Scanner s = new Scanner(oi.getOptionsEntree());
+                while(s.hasNextLine()) {
+                    options.add(s.nextLine());
+                }
+                s.close();
+            } else {
+                options.add("None");
+            }
             if(oi.getSideName() != null) {
                 compStringList.add(oi.getSideName());
-                options.add("sides place holder");
+                if(!oi.getOptionsSide().equals("")) {
+                    Scanner s = new Scanner(oi.getOptionsSide());
+                    while(s.hasNextLine()) {
+                        options.add(s.nextLine());
+                    }
+                    s.close();
+                } else {
+                    options.add("(None)");
+                }
             }
-        }
         connect.placeOrder(desc, compStringList, options, 10, "To Go", new Response.Listener<JSONObject>() {
             @Override
             public void onResponse(JSONObject response) {
@@ -132,6 +150,7 @@ public class CustomerOrderMenu extends AppCompatActivity implements View.OnClick
             }
         });
         */
+        }
     }
 
     private void addSide(int position) {

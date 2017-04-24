@@ -15,14 +15,8 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
-import android.widget.Switch;
 import android.widget.TextView;
 import android.widget.Toast;
-
-import com.android.volley.Response;
-
-import org.json.JSONException;
-import org.json.JSONObject;
 
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -32,7 +26,6 @@ import java.util.regex.Pattern;
 
 import static com.example.alec.positive_eating.Singleton_Current_Employee.getEInstance;
 import static com.example.alec.positive_eating.Singleton_Employee_List.getListInstance;
-import static com.example.alec.positive_eating.Singleton_ShaneConnect_Factory.getShaneConnect;
 import static com.example.alec.positive_eating.Singleton_Table_List.getTableListInstance;
 
 /**
@@ -101,8 +94,10 @@ public class tableMap extends Activity {
                         if (m.find()){
                             Seats = Integer.parseInt(input.getText().toString());
                             temp = new Table(String.valueOf(allTheTables.size() + 1), Seats, employeeList, tableMap.this, mRootLayout);
-                            allTheTables.add(temp);
                             temp.drawManagerTable();
+                            temp.addListener(1);
+
+                            allTheTables.add(temp);
                         }else{
                             builder.show();
                         }
@@ -256,6 +251,16 @@ public class tableMap extends Activity {
                 //}
             }
             case 4 : {
+                if(getEInstance().getEmployee().getPermissions() == 0) {
+                    whichListener = 5;
+                    updateListener(whichListener);
+                    currentMode.setText(String.valueOf("Delete Mode"));
+                    break;
+                }else{
+                    whichListener = 5;
+                }
+            }
+            case 5 : {
                 //everyone can see this
                 whichListener = 0;
                 updateListener(whichListener);
@@ -263,6 +268,7 @@ public class tableMap extends Activity {
                 //Toast.makeText(tableMap.this, "View Mode", Toast.LENGTH_SHORT).show();
                 break;
             }
+
         }
     }
 

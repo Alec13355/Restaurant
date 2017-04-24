@@ -6,6 +6,7 @@ package com.example.alec.positive_eating;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.text.InputType;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -28,8 +29,7 @@ public class Employee_LoginWindow extends AppCompatActivity {
     EditText password;
     EditText Firstname;
     EditText Lastname;
-    boolean usermanager;
-    boolean userwaitstaff;
+    boolean userExists;
     boolean cook;
     int counter;
 
@@ -49,8 +49,11 @@ public class Employee_LoginWindow extends AppCompatActivity {
         LogInButton = (Button) findViewById(R.id.logInButton);
         password = (EditText) findViewById(R.id.password);
         userNumber = (EditText) findViewById(R.id.editText);
+        userNumber.setInputType(InputType.TYPE_CLASS_NUMBER);
         Firstname  = (EditText) findViewById(R.id.Firstnamelog);
+        Firstname.setInputType(InputType.TYPE_CLASS_TEXT);
         Lastname  = (EditText) findViewById(R.id.lastnamelog);
+        Lastname.setInputType(InputType.TYPE_CLASS_TEXT);
         counter=0;
         /**
          * When it's clicked it will compare what is given to fake data.
@@ -73,8 +76,7 @@ public class Employee_LoginWindow extends AppCompatActivity {
 
     public void checkuser (String a, final String b){
         shaneconnect.ShaneConnect vista = getShaneConnect();
-        usermanager=false;
-        userwaitstaff=false;
+        userExists=false;
         cook=false;
         vista.getAccountData(a,new Response.Listener<JSONObject>() {
 
@@ -83,49 +85,30 @@ public class Employee_LoginWindow extends AppCompatActivity {
 
                 //Toast.makeText(getApplicationContext(), response.toString(), Toast.LENGTH_LONG).show();
                 try {
-                    employee e = new employee(response.getString("first"), response.getString("last"), response.getInt("emp_id"), response.getString("address"), response.getString("phone"), response.getInt("rate"), response.getString("pass"), response.getInt("status"));
+                    employee e = new employee(response.getString("first"), response.getString("last"), response.getInt("emp_id"), response.getString("address"), response.getString("phone"), response.getInt("rate"), response.getString("pass"), response.getInt("status"), response.getString("social"), response.getString("bank_num"), response.getString("routing"));
                     Singleton_Current_Employee.getEInstance().setEmployee(e);
-                    correct(response.get("pass").toString(),b, response.get("status").toString());
+                    correct(response.get("pass").toString(),b);
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }
 
-                    if(usermanager){
-                        Intent myIntent = new Intent(Employee_LoginWindow.this, Employee_MainScreen.class); /** Class name here */
-                        Employee_LoginWindow.this.startActivity(myIntent);
-                    }
-                    if(userwaitstaff){
-                        Intent myIntent = new Intent(Employee_LoginWindow.this, Employee_Menu.class); /** Class name here */
-                        Employee_LoginWindow.this.startActivity(myIntent);
-                    }
-                    if(cook){
-                        Intent myIntent = new Intent(Employee_LoginWindow.this, Employee_OrderStatus.class); /** Class name here */
-                        Employee_LoginWindow.this.startActivity(myIntent);
-                    }
+                if(userExists){
+                    Intent myIntent = new Intent(Employee_LoginWindow.this, Employee_MainScreen.class); /** Class name here */
+                    Employee_LoginWindow.this.startActivity(myIntent);
+                }
 
             }
 
         });
     }
-    public void correct(String a,String b,String c){
+    public void correct(String a,String b){
 
-        if(c.equals("1")){
-        if(a.equals(b)){
-            usermanager=true;
-        }}
-        if(c.equals("0")){
-            usermanager = true;
+        if(a.equals(b)) {
+            userExists = true;
+        }else{
+            Toast.makeText(Employee_LoginWindow.this, String.valueOf("Invalid Password"), Toast.LENGTH_SHORT).show();
         }
-        else if(c.equals("2")){
-            if(a.equals(b)){
-                userwaitstaff=true;
-            }
-        }
-        else if(c.equals("3")){
-            if(a.equals(b)){
-                cook=true;
-            }
-        }
+
     }
     public void Clockin(String a){
         shaneconnect.ShaneConnect vista = getShaneConnect();

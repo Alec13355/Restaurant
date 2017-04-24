@@ -26,6 +26,10 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import shaneconnect.ConcreteCommand;
+import shaneconnect.DeleteTable;
+import shaneconnect.ShaneConnect;
+
 import static android.view.Gravity.CENTER;
 import static android.view.Gravity.CENTER_HORIZONTAL;
 import static com.example.alec.positive_eating.Singleton_Current_Employee.getEInstance;
@@ -129,8 +133,7 @@ public class Table {
             }
         });
     }
-
-
+    
     /**
      * Returns the ID of this table
      *
@@ -444,6 +447,11 @@ public class Table {
                 tempFrame.setOnClickListener(new OrderClickListener());
                 break;
             }
+            case 5 : {
+                tempFrame.setOnTouchListener(null);
+                tempFrame.setClickable(true);
+                tempFrame.setOnClickListener(new DeleteClickListener());
+            }
         }
     }
 
@@ -531,12 +539,12 @@ public class Table {
     private final class EmployeeClickListener implements View.OnClickListener {
         @Override
         public void onClick(View view) {
-            dialogBuilder();
+            employeeDialogBuilder();
             saveTable();
         }
     }
 
-    private void dialogBuilder(){
+    private void employeeDialogBuilder(){
         List<String> spinnerList = new ArrayList<>();
         final Map<String, Integer> employeeMap = new HashMap<>(); //this is how I will remember which ID goes with which name when an option is selected
         for(int i = 0; i < employeeList.size(); i++){
@@ -595,5 +603,49 @@ public class Table {
                 tableContext.startActivity(myIntent);
             }
         }
+    }
+
+    private final class DeleteClickListener implements View.OnClickListener {
+        @Override
+        public void onClick(View view) {
+            AlertDialog.Builder builder = new AlertDialog.Builder(tableContext);
+            builder.setTitle("WARNING!");
+
+            TextView output = new TextView(tableContext);
+            String stringStatus = "Are you sure you want to delete table:\n" + ID;
+            output.setText(stringStatus);
+            output.setGravity(CENTER);
+
+            builder.setView(output);
+
+            builder.setPositiveButton("DELETE", new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialog, int which) {
+                    deleteTable();
+                }
+            });
+            builder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialog, int which) {
+                    dialog.cancel();
+                }
+            });
+            builder.show();
+        }
+    }
+
+    private void deleteTable() {
+
+        ShaneConnect a = getShaneConnect();
+
+        ConcreteCommand b = new ConcreteCommand();
+        new DeleteTable(a,ID,b).exectute(new Response.Listener<JSONObject>() {
+            @Override
+            public void onResponse(JSONObject response) {
+                Toast.makeText(tableContext, String.valueOf("Deleted table: " + ID), Toast.LENGTH_SHORT).show();
+                tempFrame.setVisibility(View.INVISIBLE);
+            }
+        });
+
     }
 }

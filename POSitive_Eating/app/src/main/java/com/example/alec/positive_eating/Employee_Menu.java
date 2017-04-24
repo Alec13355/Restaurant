@@ -11,7 +11,11 @@ import android.widget.Toast;
 import com.android.volley.Response;
 import org.json.JSONObject;
 import java.util.ArrayList;
+import java.util.Scanner;
+
 import shaneconnect.ShaneConnect;
+
+import static com.example.alec.positive_eating.Singleton_Current_Employee.getEmployee;
 import static com.example.alec.positive_eating.Singleton_CustomerObject_Factory.getCustomer;
 import static com.example.alec.positive_eating.Singleton_ShaneConnect_Factory.getShaneConnect;
 /**
@@ -33,13 +37,12 @@ public class Employee_Menu extends AppCompatActivity implements View.OnClickList
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_order_menu);
         Bundle bundle = getIntent().getExtras();
-        //This gets the table number from the intent
-            tableName = "TO GO";
-            if(bundle != null){
-                tableName = bundle.getString("tableNum");
-                String temp = ("Table Number " + tableName);
-                Toast.makeText(Employee_Menu.this, temp, Toast.LENGTH_SHORT).show();
-            }
+        tableName = "TO GO";
+        if(bundle != null) {
+            tableName = bundle.getString("tableNum");
+            String temp = ("Table Number " + tableName);
+            Toast.makeText(Employee_Menu.this, temp, Toast.LENGTH_SHORT).show();
+        }
         
         orderList = new ArrayList<>();
         Button confirmOrderBut = (Button) findViewById(R.id.confirm_order);
@@ -55,15 +58,12 @@ public class Employee_Menu extends AppCompatActivity implements View.OnClickList
         });
     }
 
-
-//    @Override
-//    public void onBackPressed() {
-//        Class temp = this.getParent().getClass();
-//        Intent myIntent = new Intent(Employee_Menu.this, temp);
-//        this.finishActivity(0);
-//        Employee_Menu.this.startActivity(myIntent);
-//    }
-
+    @Override
+    public void onBackPressed() {
+        Intent myIntent = new Intent(Employee_Menu.this, tableMap.class);
+        this.finishActivity(0);
+        Employee_Menu.this.startActivity(myIntent);
+    }
 
     /**
      * Every time activity is resumed, creates new adapter for ListView and updates list of items
@@ -110,27 +110,43 @@ public class Employee_Menu extends AppCompatActivity implements View.OnClickList
         startActivity(i);
     }
 
-    private void confirmOrder(){
+    private void confirmOrder() {
         ShaneConnect connect = getShaneConnect();
         ArrayList<String> compStringList = new ArrayList<String>();
         ArrayList<String> options = new ArrayList<String>();
-        String desc = "Online Order for "+getCustomer().getUserName();
-        for(CustomerOrderItem oi : orderList) {
+        String desc = "Order for Table " + tableName;
+        for (CustomerOrderItem oi : orderList) {
             compStringList.add(oi.getEntreeName());
-            options.add("entree place holder");
-            if(oi.getSideName() != null) {
-                compStringList.add(oi.getSideName());
-                options.add("sides place holder");
+            if (!oi.getOptionsEntree().equals("")) {
+                {
+                    Scanner s = new Scanner(oi.getOptionsEntree());
+                    while (s.hasNextLine()) {
+                        options.add(s.nextLine());
+                    }
+                    s.close();
+                }
+                if (oi.getSideName() != null) {
+                    compStringList.add(oi.getSideName());
+                    if (!oi.getOptionsSide().equals("")) {
+                        {
+                            Scanner s = new Scanner(oi.getOptionsSide());
+                            while (s.hasNextLine()) {
+                                options.add(s.nextLine());
+                            }
+                            s.close();
+                        }
+                    }
+                }
+                connect.placeOrder(desc, compStringList, options, 10, "To Go", new Response.Listener<JSONObject>() {
+                    @Override
+                    public void onResponse(JSONObject response) {
+                        Toast.makeText(getApplicationContext(), "The order was successfully placed!",
+                                Toast.LENGTH_LONG).show();
+                        finish();
+                    }
+                });
             }
         }
-        connect.placeOrder(desc, compStringList, options, 10, "To Go", new Response.Listener<JSONObject>() {
-            @Override
-            public void onResponse(JSONObject response) {
-                Toast.makeText(getApplicationContext(), "The order was successfully placed!",
-                        Toast.LENGTH_LONG).show();
-                finish();
-            }
-        });
     }
 
     private void addSide(int position) {

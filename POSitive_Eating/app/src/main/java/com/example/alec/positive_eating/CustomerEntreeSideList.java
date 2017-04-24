@@ -1,5 +1,6 @@
 package com.example.alec.positive_eating;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -29,6 +30,7 @@ public class CustomerEntreeSideList extends AppCompatActivity {
     private int recursiveInc;
     private ShaneConnect connect;
     private int foodTypeID;
+    private Context context;
     /**
      * Creates an instance of the activity, calls adapter constructor, and sets a listener
      * to handle clicking on an item.
@@ -38,6 +40,7 @@ public class CustomerEntreeSideList extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_entree);
+        context = getApplicationContext();
         /*
         final String[] arr = new String[] {
           "Hamburger", "Reuben", "Bacon Hamburger", "CheeseBurger", "Bacon CheeseBurger",
@@ -114,16 +117,21 @@ public class CustomerEntreeSideList extends AppCompatActivity {
         listViewMenu.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                if(foodTypeID==0) {
-                    getOrderList().add(new CustomerOrderItem
-                            (desc[position], null, name[position], null));
-                } else if(foodTypeID==1) {
-                    getOrderList().get(getIntent().getIntExtra("ADD_SIDE", -1)).
-                            setSideDesc(desc[position]);
-                    getOrderList().get(getIntent().getIntExtra("ADD_SIDE", -1)).
-                            setSideName(name[position]);
-                }
-                finish();
+            Intent i = new Intent(context, OrderOption.class);
+            if(foodTypeID==0) {
+                getOrderList().add(new CustomerOrderItem
+                        (desc[position], null, name[position], null, null, null));
+                i.putExtra("IS_ENTREE", 1);
+                i.putExtra("POSITION", getOrderList().size()-1);
+            } else if(foodTypeID==1) {
+                int index = getIntent().getIntExtra("ADD_SIDE", -1);
+                getOrderList().get(index).setSideDesc(desc[position]);
+                getOrderList().get(index).setSideName(name[position]);
+                i.putExtra("IS_ENTREE", 0);
+                i.putExtra("POSITION", index);
+            }
+            startActivity(i);
+            finish();
             }
         });
         listViewMenu.setAdapter(adapter);

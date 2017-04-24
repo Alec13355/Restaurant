@@ -11,15 +11,6 @@
     tools:context="com.example.alec.positive_eating.Employee_MainScreen">
 
     <Button
-        android:text="@string/ordering_menu"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:id="@+id/Ordering_Menu"
-        tools:ignore="RelativeOverlap" />
-
-    <Button
         android:text="@string/order_status"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -39,7 +30,7 @@
         tools:ignore="RelativeOverlap" />
 
     <Button
-        android:text="@string/editusers"
+        android:text="Add Employee"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
@@ -60,9 +51,10 @@
         android:text="Floor\nPlan"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/Ordering_Menu"
-        android:layout_marginTop="57dp"
-        android:id="@+id/addTableMap" />
+        android:id="@+id/addTableMap"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
 
     <Button
         android:text="Employee\nList"

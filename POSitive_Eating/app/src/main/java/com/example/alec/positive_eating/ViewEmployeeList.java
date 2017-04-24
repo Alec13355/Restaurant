@@ -43,6 +43,7 @@ public class ViewEmployeeList extends AppCompatActivity {
         scroll.addView(listView);
 
         viewPasswords = (Button) findViewById(R.id.viewPass);
+        viewPasswords.setText("VIEW\nPASSWORDS");
         viewPasswords.setVisibility(View.INVISIBLE);
         viewPasswords.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -73,7 +74,7 @@ public class ViewEmployeeList extends AppCompatActivity {
             public void onResponse(JSONObject response) {
                 try {
                     //employee(String first, String last, int ID, String availability, String phone, int rate, String pass){
-                    employee temp = new employee(response.getString("first"), response.getString("last"), response.getInt("emp_id"), response.getString("address"), response.getString("phone"), response.getInt("rate"), response.getString("pass"), response.getInt("status"));
+                    employee temp = new employee(response.getString("first"), response.getString("last"), response.getInt("emp_id"), response.getString("address"), response.getString("phone"), response.getInt("rate"), response.getString("pass"), response.getInt("status"), response.getString("social"), response.getString("bank_num"), response.getString("routing"));
                     employeeList.add(temp);
                     temp.addListItem(listView, ViewEmployeeList.this);
 

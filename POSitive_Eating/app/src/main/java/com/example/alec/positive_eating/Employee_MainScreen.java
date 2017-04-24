@@ -28,7 +28,7 @@ import static com.example.alec.positive_eating.Singleton_Table_List.getTableList
  * This class is the main landing page and will change views depending on what button is pressed.
  */
 public class Employee_MainScreen extends AppCompatActivity {
-    Button Seating,Menu,Status,schedule,Edit_users,Payroll,addTableMap,viewEmployeeList;//Delares the button variables
+    Button Status,schedule,Add_User,Payroll,addTableMap,viewEmployeeList;//Delares the button variables
 
     List<employee>  eList;
     private List<Table> allTheTables;
@@ -38,19 +38,26 @@ public class Employee_MainScreen extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         Toast.makeText(Employee_MainScreen.this, "LOADING", Toast.LENGTH_SHORT).show();
         setContentView(R.layout.activity_main_screen);
-        Menu=(Button)findViewById(R.id.Ordering_Menu);
         Status=(Button)findViewById(R.id.OrderStatButton);
         schedule=(Button)findViewById(R.id.Schedule);
-        Edit_users=(Button)findViewById(R.id.Edit_Users);
+//        if(getEInstance().getEmployee().getPermissions() == 0) {
+//            Add_User = (Button) findViewById(R.id.Edit_Users);
+//            Add_User.setVisibility(View.INVISIBLE);
+//        }
+        Add_User = (Button) findViewById(R.id.Edit_Users);
+        Add_User.setVisibility(View.INVISIBLE);
         Payroll=(Button)findViewById(R.id.Payroll);
         addTableMap=(Button)findViewById(R.id.addTableMap);
         viewEmployeeList=(Button)findViewById(R.id.viewEmployeeList);
 
 
+<<<<<<< HEAD
         Menu.setVisibility(View.INVISIBLE);
+=======
+>>>>>>> 7653ba1859459f8db5a3aac5e592ab27ef6bf4b7
         Status.setVisibility(View.INVISIBLE);
         schedule.setVisibility(View.INVISIBLE);
-        Edit_users.setVisibility(View.INVISIBLE);
+
         Payroll.setVisibility(View.INVISIBLE);
         addTableMap.setVisibility(View.INVISIBLE);
         viewEmployeeList.setVisibility(View.INVISIBLE);
@@ -61,17 +68,17 @@ public class Employee_MainScreen extends AppCompatActivity {
         shaneconnect.ShaneConnect vista = getShaneConnect();
         getEmployeeList(0, vista);
 
-        //Initilizes the buttons.
-
-        Edit_users.setOnClickListener(
-            new View.OnClickListener()
-             {
-                public void onClick(View view){
-                    Intent myIntent = new Intent(Employee_MainScreen.this, Employee_EditStaff.class); /** Class name here */
-                    Employee_MainScreen.this.startActivity(myIntent);
-                }
+        //Initializes the buttons.
+        if(getEInstance().getEmployee().getPermissions() == 0) {
+            Add_User.setOnClickListener(
+                    new View.OnClickListener() {
+                        public void onClick(View view) {
+                            Intent myIntent = new Intent(Employee_MainScreen.this, Employee_add_employee.class); /** Class name here */
+                            Employee_MainScreen.this.startActivity(myIntent);
+                        }
+                    }
+            );
         }
-        );
         Payroll.setOnClickListener(
             new View.OnClickListener()
             {
@@ -100,6 +107,7 @@ public class Employee_MainScreen extends AppCompatActivity {
                 }
             }
         );
+<<<<<<< HEAD
         Menu.setOnClickListener(
             new View.OnClickListener()
             {
@@ -118,6 +126,8 @@ public class Employee_MainScreen extends AppCompatActivity {
                 Employee_MainScreen.this.startActivity(myIntent);
             }
         });
+=======
+>>>>>>> 7653ba1859459f8db5a3aac5e592ab27ef6bf4b7
 
         addTableMap.setOnClickListener(
             new View.OnClickListener()
@@ -157,7 +167,7 @@ public class Employee_MainScreen extends AppCompatActivity {
             public void onResponse(JSONObject response) {
                 try {
                     //employee(String first, String last, int ID, String availability, String phone, int rate, String pass){
-                    employee temp = new employee(response.getString("first"), response.getString("last"), response.getInt("emp_id"), response.getString("address"), response.getString("phone"), response.getInt("rate"), response.getString("pass"), response.getInt("status"));
+                    employee temp = new employee(response.getString("first"), response.getString("last"), response.getInt("emp_id"), response.getString("address"), response.getString("phone"), response.getInt("rate"), response.getString("pass"), response.getInt("status"), response.getString("social"), response.getString("bank_num"), response.getString("routing"));
                     eList.add(temp);
                     getEmployeeList(index + 1, s);
 
@@ -190,13 +200,14 @@ public class Employee_MainScreen extends AppCompatActivity {
                     retrieveTables(index+1,s);
                 } catch (JSONException e) {
                     getTableListInstance().setTList(allTheTables);
-                    Menu.setVisibility(View.VISIBLE);
                     Status.setVisibility(View.VISIBLE);
                     schedule.setVisibility(View.VISIBLE);
-                    Edit_users.setVisibility(View.VISIBLE);
-                    Payroll.setVisibility(View.VISIBLE);
                     addTableMap.setVisibility(View.VISIBLE);
                     viewEmployeeList.setVisibility(View.VISIBLE);
+                    if(getEInstance().getEmployee().getPermissions() == 0) {
+                        Add_User.setVisibility(View.VISIBLE);
+                        Payroll.setVisibility(View.VISIBLE);
+                    }
                     return;
                 }
             }
