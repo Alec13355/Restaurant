@@ -27,7 +27,7 @@ import static com.example.alec.positive_eating.Singleton_Table_List.getTableList
  * This class is the main landing page and will change views depending on what button is pressed.
  */
 public class Employee_MainScreen extends AppCompatActivity {
-    Button Seating,Menu,Status,schedule,Edit_users,Payroll,addTableMap,viewEmployeeList;//Delares the button variables
+    Button Status,schedule,Edit_users,Payroll,addTableMap,viewEmployeeList;//Delares the button variables
 
     List<employee>  eList;
     private List<Table> allTheTables;
@@ -37,7 +37,6 @@ public class Employee_MainScreen extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         Toast.makeText(Employee_MainScreen.this, "LOADING", Toast.LENGTH_SHORT).show();
         setContentView(R.layout.activity_main_screen);
-        Menu=(Button)findViewById(R.id.Ordering_Menu);
         Status=(Button)findViewById(R.id.OrderStatButton);
         schedule=(Button)findViewById(R.id.Schedule);
 //        if(getEInstance().getEmployee().getPermissions() == 0) {
